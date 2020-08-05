@@ -1,6 +1,21 @@
+/*
+
+Color Palette
+-------
+red: #E3102E
+border on black bacg: #333333
+
+
+*/
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
+}
+
+a, p {
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -10,27 +25,309 @@ body {
 /* ------- utils ----- */
 
 #red-span {
-  color: 
+  color: #E3102E;
+  text-shadow: #E3102E 1px 0 8px;
+  text-decoration: none;
 }
 
 /* -------- body content ----- */
 
 #top-nav {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+}
 
+#top-nav a img {
+  height: 65px;
+  -webkit-box-shadow: 0px 0px 23px -5px #E3102E;
+  -moz-box-shadow: 0px 0px 23px -5px #E3102E;
+  box-shadow: 0px 0px 23px -5px #E3102E;
+  vertical-align: middle;
+}
 
+#top-nav-links {
+  display: inline-block;
+  vertical-align: middle'
+  border: 1px solid red;
+  width: 70%;
+  text-align: right;
+  border: 1px solid transparent;
+}
+
+#top-nav-links a {
+  text-align: center;
+  color: grey;
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  margin: 0px 30px;
+  font-size: 18px;
+  border: 1px solid transparent;
+}
+
+#top-nav-links a:hover {
+  color: #E3102E;
+  transition: 0.5s;
+  text-shadow: #E3102E 1px 0 8px;
 }
 
 #banner {
-  border: 1px solid white;
+  border: 1px solid transparent;
   width: 50%;
   margin: 0 auto;
+  margin-top: 45px;
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 #banner h1 {
   color: white;
   font-size: 60px;
+  margin-bottom: 30px;
+}
+
+#banner p {
+  color: grey;
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+#signup-signup-button {
+  color: white;
+  text-decoration: none;
+  display: block;
+  border: 1px solid #E3102E;
+  border-radius: 7px;
+  padding: 15px 25px;
+  background-color: #E3102E;
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0px 0px 23px -5px #E3102E;
+  -moz-box-shadow: 0px 0px 23px -5px #E3102E;
+  box-shadow: 0px 0px 23px -5px #E3102E;
+  font-size: 14px;
+}
+
+#signup-signup-button:hover {
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+  -moz-box-shadow: 0px 0px 23px -5px #28B463;
+  box-shadow: 0px 0px 23px -5px #28B463;
+  background-color: #28B463;
+  border-color: #28B463;
+}
+
+#signup-login-button {
+  text-decoration: none;
+  color: grey;
+  text-decoration: none;
+  display: block;
+  border: 1px solid grey;
+  border-radius: 7px;
+  padding: 15px 25px;
+  background-color: transparent;
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+#signup-login-button:hover {
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+  -moz-box-shadow: 0px 0px 23px -5px #28B463;
+  box-shadow: 0px 0px 23px -5px #28B463;
+  background-color: #28B463;
+  border-color: #28B463;
+  color: white;
+}
+
+
+#features {
+  border: 1px solid grey;
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  height: 600px;
+  border-radius: 5px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  background-image: url("./placeholder-feature.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+#lock-symbol {
+  z-index: 99;
+  position: absolute;
+  background-color: #E3102E;
+  margin-top:-450px;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 23px -5px #E3102E;
+  -moz-box-shadow: 0px 0px 23px -5px #E3102E;
+  box-shadow: 0px 0px 23px -5px #E3102E;
+  padding: 15px;
+
+  left:0;
+  right:0;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  position: absolute;
+  width: 40%;
+}
+
+#lock-symbol p {
+  color: white;
+  font-size: 18px;
+
+}
+
+
+#twitter-reddit-buttons {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+#twitter-reddit-buttons h3 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#twitter-reddit-buttons p {
+  color: grey;
+  font-size: 16px;
+  font-weight: 400;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#twitter-reddit-buttons a {
+  display: inline-block;
+  margin: 0px 20px;
+  padding: 10px 35px;
+  border-radius: 7px;
+  text-decoration: none;
+  vertical-align: middle;
+  color: white;
+}
+
+#twitter-reddit-buttons a span {
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#twitter-link {
+  background-color: #1A91DA;
+  border: 1px solid #1A91DA;
+}
+
+#reddit-link {
+  background-color: #FF0400;
+  border: 1px solid #FF0400;
 }
 
 #footer {
+  border: 1px solid transparent;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 1px solid #333333;
+}
+
+#footer p {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid transparent;
+  color: white;
+  font-weight: 400;
+  text-align: left;
+}
+
+#footer-links {
+  border: 1px solid transparent;
+  display: inline-block;
+  vertical-align: middle'
+  border: 1px solid red;
+  width: 60%;
+  text-align: right;
+  font-weight: 400;
+}
+
+#footer-links a {
+  color: grey;
+  text-decoration: none;
+  margin: 0px 15px;
+}
+
+#footer-links a:hover {
+  text-decoration: underline;
+  color: white;
+  transition: 0.5s;
+}
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  /* nothing for now */
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
 
 }
