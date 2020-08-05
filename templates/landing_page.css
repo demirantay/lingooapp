@@ -269,10 +269,9 @@ body {
 }
 
 #footer-links {
-  border: 1px solid transparent;
   display: inline-block;
-  vertical-align: middle'
-  border: 1px solid red;
+  vertical-align: middle;
+  border: 1px solid transparent;
   width: 60%;
   text-align: right;
   font-weight: 400;
@@ -290,28 +289,401 @@ body {
   transition: 0.5s;
 }
 
+/* ----- under construction container ------ */
+#under-construction-container {
+  border: 1px solid transparent;
+  margin-top: 30px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#under-construction-container h1 {
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
+
+#under-construction-container h1 span {
+
+}
+
+#under-construction-container p {
+  color: white;
+  text-align: center;
+}
 
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #top-nav {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+  }
+
+  #top-nav-links {
+    display: none;
+  }
+
+  #banner {
+    width: 90%;
+    margin-top: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #banner h1 {
+    font-size: 30px;
+  }
+
+  #banner p {
+    font-size: 15px;
+  }
+
+  #signup-signup-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+  #signup-login-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+
+  #features {
+    display: none;
+  }
+
+  #lock-symbol {
+    display: none;
+  }
+
+  #twitter-reddit-buttons {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
+  }
+
+  #twitter-reddit-buttons h3 {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+
+  #twitter-reddit-buttons p {
+    font-size: 14px;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+
+  #twitter-reddit-buttons a {
+    display: block;
+    margin: 0px 0px;
+    padding: 10px 0px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+
+  #twitter-reddit-buttons a span {
+    font-size: 30px;
+  }
+
+  #footer {
+    width: 90%;
+    padding: 0px;
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+
+  #footer p {
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #footer-links {
+    border: 1px solid transparent;
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+  }
+
+  #footer-links a {
+    margin: 0px 0px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
 
 }
 
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  #top-nav {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+  }
 
+  #top-nav-links {
+    display: none;
+  }
+
+  #banner {
+    width: 90%;
+    margin-top: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #banner h1 {
+    font-size: 30px;
+  }
+
+  #banner p {
+    font-size: 15px;
+  }
+
+  #signup-signup-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+  #signup-login-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+
+  #features {
+    display: none;
+  }
+
+  #lock-symbol {
+    display: none;
+  }
+
+  #twitter-reddit-buttons {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
+  }
+
+  #twitter-reddit-buttons h3 {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+
+  #twitter-reddit-buttons p {
+    font-size: 14px;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+
+  #twitter-reddit-buttons a {
+    display: block;
+    margin: 0px 0px;
+    padding: 10px 0px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+
+  #twitter-reddit-buttons a span {
+    font-size: 30px;
+  }
+
+  #footer {
+    width: 90%;
+    padding: 0px;
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+
+  #footer p {
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #footer-links {
+    border: 1px solid transparent;
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+  }
+
+  #footer-links a {
+    margin: 0px 0px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
 }
 
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  #top-nav {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+  }
+
+  #top-nav-links {
+    display: none;
+  }
+
+  #banner {
+    width: 90%;
+    margin-top: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #banner h1 {
+    font-size: 30px;
+  }
+
+  #banner p {
+    font-size: 15px;
+  }
+
+  #signup-signup-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+  #signup-login-button {
+    padding: 15px 25px;
+    width: 70%;
+    font-size: 12px;
+  }
+
+
+  #features {
+    display: none;
+  }
+
+  #lock-symbol {
+    display: none;
+  }
+
+  #twitter-reddit-buttons {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
+  }
+
+  #twitter-reddit-buttons h3 {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+
+  #twitter-reddit-buttons p {
+    font-size: 14px;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+
+  #twitter-reddit-buttons a {
+    display: block;
+    margin: 0px 0px;
+    padding: 10px 0px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+
+  #twitter-reddit-buttons a span {
+    font-size: 30px;
+  }
+
+  #footer {
+    width: 90%;
+    padding: 0px;
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+
+  #footer p {
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #footer-links {
+    border: 1px solid transparent;
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+  }
+
+  #footer-links a {
+    margin: 0px 0px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
 }
 
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  /* nothing for now */
+
+  #banner {
+    width: 70%;
+  }
+
+
+  #features {
+    width: 75%;
+  }
+
+  #twitter-reddit-buttons {
+    border: 1px solid transparent;
+    width: 90%;
+  }
+
+  #twitter-reddit-buttons a {
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 10px 10px;
+  }
+
+  #footer {
+    width: 90%;
+  }
+
 }
 
 
