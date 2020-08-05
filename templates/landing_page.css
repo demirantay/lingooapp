@@ -1,0 +1,36 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  background-color: black;
+}
+
+/* ------- utils ----- */
+
+#red-span {
+  color: 
+}
+
+/* -------- body content ----- */
+
+#top-nav {
+
+
+}
+
+#banner {
+  border: 1px solid white;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#banner h1 {
+  color: white;
+  font-size: 60px;
+}
+
+#footer {
+
+}
