@@ -1,0 +1,17 @@
+when the server restarts do the following commands:
+
+(autmoate these on server resart and daemonize it)
+
+
+- ssh into server
+- stop nginx && start it again && reload it
+  - nginx -s stop
+  - nginx
+  - nginx -s reload
+
+- set db password env var
+  - export DB_USER_PASSWORD="..."
+  - sudo service postgresql start
+
+- start gunicorn server
+ - ./gunicorn_start.sh
