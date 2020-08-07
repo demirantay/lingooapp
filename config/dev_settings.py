@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
     # My apps:
     'home',
+    'about',
 ]
 
 MIDDLEWARE = [

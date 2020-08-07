@@ -11,6 +11,11 @@ urlpatterns = [
     # --------
     # ...
     path("", include("home.urls")),
+
+    # About App
+    # --------
+    # ...
+    path("", include("about.urls")),
 ]
 
 if settings.DEBUG:
