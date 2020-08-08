@@ -6,5 +6,94 @@
 {% endblock %}
 
 {% block content %}
+<!-- header -->
+<div id="top-nav">
+  <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+  <div id="top-nav-links">
+    <a href="{% url 'index' %}" >Features</a>
+    <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+  </div>
+</div>
+
+<!-- about navigation links -->
+<div id="about-navigation-links">
+  <a href="{% url 'about' %}" id="about-navigation-links-active">About Us</a>
+  <a href="{% url 'about_community_rules' %}">Community Rules</a>
+  <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+  <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+</div>
+
+<!-- content -->
+<div id="about-content">
+  <h2>About Us</h2>
+  <p>
+    Our mission as Lingoo family is to teach languages to people who would like
+    to learn a second or a third language. Everybody has a different reason to
+    learn a new language. Maybe you are trying to move to a different country,
+    get a promotion at work ... or maybe you just enjoy learning languages as a
+    hobby! of it!
+  </p>
+  <p>
+    Don't worry! no matter what is your purpose, we got you covered. Once you
+    get past the A1-A2 levels, you will start to see that the learning tree will
+    get personalized as you go along. Why do we do this and not teach you all of
+    the languages? Simple, because even though C1 leveled people are considered
+    fluent they really lack a specific jargon of words. You simply cannot learn
+    every word out there!
+  </p>
+  <p>
+    So we use a survival-of-the-fittest strategy while teaching you the language.
+    If you are interested in history, by the time you are done with your learning
+    tree, you will know a lot of history terminology rather than medicine,
+    engineering, and ... etc.
+  </p>
+
+  <h3>Our Community Centric Approach</h3>
+  <p>
+    We believe that at some point nearly most of the companies out there lose
+    touch with their community once they get big enough. For us, this is a huge
+    loss to the community of people who spend their hours on those platforms.
+    That is why we are designing our company's decision mechanism from bottom-to-up.
+  </p>
+  <p>
+    What does that mean? It means that the users will be included in every
+    decision about the features of the product. No, we won't get your advice
+    on how to structure our financial reports but we will <b>ALWAYS</b> get your
+    input on feature decisions.
+  </p>
+  <p>
+    We believe that when people become part of a community, every single
+    person should get a voice. That is why we have a voting ballot system
+    implemented within the site where we hold referendums when we want to get
+    input from our users. Also, we will implement a senate system where users
+    will be able to create their feature requests and those features will always
+    have the up-most priority over any other feature.
+  </p>
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
