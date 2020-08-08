@@ -52,11 +52,24 @@
 
 <!-- footer -->
 <div id="footer">
-  <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
-  <div id="footer-links">
-    <a href="#features">Features</a>
-    <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
-    <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
   </div>
 </div>
 {% endblock %}
