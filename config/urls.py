@@ -16,6 +16,11 @@ urlpatterns = [
     # --------
     # ...
     path("", include("about.urls")),
+
+    # Authentication
+    # --------
+    # ...
+    path("", include("authentication.urls")),
 ]
 
 if settings.DEBUG:
