@@ -1,1 +1,76 @@
-community rules
+{% extends 'landing_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/about/about.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- header -->
+<div id="top-nav">
+  <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+  <div id="top-nav-links">
+    <a href="{% url 'index' %}" >Features</a>
+    <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+  </div>
+</div>
+
+<!-- about navigation links -->
+<div id="about-navigation-links">
+  <a href="{% url 'about' %}">About Us</a>
+  <a href="{% url 'about_community_rules' %}" id="about-navigation-links-active">Community Rules</a>
+  <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+  <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+</div>
+
+<!-- content -->
+<div id="about-content">
+  <h2>Community Rules</h2>
+  <ul>
+      <li>Users must be respectful of each other</li>
+      <li>Racist, sexist, homophobic and abusive comments made by members to each other will not be tolerated. In this case, comments will be interfered.</li>
+      <li>This platfor (lingooapp) reserves the right not to post hateful, violent, provocative, derogatory content and comments by users based on their religious belief, race, ethnicity, age, social status, political opinion, sexual orientation, physical condition, or hate against certain groups of people.</li>
+      <li>Disclosing the personal information of other users in violation of the Membership Agreement and using this information for their own benefit; Using accounts such as threats, harassment, users who follow the other users in an annoying manner and who act in order to direct people to violence will be closed.</li>
+      <li>Expressions of humiliation, swearing, humiliation or slang are not allowed in individuals, institutions, cultures or societies. hobioo reserves the right to delete such comments, to send warnings to the required people and / or to delete their memberships.</li>
+      <li>In order to have a healthier discussion environment, members must respect the beliefs and opinions of other users.</li>
+      <li>The users can use any language that they prefer.</li>
+      <li>In the comments made, importance should be given to spelling and spelling. Therefore, Lingooapp reserves the right to correct and delete comments that are not understood.</li>
+      <li>Any commercial or copyrighted comments will not be allowed.</li>
+      <li>An offensive username that provokes people cannot be chosen.</li>
+      <li>Members should not share their personal and private information for their own security.</li>
+      <li>Offensive comments about Lingooapp or moderator decision may be deleted.</li>
+      <li>Lingooapp reserves the right to delete the accounts of users who send private messages containing insults and swearing to their employees.</li>
+      <li>Sending spam messages is prohibited. Intervention will be made when the same and similar messages are sent more than once.</li>
+  </ul>
+  <br />
+  <p>
+      Last revised on August 08h, 2020
+  </p>
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

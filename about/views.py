@@ -18,21 +18,21 @@ def about(request):
 
 
 def about_community_rules(request):
-    """asd"""
+    """community rules page explains the platforms community rules"""
 
     data = {}
     return render(request, "about/community_rules.html", data)
 
 
 def about_terms(request):
-    """asd"""
+    """terms and agreements epxlains the terms of the platform """
 
     data = {}
     return render(request, "about/terms_and_agreements.html", data)
 
 
 def about_privacy(request):
-    """asd"""
+    """this view explains the privacy policy of the platform"""
 
     data = {}
     return render(request, "about/privacy_policy.html", data)

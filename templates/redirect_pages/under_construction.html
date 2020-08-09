@@ -1,46 +1,15 @@
+{% extends 'landing_base.html' %}
 {% load static %}
 
-<!doctype html>
-<html>
-  <head>
-    <title>lingooapp</title>
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home/landing_page.css' %}" />
+{% endblock %}
 
-    <!-- Meta Info -->
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Linguum linguum LiNguum linguum.com linguum.net linguum.co linguum.app linguumapp LINGUUM LINGUUM.com" />
-    <meta name="description" content="Linguum is a language learning platform for people who enjoy learning languages." />
-    <meta name="author" content="linguum" />
-
-    <!-- FAVICON -->
-    <link rel="icon" href="{% static 'branding/logo.png' %}" />
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- FONT AWSOME -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <!-- BASE CSS LINKS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home/landing_page.css' %}" />
-
-  </head>
-
-  <body>
-
-      <div id="under-construction-container">
-        <h1><span class="fa fa-lock"></span></h1>
-        <p>
-            This feature of the site is currently under construction!
-        </p>
-      </div>
-
-  </body>
-</html>
+{% block content %}
+<div id="under-construction-container">
+  <h1><span class="fa fa-lock"></span></h1>
+  <p>
+      This feature of the site is currently under construction!
+  </p>
+</div>
+{% endblock %}

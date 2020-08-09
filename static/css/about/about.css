@@ -94,6 +94,15 @@
   color: grey;
 }
 
+#about-content ul {
+  color: grey;
+  padding-left: 30px;
+}
+
+#about-content ul li {
+  margin-bottom: 15px;
+}
+
 /* -------- footer content ----- */
 #footer {
   border: 1px solid transparent;
