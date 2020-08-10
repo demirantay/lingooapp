@@ -60,13 +60,10 @@ body {
 
 #top-nav-links a {
   text-align: center;
-
-
 }
 
 #top-nav-home-link {
   color: grey;
-
   vertical-align: middle;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
@@ -79,13 +76,13 @@ body {
   font-size: 30px;
 }
 
-#top-nav-home-link a:hover {
-  color: #E3102E;
-  transition: 0.5s;
+#top-nav-home-link:hover {
+  color: #E3102E !important;
+  transition: 0.3s !important;
 }
 
 #login-signup-link {
-  background-color: white;
+  background-color: transparent;
   color: #E3102E;
   border: 1px solid #E3102E;
   padding: 10px 20px;
@@ -100,13 +97,102 @@ body {
   transition: 0.5s;
 }
 
+/* ------ toggle-top-nav ----- */
+
+#toggle-top-nav {
+  border: 1px solid transparent;
+  display: none;
+}
+
+#toggle-top-nav a img {
+  height: 50px;
+  vertical-align: middle;
+}
+
+#toggle-top-nav button {
+  vertical-align: middle;
+  float: right;
+  font-size: 30px;
+  color: black;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 0px;
+}
+
+#toggle-top-nav button:hover {
+  cursor: pointer;
+  color: #E3102E;
+  transition: 0.3s;
+}
+
+/* ------ hidden mobile top naviagtion ----- */
+
+#background-greying {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: grey;
+  opacity: 0.5;
+}
+
+#hidden-mobile-top-nav {
+  transition: 0.5s !important;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  background-color: white;
+  padding-top: 50px;
+}
+
+#hidden-mobile-top-nav button {
+  display: block;
+  position: absolute;
+  top:0;
+  right:0;
+  margin-top: 25px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 0px;
+  font-size: 23px;
+}
+
+#hidden-mobile-top-nav button:hover {
+  color: #E3102E;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#hidden-mobile-top-nav a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 400;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+#hidden-mobile-top-nav a:hover {
+  background-color: #F2F4F4;
+}
+
+#hidden-mobile-top-nav a span {
+  margin-right: 5px;
+}
+
 /* -------- signup --------- */
 
 #signup-container {
   border: 1px solid transparent;
   width: 60%;
   margin: 0 auto;
-  margin-top: w0px;
+  margin-top: 0px;
   text-align: center;
 }
 
@@ -180,41 +266,371 @@ body {
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+  /* -------- top nav ----- */
+
+  #top-nav {
+    display: none;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: block;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+  }
+
+  /* -------- signup --------- */
+
+  #signup-container {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  #signup-container h1 {
+    color: black;
+    font-size: 25px;
+  }
+
+  #signup-container input {
+    width: 85%;
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+
+  #signup-form-submit-btn {
+     width: 94% !important;
+  }
+
+  #signup-container p {
+    color: black;
+  }
+
+  #signup-container p a {
+    text-decoration: none;
+    color: #E3102E;
+
+  }
+
+  #signup-container form ul {
+    width: 80%;
+    font-size: 13px;
+  }
 
 }
 
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  /* -------- top nav ----- */
 
+  #top-nav {
+    display: none;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: block;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+  }
+
+  /* -------- signup --------- */
+
+  #signup-container {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  #signup-container h1 {
+    color: black;
+    font-size: 25px;
+  }
+
+  #signup-container input {
+    width: 85%;
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+
+  #signup-form-submit-btn {
+     width: 94% !important;
+  }
+
+  #signup-container p {
+    color: black;
+  }
+
+  #signup-container p a {
+    text-decoration: none;
+    color: #E3102E;
+
+  }
+
+  #signup-container form ul {
+    width: 80%;
+    font-size: 13px;
+  }
 }
 
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  /* -------- top nav ----- */
+
+  #top-nav {
+    display: none;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: block;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+  }
+
+  /* -------- signup --------- */
+
+  #signup-container {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  #signup-container h1 {
+    color: black;
+    font-size: 25px;
+  }
+
+  #signup-container input {
+    width: 85%;
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+
+  #signup-form-submit-btn {
+     width: 94% !important;
+  }
+
+  #signup-container p {
+    color: black;
+  }
+
+  #signup-container p a {
+    text-decoration: none;
+    color: #E3102E;
+
+  }
+
+  #signup-container form ul {
+    width: 80%;
+    font-size: 13px;
+  }
 }
 
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
+  /* -------- top nav ----- */
 
+  #top-nav {
+    display: none;
+  }
 
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: block;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+    width: 50%;
+  }
+
+  /* -------- signup --------- */
+
+  #signup-container {
+    width: 70%;
+    margin-top: 10px;
+  }
+
+  #signup-container h1 {
+    color: black;
+    font-size: 25px;
+  }
+
+  #signup-container input {
+    width: 85%;
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+
+  #signup-form-submit-btn {
+     width: 90% !important;
+  }
+
+  #signup-container p {
+    color: black;
+  }
+
+  #signup-container p a {
+    text-decoration: none;
+    color: #E3102E;
+
+  }
+
+  #signup-container form ul {
+    width: 80%;
+    font-size: 13px;
+  }
 }
 
 
 /* Laptop ------------------------------------------------------------------ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* nothing for now */
+  /* -------- top nav ----- */
+
+  #top-nav {
+    display: block;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: none;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+    width: 50%;
+  }
 }
 
 
 /* Laptop Large -------------------------------------------------------------*/
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
-  /* nothing for now */
+  /* -------- top nav ----- */
+
+  #top-nav {
+    display: block;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: none;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+    width: 50%;
+  }
 }
 
 
 /* 4K Large Desktop ------------------------------------------------------- */
 @media screen and (min-width: 1441px) {
+  /* -------- top nav ----- */
 
+  #top-nav {
+    display: block;
+  }
+
+  /* ------ toggle-top-nav ----- */
+
+  #toggle-top-nav {
+    display: none;
+  }
+
+  /* ------ hidden mobile top naviagtion ----- */
+
+  #background-greying {
+    display: none;
+  }
+
+  #hidden-mobile-top-nav {
+    display: none;
+    width: 50%;
+  }
+
+  /* -------- signup --------- */
+
+  #signup-container {
+    width: 35%;
+    margin-top: 10px;
+  }
+
+  #signup-container h1 {
+    color: black;
+    font-size: 25px;
+  }
+
+  #signup-container input {
+    width: 85%;
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+
+  #signup-form-submit-btn {
+     width: 88% !important;
+  }
+
+  #signup-container p {
+    color: black;
+  }
+
+  #signup-container p a {
+    text-decoration: none;
+    color: #E3102E;
+
+  }
+
+  #signup-container form ul {
+    width: 80%;
+    font-size: 13px;
+  }
 }
