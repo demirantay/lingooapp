@@ -11,10 +11,12 @@ from django.contrib.auth.models import User
 
 
 def signup(request):
-    """foo"""
+    """users can use this page to signup to the platform and create accounts"""
+
+    # Signup Form Processing
 
     data = {}
-    return render(request, "about/about.html", data)
+    return render(request, "main_base.html", data)
 
 
 def login(request):

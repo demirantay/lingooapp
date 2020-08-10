@@ -1,0 +1,220 @@
+/*
+
+Color Palette
+-------
+red:    #E3102E
+:hover  #A50E23
+
+border on black bacg: #333333
+
+
+*/
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+a, p, ul, li {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #161F2B;
+  background-color: #334049;
+  background-color: white;
+}
+
+/* ------- utils ----- */
+
+#red-span {
+  color: #E3102E;
+  text-shadow: #E3102E 1px 0 8px;
+  text-decoration: none;
+}
+
+/* -------- top nav ----- */
+
+#top-nav {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+}
+
+#top-nav a img {
+  height: 65px;
+  vertical-align: middle;
+}
+
+#top-nav-links {
+  display: inline-block;
+  vertical-align: middle'
+  border: 1px solid red;
+  width: 70%;
+  text-align: right;
+  border: 1px solid transparent;
+}
+
+#top-nav-links a {
+  text-align: center;
+
+
+}
+
+#top-nav-home-link {
+  color: grey;
+
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  margin: 0px 20px;
+  font-size: 18px;
+  border: 1px solid transparent;
+}
+
+#top-nav-home-link span {
+  font-size: 30px;
+}
+
+#top-nav-home-link a:hover {
+  color: #E3102E;
+  transition: 0.5s;
+}
+
+#login-signup-link {
+  background-color: white;
+  color: #E3102E;
+  border: 1px solid #E3102E;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin: 0px 10px;
+}
+
+#login-signup-link:hover {
+  background-color: #E3102E;
+  color: white;
+  transition: 0.5s;
+}
+
+/* -------- signup --------- */
+
+#signup-container {
+  border: 1px solid transparent;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: w0px;
+  text-align: center;
+}
+
+#signup-container h1 {
+  color: black;
+}
+
+#signup-container form {
+
+}
+
+#signup-container input {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding: 15px 10px;
+  font-size: 20px;
+  background-color: #F2F4F4;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: grey;
+  border: 1px solid lightgrey;
+}
+
+#signup-container input:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#signup-container input:hover {
+  border-color: black;
+  transition: 0.2s;
+}
+
+#signup-form-submit-btn {
+   background-color: #E3102E !important;
+   color: white !important;
+   width: 64% !important;
+   border: #E3102E !important
+}
+
+#signup-form-submit-btn:hover {
+  cursor: pointer;
+  background-color: #A50E23 !important;
+
+}
+
+#signup-container p {
+  color: black;
+}
+
+#signup-container p a {
+  text-decoration: none;
+  color: #E3102E;
+
+}
+
+#signup-container form ul {
+  border: 1px solid transparent;
+  text-align: left;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#signup-container form ul li {
+
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
