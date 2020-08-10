@@ -1,0 +1,27 @@
+{% extends 'landing_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/signup.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- signup form -->
+<div id="signup-container">
+  <h1>Create your new account</h1>
+
+  <div id="signup-login-warning-box">
+    <p>Invalid Credentials</p>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Email" name="email"/>
+    <input type="password" placeholder="Password" />
+    <input type="submit" value="Login" name="signup_form_submit_btn" id="signup-form-submit-btn" />
+  </form>
+  <p>
+      If you do not have an account, <a href="{% url 'about_terms' %}">signup</a> to our platform.
+  </p>
+</div>
+
+{% endblock %}

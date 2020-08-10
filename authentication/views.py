@@ -16,14 +16,14 @@ def signup(request):
     # Signup Form Processing
 
     data = {}
-    return render(request, "main_base.html", data)
+    return render(request, "authentication/signup.html", data)
 
 
 def login(request):
-    """foo"""
+    """users can use this page to login to the platform"""
 
     data = {}
-    return render(request, "about/about.html", data)
+    return render(request, "authentication/login.html", data)
 
 
 def congrats(request):

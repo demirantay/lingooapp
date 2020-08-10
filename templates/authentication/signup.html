@@ -1,0 +1,29 @@
+{% extends 'landing_base.html' %}
+{% load static %}
+
+{% block css_links %}
+
+{% endblock %}
+
+{% block content %}
+<!-- signup form -->
+<div id="signup-container">
+  <h1>Create your new account</h1>
+  <form>
+    <input type="text" placeholder="Username" name="username" />
+    <input type="text" placeholder="Email" name="email"/>
+    <input type="password" placeholder="Password" />
+    <ul>
+      <li>Must contain at least one number or text character.</li>
+      <li>Must be longer than 8 characters.</li>
+      <li>Must contain at least one uppercase letter.</li>
+    </ul>
+    <input type="password" placeholder="Re-enter Password" name="re_entered_password" />
+    <input type="submit" value="Sign Up" name="signup_form_submit_btn" id="signup-form-submit-btn" />
+  </form>
+  <p>
+      By signing up, you agree to our <a href="{% url 'about_terms' %}">Terms</a> and <a href="{% url 'about_privacy' %}">Privacy Policy</a>.
+  </p>
+</div>
+
+{% endblock %}

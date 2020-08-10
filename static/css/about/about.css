@@ -22,8 +22,6 @@
 
 #top-nav-links a {
   text-align: center;
-
-
 }
 
 #top-nav-home-link {
@@ -41,7 +39,7 @@
   font-size: 30px;
 }
 
-#top-nav-home-link a:hover {
+#top-nav-home-link:hover {
   color: #E3102E;
   transition: 0.5s;
 }
@@ -90,11 +88,12 @@
   -moz-box-shadow: 0px 0px 23px -5px #E3102E;
   box-shadow: 0px 0px 23px -5px #E3102E;
   background-color: #E3102E;
-  border-color: #E3102E
+  border-color: #E3102E;
 }
 
 #about-navigation-links-active {
   background-color: #E3102E !important;
+  border-color: #E3102E !important;
 }
 
 
@@ -107,15 +106,18 @@
 }
 
 #about-content h3, h2 {
-  color: white;
+  color: black;
+  font-weight: 900;
 }
 
 #about-content p {
-  color: grey;
+  color: black;
+  font-weight: 400;
 }
 
 #about-content ul {
-  color: grey;
+  color: black;
+  font-weight: 400;
   padding-left: 30px;
 }
 
@@ -126,7 +128,7 @@
 /* -------- footer content ----- */
 #footer {
   border: 1px solid transparent;
-  border-top-color: #333333;
+  border-top-color: lightgrey;
   width: 80%;
   margin: 0 auto;
   height: auto;
@@ -147,7 +149,8 @@
 }
 
 #footer-grid-part-1 p {
-  color: grey;
+  color: black;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -161,7 +164,8 @@
 }
 
 #footer-grid-part-2 p {
-  color: white;
+  color: black;
+  font-weight: 900;
   width: 60%;
   margin: 0 auto;
   font-weight: bold;
@@ -178,7 +182,8 @@
 }
 
 #footer-grid-part-3 p {
-  color: white;
+  color: black;
+  font-weight: 900;
   width: 60%;
   margin: 0 auto;
   font-weight: bold;
@@ -196,12 +201,14 @@
 #grid-links a {
   display: block;
   margin-bottom: 10px;
-  color: grey;
+  color: black;
   text-decoration: none;
 }
 
 #grid-links a:hover {
   text-decoration: underline;
+  color: #E3102E;
+  transition: 0.4s;
 }
 
 

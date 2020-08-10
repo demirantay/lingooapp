@@ -39,9 +39,44 @@
 
   <body>
 
-    {% block content %}
+    <!-- header -->
+    <div id="top-nav">
+      <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+      <div id="top-nav-links">
+        <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
+        <a href="" id="top-nav-home-link"><span class="fa fa-comments"></span></a>
+        <a href="{% url 'signup' %}" id="login-signup-link">Signup</a>
+        <a href="{% url 'login' %}" id="login-signup-link" >Login</a>
+      </div>
+    </div>
 
-    {% endblock %}
+    <!-- hidden mobile top naviagtion -->
+    <div id="background-greying"></div>
+    <div id="hidden-mobile-top-nav">
+      <button id="hidden-nav-close-btn"><span class="fa fa-close"></span></button>
+      <!-- if not logged in -->
+      <a href=""><span class="fa fa-home"></span> Home</a>
+      <a href=""><span class="fa fa-user-plus"></span> Signup</a>
+      <a href=""><span class="fa fa-sign-in"></span> Login</a>
+      <!-- if logged in -->
+      <a href=""><span class="fa fa-home"></span> Home</a>
+      <a href=""><span class="fa fa-comments"></span> Forum</a>
+      <a href=""><span class="fa fa-user"></span> Profile</a>
+      <a href=""><span class="fa fa-cog"></span> Settings</a>
+      <a href=""><span class="fa fa-sign-out"></span> Logout</a>
+    </div>
+
+    <!-- toggle mobile top navigation -->
+    <div id="toggle-top-nav">
+      <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+      <button id="open-hidden-nav-btn"><span class="fa fa-bars"></span></button>
+    </div>
+
+      {% block content %}
+
+      {% endblock %}
+
+    <script src="{% static 'js/mobile_nav_toggle.js' %}" type="text/javascript"></script>
 
   </body>
 </html>

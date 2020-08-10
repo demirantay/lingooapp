@@ -6,17 +6,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- header -->
-<div id="top-nav">
-  <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
-  <div id="top-nav-links">
-    <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
-    <a href="" id="top-nav-home-link"><span class="fa fa-comments"></span></a>
-    <a href="{% url 'signup' %}" id="login-signup-link">Signup</a>
-    <a href="{% url 'login' %}" id="login-signup-link" >Login</a>
-  </div>
-</div>
-
 <!-- about navigation links -->
 <div id="about-navigation-links">
   <a href="{% url 'about' %}">About Us</a>
