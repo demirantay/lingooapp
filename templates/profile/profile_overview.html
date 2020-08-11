@@ -1,0 +1,62 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile/profile_overview.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- profile information -->
+<div id="profile-information">
+  <div id="profile-information-left-part">
+    <div id="profile-image"></div>
+  </div>
+  <div id="profile-information-right-part">
+    <h1>John Doe</h1>
+    <h3>@username</h3>
+    <!-- max char limit: -->
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
+    <a href="" target="_blank">https://google.com</a>
+  </div>
+</div>
+
+<!-- under construction banner -->
+<div id="under-construction-banner">
+  <h1><span class="fa fa-lock"></span></h1>
+  <p>
+    This part is under construction.
+  </p>
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

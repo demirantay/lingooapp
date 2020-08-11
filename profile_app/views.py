@@ -15,4 +15,4 @@ def profile_overview(request):
     data = {
 
     }
-    return render(request, "main_base.html", data)
+    return render(request, "profile/profile_overview.html", data)

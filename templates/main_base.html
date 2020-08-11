@@ -32,25 +32,85 @@
   <!-- BASE CSS LINKS -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/main_base.css' %}" />
 
+  {% block css_links %}
+
+  {% endblock %}
+
 </head>
 
 <body>
 
-  <!-- left navigation -->
-  <div id="left-navgition">
-    <a href="">Home</a>
-    <a href="">Forum</a>
-    <a href="">Profile</a>
-    <a href="">Settings</a>
-    <a href="">More</a>
+  <div id="responsive-wrapper">
+
+    <!-- left navigation -->
+    <div id="left-navgition">
+      <a href="" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo.png' %}"  /></a>
+      <a href=""><span class="fa fa-home"></span> Home</a>
+      <a href=""><span class="fa fa-comments"></span> Forum</a>
+      <a href=""><span class="fa fa-user"></span> Profile</a>
+      <a href=""><span class="fa fa-cog"></span> Settings</a>
+      <a href="" id="hidden-nav-toggle-button"><span class="fa fa-ellipsis-h"></span> More</a>
+      <div id="hidden_more_nav">
+        <a href=""><span class="fa fa-building"></span> About</a>
+        <a href=""><span class="fa fa-sign-out"></span> Logout</a>
+      </div>
+    </div>
+
+    <!-- hidden mobile top naviagtion -->
+    <div id="background-greying"></div>
+    <div id="hidden-mobile-top-nav">
+      <button id="hidden-nav-close-btn"><span class="fa fa-close"></span></button>
+      <!-- if not logged in -->
+      <a href=""><span class="fa fa-home"></span> Home</a>
+      <a href=""><span class="fa fa-user-plus"></span> Signup</a>
+      <a href=""><span class="fa fa-sign-in"></span> Login</a>
+      <!-- if logged in -->
+      <a href=""><span class="fa fa-home"></span> Home</a>
+      <a href=""><span class="fa fa-comments"></span> Forum</a>
+      <a href=""><span class="fa fa-user"></span> Profile</a>
+      <a href=""><span class="fa fa-cog"></span> Settings</a>
+      <a href=""><span class="fa fa-sign-out"></span> Logout</a>
+    </div>
+
+    <!-- toggle mobile top navigation -->
+    <div id="toggle-top-nav">
+      <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+      <button id="open-hidden-nav-btn"><span class="fa fa-bars"></span></button>
+    </div>
+
+    <!-- mobile bottom navigation -->
+    <div id="mobile-bottom-navigation">
+      <div id="mobile-bottom-nav-grid-1">
+        <a href=""><span class="fa fa-home"></span></a>
+      </div>
+      <div id="mobile-bottom-nav-grid-2">
+        <a href=""><span class="fa fa-comments"></span></a>
+      </div>
+      <div id="mobile-bottom-nav-grid-3">
+        <a href=""><span class="fa fa-cog"></span></a>
+      </div>
+      <div id="mobile-bottom-nav-grid-4">
+        <a href=""><span class="fa fa-user"></span></a>
+      </div>
+    </div>
+
+    <!-- block content container -->
+    <div id="block-content-container">
+
+      {% block content %}
+        <!-- main content -->
+      {% endblock %}
+
+      <!-- footer at the end of left navigation -->
+
+    </div>
+
   </div>
 
-  <!-- footer at the end of left navigation -->
+  <!-- scripts of the main base -->
+  <script src="{% static 'js/mobile_nav_toggle.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/main_base_left_nav_toggle.js' %}"></script>
 
-  <!-- block content container -->
-  <div id="block-content-container">
-
-  </div>
 
 </body>
 
