@@ -21,6 +21,11 @@ urlpatterns = [
     # --------
     # ...
     path("", include("authentication.urls")),
+
+    # Profile
+    # ---------
+    # ...
+    path("", include("profile_app.urls")),
 ]
 
 if settings.DEBUG:

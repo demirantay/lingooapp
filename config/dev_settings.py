@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home',
     'about',
     'authentication',
+    "profile_app"
 ]
 
 MIDDLEWARE = [
