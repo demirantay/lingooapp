@@ -34,7 +34,7 @@ def congrats(request):
 
 
 def logout(request):
-    """foo"""
+    """users can use this page to logout of the site"""
 
     data = {}
-    return render(request, "about/about.html", data)
+    return render(request, "redirect_pages/error_400.html", data)

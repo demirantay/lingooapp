@@ -30,7 +30,7 @@ body {
 
 #red-span {
   color: #E3102E;
-  text-shadow: #E3102E 1px 0 8px;
+  /*text-shadow: #E3102E 1px 0 8px;*/
   text-decoration: none;
 }
 
@@ -186,96 +186,6 @@ body {
   margin-right: 5px;
 }
 
-/* -------- signup --------- */
-
-#signup-container {
-  border: 1px solid transparent;
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 20px;
-  text-align: center;
-}
-
-#signup-container h1 {
-  color: black;
-}
-
-#signup-container form {
-
-}
-
-#signup-container input {
-  display: block;
-  margin: 0 auto;
-  width: 60%;
-  padding: 15px 10px;
-  font-size: 20px;
-  background-color: #F2F4F4;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  color: grey;
-  border: 1px solid lightgrey;
-}
-
-#signup-container input:focus {
-  border-color: black;
-  outline: none !important;
-}
-
-#signup-container input:hover {
-  border-color: black;
-  transition: 0.2s;
-}
-
-#signup-form-submit-btn {
-   background-color: #E3102E !important;
-   color: white !important;
-   width: 64% !important;
-   border: #E3102E !important
-}
-
-#signup-form-submit-btn:hover {
-  cursor: pointer;
-  background-color: #A50E23 !important;
-
-}
-
-#signup-container p {
-  color: black;
-}
-
-#signup-container p a {
-  text-decoration: none;
-  color: #E3102E;
-
-}
-
-#signup-container form ul {
-  border: 1px solid transparent;
-  text-align: left;
-  width: 60%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-#signup-container form ul li {
-
-}
-
-#signup-login-warning-box {
-  border: 1px solid transparent;
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-#signup-login-warning-box p {
-  color: orange !important;
-  font-size: 20px;
-  font-weight: 900;
-}
-
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
@@ -299,43 +209,6 @@ body {
 
   #hidden-mobile-top-nav {
     display: none;
-  }
-
-  /* -------- signup --------- */
-
-  #signup-container {
-    width: 95%;
-    margin-top: 10px;
-  }
-
-  #signup-container h1 {
-    color: black;
-    font-size: 25px;
-  }
-
-  #signup-container input {
-    width: 85%;
-    padding: 15px 10px;
-    font-size: 20px;
-  }
-
-  #signup-form-submit-btn {
-     width: 94% !important;
-  }
-
-  #signup-container p {
-    color: black;
-  }
-
-  #signup-container p a {
-    text-decoration: none;
-    color: #E3102E;
-
-  }
-
-  #signup-container form ul {
-    width: 80%;
-    font-size: 13px;
   }
 
 }
@@ -365,42 +238,6 @@ body {
     display: none;
   }
 
-  /* -------- signup --------- */
-
-  #signup-container {
-    width: 95%;
-    margin-top: 10px;
-  }
-
-  #signup-container h1 {
-    color: black;
-    font-size: 25px;
-  }
-
-  #signup-container input {
-    width: 85%;
-    padding: 15px 10px;
-    font-size: 20px;
-  }
-
-  #signup-form-submit-btn {
-     width: 94% !important;
-  }
-
-  #signup-container p {
-    color: black;
-  }
-
-  #signup-container p a {
-    text-decoration: none;
-    color: #E3102E;
-
-  }
-
-  #signup-container form ul {
-    width: 80%;
-    font-size: 13px;
-  }
 }
 
 
@@ -428,42 +265,6 @@ body {
     display: none;
   }
 
-  /* -------- signup --------- */
-
-  #signup-container {
-    width: 95%;
-    margin-top: 10px;
-  }
-
-  #signup-container h1 {
-    color: black;
-    font-size: 25px;
-  }
-
-  #signup-container input {
-    width: 85%;
-    padding: 15px 10px;
-    font-size: 20px;
-  }
-
-  #signup-form-submit-btn {
-     width: 94% !important;
-  }
-
-  #signup-container p {
-    color: black;
-  }
-
-  #signup-container p a {
-    text-decoration: none;
-    color: #E3102E;
-
-  }
-
-  #signup-container form ul {
-    width: 80%;
-    font-size: 13px;
-  }
 }
 
 
@@ -492,42 +293,6 @@ body {
     width: 50%;
   }
 
-  /* -------- signup --------- */
-
-  #signup-container {
-    width: 70%;
-    margin-top: 10px;
-  }
-
-  #signup-container h1 {
-    color: black;
-    font-size: 25px;
-  }
-
-  #signup-container input {
-    width: 85%;
-    padding: 15px 10px;
-    font-size: 20px;
-  }
-
-  #signup-form-submit-btn {
-     width: 90% !important;
-  }
-
-  #signup-container p {
-    color: black;
-  }
-
-  #signup-container p a {
-    text-decoration: none;
-    color: #E3102E;
-
-  }
-
-  #signup-container form ul {
-    width: 80%;
-    font-size: 13px;
-  }
 }
 
 
@@ -610,40 +375,4 @@ body {
     width: 50%;
   }
 
-  /* -------- signup --------- */
-
-  #signup-container {
-    width: 35%;
-    margin-top: 10px;
-  }
-
-  #signup-container h1 {
-    color: black;
-    font-size: 25px;
-  }
-
-  #signup-container input {
-    width: 85%;
-    padding: 15px 10px;
-    font-size: 20px;
-  }
-
-  #signup-form-submit-btn {
-     width: 88% !important;
-  }
-
-  #signup-container p {
-    color: black;
-  }
-
-  #signup-container p a {
-    text-decoration: none;
-    color: #E3102E;
-
-  }
-
-  #signup-container form ul {
-    width: 80%;
-    font-size: 13px;
-  }
 }

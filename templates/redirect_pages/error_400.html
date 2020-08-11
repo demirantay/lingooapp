@@ -1,0 +1,44 @@
+{% extends 'landing_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/redirect_pages/error_400.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css'%}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- not exists info block -->
+<div id="not-exist-400-container">
+  <h1>Sorry, this page isn't available.</h1>
+  <p>
+    The link you followed may be broken, or the page may have been removed. Go back <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>.
+  </p>
+</div>
+
+
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
