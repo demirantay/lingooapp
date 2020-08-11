@@ -26,6 +26,11 @@ urlpatterns = [
     # ---------
     # ...
     path("", include("profile_app.urls")),
+
+    # Profile Settings
+    # ---------
+    # ...
+    path("", include("profile_settings.urls")),
 ]
 
 if settings.DEBUG:

@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     # Profile Overview
-    path("profile/", views.profile_overview, name="profile_overview"),
+    path("profile/settings/", views.profile_settings, name="profile_settings"),
     # Other User profile overview
-
 ]
