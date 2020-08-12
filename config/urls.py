@@ -31,6 +31,11 @@ urlpatterns = [
     # ---------
     # ...
     path("", include("profile_settings.urls")),
+
+    # Forum
+    # ---------
+    # ...
+    path("", include("forum.urls")),
 ]
 
 if settings.DEBUG:

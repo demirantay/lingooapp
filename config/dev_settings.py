@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'authentication',
     "profile_app",
     'profile_settings',
+    'forum',
 ]
 
 MIDDLEWARE = [
