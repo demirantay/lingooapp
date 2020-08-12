@@ -9,9 +9,9 @@
 
 <!-- settings navigation links -->
 <div id="settings-nav">
-  <a href="" id="settings-nav-link-active">Edit Profile</a>
-  <a href="">Change Password</a>
-  <a href="">Email and SMS</a>
+  <a href="{% url 'profile_settings_edit_profile' %}" id="settings-nav-link-active">Edit Profile</a>
+  <a href="{% url 'profile_settings_change_password' %}">Change Password</a>
+  <a href="{% url 'profile_settings_email_sms' %}">Email and SMS</a>
 </div>
 
 <!-- edit profile -->
