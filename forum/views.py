@@ -12,7 +12,10 @@ from django.contrib.auth.models import User
 
 def forum_landing_page(request):
     """ a """
-    data = {
 
+    all_posts = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+    data = {
+        "all_posts": all_posts,
     }
-    return render(request, "forum/landing_page.html", data)
+    return render(request, "forum/forum_landing_page.html", data)
