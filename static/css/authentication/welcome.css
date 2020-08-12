@@ -1,0 +1,243 @@
+/*----------- Welclome Banner ---------- */
+
+#welcome-banner {
+  border: 1px solid transparent;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #E3102E;
+  color: white;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px 0px;
+}
+
+#welcome-banner h1 {
+  font-size: 40px;
+}
+
+#welcome-banner p {
+  font-size: 20px;
+}
+
+/* --------- language cell container ------- */
+
+#language-cell-container {
+  border: 1px solid transparent;
+  height: auto;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 220px;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+#flag-cell {
+  border: 1px solid lightgrey;
+  width: 30%;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0px 10px;
+  margin-bottom: 20px;
+}
+
+#flag {
+  border: 1px solid lightgrey;
+  width: 80%;
+  height: 140px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/spain.png");
+  background-color: #E5E8E8;
+}
+
+#flag-cell h1 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+#flag-cell p {
+  text-align: center;
+}
+
+#flag-cell form {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#flag-cell form input {
+  color: white;
+  background-color: #E3102E;
+  border: 1px solid #E3102E;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+#flag-cell form input:hover {
+  background-color: black;
+  transition: 0.5s;
+  cursor: pointer;
+  border-color: black;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /*----------- Welclome Banner ---------- */
+
+  #welcome-banner {
+    padding: 20px 0px;
+  }
+
+  #welcome-banner h1 {
+    font-size: 35px;
+  }
+
+  #welcome-banner p {
+    font-size: 18px;
+  }
+
+  /* --------- language cell container ------- */
+
+  #language-cell-container {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 200px;
+  }
+
+  #flag-cell {
+    width: 90%;
+    display: block;margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #flag-cell h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0px;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /*----------- Welclome Banner ---------- */
+
+  #welcome-banner {
+    padding: 20px 0px;
+  }
+
+  #welcome-banner h1 {
+    font-size: 35px;
+  }
+
+  #welcome-banner p {
+    font-size: 18px;
+  }
+
+  /* --------- language cell container ------- */
+
+  #language-cell-container {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 200px;
+  }
+
+  #flag-cell {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #flag-cell h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /*----------- Welclome Banner ---------- */
+
+  #welcome-banner {
+    padding: 20px 0px;
+  }
+
+  #welcome-banner h1 {
+    font-size: 35px;
+  }
+
+  #welcome-banner p {
+    font-size: 18px;
+  }
+
+  /* --------- language cell container ------- */
+
+  #language-cell-container {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 200px;
+  }
+
+  #flag-cell {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #flag-cell h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #flag-cell {
+    width: 40%;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+  /* --------- language cell container ------- */
+
+  #language-cell-container {
+    width: 50%;
+  }
+
+}

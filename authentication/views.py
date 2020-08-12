@@ -26,15 +26,15 @@ def login(request):
     return render(request, "authentication/login.html", data)
 
 
-def congrats(request):
-    """foo"""
-
-    data = {}
-    return render(request, "about/about.html", data)
-
-
 def logout(request):
     """users can use this page to logout of the site"""
 
     data = {}
     return render(request, "redirect_pages/error_400.html", data)
+
+
+def welcome(request):
+    """users use this inital congrats page to choose their first language"""
+
+    data = {}
+    return render(request, "authentication/welcome.html", data)

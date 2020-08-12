@@ -1,0 +1,42 @@
+/*
+
+Color Palette
+-------
+red:            #E3102E
+:hover          #A50E23
+:background     #FADBD8
+
+blue:           #3498DB
+
+form border:    #E5E8E8
+
+border on black bacg: #333333
+
+
+*/
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+a, p, ul, li, label, b, i {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #161F2B;
+  background-color: #334049;
+  background-color: white;
+
+}
+
+/* ------- utils ----- */
+
+#red-span {
+  color: #E3102E;
+  /*text-shadow: #E3102E 1px 0 8px;*/
+  text-decoration: none;
+}

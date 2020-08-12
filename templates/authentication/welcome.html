@@ -1,0 +1,71 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/welcome.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- welcome banner -->
+<div id="welcome-banner">
+  <h1>Welcome!</h1>
+  <p>
+      Please, choose the language you would like to learn:
+  </p>
+</div>
+
+<!-- language cells -->
+<div id="language-cell-container">
+
+  <!-- flag cell -->
+  <div id="flag-cell">
+    <div id="flag"></div>
+    <h1>Spanish</h1>
+    <p>
+        1.2 Million Learners
+    </p>
+    <form>
+        <input type="submit" value="Choose" />
+    </form>
+  </div>
+
+  <!-- flag cell -->
+  <div id="flag-cell">
+    <div id="flag"></div>
+    <h1>Spanish</h1>
+    <p>
+        1.2 Million Learners
+    </p>
+    <form>
+        <input type="submit" value="Choose" />
+    </form>
+  </div>
+
+  <!-- flag cell -->
+  <div id="flag-cell">
+    <div id="flag"></div>
+    <h1>Spanish</h1>
+    <p>
+        1.2 Million Learners
+    </p>
+    <form>
+        <input type="submit" value="Choose" />
+    </form>
+  </div>
+
+  <!-- flag cell -->
+  <div id="flag-cell">
+    <div id="flag"></div>
+    <h1>Spanish</h1>
+    <p>
+        1.2 Million Learners
+    </p>
+    <form>
+        <input type="submit" value="Choose" />
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
