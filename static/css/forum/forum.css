@@ -243,34 +243,20 @@
 @media screen and (min-width: 0px) and (max-width: 320px) {
   #forum-container {
     border: 1px solid transparent;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
   }
 
   #forum-container-left-part {
-    display: inline-block;
-    width: 70%;
-    height: auto;
-    border: 1px solid transparent;
-    vertical-align: top;
+    display: block;
+    width: 90%;
   }
 
   /*--------- greetings banner ----------- */
-  #greetins-banner {
-    border: 1px solid transparent;
-  }
-
   #greetins-banner h1 {
-
+    font-size: 24px;
+    margin-bottom: 0px;
   }
 
   /*--------- pinned posts ----------- */
-  #pinned-posts-header {
-    color: #E3102E;
-    font-weight: 800;
-  }
-
   #pinned-post-cell {
     border: 1px solid lightgrey;
     width: 100%;
@@ -281,66 +267,15 @@
   }
 
   #pinned-post-cell-left-part {
-    width: 20%;
-    border: 1px solid transparent;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
-  }
-
-  #profile-photo {
-    height: 100px;
-    width: 100px;
-    background-color: #E5E8E8;
-    border-radius: 50%;
-    margin: 0 auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../placeholder/test.jpg")
+    display: none;
   }
 
   #pinned-post-cell-right-part {
-    width: 78%;
-    border: 1px solid transparent;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block
-  }
-
-  #pinned-post-cell-right-part a {
-    text-decoration: none;
-    color: black;
-  }
-
-  #pinned-post-cell-right-part a:hover {
-    color: #E3102E;
-    transition: 0.3s;
+    width: 100%;
   }
 
   #pinned-post-cell-right-part h3 {
-    margin: 0px;
-    font-size: 23px;
-  }
-
-  #pinned-post-cell-part-links {
-    border: 1px solid transparent;
-  }
-
-  #pinned-post-cell-part-links form {
-    display: inline-block;
-    margin: 0px 5px;
-    vertical-align: middle;
-    margin: 0px;
-  }
-
-  #pinned-post-cell-part-links form input {
-    width: 0.1px !important;
-  	height: 0.1px !important;
-  	opacity: 0 !important;
-  	overflow: hidden !important;
-  	position: absolute !important;
-  	z-index: -1 !important;
+    font-size: 20px;
   }
 
   #pinned-post-cell-part-links form label {
@@ -348,93 +283,218 @@
     color: grey;
   }
 
-  #pinned-post-cell-part-links form label:hover {
-    color: #E3102E;
-    cursor: pointer;
-  }
-
-  #pinned-post-cell-part-links form label span {
-
-  }
-
   #pinned-post-cell-part-links p {
-    display: inline-block;
-    vertical-align: middle;
-    color: grey;
-    margin: 0px;
-  }
-
-  #pinned-post-cell-part-links p a {
-    color: #E3102E;
-    text-decoration: none;
-
-  }
-
-  #pinned-post-cell-part-links p a:hover {
-    text-decoration: underline;
+    font-size: 13px;
   }
 
   #comment-count {
-    padding-left: 20px;
+    display: none !important;
   }
 
   /*--------- forum all posts ----------- */
 
   #forum-posts-navigation {
     border: 1px solid transparent;
-    width: 100%;
+    width: 100% !important;
     padding: 10px 0px;
+    margin: 0 auto !important;
     margin-top: 10px;
   }
 
   #forum-posts-navigation a {
-    display: inline-block;
-    color: white;
-    border: 1px solid #333333;
-    background-color: #333333;
-    border-radius: 7px;
-    font-size: 17px;
-    text-decoration: none;
-    margin: 0px 5px;
+    font-size: 15px;
     padding: 10px 15px;
+    margin: 0px;
   }
 
-  #forum-posts-navigation a:hover {
-    transition: 0.2s;
-    -webkit-box-shadow: 0px 0px 23px -5px #E3102E;
-    -moz-box-shadow: 0px 0px 23px -5px #E3102E;
-    box-shadow: 0px 0px 23px -5px #E3102E;
-    background-color: #E3102E;
-    border-color: #E3102E;
+  /*--------- right category navigation ----------- */
+
+  #forum-container-right-part {
+    display: block;
+    width: 85%;
+    margin-left: 2%;
+    margin-top: 15px;
   }
 
-  /*--------- all of forum posts and page links ----------- */
-
-  #forum-posts-navigation-active {
-    background-color: #E3102E !important;
-    border-color: #E3102E !important;
-  }
+}
 
 
-  #page-links {
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #forum-container {
     border: 1px solid transparent;
+  }
+
+  #forum-container-left-part {
+    display: block;
+    width: 90%;
+  }
+
+  /*--------- greetings banner ----------- */
+  #greetins-banner h1 {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  /*--------- pinned posts ----------- */
+  #pinned-post-cell {
+    border: 1px solid lightgrey;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  #pinned-post-cell-left-part {
+    display: none;
+  }
+
+  #pinned-post-cell-right-part {
+    width: 100%;
+  }
+
+  #pinned-post-cell-right-part h3 {
+    font-size: 20px;
+  }
+
+  #pinned-post-cell-part-links form label {
+    font-size: 35px;
+    color: grey;
+  }
+
+  #pinned-post-cell-part-links p {
+    font-size: 13px;
+  }
+
+  #comment-count {
+    display: none !important;
+  }
+
+  /*--------- forum all posts ----------- */
+
+  #forum-posts-navigation {
+    border: 1px solid transparent;
+    width: 100% !important;
     padding: 10px 0px;
-    text-align: center;
-    margin-top: 20px;
+    margin: 0 auto !important;
+    margin-top: 10px;
   }
 
-  #page-links a {
+  #forum-posts-navigation a {
+    font-size: 15px;
+    padding: 10px 15px;
+    margin: 0px;
+  }
+
+  /*--------- right category navigation ----------- */
+
+  #forum-container-right-part {
+    display: block;
+    width: 85%;
+    margin-left: 2%;
+    margin-top: 15px;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #forum-container {
+    border: 1px solid transparent;
+  }
+
+  #forum-container-left-part {
+    display: block;
+    width: 90%;
+  }
+
+  /*--------- greetings banner ----------- */
+  #greetins-banner h1 {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  /*--------- pinned posts ----------- */
+  #pinned-post-cell {
+    border: 1px solid lightgrey;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  #pinned-post-cell-left-part {
+    display: none;
+  }
+
+  #pinned-post-cell-right-part {
+    width: 100%;
+  }
+
+  #pinned-post-cell-right-part h3 {
+    font-size: 20px;
+  }
+
+  #pinned-post-cell-part-links form label {
+    font-size: 35px;
+    color: grey;
+  }
+
+  #pinned-post-cell-part-links p {
+    font-size: 13px;
+  }
+
+  #comment-count {
+    display: none !important;
+  }
+
+  /*--------- forum all posts ----------- */
+
+  #forum-posts-navigation {
+    border: 1px solid transparent;
+    width: 100% !important;
+    padding: 10px 0px;
+    margin: 0 auto !important;
+    margin-top: 10px;
+  }
+
+  #forum-posts-navigation a {
+    font-size: 15px;
+    padding: 10px 15px;
+    margin: 0px;
+  }
+
+  /*--------- right category navigation ----------- */
+
+  #forum-container-right-part {
+    display: block;
+    width: 85%;
+    margin-left: 2%;
+    margin-top: 15px;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #forum-container {
+    border: 1px solid transparent;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #forum-container-left-part {
     display: inline-block;
-    font-size: 30px;
-    color: white;
-    background-color: #E3102E;
-    padding: 20px 25px;
-    border-radius: 5px;
-  }
-
-  #page-links a:hover {
-    background-color: black;
-    transition: 0.3s;
+    width: 65%;
+    height: auto;
+    border: 1px solid transparent;
+    vertical-align: top;
   }
 
 
@@ -448,63 +508,44 @@
     vertical-align: top;
     margin-left: 2%;
     border-radius: 10px;
-    margin-top: 135px;
+    margin-top: 175px;
     padding: 10px 10px;
   }
-
-  #category-cell {
-    margin-bottom: 10px;
-  }
-
-  #category-cell a {
-    text-decoration: none;
-    color: black;
-    font-weight: 800;
-  }
-
-  #category-cell a:hover {
-    color: #E3102E;
-    transition: 0.3s;
-  }
-
-  #category-flag {
-    background-color: #E5E8E8;
-    height: 50px;
-    width: 80px;
-    border-radius: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    text-decoration: none;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../flags/spain.png");
-  }
-
-}
-
-
-/* Mobile Medium  --------------------------------------------------------- */
-@media screen and (min-width: 321px) and (max-width: 375px) {
-
-}
-
-
-/* Mobile Large - --------------------------------------------------------- */
-@media screen and (min-width: 376px) and (max-width: 425px) {
-}
-
-
-/* Tablet - --------------------------------------------------------------- */
-@media screen and (min-width: 426px) and (max-width: 768px) {
-
 
 }
 
 
 /* Laptop ------------------------------------------------------------------ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* nothing for now */
+  #forum-container {
+    border: 1px solid transparent;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #forum-container-left-part {
+    display: inline-block;
+    width: 65%;
+    height: auto;
+    border: 1px solid transparent;
+    vertical-align: top;
+  }
+
+
+  /*--------- right category navigation ----------- */
+
+  #forum-container-right-part {
+    display: inline-block;
+    width: 25%;
+    height: auto;
+    border: 1px solid lightgrey;
+    vertical-align: top;
+    margin-left: 2%;
+    border-radius: 10px;
+    margin-top: 175px;
+    padding: 10px 10px;
+  }
 }
 
 
