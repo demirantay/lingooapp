@@ -163,6 +163,26 @@
   cursor: pointer;
 }
 
+/*----------  email and sms checkboxes  ---------*/
+
+#checkbox-input-left-part {
+  width: 50px;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: top;
+  display:inline-block;
+  padding-top: 5px;
+
+}
+
+#checkbox-input-right-part {
+  width: 200px;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: top;
+  display:inline-block;
+}
+
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {

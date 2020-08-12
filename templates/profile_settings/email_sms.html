@@ -1,0 +1,68 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile_settings/profile_settings.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- settings navigation links -->
+<div id="settings-nav">
+  <a href="{% url 'profile_settings_edit_profile' %}" >Edit Profile</a>
+  <a href="{% url 'profile_settings_change_password' %}" >Change Password</a>
+  <a href="{% url 'profile_settings_email_sms' %}" id="settings-nav-link-active">Email and SMS</a>
+</div>
+
+<!-- edit profile -->
+<div id="profile-settings-container">
+
+  <form>
+
+    <h3>Subscribe to:</h3>
+    <Br />
+
+    <div id="checkbox-input-left-part">
+      <input id="checkbox-input" type="checkbox" name="feedback_emails" value="true"/>
+    </div>
+    <div id="checkbox-input-right-part">
+      <b>Feedback Emails</b><br />
+      <i>Give feedback on Hobioo.</i>
+    </div>
+    <br><br />
+
+    <div id="checkbox-input-left-part">
+      <input id="checkbox-input" type="checkbox" name="reminder_emails" value="true"/>
+    </div>
+    <div id="checkbox-input-right-part">
+      <b>Reminder emails</b><br />
+      <i>Get notifications you may have missed.</i>
+    </div>
+    <br><br />
+
+    <div id="checkbox-input-left-part">
+      <input id="checkbox-input" type="checkbox" name="product_emails" value="true"/>
+    </div>
+    <div id="checkbox-input-right-part">
+      <b>Product emails</b><br />
+      <i>Get tips about Instagram's tools.</i>
+    </div>
+    <br><br />
+
+    <div id="checkbox-input-left-part">
+      <input id="checkbox-input" type="checkbox" name="news_emails" value="true"/>
+    </div>
+    <div id="checkbox-input-right-part">
+      <b>News emails</b><br />
+      <i>Learn about new Instagram features.</i>
+    </div>
+    <br><br />
+
+    <input type="submit" value="save" id="profile-settings-submit-btn" />
+
+  </form>
+
+</div>
+
+
+{% endblock %}
