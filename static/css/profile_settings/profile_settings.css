@@ -1,0 +1,302 @@
+/* ------- settings navigation -------- */
+
+#settings-nav {
+  border: 1px solid transparent;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 5px;
+  text-align: center;
+
+}
+
+#settings-nav a {
+  display: inline-block;
+  color: white;
+  border: 1px solid #333333;
+  background-color: #333333;
+  border-radius: 7px;
+  font-size: 17px;
+  text-decoration: none;
+  margin: 0px 5px;
+  padding: 10px 15px;
+}
+
+#settings-nav a:hover {
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 0px 23px -5px #E3102E;
+  -moz-box-shadow: 0px 0px 23px -5px #E3102E;
+  box-shadow: 0px 0px 23px -5px #E3102E;
+  background-color: #E3102E;
+  border-color: #E3102E;
+}
+
+#settings-nav-link-active {
+  background-color: #E3102E !important;
+  border-color: #E3102E !important;
+}
+
+/* ------- edit profile -------- */
+#profile-settings-container {
+  border: 1px solid  transparent;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#profile-settings-container form {
+  width: 50%;
+  border: 1px solid transparent;
+  margin: 0 auto;
+}
+
+#profile-settings-container form label {
+  margin-left: 5%;
+  font-weight: 800;
+  font-size: 19px;
+}
+
+#profile-settings-container input {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 19px;
+  padding: 10px 6px;
+  background-color: #EAEDED;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+#profile-settings-container input:hover {
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+#profile-settings-container input:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#profile-settings-container textarea {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  height: 100px;
+  font-size: 19px;
+  padding: 10px 6px;
+  background-color: #EAEDED;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+#profile-settings-container textarea:hover {
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+#profile-settings-container textarea:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#settings-profile-photo-preview-container {
+  border: 1px solid transparent;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#settings-profile-photo-preview-container-left-part {
+  border: 1px solid transparent;
+  display: inline-block;
+  width: 20%;
+  vertical-align: middle;
+}
+
+#settings-profile-photo-preview {
+  height: 60px;
+  width: 60px;
+  background-color: #E5E8E8;
+  border-radius: 7px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../placeholder/placeholder-feature.png");
+}
+
+#settings-profile-photo-preview-container-right-part {
+  border: 1px solid transparent;
+  display: inline-block;
+  width: 68%;
+  vertical-align: middle;
+}
+
+#settings-profile-photo-preview-container-right-part label:hover {
+  cursor: pointer;
+}
+
+.hidden-profile-photo-input {
+  width: 0.1px !important;
+	height: 0.1px !important;
+	opacity: 0 !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	z-index: -1 !important;
+}
+
+#profile-settings-submit-btn {
+  background-color: #E3102E !important;
+  color: white !important;
+  width: 94% !important;
+}
+
+#profile-settings-submit-btn:hover {
+  transition: 0.3s;
+  background-color: #A50E23 !important;
+  cursor: pointer;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ------- settings navigation -------- */
+  #settings-nav a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* ------- edit profile -------- */
+  #profile-settings-container {
+    width: 90%;
+  }
+
+  #profile-settings-container form {
+    width: 100%;
+  }
+
+  #settings-profile-photo-preview-container {
+    width: 90%;
+  }
+
+  #settings-profile-photo-preview {
+    height: 50px;
+    width: 50px;
+  }
+
+  #settings-profile-photo-preview-container-right-part label {
+    font-size: 13px !important;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ------- settings navigation -------- */
+  #settings-nav a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* ------- edit profile -------- */
+  #profile-settings-container {
+    width: 90%;
+  }
+
+  #profile-settings-container form {
+    width: 100%;
+  }
+
+  #settings-profile-photo-preview-container {
+    width: 90%;
+  }
+
+  #settings-profile-photo-preview {
+    height: 50px;
+    width: 50px;
+  }
+
+  #settings-profile-photo-preview-container-right-part label {
+    font-size: 13px !important;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ------- settings navigation -------- */
+  #settings-nav a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* ------- edit profile -------- */
+  #profile-settings-container {
+    width: 90%;
+  }
+
+  #profile-settings-container form {
+    width: 100%;
+  }
+
+  #settings-profile-photo-preview-container {
+    width: 90%;
+  }
+
+  #settings-profile-photo-preview {
+    height: 50px;
+    width: 50px;
+  }
+
+  #settings-profile-photo-preview-container-right-part label {
+    font-size: 13px !important;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* ------- edit profile -------- */
+  #profile-settings-container {
+    width: 90%;
+  }
+
+  #profile-settings-container form {
+    width: 70%;
+  }
+
+  #settings-profile-photo-preview-container {
+    width: 90%;
+  }
+
+  #settings-profile-photo-preview-container-right-part label {
+    font-size: 13px !important;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

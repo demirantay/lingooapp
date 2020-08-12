@@ -10,9 +10,25 @@ from django.contrib.auth.models import User
 # My Module Imports
 
 
-def profile_settings(request):
+def profile_settings_edit_profile(request):
     """ a """
     data = {
 
     }
-    return render(request, "profile_settings/profile_settings.html", data)
+    return render(request, "profile_settings/edit_profile.html", data)
+
+
+def profile_settings_change_password(request):
+    """ a """
+    data = {
+
+    }
+    return render(request, "profile_settings/change_password.html", data)
+
+
+def profile_settings_email_sms(request):
+    """ a """
+    data = {
+
+    }
+    return render(request, "profile_settings/email_sms.html", data)
