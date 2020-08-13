@@ -1,3 +1,8 @@
+#forum-container-left-part {
+  border: 1px solid transparent;
+  width: 68%;
+}
+
 #create-post-form {
   border: 1px solid transparent;
   margin-top: 70px;
@@ -73,23 +78,112 @@
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+  }
+
+  #create-post-form {
+    border: 1px solid transparent;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #create-post-form input {
+    width: 85%;
+  }
+
+  #create-post-form select {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #create-post-form textarea {
+    width: 85%;
+    margin: 0 auto;
+  }
 
 }
 
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+  }
 
+  #create-post-form {
+    border: 1px solid transparent;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #create-post-form input {
+    width: 85%;
+  }
+
+  #create-post-form select {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #create-post-form textarea {
+    width: 85%;
+    margin: 0 auto;
+  }
 }
 
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+  }
+
+  #create-post-form {
+    border: 1px solid transparent;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #create-post-form input {
+    width: 85%;
+  }
+
+  #create-post-form select {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #create-post-form textarea {
+    width: 85%;
+    margin: 0 auto;
+  }
 }
 
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 68%;
+    margin-top: -20px;
+  }
 
 
 }

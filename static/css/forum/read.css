@@ -1,0 +1,341 @@
+#forum-container-left-part {
+  border: 1px solid transparent;
+}
+
+
+/* -------- post-coontent-part -------- */
+
+#post-content-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  margin-top: 65px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#post-content-left-part {
+  border: 1px solid transparent;
+  width: 15%;
+  height: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#post-content-profile-photo {
+  background-color: #E5E8E8;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../placeholder/test.jpg");
+  margin-top: 10px;
+}
+
+#post-content-right-part {
+  border: 1px solid transparent;
+  width: 83%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#post-content-right-part h1 {
+  margin: 0px;
+  font-size: 26px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+#post-content-right-part a {
+  color: #E3102E;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+}
+
+#post-content-right-part a:hover {
+  text-decoration: underline;
+}
+
+#post-content-right-part-flag {
+  background-color: #E5E8E8;
+  border-radius: 2px;
+  height: 20px;
+  width: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/spain.png");
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#post-content-right-part-operations {
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+}
+
+#post-content-right-part-operations p {
+  display: inline-block;
+  margin: 0px;
+  margin-right: 10px;
+
+}
+
+#post-content-right-part-operations form {
+  display: inline-block;
+  margin: 0px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#post-content-right-part-operations form input {
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  z-index: -1 !important;
+}
+
+#post-content-right-part-operations form label {
+  font-size: 25px;
+  margin: 0px;
+}
+
+#post-content-right-part-operations button {
+  margin: 0px;
+  padding: 3px 6px;
+  background-color: transparent;
+  border: 1px solid lightgrey;
+  color: black;
+  border-radius: 2px;
+}
+
+#post-content-right-part-operations button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+#post-content-right-part-operations a {
+  margin: 0px;
+  padding: 3px 6px;
+  background-color: transparent;
+  border: 1px solid lightgrey;
+  color: black;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-decoration: none;
+}
+
+#post-content-right-part-operations a:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+
+
+
+/* -------- post-comments-------- */
+
+#comments-container {
+  border: 1px solid lightgrey;
+  margin-top: 20px;
+  border-radius: 5px;
+  height: auto;
+  background-color: white;
+  padding: 10px 0px;
+}
+
+#comments-container-create-comment form {
+  border: 1px solid transparent;
+  width: 95%;
+  margin: 0 auto;
+}
+
+#comments-container-create-comment form textarea {
+  display: block;
+  width: 100%;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#comments-container-create-comment form textarea:hover {
+  border-color: black;
+  transition: 0.3s;
+}
+
+#comments-container-create-comment form textarea:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#comments-container-create-comment form input {
+  display: block;
+  color: white;
+  background-color: #E3102E;
+  border: 1px solid #E3102E;
+  padding: 6px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#comments-container-create-comment form input:hover {
+  background-color: black;
+  border-color: black;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#comment-cell {
+  border: 1px solid transparent;
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#comment-cell-left-part {
+  border: 1px solid transparent;
+  width: 5%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#comment-cell-left-part form {
+  border: 1px solid transparent;
+
+}
+
+#comment-cell-left-part form input {
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  z-index: -1 !important;
+}
+
+#comment-cell-left-part form label {
+  font-size: 20px;
+}
+
+#comment-cell-left-part form label:hover {
+  cursor: pointer;
+  color: #E3102E;
+}
+
+#comment-cell-right-part {
+  border: 1px solid transparent;
+  width: 92%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+}
+
+#comment-info {
+  border: 1px solid  transparent;
+}
+
+#comment-info a {
+  display: inline-block;
+  margin: 0px;
+  color: #E3102E;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+#comment-info a:hover {
+  text-decoration: underline;
+}
+
+#comment-info p {
+  display: inline-block;
+  margin: 0px;
+  font-size: 14px;
+}
+
+#comment-cell-right-part p {
+  margin: 0px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+/* ----------- hidden delete form ----------- */
+#hidden-delete-form-background-greying {
+  background-color: black;
+  z-index: 9;
+  position: fixed;
+  opacity: 0.6;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+#hidden-delete-form {
+  background-color: white;
+  border-radius: 5px;
+  height: auto;
+  width: 50%;
+  margin: 0 auto;
+  z-index: 999 !important;
+  position: fixed;
+  top: 0;
+  margin-top: 200px;
+  text-align: center;
+  padding: 20px 0px;
+  display: none;
+}
+
+#hidden-delete-form form {
+  display: inline-block;
+}
+
+#hidden-delete-form form input {
+  background-color: #E3102E;
+  color: white;
+  border: #E3102E;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#hidden-delete-form form input:hover {
+  transition: 0.3s;
+  background-color: black;
+  border-color: black;
+  cursor: pointer;
+
+}
+
+#hidden-delete-form a {
+  display: inline-block;
+  text-decoration: none;
+  color: #E3102E;
+  margin-left: 5px;
+}
+
+#hidden-delete-form a:hover {
+  text-decoration: underline;
+}
+
+/* ----------- hidden update form ----------- */

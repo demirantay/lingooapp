@@ -1,0 +1,185 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum/read.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- forum create container -->
+<div id="forum-container">
+  <!-- left part -->
+  <div id="forum-container-left-part">
+    <!-- greeting banner -->
+    <div id="greetins-banner">
+      <h1>Welcome to the Lingoo Community!</h1>
+    </div>
+
+    <!-- post content part -->
+    <div id="post-content-container">
+      <div id="post-content-left-part">
+        <div id="post-content-profile-photo"></div>
+      </div>
+      <div id="post-content-right-part">
+        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+        <a href="">@username</a>
+        <div id="post-content-right-part-flag"></div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <div id="post-content-right-part-operations">
+          <!-- post points -->
+          <p><b>1542</b></p>
+          <!-- upvote -->
+          <form>
+              <label for="post-content-upvote"><span class="fa fa-angle-up" ></span></label>
+              <input type="submit" value="submit" id="post-content-upvote" />
+          </form>
+          <!-- downvote -->
+          <form>
+              <label for="post-content-downvote"><span class="fa fa-angle-down" ></span></label>
+              <input type="submit" value="submit" id="post-content-downvote" />
+          </form>
+          <!-- date -->
+          <p>12, Aug, 2020</p>
+          <!-- edit button -->
+          <a href="">EDIT</a>
+          <!-- delete button -->
+          <button id="hidden_delete_open_button">DELETE</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- hidden delete form -->
+    <div id="hidden-delete-form-background-greying"></div>
+    <div id="hidden-delete-form">
+      <h2>Are you sure?</h2>
+      <form>
+          <input type="submit" value="Delete" />
+      </form>
+      <a href="">Cancel</a>
+    </div>
+
+    <script>
+      hidden_delete_open_button = document.getElementById("hidden_delete_open_button");
+      hidden_delete_form = document.getElementById("hidden-delete-form");
+      hidden_delete_form_background_greying = document.getElementById("hidden-delete-form-background-greying");
+
+      // onclick open the hidden delete form
+      hidden_delete_open_button.onclick = function () {
+        hidden_delete_form_background_greying.style.display = "block";
+        hidden_delete_form.style.display = "block"
+      }
+    </script>
+
+    <!-- hidden update form -->
+
+    <div id="comments-container">
+      <div id="comments-container-create-comment">
+        <!-- make comment form -->
+        <form>
+          <textarea placeholder="Leave a comment ..."></textarea>
+          <input type="submit" value="POST"/>
+        </form>
+      </div>
+
+      {% for comment in post_comments %}
+      <!-- comment listsings -->
+      <div id="comment-cell">
+        <div id="comment-cell-left-part">
+          <form>
+            <label for="comment-upvote"><span class="fa fa-caret-up"></span></label>
+            <input type="submit" id="comment-upvote" />
+          </form>
+          <form>
+            <label for="comment-downvote"><span class="fa fa-caret-down"></span></label>
+            <input type="submit" id="comment-downvote" />
+          </form>
+        </div>
+        <div id="comment-cell-right-part">
+          <div id="comment-info">
+            <a href="">@username</a>
+            <p>9102 points | 20 jun 2020</p>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+      </div><!-- /comment cell -->
+      {% endfor %}
+
+
+    </div>
+
+
+  </div><!-- /left part container -->
+
+  <!-- right part -->
+  <div id="forum-container-right-part">
+    <!-- forum right language categories -->
+    <div id="category-cell">
+      <a href="">
+        <div id="category-flag"></div>
+         Spanish
+      </a>
+    </div>
+
+    <div id="category-cell">
+      <a href="">
+        <div id="category-flag"></div>
+         Spanish
+      </a>
+    </div>
+
+    <div id="category-cell">
+      <a href="">
+        <div id="category-flag"></div>
+         Spanish
+      </a>
+    </div>
+
+  </div><!-- /right part -->
+
+</div>
+
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

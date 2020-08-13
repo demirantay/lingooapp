@@ -28,3 +28,22 @@ def forum_create(request):
 
     }
     return render(request, "forum/forum_create.html", data)
+
+
+def forum_read(request, post_id):
+    """ a """
+
+    post_comments = [1, 1, 1, 1, 1, 1, 1, 1]
+
+    data = {
+        "post_comments": post_comments,
+    }
+    return render(request, "forum/forum_read.html", data)
+
+
+def forum_update(request, post_id):
+    """ a """
+
+    data = {
+    }
+    return render(request, "forum/forum_update.html", data)
