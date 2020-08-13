@@ -17,7 +17,10 @@
     </div>
     <!-- forum pinned posts -->
     <div id="pinned-posts">
-      <p id="pinned-posts-header"><span class="fa fa-map-marker"></span> pinned posts</p>
+      <div id="pinned-posts-header-container">
+          <p id="pinned-posts-header"><span class="fa fa-map-marker"></span> pinned posts</p>
+          <a href="{% url 'forum_create' %}">New Post</a>
+      </div>
 
       <!-- pinnned post feature request post -->
       <div id="pinned-post-cell">

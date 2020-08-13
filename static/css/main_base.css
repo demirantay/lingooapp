@@ -8,6 +8,9 @@ red:            #E3102E
 
 blue:           #3498DB
 
+green:          #27AE60
+:hover          #186A3B
+
 form border:    #E5E8E8
 
 border on black bacg: #333333
@@ -21,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-a, p, ul, li, label, b, i {
+a, p, ul, li, label, b, i, textarea, input {
   font-family: 'Inter', sans-serif;
 }
 

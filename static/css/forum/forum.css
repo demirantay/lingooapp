@@ -1,3 +1,7 @@
+body {
+  background-color: #F4F6F6 !important;
+}
+
 #forum-container {
   border: 1px solid transparent;
   width: 100%;
@@ -23,9 +27,32 @@
 }
 
 /*--------- pinned posts ----------- */
+#pinned-posts-header-container {
+  border: 1px solid transparent;
+}
+
 #pinned-posts-header {
   color: #E3102E;
   font-weight: 800;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#pinned-posts-header-container a {
+  display: inline-block;
+  background-color: #27AE60;
+  color: white;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  float: right;
+  vertical-align: middle;
+  margin-top: 8px;
+}
+
+#pinned-posts-header-container a:hover {
+  background-color: #186A3B;
+  transition: 0.3s;
 }
 
 #pinned-post-cell {
@@ -35,6 +62,7 @@
   margin-top: 10px;
   border-radius: 10px;
   padding: 5px;
+  background-color: white;
 }
 
 #pinned-post-cell-left-part {
@@ -205,8 +233,9 @@
   vertical-align: top;
   margin-left: 2%;
   border-radius: 10px;
-  margin-top: 135px;
+  margin-top: 150px;
   padding: 10px 10px;
+  background-color: white;
 }
 
 #category-cell {

@@ -1,0 +1,113 @@
+#create-post-form {
+  border: 1px solid transparent;
+  margin-top: 70px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#create-post-form input {
+  display: block;
+  border: 1px solid lightgrey;
+  background-color: white;
+  width: 85%;
+  padding: 10px 15px;
+  font-size: 25px;
+  border-radius: 6px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#create-post-form input:hover {
+  border-color: black;
+}
+
+#create-post-form input:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#create-post-form select {
+  padding: 5px 20px;
+  font-size:25px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+
+}
+
+#create-post-form textarea {
+  width: 85%;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  height: 300px;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+
+}
+
+#create-post-form textarea:hover {
+  border-color: black;
+}
+
+#create-post-form textarea:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#create-post-submit-btn {
+  background-color: #E3102E !important;
+  border-radius: 10px !important;
+  color: white !important;
+  padding: 10px 15px !important;
+}
+
+#create-post-submit-btn:hover {
+  background-color: black !important;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

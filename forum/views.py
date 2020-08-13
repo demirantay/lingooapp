@@ -19,3 +19,12 @@ def forum_landing_page(request):
         "all_posts": all_posts,
     }
     return render(request, "forum/forum_landing_page.html", data)
+
+
+def forum_create(request):
+    """ a """
+
+    data = {
+
+    }
+    return render(request, "forum/forum_create.html", data)
