@@ -44,15 +44,14 @@
 
     <!-- left navigation -->
     <div id="left-navgition">
-      <a href="" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo.png' %}"  /></a>
-      <a href=""><span class="fa fa-home"></span> Home</a>
-      <a href=""><span class="fa fa-comments"></span> Forum</a>
-      <a href=""><span class="fa fa-user"></span> Profile</a>
-      <a href=""><span class="fa fa-cog"></span> Settings</a>
+      <a href="{% url 'index' %}" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo.png' %}"  /></a>
+      <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
+      <a href="{% url 'forum_landing_page' %}"><span class="fa fa-comments"></span> Forum</a>
+      <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
+      <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
       <a href="" id="hidden-nav-toggle-button"><span class="fa fa-ellipsis-h"></span> More</a>
       <div id="hidden_more_nav">
-        <a href=""><span class="fa fa-building"></span> About</a>
-        <a href=""><span class="fa fa-sign-out"></span> Logout</a>
+        <a href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a>
       </div>
     </div>
 
@@ -60,16 +59,19 @@
     <div id="background-greying"></div>
     <div id="hidden-mobile-top-nav">
       <button id="hidden-nav-close-btn"><span class="fa fa-close"></span></button>
-      <!-- if not logged in -->
-      <a href=""><span class="fa fa-home"></span> Home</a>
-      <a href=""><span class="fa fa-user-plus"></span> Signup</a>
-      <a href=""><span class="fa fa-sign-in"></span> Login</a>
-      <!-- if logged in -->
-      <a href=""><span class="fa fa-home"></span> Home</a>
-      <a href=""><span class="fa fa-comments"></span> Forum</a>
-      <a href=""><span class="fa fa-user"></span> Profile</a>
-      <a href=""><span class="fa fa-cog"></span> Settings</a>
-      <a href=""><span class="fa fa-sign-out"></span> Logout</a>
+      {% if current_basic_user == None %}
+        <!-- if not logged in -->
+        <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
+        <a href="{% url 'signup' %}"><span class="fa fa-user-plus"></span> Signup</a>
+        <a href="{% url 'login' %}"><span class="fa fa-sign-in"></span> Login</a>
+      {% else %}
+        <!-- if logged in -->
+        <a href=""><span class="fa fa-home"></span> Home</a>
+        <a href="{% url 'forum_landing_page' %}"><span class="fa fa-comments"></span> Forum</a>
+        <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
+        <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
+        <a href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a>
+      {% endif %}
     </div>
 
     <!-- toggle mobile top navigation -->
@@ -81,16 +83,16 @@
     <!-- mobile bottom navigation -->
     <div id="mobile-bottom-navigation">
       <div id="mobile-bottom-nav-grid-1">
-        <a href=""><span class="fa fa-home"></span></a>
+        <a href="{% url 'index' %}"><span class="fa fa-home"></span></a>
       </div>
       <div id="mobile-bottom-nav-grid-2">
-        <a href=""><span class="fa fa-comments"></span></a>
+        <a href="{% url 'forum_landing_page' %}"><span class="fa fa-comments"></span></a>
       </div>
       <div id="mobile-bottom-nav-grid-3">
-        <a href=""><span class="fa fa-cog"></span></a>
+        <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span></a>
       </div>
       <div id="mobile-bottom-nav-grid-4">
-        <a href=""><span class="fa fa-user"></span></a>
+        <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span></a>
       </div>
     </div>
 
@@ -101,7 +103,7 @@
         <!-- main content -->
       {% endblock %}
 
-      <!-- footer at the end of left navigation -->
+      <!-- footer at the end of right navigation -->
 
     </div>
 

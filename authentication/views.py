@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 # My Module Imports
 from utils.auth_utils import get_banned_words
 from profile_settings.models import BasicUserProfile
+from utils.session_utils import get_current_user, get_current_user_settings
 
 
 def signup(request):
@@ -214,6 +215,32 @@ def welcome(request):
     users contact this page after they signup. This page makes them choose
     their first language
     """
+    # Deleting any sessions regarding top-tier type of users
+    # session.pop("programmer_username", None)  <-- these are flask change it
+    # session.pop("programmer_logged_in", None) <-- these are flask change it
+    # admin user session pop
+    # admin user session pop
 
-    data = {}
-    return render(request, "authentication/welcome.html", data)
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_settings = get_current_user_settings(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Creating your new langauge
+    # if the user already has a lnguage accosiated with it make it redirect to
+    # the langauge explore page because of access control it should only view
+    # this view if the user does not have any langauges accosiated with it.
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_settings": current_basic_user_settings,
+    }
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "authentication/welcome.html", data)
