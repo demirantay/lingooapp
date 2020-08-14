@@ -3,20 +3,48 @@
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/authentication/signup.css' %}" />
+
+  {% if invalid_credentials == True %}
+    <style>
+      #signup-rules-list li {
+        color: orange;
+      }
+    </style>
+  {% elif credentials_taken == True %}
+    <style>
+      #signup-rules-list li {
+        color: orange;
+      }
+    </style>
+  {% endif %}
+
 {% endblock %}
 
 {% block content %}
 <!-- signup form -->
 <div id="signup-container">
   <h1>Create your new account</h1>
-  <form>
+
+  {% if invalid_credentials == True %}
+    <div id="signup-login-warning-box">
+      <p>Invalid username or password</p>
+    </div>
+  {% elif credentials_taken == True %}
+    <div id="signup-login-warning-box">
+      <p>Username or email is already taken</p>
+    </div>
+  {% endif %}
+
+  <form action="{% url 'signup' %}" method="POST" >
+    {% csrf_token %}
     <input type="text" placeholder="Username" name="username" />
     <input type="text" placeholder="Email" name="email"/>
-    <input type="password" placeholder="Password" />
-    <ul>
+    <input type="password" placeholder="Password" name="password" />
+    <ul id="signup-rules-list">
       <li>Must contain at least one number or text character.</li>
       <li>Must be longer than 8 characters.</li>
-      <li>Must contain at least one uppercase letter.</li>
+      <li>Username and Password cannot match.</li>
+      <li>Username cannot be offensive.</li>
     </ul>
     <input type="password" placeholder="Re-enter Password" name="re_entered_password" />
     <input type="submit" value="Sign Up" name="signup_form_submit_btn" id="signup-form-submit-btn" />
