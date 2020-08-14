@@ -151,7 +151,48 @@ def login(request):
         del request.session["basic_user_username"]
         del request.session["basic_user_logged_in"]
 
-    data = {}
+    # Login Form Processing
+    invalid_credentials = False
+
+    if request.POST.get("login_form_submit_btn"):
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # checking if the inputs are empty
+        if bool(username) == False or bool(password) == False:
+            invalid_credentials = True
+        else:
+            # Check if the user credits are right and if they
+            # are log the user into the system and add sessions
+            try:
+                user = User.objects.get(username=username)
+            except ObjectDoesNotExist:
+                user = None
+
+            if user == None:
+                invalid_credentials = True
+            else:
+                # check password if it matches
+                # redirect to home with sessions
+                is_valid = user.check_password(password)
+
+                if is_valid == True:
+                    # update sessions
+                    # update sessions
+                    request.session["basic_user_email"] = user.email
+                    request.session["basic_user_username"] = user.username
+                    request.session["basic_user_logged_in"] = True
+                    return HttpResponseRedirect("/forum/")
+                else:
+                    invalid_credentials = True
+
+    # Preventing brute force
+    # ... havent implemented this yet
+
+    data = {
+        "invalid_credentials": invalid_credentials,
+    }
+
     return render(request, "authentication/login.html", data)
 
 
@@ -169,7 +210,10 @@ def logout(request):
 
 
 def welcome(request):
-    """users use this inital congrats page to choose their first language"""
+    """
+    users contact this page after they signup. This page makes them choose
+    their first language
+    """
 
     data = {}
     return render(request, "authentication/welcome.html", data)

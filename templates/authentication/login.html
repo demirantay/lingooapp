@@ -10,14 +10,18 @@
 <div id="signup-container">
   <h1>Login to your account</h1>
 
+
+  {% if invalid_credentials == True %}
   <div id="signup-login-warning-box">
     <p>Invalid username or password</p>
   </div>
+  {% endif %}
 
-  <form>
-    <input type="text" placeholder="Email" name="email"/>
-    <input type="password" placeholder="Password" />
-    <input type="submit" value="Login" name="signup_form_submit_btn" id="signup-form-submit-btn" />
+  <form method="POST" action="{% url 'login' %}" >
+    {% csrf_token %}
+    <input type="text" placeholder="Username" name="username"/>
+    <input type="password" placeholder="Password" name="password" />
+    <input type="submit" value="Login" name="login_form_submit_btn" id="signup-form-submit-btn" />
   </form>
   <p>
       If you do not have an account, <a href="{% url 'signup' %}">signup</a> to our platform.
