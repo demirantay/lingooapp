@@ -338,4 +338,213 @@
   text-decoration: underline;
 }
 
-/* ----------- hidden update form ----------- */
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #post-content-container {
+    margin-top: 30px;
+  }
+
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 98%;
+  }
+
+  /* -------- post-coontent-part -------- */
+  #post-content-left-part {
+    border: 1px solid transparent;
+    width: 15%;
+    height: 100px;
+  }
+
+  #post-content-profile-photo {
+    height: 40px;
+    width: 40px;
+  }
+
+  #post-content-right-part {
+    border: 1px solid transparent;
+    width: 78%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #post-content-right-part-operations {
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations p {
+    margin-right: 5px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations form {;
+    display: block;
+  }
+
+  #post-content-right-part-operations button {
+    padding: 6px 12px;
+  }
+
+  #post-content-right-part-operations a {
+    padding: 6px 12px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #post-content-container {
+    margin-top: 30px;
+  }
+
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 98%;
+  }
+
+  /* -------- post-coontent-part -------- */
+  #post-content-left-part {
+    border: 1px solid transparent;
+    width: 15%;
+    height: 100px;
+  }
+
+  #post-content-profile-photo {
+    height: 40px;
+    width: 40px;
+  }
+
+  #post-content-right-part {
+    border: 1px solid transparent;
+    width: 78%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #post-content-right-part-operations {
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations p {
+    margin-right: 5px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations form {;
+    display: block;
+  }
+
+  #post-content-right-part-operations button {
+    padding: 6px 12px;
+  }
+
+  #post-content-right-part-operations a {
+    padding: 6px 12px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #post-content-container {
+    margin-top: 30px;
+  }
+
+  #forum-container-left-part {
+    border: 1px solid transparent;
+    width: 98%;
+  }
+
+  /* -------- post-coontent-part -------- */
+  #post-content-left-part {
+    border: 1px solid transparent;
+    width: 15%;
+    height: 100px;
+  }
+
+  #post-content-profile-photo {
+    height: 40px;
+    width: 40px;
+  }
+
+  #post-content-right-part {
+    border: 1px solid transparent;
+    width: 78%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #post-content-right-part-operations {
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations p {
+    margin-right: 5px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #post-content-right-part-operations form {;
+    display: block;
+  }
+
+  #post-content-right-part-operations button {
+    padding: 6px 12px;
+  }
+
+  #post-content-right-part-operations a {
+    padding: 6px 12px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
