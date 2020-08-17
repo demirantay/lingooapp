@@ -232,11 +232,20 @@ def welcome(request):
         ObjectDoesNotExist
     )
 
-    # Creating your new langauge
     # if the user already has a lnguage accosiated with it make it redirect to
     # the langauge explore page because of access control it should only view
     # this view if the user does not have any langauges accosiated with it.
-    # ...
+    try:
+        student_for_redirection = Student.objects.filter(
+            basic_user_profile=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        student_for_redirection = None
+
+    if student_for_redirection.exists() == True:
+        # if current user is assigned to a language this view is not allowed
+        # so redirect the user to homepage
+        return HttpResponseRedirect("/")
 
     # Get all of the languages
     try:
@@ -256,12 +265,24 @@ def welcome(request):
         # check if the student is already created and connected to a langauge
         # if created dont create a new one
         try:
-            student = Student.objects.get(langauge=language, basic_user_profile=current_basic_user)
+            student = Student.objects.get(
+                langauge=language,
+                basic_user_profile=current_basic_user_profile
+            )
         except ObjectDoesNotExist:
-            pass
+            student = None
 
-
-    # redirect it to the home page
+        if student == None:
+            # there is no record so create one and redirect
+            new_student = Student(
+                langauge=language,
+                basic_user_profile=current_basic_user_profile
+            )
+            new_student.save()
+            return HttpResponseRedirect("/")
+        else:
+            # there is a record do not create anything just redirect
+            return HttpResponseRedirect("/")
 
     data = {
         "current_basic_user": current_basic_user,

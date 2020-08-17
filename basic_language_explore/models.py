@@ -39,9 +39,9 @@ class Student(models.Model):
     id = models.AutoField(primary_key=True)
     creation_date = models.DateField(default=timezone.now)
     langauge = models.ForeignKey(Language, on_delete=models.CASCADE)
-    basic_user_profile = models.OneToOneField(
+    basic_user_profile = models.ForeignKey(
         BasicUserProfile,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     def __str__(self):

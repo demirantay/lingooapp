@@ -43,9 +43,13 @@
     <div id="top-nav">
       <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
       <div id="top-nav-links">
-        <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
-        <a href="{% url 'signup' %}" id="login-signup-link">Signup</a>
-        <a href="{% url 'login' %}" id="login-signup-link" >Login</a>
+        {% if current_basic_user == None %}
+          <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
+          <a href="{% url 'signup' %}" id="login-signup-link">Signup</a>
+          <a href="{% url 'login' %}" id="login-signup-link" >Login</a>
+        {% else %}
+          <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
+        {% endif %}
       </div>
     </div>
 
