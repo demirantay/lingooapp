@@ -154,6 +154,7 @@ def profile_settings_edit_profile(request):
 
 def profile_settings_change_password(request):
     """
+    In this page the user can change their password
     """
     # Deleting any sessions regarding top-tier type of users
     # session.pop("programmer_username", None)  <-- these are flask change it
@@ -170,6 +171,13 @@ def profile_settings_change_password(request):
         BasicUserProfile,
         ObjectDoesNotExist
     )
+
+    # Change Password form processing
+    empty_input = False
+    old_password_not_matching = False
+    new_password_not_matching = False
+    less_than_8_chars = False
+    contains_digit = True
 
     data = {
         "current_basic_user": current_basic_user,
@@ -184,6 +192,8 @@ def profile_settings_change_password(request):
 
 def profile_settings_email_sms(request):
     """
+    In this page the member users can view and update their
+    email and SMS settings
     """
     # Deleting any sessions regarding top-tier type of users
     # session.pop("programmer_username", None)  <-- these are flask change it
@@ -200,6 +210,36 @@ def profile_settings_email_sms(request):
         BasicUserProfile,
         ObjectDoesNotExist
     )
+
+    # Email and SMS form processing
+    if request.POST.get("email_sms_submit_btn"):
+        feedback_emails = request.POST.get("feedback_emails")
+        reminder_emails = request.POST.get("reminder_emails")
+        product_emails = request.POST.get("product_emails")
+        news_emails = request.POST.get("news_emails")
+
+        if feedback_emails == "true":
+            current_basic_user_profile.feedback_emails = True
+        else:
+            current_basic_user_profile.feedback_emails = False
+
+        if reminder_emails == "true":
+            current_basic_user_profile.reminder_emails = True
+        else:
+            current_basic_user_profile.reminder_emails = False
+
+        if product_emails == "true":
+            current_basic_user_profile.product_emails = True
+        else:
+            current_basic_user_profile.product_emails = False
+
+        if news_emails == "true":
+            current_basic_user_profile.news_emails = True
+        else:
+            current_basic_user_profile.news_emails = False
+
+        current_basic_user_profile.save()
+        return HttpResponseRedirect("/profile/")
 
     data = {
         "current_basic_user": current_basic_user,

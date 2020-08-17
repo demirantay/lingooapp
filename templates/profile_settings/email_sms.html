@@ -17,13 +17,18 @@
 <!-- edit profile -->
 <div id="profile-settings-container">
 
-  <form>
+  <form method="POST" action="{% url 'profile_settings_email_sms' %}">
+    {% csrf_token %}
 
     <h3>Subscribe to:</h3>
     <Br />
 
     <div id="checkbox-input-left-part">
-      <input id="checkbox-input" type="checkbox" name="feedback_emails" value="true"/>
+      {% if current_basic_user_profile.feedback_emails == True %}
+          <input id="checkbox-input" type="checkbox" name="feedback_emails" value="true" checked/>
+      {% else %}
+          <input id="checkbox-input" type="checkbox" name="feedback_emails" value="true"/>
+      {% endif %}
     </div>
     <div id="checkbox-input-right-part">
       <b>Feedback Emails</b><br />
@@ -32,7 +37,11 @@
     <br><br />
 
     <div id="checkbox-input-left-part">
-      <input id="checkbox-input" type="checkbox" name="reminder_emails" value="true"/>
+      {% if current_basic_user_profile.reminder_emails == True %}
+          <input id="checkbox-input" type="checkbox" name="reminder_emails" value="true" checked/>
+      {% else %}
+          <input id="checkbox-input" type="checkbox" name="reminder_emails" value="true"/>
+      {% endif %}
     </div>
     <div id="checkbox-input-right-part">
       <b>Reminder emails</b><br />
@@ -41,7 +50,11 @@
     <br><br />
 
     <div id="checkbox-input-left-part">
-      <input id="checkbox-input" type="checkbox" name="product_emails" value="true"/>
+      {% if current_basic_user_profile.product_emails == True %}
+          <input id="checkbox-input" type="checkbox" name="product_emails" value="true" checked/>
+      {% else %}
+          <input id="checkbox-input" type="checkbox" name="product_emails" value="true"/>
+      {% endif %}
     </div>
     <div id="checkbox-input-right-part">
       <b>Product emails</b><br />
@@ -50,7 +63,11 @@
     <br><br />
 
     <div id="checkbox-input-left-part">
-      <input id="checkbox-input" type="checkbox" name="news_emails" value="true"/>
+      {% if current_basic_user_profile.news_emails == True %}
+          <input id="checkbox-input" type="checkbox" name="news_emails" value="true" checked/>
+      {% else %}
+          <input id="checkbox-input" type="checkbox" name="news_emails" value="true"/>
+      {% endif %}
     </div>
     <div id="checkbox-input-right-part">
       <b>News emails</b><br />
@@ -58,7 +75,7 @@
     </div>
     <br><br />
 
-    <input type="submit" value="save" id="profile-settings-submit-btn" />
+    <input type="submit" value="save" id="profile-settings-submit-btn" name="email_sms_submit_btn" />
 
   </form>
 
