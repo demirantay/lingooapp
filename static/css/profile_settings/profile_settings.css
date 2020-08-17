@@ -36,6 +36,17 @@
   border-color: #E3102E !important;
 }
 
+/* ------- warning sign -------- */
+
+#warning-sign {
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+#warning-sign h3 {
+  color: orange;
+}
+
 /* ------- edit profile -------- */
 #profile-settings-container {
   border: 1px solid  transparent;
@@ -128,7 +139,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../placeholder/placeholder-feature.png");
 }
 
 #settings-profile-photo-preview-container-right-part {

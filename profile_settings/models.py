@@ -28,6 +28,7 @@ class BasicUserProfile(models.Model):
     bio = models.TextField(blank=True, null=True)
     full_name = models.CharField(max_length=100, blank=True, null=True)
     personal_url = models.CharField(max_length=1000, blank=True, null=True)
+    location = models.CharField(max_length=1000, blank=True, null=True)
 
     # Email & SMS -- settings
     feedback_emails = models.BooleanField(default=False)

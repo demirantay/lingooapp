@@ -17,19 +17,46 @@
 <!-- edit profile -->
 <div id="profile-settings-container">
 
-  <form>
+  {% if empty_credentials == True %}
+    <div id="warning-sign">
+      <h3>cannot enter empty username or email</h3>
+    </div>
+  {% elif invalid_credentials == True %}
+    <div id="warning-sign">
+      <h3>invalid input</h3>
+    </div>
+  {% elif username_taken == True %}
+    <div id="warning-sign">
+      <h3>username is taken</h3>
+    </div>
+  {% elif email_taken == True %}
+    <div id="warning-sign">
+      <h3>email is taken</h3>
+    </div>
+  {% endif %}
 
+  <form method="POST" action="{% url 'profile_settings_edit_profile' %}" enctype="multipart/form-data">
+    {% csrf_token %}
     <!-- if the profile images input is empty just enter this previews value to it -->
 
     <div id="settings-profile-photo-preview-container">
       <div id="settings-profile-photo-preview-container-left-part">
-        <div id="settings-profile-photo-preview"></div>
+        {% if current_basic_user_profile.profile_photo %}
+          <div id="settings-profile-photo-preview" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');" ></div>
+        {% else %}
+            <div id="settings-profile-photo-preview" style="background-image: url('');" ></div>
+        {% endif %}
       </div>
       <div id="settings-profile-photo-preview-container-right-part">
         <label id="profile-photo-label" for="profile-photo"><span class="fa fa-plus"></span> Change profile photo</label>
       </div>
     </div>
-    <input type="file" id="profile-photo" class="hidden-profile-photo-input" />
+
+    {% if current_basic_user_profile.profile_photo %}
+      <input type="file" id="profile-photo" class="hidden-profile-photo-input" name="profile_photo" value="{{ current_basic_user_profile.profile_photo.url }}" />
+    {% else %}
+      <input type="file" id="profile-photo" class="hidden-profile-photo-input" name="profile_photo"/>
+    {% endif %}
 
     <script>
       let photo_preview = document.getElementById("settings-profile-photo-preview");
@@ -45,24 +72,42 @@
 
 
     <label>Full Name</label>
-    <input type="text" placeholder="ex. Joe Smith" />
+    {% if current_basic_user_profile.full_name == None %}
+      <input type="text" placeholder="ex. Joe Smith" name="full_name" />
+    {% else %}
+      <input type="text" placeholder="ex. Joe Smith" name="full_name" value="{{ current_basic_user_profile.full_name }}" />
+    {% endif %}
+
 
     <label>Username</label>
-    <input type="text" placeholder="ex. useranme" />
+    <input type="text" placeholder="ex. useranme" name="username" value="{{ current_basic_user.username }}" />
 
     <label>Email</label>
-    <input type="text" placeholder="ex. email@example.com" />
+    <input type="text" placeholder="ex. email@example.com" name="email" value="{{ current_basic_user.email }}" />
 
     <label>About</label>
-    <textarea placeholder="Tell a bit about yourself"></textarea>
+    {% if current_basic_user_profile.bio == None %}
+      <textarea placeholder="Tell a bit about yourself" name="bio"></textarea>
+    {% else %}
+      <textarea placeholder="Tell a bit about yourself" name="bio">{{ current_basic_user_profile.bio }}</textarea>
+    {% endif %}
 
     <label>Location</label>
-    <input type="text" placeholder="ex. New York" />
+    {% if current_basic_user_profile.bio == None %}
+      <input type="text" placeholder="ex. New York" name="location" />
+    {% else %}
+      <input type="text" placeholder="ex. New York" name="location" value="{{ current_basic_user_profile.location }}" />
+    {% endif %}
 
     <label>Personal Link</label>
-    <input type="text" placeholder="Add your personal link" />
+    {% if current_basic_user_profile.bio == None %}
+      <input type="text" placeholder="Add your personal link" name="personal_link" />
+    {% else %}
+      <input type="text" placeholder="Add your personal link" name="personal_link" value="{{ current_basic_user_profile.personal_url }}" />
+    {% endif %}
 
-    <input type="submit" value="save" id="profile-settings-submit-btn" />
+
+    <input type="submit" value="save" id="profile-settings-submit-btn" name="profile_edit_submit_btn" />
 
   </form>
 
