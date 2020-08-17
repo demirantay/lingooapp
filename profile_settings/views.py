@@ -178,10 +178,73 @@ def profile_settings_change_password(request):
     new_password_not_matching = False
     less_than_8_chars = False
     contains_digit = True
+    username_password_similar = False
+
+    if request.POST.get("change_password_submit_btn"):
+        old_password = request.POST.get("old_password")
+        new_password = request.POST.get("new_password")
+        new_password_again = request.POST.get("new_password_again")
+
+        # check if the any of the inputs are empty
+        if bool(old_password) == False \
+           or bool(new_password) == False \
+           or bool(new_password_again) == False:
+            empty_input = True
+        else:
+            # check if the password is same as username
+            if new_password == current_basic_user.username:
+                username_password_similar = True
+            else:
+                # it is not similar now check if the old passowrd is matching
+                # with the current user
+                is_matching = current_basic_user.check_password(old_password)
+
+                if is_matching == True:
+                    # check if the new passwords match
+                    if new_password == new_password_again:
+                        # check if passwords is greater than 8 chars
+                        if len(new_password) >= 8:
+                            # check if the passwords contain any digit
+                            # I will probably forget why i turned this into
+                            # false but let me explain: if i do not turn
+                            # this into false, and set it to false on top
+                            # of the file the template uses the false value
+                            # even there is no data in the form and outputs
+                            # the red warnign sign saying the pwd needs
+                            # digits. This way when the view loads it is
+                            # set to true at the top therefore it does not
+                            # get the red warning and I set it to false
+                            # over here so that if the below loop does not
+                            # find any digits in it the contains_digit will
+                            # be set to false for the red warning template
+                            contains_digit = False
+                            for char in new_password:
+                                if char.isdigit():
+                                    contains_digit = True
+
+                            if contains_digit == True:
+                                # change the password and log the user out
+                                current_basic_user.set_password(new_password)
+                                current_basic_user.save()
+                                return HttpResponseRedirect("/auth/logout/")
+                            else:
+                                contains_digit = False
+                        else:
+                            less_than_8_chars = True
+                    else:
+                        new_password_not_matching = True
+                else:
+                    old_password_not_matching = True
 
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "empty_input": empty_input,
+        "old_password_not_matching": old_password_not_matching,
+        "new_password_not_matching": new_password_not_matching,
+        "less_than_8_chars": less_than_8_chars,
+        "contains_digit": contains_digit,
+        "username_password_similar": username_password_similar,
     }
 
     if current_basic_user == None:
