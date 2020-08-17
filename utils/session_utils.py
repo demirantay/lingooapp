@@ -14,7 +14,7 @@ def get_current_user(request, User, ObjectDoesNotExist):
     return current_user
 
 
-def get_current_user_settings(request, User, BasicUserProfile, ObjectDoesNotExist):
+def get_current_user_profile(request, User, BasicUserProfile, ObjectDoesNotExist):
     """gets the current users settings"""
     # Get the current user
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -40,7 +40,7 @@ def get_other_user(request, other_user_username, User, ObjectDoesNotExist):
     return other_user
 
 
-def get_other_user_settings(request, other_user_username, User, BasicUserProfile, ObjectDoesNotExist):
+def get_other_user_profile(request, other_user_username, User, BasicUserProfile, ObjectDoesNotExist):
     """gets the other users settings"""
     # Get the other user
     other_basic_user = get_current_user(request, User, ObjectDoesNotExist)

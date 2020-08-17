@@ -10,7 +10,8 @@ from django.contrib.auth.models import User
 # My Module Imports
 from utils.auth_utils import get_banned_words
 from profile_settings.models import BasicUserProfile
-from utils.session_utils import get_current_user, get_current_user_settings
+from basic_language_explore.models import Language, Student
+from utils.session_utils import get_current_user, get_current_user_profile
 
 
 def signup(request):
@@ -224,7 +225,7 @@ def welcome(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -235,10 +236,37 @@ def welcome(request):
     # if the user already has a lnguage accosiated with it make it redirect to
     # the langauge explore page because of access control it should only view
     # this view if the user does not have any langauges accosiated with it.
+    # ...
+
+    # Get all of the languages
+    try:
+        all_languages = Language.objects.all()
+    except ObjectDoesNotExist:
+        all_languages = None
+
+    # Create new student form processing
+    if request.POST.get("langauge_choose_submit_btn"):
+        hidden_language_name = request.POST.get("hidden_langauge")
+        # get the language obj
+        try:
+            language = Language.objects.get(name=hidden_language_name)
+        except ObjectDoesNotExist:
+            language = None
+
+        # check if the student is already created and connected to a langauge
+        # if created dont create a new one
+        try:
+            student = Student.objects.get(langauge=language, basic_user_profile=current_basic_user)
+        except ObjectDoesNotExist:
+            pass
+
+
+    # redirect it to the home page
 
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_settings": current_basic_user_settings,
+        "all_languages": all_languages,
     }
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")

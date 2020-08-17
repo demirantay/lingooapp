@@ -18,53 +18,21 @@
 <!-- language cells -->
 <div id="language-cell-container">
 
-  <!-- flag cell -->
-  <div id="flag-cell">
-    <div id="flag"></div>
-    <h1>Spanish</h1>
-    <p>
-        1.2 Million Learners
-    </p>
-    <form>
-        <input type="submit" value="Choose" />
-    </form>
-  </div>
-
-  <!-- flag cell -->
-  <div id="flag-cell">
-    <div id="flag"></div>
-    <h1>Spanish</h1>
-    <p>
-        1.2 Million Learners
-    </p>
-    <form>
-        <input type="submit" value="Choose" />
-    </form>
-  </div>
-
-  <!-- flag cell -->
-  <div id="flag-cell">
-    <div id="flag"></div>
-    <h1>Spanish</h1>
-    <p>
-        1.2 Million Learners
-    </p>
-    <form>
-        <input type="submit" value="Choose" />
-    </form>
-  </div>
-
-  <!-- flag cell -->
-  <div id="flag-cell">
-    <div id="flag"></div>
-    <h1>Spanish</h1>
-    <p>
-        1.2 Million Learners
-    </p>
-    <form>
-        <input type="submit" value="Choose" />
-    </form>
-  </div>
+  {% for language in all_languages %}
+    <!-- flag cell -->
+    <div id="flag-cell">
+      <div id="flag" style="background-image: url('{{ language.flag.url }}');" ></div>
+      <h1>{{ language.name }}</h1>
+      <p>
+          ... Learners
+      </p>
+      <form action="{% url 'welcome' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" value="{{ language.name }}" name="hidden_langauge"/>
+          <input type="submit" value="Choose" name="langauge_choose_submit_btn"/>
+      </form>
+    </div>
+  {% endfor %}
 
 </div>
 

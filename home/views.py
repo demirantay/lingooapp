@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
-from utils.session_utils import get_current_user, get_current_user_settings
+from utils.session_utils import get_current_user, get_current_user_profile
 
 
 def index(request):
@@ -23,7 +23,7 @@ def index(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,

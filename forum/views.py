@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
-from utils.session_utils import get_current_user, get_current_user_settings
+from utils.session_utils import get_current_user, get_current_user_profile
 
 
 def forum_landing_page(request):
@@ -25,7 +25,7 @@ def forum_landing_page(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -58,7 +58,7 @@ def forum_create(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -89,7 +89,7 @@ def forum_read(request, post_id):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -123,7 +123,7 @@ def forum_update(request, post_id):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,

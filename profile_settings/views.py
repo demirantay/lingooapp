@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
-from utils.session_utils import get_current_user, get_current_user_settings
+from utils.session_utils import get_current_user, get_current_user_profile
 
 def profile_settings_edit_profile(request):
     """
@@ -23,7 +23,7 @@ def profile_settings_edit_profile(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -53,7 +53,7 @@ def profile_settings_change_password(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -83,7 +83,7 @@ def profile_settings_email_sms(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_settings(
+    current_basic_user_settings = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
