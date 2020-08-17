@@ -25,7 +25,7 @@ def about(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -34,7 +34,7 @@ def about(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
     return render(request, "about/about.html", data)
 
@@ -50,7 +50,7 @@ def about_community_rules(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -59,7 +59,7 @@ def about_community_rules(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
     return render(request, "about/community_rules.html", data)
 
@@ -75,7 +75,7 @@ def about_terms(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -84,7 +84,7 @@ def about_terms(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
     return render(request, "about/terms_and_agreements.html", data)
 
@@ -100,7 +100,7 @@ def about_privacy(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -109,6 +109,6 @@ def about_privacy(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
     return render(request, "about/privacy_policy.html", data)

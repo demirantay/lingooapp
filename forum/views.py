@@ -37,7 +37,7 @@ def forum_landing_page(request):
     data = {
         "all_posts": all_posts,
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
 
     if current_basic_user == None:
@@ -58,7 +58,7 @@ def forum_create(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -67,7 +67,7 @@ def forum_create(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
 
     if current_basic_user == None:
@@ -89,7 +89,7 @@ def forum_read(request, post_id):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -100,7 +100,7 @@ def forum_read(request, post_id):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
         "post_comments": post_comments,
     }
 
@@ -123,7 +123,7 @@ def forum_update(request, post_id):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -132,7 +132,7 @@ def forum_update(request, post_id):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
 
     if current_basic_user == None:

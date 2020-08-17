@@ -24,7 +24,7 @@ def profile_overview(request):
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    current_basic_user_settings = get_current_user_profile(
+    current_basic_user_profile = get_current_user_profile(
         request,
         User,
         BasicUserProfile,
@@ -33,7 +33,7 @@ def profile_overview(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
     }
 
     if current_basic_user == None:

@@ -265,7 +265,7 @@ def welcome(request):
 
     data = {
         "current_basic_user": current_basic_user,
-        "current_basic_user_settings": current_basic_user_settings,
+        "current_basic_user_profile": current_basic_user_profile,
         "all_languages": all_languages,
     }
     if current_basic_user == None:
