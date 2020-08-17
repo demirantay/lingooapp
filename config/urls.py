@@ -36,6 +36,11 @@ urlpatterns = [
     # ---------
     # ...
     path("", include("forum.urls")),
+
+    # Basic Language Explore
+    # ----------
+    # ...
+    path("", include("basic_language_explore.urls")),
 ]
 
 if settings.DEBUG:

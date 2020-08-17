@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "profile_app",
     'profile_settings',
     'forum',
+    'basic_language_explore',
 ]
 
 MIDDLEWARE = [
