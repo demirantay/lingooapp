@@ -30,7 +30,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../placeholder/test.jpg");
+
   margin-top: 10px;
 }
 
@@ -69,7 +69,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../flags/spain.png");
+
   display: inline-block;
   vertical-align: middle;
 }
@@ -105,6 +105,10 @@
 #post-content-right-part-operations form label {
   font-size: 25px;
   margin: 0px;
+}
+
+#post-content-right-part-operations form label:hover {
+  cursor: pointer;
 }
 
 #post-content-right-part-operations button {
@@ -224,12 +228,14 @@
 }
 
 #comment-cell-left-part form input {
-  width: 0.1px !important;
-  height: 0.1px !important;
-  opacity: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  z-index: -1 !important;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 13px;
+}
+
+#comment-cell-left-part form input:hover {
+  color: #E3102E;
+  cursor: pointer;
 }
 
 #comment-cell-left-part form label {

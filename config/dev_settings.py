@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     # 3rd party or djangos utils lib
     'django.contrib.postgres',
 
-    # My apps:
+    # Basic User Apps:
     'home',
     'about',
     'authentication',

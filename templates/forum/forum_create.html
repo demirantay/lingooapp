@@ -18,14 +18,23 @@
       <h1>Welcome to the Lingoo Community!</h1>
     </div>
 
+    {% if empty_input == True %}
+      <div id="warning-box">
+        <h3>cannot enter empty input!</h3>
+      </div>
+    {% endif %}
+
     <!-- create post -->
-    <form id="create-post-form">
-      <input type="text" placeholder="Post Title" />
-      <select name="">
-        <option value="spanish">spanish</option>
+    <form id="create-post-form" method="POST" action="{% url 'forum_create' %}">
+      {% csrf_token %}
+      <input type="text" placeholder="Post Title" name="post_title" />
+      <select name="post_language">
+        {% for language in all_languages %}
+          <option value="{{ language.name }}">{{ language.name }}</option>
+        {% endfor %}
       </select>
-      <textarea placeholder="Type your post content"></textarea>
-      <input type="submit" value="Post" id="create-post-submit-btn" />
+      <textarea placeholder="Type your post content" name="post_content" ></textarea>
+      <input type="submit" value="Post" id="create-post-submit-btn" name="forum_create_post_btn" />
     </form>
 
   </div><!-- /left part container -->
@@ -33,26 +42,15 @@
   <!-- right part -->
   <div id="forum-container-right-part">
     <!-- forum right language categories -->
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
 
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
+    {% for language in all_languages %}
+      <div id="category-cell">
+        <a href="{% url 'forum_category_page' language.name %}">
+          <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+           {{ language.name }}
+        </a>
+      </div>
+    {% endfor %}
 
   </div><!-- /right part -->
 

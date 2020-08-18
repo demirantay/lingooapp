@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     # Landing Page
     path('forum/', views.forum_landing_page, name="forum_landing_page"),
+    # Category Page
+    path("forum/category/<str:category_language>/", views.forum_category_page, name="forum_category_page"),
     # Forum Create
     path('forum/create/', views.forum_create, name="forum_create"),
     # Forum read

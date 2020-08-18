@@ -21,40 +21,43 @@
     <!-- post content part -->
     <div id="post-content-container">
       <div id="post-content-left-part">
-        <div id="post-content-profile-photo"></div>
+        {% if current_post.user_profile.profile_photo %}
+          <div id="post-content-profile-photo" style="background-image: url('{{ current_post.user_profile.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="post-content-profile-photo" style="background-image: url('');"></div>
+        {% endif %}
       </div>
       <div id="post-content-right-part">
-        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
-        <a href="">@username</a>
-        <div id="post-content-right-part-flag"></div>
+        <h1>{{ current_post.post_title }}</h1>
+        <a href="{% url 'other_user_profile_overview' current_post.user_profile.username %}">@{{ current_post.user_profile.username }}</a>
+        <div id="post-content-right-part-flag" style="background-image: url('{{ current_post.language.flag.url }}');"></div>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            {{ current_post.content }}
         </p>
         <div id="post-content-right-part-operations">
           <!-- post points -->
-          <p><b>1542</b></p>
+          <p><b>{{ current_post.karma }}</b></p>
           <!-- upvote -->
-          <form>
+          <form method="POST" action="{% url 'forum_read' current_post.id %}" >
+              {% csrf_token %}
               <label for="post-content-upvote"><span class="fa fa-angle-up" ></span></label>
-              <input type="submit" value="submit" id="post-content-upvote" />
+              <input type="submit" value="submit" id="post-content-upvote" name="post_content_upvote" />
           </form>
           <!-- downvote -->
-          <form>
+          <form method="POST" action="{% url 'forum_read' current_post.id %}">
+              {% csrf_token %}
               <label for="post-content-downvote"><span class="fa fa-angle-down" ></span></label>
-              <input type="submit" value="submit" id="post-content-downvote" />
+              <input type="submit" value="submit" id="post-content-downvote" name="post_content_downvote"/>
           </form>
           <!-- date -->
-          <p>12, Aug, 2020</p>
-          <!-- edit button -->
-          <a href="">EDIT</a>
-          <!-- delete button -->
-          <button id="hidden_delete_open_button">DELETE</button>
+          <p>{{ current_post.creation_date }}</p>
+
+          {% if current_user_is_owner == True %}
+            <!-- edit button -->
+            <a href="{% url 'forum_update' current_post.id %}">EDIT</a>
+            <!-- delete button -->
+            <button id="hidden_delete_open_button">DELETE</button>
+          {% endif %}
         </div>
       </div>
 
@@ -86,42 +89,40 @@
     <div id="comments-container">
       <div id="comments-container-create-comment">
         <!-- make comment form -->
-        <form>
-          <textarea placeholder="Leave a comment ..."></textarea>
-          <input type="submit" value="POST"/>
+        <form method="POST" action="{% url 'forum_read' current_post.id %}">
+          {% csrf_token %}
+          <textarea placeholder="Leave a comment ..." name="comment_content"></textarea>
+          <input type="submit" value="POST" name="comment_submit_btn"/>
         </form>
       </div>
 
-      {% for comment in post_comments %}
-      <!-- comment listsings -->
-      <div id="comment-cell">
-        <div id="comment-cell-left-part">
-          <form>
-            <label for="comment-upvote"><span class="fa fa-caret-up"></span></label>
-            <input type="submit" id="comment-upvote" />
-          </form>
-          <form>
-            <label for="comment-downvote"><span class="fa fa-caret-down"></span></label>
-            <input type="submit" id="comment-downvote" />
-          </form>
-        </div>
-        <div id="comment-cell-right-part">
-          <div id="comment-info">
-            <a href="">@username</a>
-            <p>9102 points | 20 jun 2020</p>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
-        </div>
-      </div><!-- /comment cell -->
-      {% endfor %}
+      {% for comment in current_post_comments_sorted %}
+        <!-- comment listsings -->
+        <div id="comment-cell">
+          <div id="comment-cell-left-part">
+            <form method="POST" action="{% url 'forum_read' current_post.id %}">
+              {% csrf_token %}
+              <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+              <input type="submit" value="&#9650;" id="comment-upvote" name="comment_upvote_submit_btn" />
+            </form>
 
+            <form method="POST" action="{% url 'forum_read' current_post.id %}" >
+              {% csrf_token %}
+              <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+              <input type="submit" value="&#9660" id="comment-downvote" name="comment_downvote_submit_btn" />
+            </form>
+          </div>
+          <div id="comment-cell-right-part">
+            <div id="comment-info">
+              <a href="{% url 'other_user_profile_overview' comment.user_profile.username %}">@{{ comment.user_profile.username }}</a>
+              <p>{{ comment.karma }} points | {{ comment.creation_date }}</p>
+            </div>
+            <p>
+              {{ comment.content }}
+            </p>
+          </div>
+        </div><!-- /comment cell -->
+      {% endfor %}
 
     </div>
 
@@ -131,26 +132,14 @@
   <!-- right part -->
   <div id="forum-container-right-part">
     <!-- forum right language categories -->
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
+    {% for language in all_languages %}
+      <div id="category-cell">
+        <a href="{% url 'forum_category_page' language.name %}">
+          <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+           {{ language.name }}
+        </a>
+      </div>
+    {% endfor %}
 
   </div><!-- /right part -->
 
