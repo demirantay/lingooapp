@@ -43,7 +43,7 @@ def get_other_user(request, other_user_username, User, ObjectDoesNotExist):
 def get_other_user_profile(request, other_user_username, User, BasicUserProfile, ObjectDoesNotExist):
     """gets the other users settings"""
     # Get the other user
-    other_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+    other_basic_user = get_other_user(request, other_user_username, User, ObjectDoesNotExist)
     # Get the other users settings
     try:
         other_basic_user_settings = BasicUserProfile.objects.get(

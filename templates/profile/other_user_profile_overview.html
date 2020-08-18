@@ -11,21 +11,20 @@
 <!-- profile information -->
 <div id="profile-information">
   <div id="profile-information-left-part">
-    {% if current_basic_user_profile.profile_photo %}
-      <div id="profile-image" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+    {% if other_basic_user_profile.profile_photo %}
+      <div id="profile-image" style="background-image: url('{{ other_basic_user_profile.profile_photo.url }}');"></div>
     {% else %}
-      <div id="profile-image" style="background-image: url('');"></div>
-    {% endif %}
-
+        <div id="profile-image" style="background-image: url('');"></div>
+    {% endif%}
   </div>
   <div id="profile-information-right-part">
-    <h1>{{ current_basic_user_profile.full_name }}</h1>
-    <h3>@{{ current_basic_user.username }}</h3>
+    <h1>{{ other_basic_user_profile.full_name }}</h1>
+    <h3>@{{ other_basic_user.username }}</h3>
     <!-- max char limit: -->
     <p>
-        {{ current_basic_user_profile.bio }}
+        {{ other_basic_user_profile.bio }}
     </p>
-    <a href="{{ current_basic_user_profile.personal_url }}" target="_blank">{{ current_basic_user_profile.personal_url }}</a>
+    <a href="{{ other_basic_user_profile.personal_url }}" target="_blank">{{ other_basic_user_profile.personal_url }}</a>
   </div>
 </div>
 
