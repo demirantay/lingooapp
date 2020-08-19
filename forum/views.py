@@ -15,7 +15,7 @@ from utils.session_utils import get_current_user, get_current_user_profile
 from algorithms.selection_sort import descending_selection_sort
 
 
-def forum_landing_page(request):
+def forum_landing_page(request, page):
     """
     This is the landing page of the forum feature of the site.
     """
@@ -41,14 +41,71 @@ def forum_landing_page(request):
     except ObjectDoesNotExist:
         all_languages = None
 
-    # get all posts
+    # Get pinned posts
+    try:
+        pinned_posts = ForumPost.objects.filter(is_pinned=True)
+    except ObjectDoesNotExist:
+        pinned_posts = None
 
-    all_posts = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    # get pinned post comments
+    pinned_post_comments = {}
+    for post in pinned_posts:
+        comments = ForumComment.objects.filter(post=post)
+        comment_count = 0
+        for comment in comments:
+            comment_count += 1
+        pinned_post_comments[post.id] = comment_count
+
+    # Get all of the posts
+    # At every page there will be 45 entries so always multiply it by that and
+    # then reduce your objects
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    post_records_starting_point = current_page * 46
+    post_records_ending_point = post_records_starting_point + 46
+    try:
+        current_page_posts = ForumPost.objects.all().order_by('-id')[post_records_starting_point:post_records_ending_point]
+    except ObjectDoesNotExist:
+        current_page_posts = None
+
+    # getting posts comment count
+    page_comments = {}
+    for post in current_page_posts:
+        comments = ForumComment.objects.filter(post=post)
+        comment_count = 0
+        for comment in comments:
+            comment_count += 1
+        page_comments[post.id] = comment_count
+
+    # Post cell upvote form processing
+    if request.POST.get("post_upvote_submit_btn"):
+        hidden_post_id = request.POST.get("hidden_post_id")
+        post = ForumPost.objects.get(id=hidden_post_id)
+        # upvote the post
+        post.karma += 1
+        post.save()
+
+    # Post cell downvote form processing
+    if request.POST.get("post_downvote_submit_btn"):
+        hidden_post_id = request.POST.get("hidden_post_id")
+        post = ForumPost.objects.get(id=hidden_post_id)
+        # downvote the post
+        post.karma -= 1
+        post.save()
 
     data = {
-        "all_posts": all_posts,
+        "current_page_posts": current_page_posts,
+        "page_comments": page_comments,
+        "pinned_post_comments": pinned_post_comments,
+        "current_page": page,
+        "previous_page": previous_page,
+        "next_page": next_page,
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "all_languages": all_languages,
+        "pinned_posts": pinned_posts,
     }
 
     if current_basic_user == None:
@@ -57,7 +114,7 @@ def forum_landing_page(request):
         return render(request, "forum/forum_landing_page.html", data)
 
 
-def forum_category_page(request, category_language):
+def forum_category_page(request, category_language, page):
     """
     This is the landing page of the category pages
     """
@@ -77,12 +134,88 @@ def forum_category_page(request, category_language):
         ObjectDoesNotExist
     )
 
-    all_posts = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    # get all languages (categories)
+    try:
+        all_languages = Language.objects.all()
+    except ObjectDoesNotExist:
+        all_languages = None
+
+    # current langauge:
+    try:
+        current_language = Language.objects.get(name=category_language)
+    except ObjectDoesNotExist:
+        current_language = None
+
+    # if current language does not exist return 404
+    if current_language == None:
+        return HttpResponseRedirect("/404/")
+
+    # Get pinned posts
+    try:
+        pinned_posts = ForumPost.objects.filter(is_pinned=True)
+    except ObjectDoesNotExist:
+        pinned_posts = None
+
+    # Get pinned posts comments
+    pinned_post_comments = {}
+    for post in pinned_posts:
+        comments = ForumComment.objects.filter(post=post)
+        comment_count = 0
+        for comment in comments:
+            comment_count += 1
+        pinned_post_comments[post.id] = comment_count
+
+    # Get category posts
+    # At every page there will be 45 entries so always multiply it by that and
+    # then reduce your objects
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    post_records_starting_point = current_page * 46
+    post_records_ending_point = post_records_starting_point + 46
+    try:
+        current_page_posts = ForumPost.objects.filter(language=current_language).order_by('-id')[post_records_starting_point:post_records_ending_point]
+    except ObjectDoesNotExist:
+        current_page_posts = None
+
+    # getting posts comment count
+    page_comments = {}
+    for post in current_page_posts:
+        comments = ForumComment.objects.filter(post=post)
+        comment_count = 0
+        for comment in comments:
+            comment_count += 1
+        page_comments[post.id] = comment_count
+
+    # Post cell upvote form processing
+    if request.POST.get("post_upvote_submit_btn"):
+        hidden_post_id = request.POST.get("hidden_post_id")
+        post = ForumPost.objects.get(id=hidden_post_id)
+        # upvote the post
+        post.karma += 1
+        post.save()
+
+    # Post cell downvote form processing
+    if request.POST.get("post_downvote_submit_btn"):
+        hidden_post_id = request.POST.get("hidden_post_id")
+        post = ForumPost.objects.get(id=hidden_post_id)
+        # downvote the post
+        post.karma -= 1
+        post.save()
 
     data = {
-        "all_posts": all_posts,
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "all_languages": all_languages,
+        "current_language": current_language,
+        "current_page": page,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "current_page_posts": current_page_posts,
+        "page_comments": page_comments,
+        "pinned_posts": pinned_posts,
+        "pinned_post_comments": pinned_post_comments,
     }
 
     if current_basic_user == None:
@@ -140,7 +273,7 @@ def forum_create(request):
                 content=post_content
             )
             new_post.save()
-            return HttpResponseRedirect("/forum/" + str(new_post.id) + "/")
+            return HttpResponseRedirect("/forum/read/" + str(new_post.id) + "/")
 
     data = {
         "current_basic_user": current_basic_user,
@@ -238,7 +371,7 @@ def forum_read(request, post_id):
             content=comment_content
         )
         new_comment.save()
-        return HttpResponseRedirect("/forum/"+str(current_post.id)+"/")
+        return HttpResponseRedirect("/forum/read/"+str(current_post.id)+"/")
 
     # comment upote form processing
     if request.POST.get("comment_upvote_submit_btn"):
@@ -253,6 +386,18 @@ def forum_read(request, post_id):
         current_comment = ForumComment.objects.get(id=hidden_comment_id)
         current_comment.karma -= 1
         current_comment.save()
+
+    # Delete the post and its comments form processing
+    if request.POST.get("delete_submit_btn"):
+        # check if the current user is the owner of the post
+        if current_post.user_profile == current_basic_user_profile:
+            # delete the ppost
+            current_post.delete()
+            # delete all the comments
+            current_post_comments.delete()
+            current_post_comments_sorted = []
+            # redirect to landing page
+            return HttpResponseRedirect("/forum/0/")
 
     data = {
         "current_basic_user": current_basic_user,
@@ -328,7 +473,7 @@ def forum_update(request, post_id):
             current_post.language = language_instance
             current_post.content = post_content
             current_post.save()
-            return HttpResponseRedirect("/forum/"+str(current_post.id)+"/")
+            return HttpResponseRedirect("/forum/read/"+str(current_post.id)+"/")
 
     data = {
         "current_basic_user": current_basic_user,

@@ -39,6 +39,8 @@
 
   <body>
 
+    {% with page="0" %}
+
     <!-- header -->
     <div id="top-nav">
       <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
@@ -65,12 +67,14 @@
       {% else %}
         <!-- if logged in -->
         <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
-        <a href="{% url 'forum_landing_page' %}"><span class="fa fa-comments"></span> Forum</a>
+        <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
         <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
         <a href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a>
       {% endif %}
     </div>
+
+    {% endwith %}
 
     <!-- toggle mobile top navigation -->
     <div id="toggle-top-nav">

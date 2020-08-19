@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}" />
@@ -23,120 +24,109 @@
       </div>
 
       <!-- pinnned post feature request post -->
-      <div id="pinned-post-cell">
-        <div id="pinned-post-cell-left-part">
-          <div id="profile-photo"></div>
-        </div>
-        <div id="pinned-post-cell-right-part">
-          <a href=""><h3>Feature Requests</h3></a>
-          <div id="pinned-post-cell-part-links">
-            <p>163</p>
-            <form>
-              <label for="upvote"><span class="fa fa-angle-up"></span></label>
-              <input type="submit" id="upvote" />
-            </form>
-            <form>
-              <label for="downvote"><span class="fa fa-angle-down"></span></label>
-              <input type="submit" id="downvote" />
-            </form>
-            <p>2 days ago by <a href="">@demir</a> in <a href="">Spanish</a></p>
-            <p id="comment-count">
-                <span class="fa fa-comment"></span> 12
-            </p>
+    {% with redirected_page="0" %}
+      {% for post in pinned_posts %}
+        <div id="pinned-post-cell">
+          <div id="pinned-post-cell-left-part">
+            {% if post.user_profile.profile_photo %}
+              <div id="profile-photo" style="background-image: url('{{ post.user_profile.profile_photo.url }}')"></div>
+            {% else %}
+              <div id="profile-photo" style="background-image: url('')"></div>
+            {% endif %}
+          </div>
+          <div id="pinned-post-cell-right-part">
+            <a href="{% url 'forum_read' post.id %}"><h3>{{ post.post_title }}</h3></a>
+            <div id="pinned-post-cell-part-links">
+              <p>{{ post.karma }}</p>
+              <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+                <input type="submit" value="&#9650;" id="upvote" name="post_upvote_submit_btn" />
+              </form>
+              <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+                <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
+              </form>
+              <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+              <p id="comment-count">
+                  <span class="fa fa-comment"></span> {{ pinned_post_comments|get_key_value:post.id }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- pinned post - general discussion -->
-      <div id="pinned-post-cell">
-        <div id="pinned-post-cell-left-part">
-          <div id="profile-photo"></div>
-        </div>
-        <div id="pinned-post-cell-right-part">
-          <a href=""><h3>General Discussion</h3></a>
-          <div id="pinned-post-cell-part-links">
-            <p>163</p>
-            <form>
-              <label for="upvote"><span class="fa fa-angle-up"></span></label>
-              <input type="submit" id="upvote" />
-            </form>
-            <form>
-              <label for="downvote"><span class="fa fa-angle-down"></span></label>
-              <input type="submit" id="downvote" />
-            </form>
-            <p>2 days ago by <a href="">@username</a> in <a href="">Spanish</a></p>
-            <p id="comment-count">
-                <span class="fa fa-comment"></span> 12
-            </p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div><!-- /pinned posts -->
 
     <!-- forum posts navigation -->
+
     <div id="forum-posts-navigation">
-      <a href="" id="forum-posts-navigation-active"><span class="fa fa-rocket"></span> Top</a>
-      <a href=""><span class="fa fa-pagelines"></span> Hot</a>
-      <a href=""><span class="fa fa-leaf"></span> New</a>
+      <a href="{% url 'forum_landing_page' redirected_page %}" id="forum-posts-navigation-active"><span class="fa fa-rocket"></span> Top</a>
+      <a href="{% url 'under_construction' %}"><span class="fa fa-pagelines"></span> Hot</a>
+      <a href="{% url 'under_construction' %}"><span class="fa fa-leaf"></span> New</a>
     </div>
+    {% endwith %}
 
     <!-- forum posts: max posts: -->
-    {% for post in all_posts %}
-    <div id="pinned-post-cell">
-      <div id="pinned-post-cell-left-part">
-        <div id="profile-photo"></div>
-      </div>
-      <div id="pinned-post-cell-right-part">
-        <a href=""><h3>Get connects back if client does not accept</h3></a>
-        <div id="pinned-post-cell-part-links">
-          <p>163</p>
-          <form>
-            <label for="upvote"><span class="fa fa-angle-up"></span></label>
-            <input type="submit" id="upvote" />
-          </form>
-          <form>
-            <label for="downvote"><span class="fa fa-angle-down"></span></label>
-            <input type="submit" id="downvote" />
-          </form>
-          <p>2 days ago by <a href="">@username</a> in <a href="">Spanish</a></p>
-          <p id="comment-count">
-              <span class="fa fa-comment"></span> 12
-          </p>
+    {% with redirected_page="0" %}
+    {% for post in current_page_posts %}
+      <div id="pinned-post-cell">
+        <div id="pinned-post-cell-left-part">
+          {% if post.user_profile.profile_photo %}
+            <div id="profile-photo" style="background-image: url('{{ post.user_profile.profile_photo.url }}')"></div>
+          {% else %}
+            <div id="profile-photo" style="background-image: url('')"></div>
+          {% endif %}
+        </div>
+        <div id="pinned-post-cell-right-part">
+          <a href="{% url 'forum_read' post.id %}"><h3>{{ post.post_title }}</h3></a>
+          <div id="pinned-post-cell-part-links">
+            <p>{{ post.karma }}</p>
+            <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
+              {% csrf_token %}
+              <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+              <input type="submit" value="&#9650;" id="upvote" name="post_upvote_submit_btn" />
+            </form>
+            <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
+              {% csrf_token %}
+              <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+              <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
+            </form>
+            <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+            <p id="comment-count">
+                <span class="fa fa-comment"></span> {{ page_comments|get_key_value:post.id }}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
     {% endfor %}
+    {% endwith %}
 
     <!-- page links -->
     <div id="page-links">
+      {% if current_page <= 0 %}
         <a href=""><span class="fa fa-arrow-left"></span></a>
-        <a href=""><span class="fa fa-arrow-right"></span></a>
+        <a href="{% url 'forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+      {% elif current_page > 0%}
+        <a href="{% url 'forum_landing_page' previous_page %}"><span class="fa fa-arrow-left"></span></a>
+        <a href="{% url 'forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+      {% endif %}
     </div>
   </div><!-- /left part container -->
 
   <!-- right part -->
   <div id="forum-container-right-part">
     <!-- forum right language categories -->
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
-    <div id="category-cell">
-      <a href="">
-        <div id="category-flag"></div>
-         Spanish
-      </a>
-    </div>
-
+    {% with redirected_page="0" %}
+      {% for language in all_languages %}
+        <div id="category-cell">
+          <a href="{% url 'forum_category_page' language.name redirected_page %}">
+            <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+             {{ language.name }}
+          </a>
+        </div>
+      {% endfor %}
+    {% endwith %}
   </div><!-- /right part -->
 
 </div>

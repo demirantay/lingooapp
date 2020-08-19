@@ -43,14 +43,16 @@
   <div id="forum-container-right-part">
     <!-- forum right language categories -->
 
-    {% for language in all_languages %}
-      <div id="category-cell">
-        <a href="{% url 'forum_category_page' language.name %}">
-          <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
-           {{ language.name }}
-        </a>
-      </div>
-    {% endfor %}
+    {% with redirected_page="0" %}
+      {% for language in all_languages %}
+        <div id="category-cell">
+          <a href="{% url 'forum_category_page' language.name redirected_page %}">
+            <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+             {{ language.name }}
+          </a>
+        </div>
+      {% endfor %}
+    {% endwith %}
 
   </div><!-- /right part -->
 

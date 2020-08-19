@@ -43,7 +43,29 @@ def index(request):
 
 def under_construction(request):
     """under constrction page"""
-    return render(request, "redirect_pages/under_construction.html")
+
+    # Deleting any sessions regarding top-tier type of users
+    # session.pop("programmer_username", None)  <-- these are flask change it
+    # session.pop("programmer_logged_in", None) <-- these are flask change it
+    # admin user session pop
+    # admin user session pop
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+    }
+
+    return render(request, "redirect_pages/under_construction.html", data)
 
 
 def error_404(request):

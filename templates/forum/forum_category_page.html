@@ -1,1 +1,167 @@
-categroy page
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="forum-container">
+  <!-- left part -->
+  <div id="forum-container-left-part">
+    <!-- greeting banner -->
+    <div id="greetins-banner">
+      <h1>Welcome to the Lingoo Community!</h1>
+    </div>
+    <!-- forum pinned posts -->
+    <div id="pinned-posts">
+      <div id="pinned-posts-header-container">
+          <p id="pinned-posts-header"><span class="fa fa-map-marker"></span> pinned posts</p>
+          <a href="{% url 'forum_create' %}">New Post</a>
+      </div>
+
+      <!-- pinnned post feature request post -->
+    {% with redirected_page="0" %}
+      {% for post in pinned_posts %}
+        <div id="pinned-post-cell">
+          <div id="pinned-post-cell-left-part">
+            {% if post.user_profile.profile_photo %}
+              <div id="profile-photo" style="background-image: url('{{ post.user_profile.profile_photo.url }}')"></div>
+            {% else %}
+              <div id="profile-photo" style="background-image: url('')"></div>
+            {% endif %}
+          </div>
+          <div id="pinned-post-cell-right-part">
+            <a href="{% url 'forum_read' post.id %}"><h3>{{ post.post_title }}</h3></a>
+            <div id="pinned-post-cell-part-links">
+              <p>{{ post.karma }}</p>
+              <form method="POST" action="{% url 'forum_category_page' current_language.name redirected_page %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+                <input type="submit" value="&#9650;" id="upvote" name="post_upvote_submit_btn" />
+              </form>
+              <form method="POST" action="{% url 'forum_category_page' current_language.name redirected_page %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+                <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
+              </form>
+              <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+              <p id="comment-count">
+                  <span class="fa fa-comment"></span> {{ pinned_post_comments|get_key_value:post.id }}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div><!-- /pinned posts -->
+
+    <!-- forum posts navigation -->
+
+    <div id="forum-posts-navigation">
+      <a href="{% url 'forum_landing_page' redirected_page %}" id="forum-posts-navigation-active"><span class="fa fa-rocket"></span> Top</a>
+      <a href="{% url 'under_construction' %}"><span class="fa fa-pagelines"></span> Hot</a>
+      <a href="{% url 'under_construction' %}"><span class="fa fa-leaf"></span> New</a>
+    </div>
+    {% endwith %}
+
+    <!-- forum posts: max posts: -->
+    {% with redirected_page="0" %}
+    {% for post in current_page_posts %}
+      <div id="pinned-post-cell">
+        <div id="pinned-post-cell-left-part">
+          {% if post.user_profile.profile_photo %}
+            <div id="profile-photo" style="background-image: url('{{ post.user_profile.profile_photo.url }}')"></div>
+          {% else %}
+            <div id="profile-photo" style="background-image: url('')"></div>
+          {% endif %}
+        </div>
+        <div id="pinned-post-cell-right-part">
+          <a href="{% url 'forum_read' post.id %}"><h3>{{ post.post_title }}</h3></a>
+          <div id="pinned-post-cell-part-links">
+            <p>{{ post.karma }}</p>
+            <form method="POST" action="{% url 'forum_category_page' current_language.name redirected_page %}">
+              {% csrf_token %}
+              <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+              <input type="submit" value="&#9650;" id="upvote" name="post_upvote_submit_btn" />
+            </form>
+            <form method="POST" action="{% url 'forum_category_page' current_language.name redirected_page %}">
+              {% csrf_token %}
+              <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
+              <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
+            </form>
+            <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+            <p id="comment-count">
+                <span class="fa fa-comment"></span> {{ page_comments|get_key_value:post.id }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {% endwith %}
+
+    <!-- page links -->
+    <div id="page-links">
+      {% if current_page <= 0 %}
+        <a href=""><span class="fa fa-arrow-left"></span></a>
+        <a href=""><span class="fa fa-arrow-right"></span></a>
+      {% elif current_page > 0%}
+        <a href=""><span class="fa fa-arrow-left"></span></a>
+        <a href=""><span class="fa fa-arrow-right"></span></a>
+      {% endif %}
+    </div>
+  </div><!-- /left part container -->
+
+  <!-- right part -->
+  <div id="forum-container-right-part">
+    <!-- forum right language categories -->
+    {% with redirected_page="0" %}
+      {% for language in all_languages %}
+        {% if current_language.name == language.name %}
+          <div id="category-cell" class="category-cell-active">
+            <a href="{% url 'forum_category_page' language.name redirected_page %}">
+              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+               {{ language.name }}
+            </a>
+          </div>
+        {% else %}
+          <div id="category-cell">
+            <a href="{% url 'forum_category_page' language.name redirected_page %}">
+              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+               {{ language.name }}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endwith %}
+  </div><!-- /right part -->
+
+</div>
+
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/lingooapp" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/lingooapp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
