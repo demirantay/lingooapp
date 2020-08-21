@@ -184,7 +184,7 @@ def login(request):
                     request.session["basic_user_email"] = user.email
                     request.session["basic_user_username"] = user.username
                     request.session["basic_user_logged_in"] = True
-                    return HttpResponseRedirect("/forum/")
+                    return HttpResponseRedirect("/forum/0/")
                 else:
                     invalid_credentials = True
 

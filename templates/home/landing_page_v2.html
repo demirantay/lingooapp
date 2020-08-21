@@ -1,0 +1,54 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home/landing_page_v2.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="landing-page-wrapper">
+  <!-- body left part -->
+  <div id="body-left-part" style="background-image: url('{% static 'images/home/landing_page_1.jpg' %}');">
+
+  </div>
+
+  <!-- body right part -->
+  <div id="body-right-part" >
+    <div id="body-right-part-redirect-links">
+      <img alt="logo" src="{% static 'branding/logo.png' %}"/>
+      <h1>Community Based Language Learning</h1>
+      <a href="{% url 'signup' %}" id="signup-redirect-btn">Sign up</a>
+      <a href="{% url 'login' %}">Log in</a>
+    </div>
+  </div>
+</div>
+
+
+<div id="clear-float"></div>
+
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/getdomingo" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/DomingoApp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
