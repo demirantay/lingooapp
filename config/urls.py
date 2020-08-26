@@ -41,6 +41,12 @@ urlpatterns = [
     # ----------
     # ...
     path("", include("basic_language_explore.urls")),
+
+    # Teacher Public About
+    # ----------
+    # ...
+    path("", include("teacher_public_about.urls")),
+
 ]
 
 if settings.DEBUG:

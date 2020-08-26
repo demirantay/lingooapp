@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'profile_settings',
     'forum',
     'basic_language_explore',
+
+    # Teacher User Apps
+    'teacher_public_about',
 ]
 
 MIDDLEWARE = [
