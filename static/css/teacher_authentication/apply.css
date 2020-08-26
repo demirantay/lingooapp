@@ -1,0 +1,618 @@
+body {
+  background-color: #F4F6F6;
+}
+
+
+#course-apply-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* ------------------ header info part ------------------ */
+#course-apply-header-info {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+}
+
+#course-apply-header-info h1 {
+
+}
+
+#course-apply-header-info p {
+
+}
+
+#course-apply-header-info ul {
+
+}
+
+#course-apply-header-info ul li {
+  margin-top: 10px;
+}
+
+/* ------------------ form application part------------------ */
+#course-apply-form {
+  border:1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#course-apply-form h2 {
+
+}
+
+#course-apply-form form label {
+  display: block;
+  padding-bottom: 10px;
+}
+
+#course-apply-form-1-part {
+  margin-bottom: 10px;
+}
+
+#course-apply-form-1-part-left-part {
+  border: 1px solid transparent;
+  vertical-align: top;
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+}
+
+#course-apply-form-1-part-left-part p {
+  background-color: #1E8449;
+  color: white;
+  margin: 0 auto;
+  width: 40px !important;
+  padding: 10px 0px !important;
+  border-radius: 50%;
+}
+
+#course-apply-form-1-part-left-part span {
+  background-color: #1E8449;
+  color: white;
+  margin: 0 auto;
+  padding: 10px 10px !important;
+  border-radius: 50%;
+}
+
+#course-apply-form-1-part-right-part {
+  border: 1px solid transparent;
+  vertical-align: top;
+  display: inline-block;
+  width: 88%;
+  height: auto;
+}
+
+#course-apply-form-1-part select {
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  border-color: lightgrey;
+}
+
+#course-apply-form-1-part option {
+
+}
+
+#course-apply-form-1-part p {
+  display: inline;
+  font-size: 18px;
+}
+
+#course-apply-form-2-part {
+  margin-top: 40px;
+}
+
+#course-apply-form-2-part label {
+
+}
+
+#course-apply-form-2-part input {
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 20px;
+  border: 1px solid lightgrey;
+}
+
+#course-apply-form-2-part input:focus {
+  border-color: #1E8449;
+  outline: none !important;
+
+}
+
+#course-apply-form-3-part {
+  margin-top: 40px;
+}
+
+#course-apply-form-3-part textarea {
+  width: 80%;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+#course-apply-form-3-part textarea:focus {
+  border-color: #1E8449;
+  outline: none !important;
+}
+
+#course-apply-form-4-part {
+  margin-top: 40px;
+}
+
+#course-apply-form-4-part textarea {
+  width: 80%;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+#course-apply-form-4-part textarea:focus {
+  border-color: #1E8449;
+  outline: none !important;
+}
+
+#course-apply-form-5-part {
+  margin-top: 40px;
+}
+
+#course-apply-form-5-part input {
+  width: 80%;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+}
+
+#course-apply-form-5-part input:focus {
+  border-color: #1E8449;
+  outline: none !important;
+}
+
+#course-apply-form-6-part {
+  margin-top: 40px;
+}
+
+#course-apply-form-6-part input {
+  display: inline;
+}
+
+#course-apply-form-6-part label {
+  display: inline;
+}
+
+#course-apply-form-6-left-part {
+  border: 1px solid transparent;
+  display: inline-block;
+  width: 5%;
+}
+
+#course-apply-form-6-right-part {
+  border: 1px solid transparent;
+  display: inline-block;
+  width: 88%;
+}
+
+#course-apply-submit-btn {
+  margin-left: 10%;
+  margin-top: 50px;
+  font-size: 30px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #1E8449;
+  background-color: #1E8449;
+  color: white;
+}
+
+#course-apply-submit-btn:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: black;
+}
+
+#form-footer-note {
+  margin-left: 10%;
+  margin-top: 30px;
+}
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #course-apply-container {
+    width: 98%;
+  }
+
+  /* ------------------ header info part ------------------ */
+  #course-apply-header-info {
+
+  }
+
+  #course-apply-header-info h1 {
+    font-size: 25px;
+  }
+
+
+  #course-apply-header-info ul {
+    margin-left: -20px;
+  }
+
+  /* ------------------ form application part------------------ */
+  #course-apply-form {
+    border:1px solid transparent;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #course-apply-form form label {
+    width: 110%;
+  }
+
+  #course-apply-form-1-part-left-part {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-1-part-left-part p {
+    width: 40px !important;
+    padding: 10px 0px !important;
+  }
+
+  #course-apply-form-1-part-left-part span {
+    background-color: #1E8449;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 10px !important;
+    border-radius: 50%;
+  }
+
+  #course-apply-form-1-part-right-part {
+    display: block;
+    margin-top: 10px;
+  }
+
+  #course-apply-form-1-part select {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-2-part {
+    margin-top: 10px;
+  }
+
+  #course-apply-form-3-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-3-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-4-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part textarea:focus {
+    border-color: #1E8449;
+    outline: none !important;
+  }
+
+  #course-apply-form-5-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-5-part input {
+    width: 100%;
+  }
+
+  #course-apply-form-6-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-6-left-part {
+    width: 15%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-form-6-right-part {
+    width: 73%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-submit-btn {
+    margin-left: 1%;
+    margin-top: 30px;
+  }
+
+  #form-footer-note {
+    margin-left: 1%;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #course-apply-container {
+    width: 98%;
+  }
+
+  /* ------------------ header info part ------------------ */
+  #course-apply-header-info {
+
+  }
+
+  #course-apply-header-info h1 {
+    font-size: 25px;
+  }
+
+
+  #course-apply-header-info ul {
+    margin-left: -20px;
+  }
+
+  /* ------------------ form application part------------------ */
+  #course-apply-form {
+    border:1px solid transparent;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #course-apply-form form label {
+    width: 110%;
+  }
+
+  #course-apply-form-1-part-left-part {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-1-part-left-part p {
+    width: 40px !important;
+    padding: 10px 0px !important;
+  }
+
+  #course-apply-form-1-part-left-part span {
+    background-color: #1E8449;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 10px !important;
+    border-radius: 50%;
+  }
+
+  #course-apply-form-1-part-right-part {
+    display: block;
+    margin-top: 10px;
+  }
+
+  #course-apply-form-1-part select {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-2-part {
+    margin-top: 10px;
+  }
+
+  #course-apply-form-3-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-3-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-4-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part textarea:focus {
+    border-color: #1E8449;
+    outline: none !important;
+  }
+
+  #course-apply-form-5-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-5-part input {
+    width: 100%;
+  }
+
+  #course-apply-form-6-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-6-left-part {
+    width: 15%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-form-6-right-part {
+    width: 73%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-submit-btn {
+    margin-left: 1%;
+    margin-top: 30px;
+  }
+
+  #form-footer-note {
+    margin-left: 1%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #course-apply-container {
+    width: 98%;
+  }
+
+  /* ------------------ header info part ------------------ */
+  #course-apply-header-info {
+
+  }
+
+  #course-apply-header-info h1 {
+    font-size: 25px;
+  }
+
+
+  #course-apply-header-info ul {
+    margin-left: -20px;
+  }
+
+  /* ------------------ form application part------------------ */
+  #course-apply-form {
+    border:1px solid transparent;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #course-apply-form form label {
+    width: 110%;
+  }
+
+  #course-apply-form-1-part-left-part {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-1-part-left-part p {
+    width: 40px !important;
+    padding: 10px 0px !important;
+  }
+
+  #course-apply-form-1-part-left-part span {
+    background-color: #1E8449;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 10px !important;
+    border-radius: 50%;
+  }
+
+  #course-apply-form-1-part-right-part {
+    display: block;
+    margin-top: 10px;
+  }
+
+  #course-apply-form-1-part select {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #course-apply-form-2-part {
+    margin-top: 10px;
+  }
+
+  #course-apply-form-3-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-3-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-4-part textarea {
+    width: 100%;
+  }
+
+  #course-apply-form-4-part textarea:focus {
+    border-color: #1E8449;
+    outline: none !important;
+  }
+
+  #course-apply-form-5-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-5-part input {
+    width: 100%;
+  }
+
+  #course-apply-form-6-part {
+    margin-top: 20px;
+  }
+
+  #course-apply-form-6-left-part {
+    width: 15%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-form-6-right-part {
+    width: 73%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  #course-apply-submit-btn {
+    margin-left: 1%;
+    margin-top: 30px;
+  }
+
+  #form-footer-note {
+    margin-left: 1%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

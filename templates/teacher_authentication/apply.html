@@ -1,1 +1,137 @@
-apply
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_authentication/apply.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="course-apply-container">
+
+  <!-- header info part -->
+  <div id="course-apply-header-info">
+    <h1>Apply to Become a Course Teacher</h1>
+    <p>
+      Become a teacher and help us by contributing to a language course. As
+      Domingo community, we are trying to teach each other as many languages as
+      possible. If you are interested in becoming a more valuable part of this
+      community, please consider helping us out.
+    </p>
+
+    <p>In order to contribute to a language course, you need to be:</p>
+    <ul>
+        <li><b>Bilingual:</b> You have to be fluent in at least two languages.
+          You don't have to be a native speaker, but you should write at the
+          level of one. If you want to contribute to more than one course you
+          will have the chance to add and delete courses once you create your
+          teacher account.</li>
+        <li><b>Available:</b> Of course, this is not a full-time job however we
+          have a quota on the course's contributors team size. So naturally,
+          we would like to select the teacher with the most free-time to take
+          the spot.</li>
+    </ul>
+
+    <p>
+        If we still haven't intimidated you, then you are the right person! We
+        would love to have you on our teacher community. Please fill the application below
+        without leaving anything blank.
+    </p>
+  </div>
+
+  <!-- form application part -->
+  <div id="course-apply-form">
+    <h2>Teacher Application</h2>
+
+    <form>
+      <!-- #1 which course to contrib to -->
+      <div id="course-apply-form-1-part">
+        <div id="course-apply-form-1-part-left-part">
+          <span>#1</span>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <label>Which course would you like to contribute to?</label>
+          <select name="">
+            <option>Spanish</option>
+            <option>French</option>
+          </select>
+          <p>for</p>
+          <select name="">
+            <option>Spanish</option>
+            <option>French</option>
+          </select>
+          <p>speakers</p>
+        </div>
+      </div>
+
+      <!-- #2 native language -->
+      <div id="course-apply-form-2-part">
+        <div id="course-apply-form-1-part-left-part">
+          <p>#2</p>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <label>What is your native language?</label>
+          <input type="text" placeholder="e.g. English" />
+        </div>
+      </div>
+
+      <!-- #3 why you are interested in this course -->
+      <div id="course-apply-form-3-part">
+        <div id="course-apply-form-1-part-left-part">
+          <p>#3</p>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <label>In <b>|COURSE LANGUAGE|</b> let us know why you are interested in
+            building this course.</label>
+          <textarea placeholder="Your response"></textarea>
+        </div>
+      </div>
+
+      <!-- #4 translate the 3rd input so we can assess your skills -->
+      <div id="course-apply-form-4-part">
+        <div id="course-apply-form-1-part-left-part">
+          <p>#4</p>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <label>Please translate your previous response to <b>|SPEAKERS LANGUAGE|</b>
+            so we know you've got the skills.</label>
+          <textarea placeholder="Your translation" ></textarea>
+        </div>
+      </div>
+
+      <!-- #5 email adress -->
+      <div id="course-apply-form-5-part">
+        <div id="course-apply-form-1-part-left-part">
+          <p>#5</p>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <label>Please provide your email address. We may share this with
+            current course teachers who may contact you about your interest in the course.</label>
+          <input type="text" placeholder="e.g. examle@gmail.com" />
+        </div>
+      </div>
+
+      <!-- #6 age confirmation for COPPA (Childrens act of data tracking) -->
+      <div id="course-apply-form-6-part">
+        <div id="course-apply-form-1-part-left-part">
+          <p>#6</p>
+        </div>
+        <div id="course-apply-form-1-part-right-part">
+          <div id="course-apply-form-6-left-part">
+            <input type="checkbox" value="checked" id="13-year-old-check"/>
+          </div>
+          <div id="course-apply-form-6-right-part">
+            <label for="13-year-old-check">I confirm that I am at least 13 years of age.</label>
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" id="course-apply-submit-btn" />
+
+      <p id="form-footer-note">We'll review your application and email you soon!</p>
+    </form>
+  </div>
+
+</div>
+{% endblock %}
