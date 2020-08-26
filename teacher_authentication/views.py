@@ -20,3 +20,23 @@ def teacher_apply(request):
 
     }
     return render(request, "teacher_authentication/apply.html", data)
+
+
+def teacher_login(request):
+    """
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_authentication/login.html", data)
+
+
+def teacher_signup(request):
+    """
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_authentication/signup.html", data)

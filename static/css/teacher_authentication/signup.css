@@ -1,0 +1,238 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#teacher-signup-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+#warning-box {
+  border: 1px solid transparent;
+  padding: 0px !important;
+  margin-bottom: 20px;
+}
+
+#warning-box p {
+  color: #E3102E;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* ----------- teacher-signup-container ------------ */
+#teacher-signup-container {
+  text-align: center;
+}
+
+#teacher-signup-container img {
+  height: 150px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#teacher-signup-container h1 {
+
+}
+
+#teacher-signup-container form {
+  border: 1px solid transparent;
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#teacher-signup-container form p {
+  color: #1E8449;
+}
+
+#teacher-signup-container form label {
+  display: block;
+  font-weight: 700;
+}
+
+#teacher-signup-container form input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 10px 10px;
+  width: 95%;
+}
+
+#teacher-signup-container form input:hover {
+  border-color: #1E8449;
+  transition: 0.2s;
+}
+
+#teacher-signup-container form input:focus {
+  border-color: #1E8449;
+  outline: none !important;
+}
+
+#teacher-signup-container form ul {
+  margin-left: -20px;
+  margin-top: -0px;
+  margin-bottom: 5px;
+}
+
+#teacher-signup-container form ul li {
+
+}
+
+#teacher-signup-container select {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 10px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+
+#education-select {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#login-submit-btn {
+  background-color: #1E8449;
+  color: white;
+  border: 1px solid #1E8449;
+  margin-bottom: -10px !important;
+  width: 100% !important;
+}
+
+#login-submit-btn:hover {
+  transition: 0.2s;
+  background-color: #2ECC71;
+  cursor: pointer;
+}
+
+#terms-link {
+  color: black !important;
+}
+
+#terms-link a {
+  color: #1E8449;
+  text-decoration: none;
+}
+
+#terms-link a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #teacher-signup-container {
+    width: 97%;
+  }
+
+  /* ----------- teacher-signup-container ------------ */
+
+  #teacher-signup-container img {
+    height: 130px;
+  }
+
+  #teacher-signup-container h1 {
+    font-size: 25px;
+  }
+
+  #teacher-signup-container form {
+    width: 88%;
+  }
+
+  #teacher-signup-container form input {
+    width: 90%;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #teacher-signup-container {
+    width: 97%;
+  }
+
+  /* ----------- teacher-signup-container ------------ */
+
+  #teacher-signup-container img {
+    height: 130px;
+  }
+
+  #teacher-signup-container h1 {
+    font-size: 25px;
+  }
+
+  #teacher-signup-container form {
+    width: 88%;
+  }
+
+  #teacher-signup-container form input {
+    width: 90%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #teacher-signup-container {
+    width: 97%;
+  }
+
+  /* ----------- teacher-signup-container ------------ */
+
+  #teacher-signup-container img {
+    height: 130px;
+  }
+
+  #teacher-signup-container h1 {
+    font-size: 25px;
+  }
+
+  #teacher-signup-container form {
+    width: 88%;
+  }
+
+  #teacher-signup-container form input {
+    width: 90%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

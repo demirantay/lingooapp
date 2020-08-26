@@ -1,0 +1,32 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_authentication/login.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="teacher-login-container">
+  <div id="teacher-login">
+
+    <img alt="teacher-logo" src="{% static 'branding/teacher-logo-black-text.png' %}" />
+
+    <h1>Login Gate</h1>
+
+    <div id="warning-box">
+        <p>Invalid username or password</p>
+    </div>
+
+    <form>
+      <input type="text" placeholder="teacher username" />
+      <input type="password" placeholder="teacher password" />
+      <input type="submit" value="Login" id="login-submit-btn" />
+    </form>
+
+    <p>If you do not have an account, please consider <a href="">applying here</a>.</p>
+
+  </div>
+</div>
+
+{% endblock %}
