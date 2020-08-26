@@ -39,4 +39,4 @@ def teacher_signup(request):
     data = {
 
     }
-    return render(request, "teacher_authentication/signup.html", data)
+    return render(request, "teacher_base.html", data)

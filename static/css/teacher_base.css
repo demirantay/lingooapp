@@ -2,6 +2,9 @@
 
 Color Palette
 -------
+
+BASIC USER COLORS
+
 red:            #E3102E
 :hover          #A50E23
 :background     #FADBD8
@@ -15,6 +18,13 @@ form border:    #E5E8E8
 
 border on black bacg: #333333
 
+---------------------------
+
+TEACHER USER COLORS
+
+navy:           #2E4053
+:hover          #D7DBDD
+:background     #5D6D7E
 
 */
 
@@ -55,8 +65,8 @@ body {
 /* ------- left navigation ----- */
 
 #left-navgition {
-  border: 1px solid #E5E8E8;
-  background-color: white;
+  border: 1px solid #2E4053;
+  background-color: #2E4053;
   position: fixed;
   left: 0;
   top: 0;
@@ -68,7 +78,7 @@ body {
 #left-navgition a {
   display: block;
   padding: 10px 10px;
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: 400;
   font-size: 25px;
@@ -79,8 +89,8 @@ body {
 }
 
 #left-navgition a:hover {
-  background-color: #FADBD8;
-  color: #E3102E;
+  background-color: #5D6D7E;
+  color: #D7DBDD;
   transition: 0.3s;
 }
 
@@ -90,11 +100,12 @@ body {
 }
 
 #img-logo-link:hover {
-  background-color: white !important;
+  background-color: transparent !important;
 }
 
 #img-logo-link img {
-  height: 50px;
+  height: 80px;
+  margin: 0 auto;
 }
 
 #hidden_more_nav {
@@ -107,7 +118,7 @@ body {
   margin-top: 0px;
   position: relative;
   border-radius: 10px;
-  background-color: white;
+  background-color: #2E4053;
   padding-top: 5px;
   -webkit-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
@@ -136,7 +147,7 @@ body {
   right: 0;
   bottom: 0;
   width: 80%;
-  background-color: white;
+  background-color: #2E4053;
   padding-top: 50px;
   display: none;
 }
@@ -161,7 +172,7 @@ body {
 
 #hidden-mobile-top-nav a {
   display: block;
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 23px;
   font-weight: 400;
@@ -171,6 +182,7 @@ body {
 
 #hidden-mobile-top-nav a:hover {
   background-color: #F2F4F4;
+  color: black;
 }
 
 #hidden-mobile-top-nav a span {
@@ -184,10 +196,10 @@ body {
   position: fixed;
   top: 0;
   border: 1px solid transparent;
-  border-bottom: 1px solid #E5E8E8;
+  border-bottom: 1px solid #2E4053;
   left: 0;
   right: 0;
-  background-color: white;
+  background-color: #2E4053;
   padding: 3px 0px;
   z-index: 1 !important;
 }
@@ -201,7 +213,7 @@ body {
   vertical-align: middle;
   float: right;
   font-size: 25px;
-  color: black;
+  color: white;
   margin-top: 5px;
   background-color: transparent;
   border: 0px;
@@ -209,7 +221,7 @@ body {
 
 #toggle-top-nav button:hover {
   cursor: pointer;
-  color: #E3102E;
+  color: grey;
   transition: 0.3s;
 }
 
@@ -221,10 +233,10 @@ body {
   left: 0;
   height: 50px;
   border: 1px solid transparent;
-  background-color: white;
+  background-color: #2E4053;
   display: none;
   text-align: center;
-  border-top: 1px solid #E5E8E8;
+  border-top: 1px solid #2E4053;
   z-index: 9 !important;
 }
 
@@ -272,11 +284,11 @@ body {
   text-decoration: none;
   color: black;
   font-size: 30px;
-  color: grey;
+  color: white;
 }
 
 #mobile-bottom-navigation a:hover {
-  color: #E3102E;
+  color: grey;
   transition: 0.3s;
 }
 
