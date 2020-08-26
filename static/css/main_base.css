@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-a, p, ul, li, label, b, i, textarea, input {
+a, p, ul, li, label, b, i, textarea, input, span {
   font-family: 'Inter', sans-serif;
 }
 
@@ -103,7 +103,7 @@ body {
   margin: 0 auto;
   height: auto;
   border: 1px solid lightgrey;
-  z-index: 9 !important;
+  z-index: 99 !important;
   margin-top: 0px;
   position: relative;
   border-radius: 10px;
@@ -189,6 +189,7 @@ body {
   right: 0;
   background-color: white;
   padding: 3px 0px;
+  z-index: 1 !important;
 }
 
 #toggle-top-nav a img {
@@ -224,6 +225,7 @@ body {
   display: none;
   text-align: center;
   border-top: 1px solid #E5E8E8;
+  z-index: 9 !important;
 }
 
 #mobile-bottom-nav-grid-1 {

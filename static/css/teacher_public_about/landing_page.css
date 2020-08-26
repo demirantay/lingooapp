@@ -1,0 +1,296 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* ----------- banner-top-part ------------- */
+#banner-top-part {
+  border: 1px solid transparent;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  background: #3ca55c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3ca55c, #b5ac49); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3ca55c, #b5ac49); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#banner-top-part h1 {
+  color: white;
+}
+
+#banner-top-part p {
+  color: white;
+  padding-bottom: 20px;
+}
+
+#banner-top-part a {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: green;
+}
+
+#banner-top-part a:hover {
+  transition: 0.2s;
+  background-color: #AEA673;
+  background-color: black;
+  color: white;
+}
+
+
+/* ----------- course-cell-container ------------- */
+#course-cell-container {
+  border: 1px solid transparent;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#course-cell-container a {
+  text-decoration: none;
+}
+
+#course-cell {
+  border: 1px solid lightgrey;
+  width: 23%;
+  background-color: white;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  vertical-align: top;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#course-cell:hover {
+  transition: 0.2s;
+  -webkit-box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+}
+
+#course-flag {
+  background-color: #E5E8E8;
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  background-image: url("../../flags/spain.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#for-speakers-flag {
+  background-color: #E5E8E8;
+  width: 40%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: -30px;
+  margin-left: 10px;
+  background-image: url("../../flags/spain.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 43px -13px rgba(0,0,0,0.75);
+}
+
+#course-cell h2 {
+  color: black;
+  margin-bottom: 5px;
+}
+
+#course-cell h3 {
+  color: grey;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+#course-cell-horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#course-cell-info {
+
+}
+
+#course-cell-info p {
+  color: black;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ----------- banner-top-part ------------- */
+  #banner-top-part {
+    border: 0px solid black;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: -8px;
+  }
+
+  #banner-top-part h1 {
+    font-size: 23px;
+  }
+
+  #banner-top-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- course-cell-container ------------- */
+  #course-cell-container {
+    margin-top: 220px;
+  }
+
+  #course-cell {
+    width: 95%;
+    display: block;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  #course-flag {
+    width: 60%;
+    height: 100px;
+  }
+
+  #for-speakers-flag {
+    width: 30%;
+    height: 50px;
+    margin-left: 30px;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ----------- banner-top-part ------------- */
+  #banner-top-part {
+    border: 0px solid black;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: -8px;
+  }
+
+  #banner-top-part h1 {
+    font-size: 23px;
+  }
+
+  #banner-top-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- course-cell-container ------------- */
+  #course-cell-container {
+    margin-top: 220px;
+  }
+
+  #course-cell {
+    width: 80%;
+    display: block;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  #course-flag {
+    width: 60%;
+    height: 100px;
+  }
+
+  #for-speakers-flag {
+    width: 30%;
+    height: 50px;
+    margin-left: 30px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ----------- banner-top-part ------------- */
+  #banner-top-part {
+    border: 0px solid black;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: -8px;
+  }
+
+  #banner-top-part h1 {
+    font-size: 23px;
+  }
+
+  #banner-top-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- course-cell-container ------------- */
+  #course-cell-container {
+    margin-top: 220px;
+  }
+
+  #course-cell {
+    width: 75%;
+    display: block;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  #course-flag {
+    width: 60%;
+    height: 100px;
+  }
+
+  #for-speakers-flag {
+    width: 30%;
+    height: 50px;
+    margin-left: 30px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

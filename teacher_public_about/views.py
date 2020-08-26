@@ -20,3 +20,13 @@ def teacher_public_landing_page(request):
 
     }
     return render(request, "teacher_public_about/landing_page.html", data)
+
+
+def teacher_public_course_status(request, language, language_for):
+    """
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_public_about/course_status.html", data)
