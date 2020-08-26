@@ -1,0 +1,216 @@
+/* --------- Profile Information ---------- */
+
+#profile-information {
+  border: 1px solid transparent;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border-bottom: 1px solid #E5E8E8;
+  padding-bottom: 10px;
+}
+
+#profile-information-left-part {
+  border: 1px solid transparent;
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#profile-image {
+  height: 160px;
+  width: 160px;
+  background-color: #E5E8E8;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#profile-information-right-part {
+  border: 1px solid transparent;
+  width: 68%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 10px;
+}
+
+#profile-information-right-part h1 {
+  border: 1px solid transparent;
+  margin: 0px;
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
+#profile-information-right-part h3 {
+  margin: 0px;
+  border: 1px solid transparent;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: grey;
+}
+
+#profile-information-right-part p {
+    font-size: 15px;
+    border: 1px solid transparent;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+#profile-information-right-part a {
+  color: #3498DB;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+#profile-information-right-part a:hover {
+  text-decoration: underline;
+}
+
+
+/* --------- under construction banner ---------- */
+#under-construction-banner {
+  border: 1px solid transparent;
+  height: 300px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #E5E8E8;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 50px;
+
+}
+
+#under-construction-banner h1 {
+  margin: 0px;
+  margin-top: 20px;
+  margin-top: 110px;
+}
+
+#under-construction-banner p {
+  margin: 0px;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* --------- Profile Information ---------- */
+
+  #profile-information {
+    border: 1px solid transparent;
+  }
+
+  #profile-information-left-part {
+    width: 90%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #profile-image {
+    height: 120px;
+    width: 120px;
+    margin: 0;
+  }
+
+  #profile-information-right-part {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* --------- Profile Information ---------- */
+
+  #profile-information {
+    border: 1px solid transparent;
+  }
+
+  #profile-information-left-part {
+    width: 90%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #profile-image {
+    height: 120px;
+    width: 120px;
+    margin: 0;
+  }
+
+  #profile-information-right-part {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* --------- Profile Information ---------- */
+
+  #profile-information {
+    border: 1px solid transparent;
+  }
+
+  #profile-information-left-part {
+    width: 90%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #profile-image {
+    height: 120px;
+    width: 120px;
+    margin: 0;
+  }
+
+  #profile-information-right-part {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* --------- Profile Information ---------- */
+
+  #profile-information {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

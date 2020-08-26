@@ -22,7 +22,7 @@ def teacher_profile_overview(request):
     return render(request, "teacher_profile/overview.html", data)
 
 
-def teacher_profile_other_user_overview(request):
+def teacher_profile_other_user_overview(request, other_user_username):
     """
     """
 
