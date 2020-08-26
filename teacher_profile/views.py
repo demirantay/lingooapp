@@ -12,31 +12,21 @@ from profile_settings.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 
 
-def teacher_apply(request):
+def teacher_profile_overview(request):
     """
     """
 
     data = {
 
     }
-    return render(request, "teacher_authentication/apply.html", data)
+    return render(request, "teacher_profile/overview.html", data)
 
 
-def teacher_login(request):
+def teacher_profile_other_user_overview(request):
     """
     """
 
     data = {
 
     }
-    return render(request, "teacher_authentication/login.html", data)
-
-
-def teacher_signup(request):
-    """
-    """
-
-    data = {
-
-    }
-    return render(request, "teacher_authentication/signup.html", data)
+    return render(request, "teacher_profile/other_user_overview.html", data)

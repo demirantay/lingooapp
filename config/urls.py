@@ -52,6 +52,8 @@ urlpatterns = [
     # ...
     path("", include("teacher_authentication.urls")),
 
+    # Teacher Profile
+    path("", include("teacher_profile.urls")),
 ]
 
 if settings.DEBUG:

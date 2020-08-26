@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Teacher User Apps
     'teacher_public_about',
     'teacher_authentication',
+    'teacher_profile',
 ]
 
 MIDDLEWARE = [
