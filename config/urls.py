@@ -59,7 +59,13 @@ urlpatterns = [
 
     # Teacher Profile Settings
     # -------------
+    # ...
     path("", include("teacher_profile_settings.urls")),
+
+    # Teacher Language Exolore
+    # -------------
+    # ...
+    path("", include("teacher_language_explore.urls")),
 ]
 
 if settings.DEBUG:
