@@ -53,7 +53,13 @@ urlpatterns = [
     path("", include("teacher_authentication.urls")),
 
     # Teacher Profile
+    # ------------
+    # ...
     path("", include("teacher_profile.urls")),
+
+    # Teacher Profile Settings
+    # -------------
+    path("", include("teacher_profile_settings.urls")),
 ]
 
 if settings.DEBUG:
