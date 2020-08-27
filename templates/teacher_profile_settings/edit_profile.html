@@ -1,0 +1,130 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_profile_settings/edit_profile.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- settings navigation links -->
+<div id="settings-nav">
+  <a href="" id="settings-nav-link-active">Edit Profile</a>
+  <a href="">Change Password</a>
+</div>
+
+<!-- edit profile -->
+<div id="profile-settings-container">
+
+  {% if empty_credentials == True %}
+    <div id="warning-sign">
+      <h3>cannot enter empty username or email</h3>
+    </div>
+  {% elif invalid_credentials == True %}
+    <div id="warning-sign">
+      <h3>invalid input</h3>
+    </div>
+  {% elif username_taken == True %}
+    <div id="warning-sign">
+      <h3>username is taken</h3>
+    </div>
+  {% elif email_taken == True %}
+    <div id="warning-sign">
+      <h3>email is taken</h3>
+    </div>
+  {% endif %}
+
+  <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- if the profile images input is empty just enter this previews value to it -->
+
+    <div id="settings-profile-photo-preview-container">
+      <div id="settings-profile-photo-preview-container-left-part">
+        {% if current_basic_user_profile.profile_photo %}
+          <div id="settings-profile-photo-preview" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');" ></div>
+        {% else %}
+            <div id="settings-profile-photo-preview" style="background-image: url('');" ></div>
+        {% endif %}
+      </div>
+      <div id="settings-profile-photo-preview-container-right-part">
+        <label id="profile-photo-label" for="profile-photo"><span class="fa fa-plus"></span> Change profile photo</label>
+      </div>
+    </div>
+
+    {% if current_basic_user_profile.profile_photo %}
+      <input type="file" id="profile-photo" class="hidden-profile-photo-input" name="profile_photo" value="{{ current_basic_user_profile.profile_photo.url }}" />
+    {% else %}
+      <input type="file" id="profile-photo" class="hidden-profile-photo-input" name="profile_photo"/>
+    {% endif %}
+
+    <script>
+      let photo_preview = document.getElementById("settings-profile-photo-preview");
+      let uploaded_photo = document.getElementById("profile-photo");
+
+      //photo_preview.style.backgroundImage = 'url("{% static 'branding/profile_photo.jpg' %}")';
+
+      uploaded_photo.onchange = function() {
+        photo_preview.style.backgroundImage = "url('"+ window.URL.createObjectURL(this.files[0]) +"')";
+        photo_preview.style.backgroundColor= "#EAEDED";
+      }
+    </script>
+
+
+    <label>First Name</label>
+    {% if current_basic_user_profile.full_name == None %}
+      <input type="text" placeholder="ex. Joe" name="first_name" />
+    {% else %}
+      <input type="text" placeholder="ex. Joe" name="first_name" value="" />
+    {% endif %}
+
+    <label>Last Name</label>
+    {% if current_basic_user_profile.full_name == None %}
+      <input type="text" placeholder="ex. Smith" name="last_name" />
+    {% else %}
+      <input type="text" placeholder="ex. Smith" name="last_name" value="" />
+    {% endif %}
+
+
+    <label>Username</label>
+    <input type="text" placeholder="ex. useranme" name="username" value="" />
+
+    <label>Email</label>
+    <input type="text" placeholder="ex. email@example.com" name="email" value="" />
+
+    <label>About</label>
+    {% if current_basic_user_profile.bio == None %}
+      <textarea placeholder="Tell a bit about yourself" name="bio"></textarea>
+    {% else %}
+      <textarea placeholder="Tell a bit about yourself" name="bio"></textarea>
+    {% endif %}
+
+    <label>Location</label>
+    {% if current_basic_user_profile.bio == None %}
+      <input type="text" placeholder="ex. New York" name="location" />
+    {% else %}
+      <input type="text" placeholder="ex. New York" name="location" value="" />
+    {% endif %}
+
+    <label>Occupation</label>
+    {% if current_basic_user_profile.bio == None %}
+      <input type="text" placeholder="Occupation" name="occupation" />
+    {% else %}
+      <input type="text" placeholder="Occupation" name="occupation" value="" />
+    {% endif %}
+
+
+    <label>Personal Link</label>
+    {% if current_basic_user_profile.bio == None %}
+      <input type="text" placeholder="Add your personal link" name="personal_link" />
+    {% else %}
+      <input type="text" placeholder="Add your personal link" name="personal_link" value="" />
+    {% endif %}
+
+    <input type="submit" value="save" id="profile-settings-submit-btn" name="profile_edit_submit_btn" />
+
+  </form>
+
+</div>
+
+
+{% endblock %}

@@ -162,6 +162,7 @@ body {
   background-color: transparent;
   border: 0px;
   font-size: 23px;
+  color: white;
 }
 
 #hidden-mobile-top-nav button:hover {
