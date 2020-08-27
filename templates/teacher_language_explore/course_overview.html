@@ -1,1 +1,105 @@
-overview
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_language_explore/course_overview.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- banner top part -->
+<div id="banner-top-part">
+  <h1>Domingo Teacher Panel</h1>
+  <p>Help our community build language courses.</p>
+</div>
+
+<!-- course cell grid -->
+<div id="course-cell-container">
+
+  <!-- CELL -->
+  <a href="">
+    <div id="course-cell">
+      <div id="course-flag"></div>
+      <div id="for-speakers-flag"></div>
+      <h2>Spanish</h2>
+      <h3>for English speakers</h3>
+      <div id="course-cell-horizontal-line"></div>
+      <div id="course-cell-info">
+        <p><b>2</b> Contributors</p>
+      </div>
+    </div>
+  </a>
+  <!-- /CELL -->
+
+  <!-- CELL -->
+  <a href="">
+    <div id="course-cell">
+      <div id="course-flag"></div>
+      <div id="for-speakers-flag"></div>
+      <h2>Spanish</h2>
+      <h3>for English speakers</h3>
+      <div id="course-cell-horizontal-line"></div>
+      <div id="course-cell-info">
+        <p><b>2</b> Contributors</p>
+      </div>
+    </div>
+  </a>
+  <!-- /CELL -->
+
+  <!-- CELL -->
+  <a href="">
+    <div id="course-cell">
+      <div id="course-flag"></div>
+      <div id="for-speakers-flag"></div>
+      <h2>Spanish</h2>
+      <h3>for English speakers</h3>
+      <div id="course-cell-horizontal-line"></div>
+      <div id="course-cell-info">
+        <p><b>2</b> Contributors</p>
+      </div>
+    </div>
+  </a>
+  <!-- /CELL -->
+
+  <!-- CELL -->
+  <a href="">
+    <div id="course-cell">
+      <div id="course-flag"></div>
+      <div id="for-speakers-flag"></div>
+      <h2>Spanish</h2>
+      <h3>for English speakers</h3>
+      <div id="course-cell-horizontal-line"></div>
+      <div id="course-cell-info">
+        <p><b>2</b> Contributors</p>
+      </div>
+    </div>
+  </a>
+  <!-- /CELL -->
+
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/getdomingo" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/DomingoApp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'teacher_base.html' %} {% load static %} {% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_language_explore/course_status.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" /> {% endblock %} {% block content %}
+
+<div id="go-back-container">
+  <a id="go-back-button" href=""><span class="fa fa-arrow-left"></span>  Overview</a>
+</div>
+
+
+<div id="course-status-container">
+  <!-- Info part -->
+  <div id="course-info-part">
+    <h1><b>Update Course Status</h1>
+  </div>
+
+  <div id="course-status-horizontal-line"></div>
+
+  <!-- status part -->
+  <div id="course-status-part">
+    <h2>Course Status</h2>
+
+    <p>A0</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+    <p>A1</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+    <p>A2</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+    <p>B1</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+    <p>B2</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+    <p>C1</p>
+    <form id="course-progress-status-form">
+        <select>
+          <option>0%</option>
+          <option>10%</option>
+          <option>25%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>100%</option>
+        </select>
+        <input type="submit" value="submit" />
+    </form>
+
+  </div>
+
+  <div id="course-status-horizontal-line"></div>
+
+  <!-- contributors -->
+  <div id="course-contributors-part">
+    <h2>Conributors</h2>
+    <div id="course-contributors-profile-photos">
+      <div id="teacher-profile-photo"></div>
+      <div id="teacher-profile-photo"></div>
+      <div id="teacher-profile-photo"></div>
+    </div>
+  </div>
+
+  <div id="course-status-horizontal-line"></div>
+
+  <!-- status updates -->
+  <div id="course-update-part">
+    <h2>Status Updates</h2>
+
+    <form id="course-update-part-form">
+        <input type="text" placeholder="Update Title" />
+        <textarea placeholder="Update content"></textarea>
+        <input type="submit" value="Submit" id="status-update-submit-btn" />
+    </form>
+
+
+    <!-- status cell -->
+    <div id="status-update-cell">
+      <div id="status-update-cell-top-part">
+        <div id="status-update-cell-top-part-left-part">
+          <div id="status-updater-photo"></div>
+        </div>
+        <div id="status-update-cell-top-part-right-part">
+          <h2>Big steps closer to graduation!</h2>
+          <p>Aug 22, 2020</p>
+        </div>
+      </div>
+      <div id="status-update-cell-content">
+        <p>
+          it's been a while since we posted an update. During this silence, we've been working on fixing the errors you're reporting and we're making some good progress on that, but more on that in a second. The course has also grown immensely, with duolingo mentioning
+          more than 450000 learners (at the last update four months ago, we had just under 300000!). So we're growing rapidly.
+          <br />
+          <br /> Which could have to do with us inching closer to beta: we mentioned a couple of times that courses graduate from beta if the rate of error reports per 100 users remains below 3 for 14 days. On 21 June, we went below 3 for the first time,
+          and we've stayed below since! Let's see what happens.
+          <br />
+          <Br /> This is once again a time to thank everyone involved for their support and help so far! Everyone who left us some comments and reported some errors helped in shaping and improving the course and it's nice to see that we've been making a lot
+          of progress.
+          <br />
+          <br /> Once the course has graduated and things are going consistently well, we hope to start our efforts for a follow-up course which irons out some of the structural issues people have been reporting.
+          <br />
+          <br /> So thanks for the continuous interest and support and happy learning!
+        </p>
+      </div>
+    </div>
+    <!-- /cell -->
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

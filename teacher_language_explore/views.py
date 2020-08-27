@@ -20,3 +20,23 @@ def teacher_course_overview(request):
 
     }
     return render(request, "teacher_language_explore/course_overview.html", data)
+
+
+def teacher_course_status(request, language, language_for):
+    """
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_language_explore/course_status.html", data)
+
+
+def teacher_course_status_update(request):
+    """
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_language_explore/course_status_update_form.html", data)
