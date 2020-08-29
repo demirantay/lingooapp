@@ -1,1 +1,84 @@
-ann
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_dashboard/announcament.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- header part -->
+<div id="dashboard-header-part">
+  <h1>Dashboard</h1>
+</div>
+
+<div id="dashboard-announcament-container">
+  <!-- announcament header part -->
+  <div id="dashboard-announcament-header-part">
+    <h2>Create an announcament</h2>
+  </div>
+
+  <!-- announcament create forum -->
+  <div id="announcament-create-form">
+    <form>
+      <textarea placeholder="type your announcament"></textarea>
+      <input type="submit" value="submit" />
+    </form>
+  </div>
+
+  <!-- announcament cells (have the delete button) -->
+  <div id="announcament-cell-container">
+    <h3>Announcaments</h3>
+
+
+    <!-- announcament CELL -->
+    <div id="announcament-cell">
+      <div id="announcament-cell-top-part">
+        <a href="">@username</a>
+        <p> | 12, Aug 2020</p>
+      </div>
+      <div id="announcament-cell-bottom-part">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+    <!-- /CELL -->
+
+    <!-- announcament CELL -->
+    <div id="announcament-cell">
+      <div id="announcament-cell-top-part">
+        <a href="">@username</a>
+        <p> | 12, Aug 2020</p>
+      </div>
+      <div id="announcament-cell-bottom-part">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+    <!-- /CELL -->
+
+    <!-- announcament CELL -->
+    <div id="announcament-cell">
+      <div id="announcament-cell-top-part">
+        <a href="">@username</a>
+        <p> | 12, Aug 2020</p>
+      </div>
+      <div id="announcament-cell-bottom-part">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+    <!-- /CELL -->
+
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

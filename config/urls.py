@@ -71,6 +71,12 @@ urlpatterns = [
     # --------------
     # ...
     path("", include("teacher_dashboard.urls")),
+
+    # Teacher Vocab Container
+    # --------------
+    # ...
+    path("", include("teacher_vocab_container.urls")),
+
 ]
 
 if settings.DEBUG:

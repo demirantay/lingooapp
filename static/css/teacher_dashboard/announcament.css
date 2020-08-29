@@ -1,0 +1,286 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#dashboard-announcament-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+/* --------------- header part ---------------- */
+#dashboard-header-part {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#dashboard-header-part h1 {
+
+}
+
+/* --------------- announcmanet header part ---------------- */
+
+#dashboard-announcament-header-part {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* --------------- announcament create forum---------------- */
+#announcament-create-form {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#announcament-create-form form {
+
+}
+
+#announcament-create-form form textarea {
+  display: block;
+  width: 95%;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  height: 75px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+#announcament-create-form form textarea:hover {
+  border-color: #2E4053;
+  transition: 0.2s;
+}
+
+#announcament-create-form form textarea:focus {
+  border-color: #2E4053;
+  outline: none !important;
+}
+
+#announcament-create-form form input {
+  display: block;
+  padding: 5px 25px;
+  color: white;
+  background-color: #2E4053;
+  border-radius: 10px;
+  border: 1px solid #2E4053;
+  font-size: 16px;
+}
+
+#announcament-create-form form input:hover {
+  transition: 0.2s;
+  background-color: #5D6D7E;
+  cursor: pointer;
+}
+
+/* --------------- announcament cells ---------------- */
+#announcament-cell-container {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#announcament-cell {
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#announcament-cell-top-part {
+  border: 1px solid transparent;
+  padding-top: 10px;
+}
+
+#announcament-cell-top-part a {
+  color: #3498DB;
+  display: inline-block;
+  text-decoration: none;
+}
+
+#announcament-cell-top-part a:hover {
+  text-decoration: underline;
+}
+
+#announcament-cell-top-part p {
+  display: inline-block;
+  margin: 0px;
+}
+
+#announcament-cell-bottom-part {
+  border: 1px solid transparent;
+  padding-top: 0px;
+}
+
+#announcament-cell-bottom-part p {
+  margin-top: 10px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #dashboard-announcament-container {
+    width: 95%;
+    margin-top: 0px;
+  }
+
+  /* --------------- header part ---------------- */
+  #dashboard-header-part {
+    width: 95%;
+  }
+
+  /* --------------- announcmanet header part ---------------- */
+
+  #dashboard-announcament-header-part {
+    width: 95%;
+  }
+
+  #dashboard-announcament-header-part  h2 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  /* --------------- announcament create forum---------------- */
+  #announcament-create-form {
+    width: 90%;
+    margin-left: 8px;
+  }
+
+  /* --------------- announcament cells ---------------- */
+  #announcament-cell-container {
+    width: 95%;
+  }
+
+  #announcament-cell-top-part {
+    padding-top: 1px;
+  }
+
+  #announcament-cell-bottom-part p {
+    margin-top: 4px;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #dashboard-announcament-container {
+    width: 95%;
+    margin-top: 0px;
+  }
+
+  /* --------------- header part ---------------- */
+  #dashboard-header-part {
+    width: 95%;
+  }
+
+  /* --------------- announcmanet header part ---------------- */
+
+  #dashboard-announcament-header-part {
+    width: 95%;
+  }
+
+  #dashboard-announcament-header-part  h2 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  /* --------------- announcament create forum---------------- */
+  #announcament-create-form {
+    width: 90%;
+    margin-left: 8px;
+  }
+
+  /* --------------- announcament cells ---------------- */
+  #announcament-cell-container {
+    width: 95%;
+  }
+
+  #announcament-cell-top-part {
+    padding-top: 1px;
+  }
+
+  #announcament-cell-bottom-part p {
+    margin-top: 4px;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #dashboard-announcament-container {
+    width: 95%;
+    margin-top: 0px;
+  }
+
+  /* --------------- header part ---------------- */
+  #dashboard-header-part {
+    width: 95%;
+  }
+
+  /* --------------- announcmanet header part ---------------- */
+
+  #dashboard-announcament-header-part {
+    width: 95%;
+  }
+
+  #dashboard-announcament-header-part  h2 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  /* --------------- announcament create forum---------------- */
+  #announcament-create-form {
+    width: 90%;
+    margin-left: 8px;
+  }
+
+  /* --------------- announcament cells ---------------- */
+  #announcament-cell-container {
+    width: 95%;
+  }
+
+  #announcament-cell-top-part {
+    padding-top: 1px;
+  }
+
+  #announcament-cell-bottom-part p {
+    margin-top: 4px;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
