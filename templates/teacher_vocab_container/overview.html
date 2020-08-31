@@ -1,1 +1,469 @@
-overview
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/overview.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="vocab-container-wrapper">
+
+  <!-- header and explanation part -->
+  <div id="vocab-container-header-box">
+    <h1>Vocabulary Container</h1>
+
+    <h3>FAQ</h3>
+    <b>1) What is the Vocabulary Container?</b><br />
+    <p>
+      Even though this is not an official scientific theory, we believe that
+      a student needs to learn a certain amount of words for each language level
+      of the CEFR (common european framework of reference for langauge learning).
+      The following list is a reference to how many words a student should know:
+    </p>
+    <ul>
+      <li>A0 -- 100</li>
+      <li>A1 -- 500</li>
+      <li>A2 -- 1000</li>
+      <li>B1 -- 2000</li>
+      <li>B2 -- 4000</li>
+      <li>C1 -- 8000</li>
+    </ul>
+    <p>
+      So what exactly is the Vocabulary Container? It is a software feature that
+      lets the course teachers build the word lists for each CEFR langauge level.
+      <br /><br />
+      Please note that in levels ranging from A0 to C1 you should add the words
+      that you think are essential to the student. For example adding 100 words
+      of tree's biologic names are not essential. Specific jargon based vocabulary
+      packs will be added later on based on the students choosing and they will
+      be built in a different page not this one. This Vocabulary Continer is for
+      essential words.
+    </p>
+  </div>
+
+
+
+  <!-- vocab A0 table -->
+  <div id="vocab-a0-table">
+    <h3>A0</h3>
+    <p>
+      The limit: 100 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a A0 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+  <!-- vocab A1 table -->
+  <div id="vocab-a0-table">
+    <h3>A1</h3>
+    <p>
+      The limit: 500 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a A0 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+  <!-- vocab A2 table -->
+  <div id="vocab-a0-table">
+    <h3>A2</h3>
+    <p>
+      The limit: 1000 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a A2 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+  <!-- vocab B1 table -->
+  <div id="vocab-a0-table">
+    <h3>B1</h3>
+    <p>
+      The limit: 2000 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a B1 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+
+  <!-- vocab B2 table -->
+  <div id="vocab-a0-table">
+    <h3>B2</h3>
+    <p>
+      The limit: 4000 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a B2 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+  <!-- vocab C1 table -->
+  <div id="vocab-a0-table">
+    <h3>C1</h3>
+    <p>
+      The limit: 8000 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a C1 word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+  </div>
+
+  <!-- Advanced Table -->
+  <div id="vocab-a0-table">
+    <h3>Advanced</h3>
+    <p>
+      The limit: 16000 words.
+    </p>
+
+    <form >
+        <input type="text" placeholder="Add a Advacned word" id="word-form-content" />
+        <input type="submit" value="add" id="word-add-button" />
+    </form>
+
+    <div id="vocab-container-table">
+      <!-- first ones are the headers the data will be on bottom -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>date</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>edit</b></p>
+        </div>
+      </div><!-- /voab container table row -->
+      <!-- row data -->
+      <div id="vocab-container-table-row">
+        <div id="vocab-container-table-column">
+          <p>1</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>hello</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>@demir</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p>20, june 2020</p>
+        </div>
+        <div id="vocab-container-table-column">
+          <button class="open-hidden-panel-btn">edit</button>
+        </div>
+      </div><!-- /voab container table row for data records -->
+    </div><!--/vocab container table -->
+
+
+  </div>
+
+
+  <!-- hidden table word record edit panel -->
+  <div id="hidden-table-record-edit-panel-background"></div>
+  <div id="hidden-table-record-edit-panel-foreground">
+    <h3>Edit Word Record</h3>
+    <form>
+      <input type="hidden" />
+      <input type="text" placeholder="Word" />
+      <input type="submit" value="Save" id="edit-word-submit-btn"/>
+    </form>
+    <button id="edit-word-cancel-btn">Cancel</button>
+  </div>
+
+  <script>
+    let hidden_panel_open_buttons = document.getElementsByClassName("open-hidden-panel-btn");
+    let hidden_panel_close_btn = document.getElementById("edit-word-cancel-btn");
+    let hidden_bg = document.getElementById("hidden-table-record-edit-panel-background");
+    let hidden_fg = document.getElementById("hidden-table-record-edit-panel-foreground");
+
+    // close panel
+    hidden_panel_close_btn.addEventListener("click", close_panel);
+
+    function close_panel(event) {
+      event.preventDefault();
+
+      hidden_bg.style.display = "none";
+      hidden_fg.style.display = "none";
+    }
+
+
+    // open panel
+    for (let i=0; hidden_panel_open_buttons.length; i++) {
+      hidden_panel_open_buttons[i].addEventListener("click", open_panel);
+    }
+
+    function open_panel(event) {
+      event.preventDefault();
+
+      hidden_bg.style.display = "block";
+      hidden_fg.style.display = "block";
+    }
+
+
+
+  </script>
+
+</div>
+
+{% endblock %}

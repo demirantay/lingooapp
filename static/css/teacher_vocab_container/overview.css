@@ -1,0 +1,491 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#vocab-container-wrapper {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+/* ------------ header and explanation part --------------- */
+
+#vocab-container-header-box {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#vocab-container-header-box h1 {}
+
+#vocab-container-header-box h3 {
+}
+
+#vocab-container-header-box p {}
+
+#vocab-container-header-box ul {}
+
+/* ------------ hidden table word record edit panel --------------- */
+#hidden-table-record-edit-panel-background {
+  background-color: black;
+  z-index: 9;
+  position: fixed;
+  opacity: 0.6;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+#hidden-table-record-edit-panel-foreground {
+  background-color: white;
+  border-radius: 5px;
+  height: auto;
+  width: 50%;
+  margin: 0 auto;
+  z-index: 999 !important;
+  position: fixed;
+  top: 0;
+  margin-top: 200px;
+  text-align: center;
+  padding: 20px 0px;
+  padding-bottom: 40px;
+  display: none;
+}
+
+#hidden-table-record-edit-panel-foreground form {
+  display: inline-block;
+}
+
+#hidden-table-record-edit-panel-foreground input {
+  font-size: 20px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+#hidden-table-record-edit-panel-foreground input:focus {
+  border-color: #2E4053;
+  outline: none !important;
+}
+
+#edit-word-submit-btn {
+  display: inline-block;
+  border: 1px solid #2E4053;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+}
+
+#edit-word-submit-btn:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+#edit-word-cancel-btn {
+  display: inline-block;
+  border: 1px solid #E3102E;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #E3102E;
+  font-size: 20px;
+  color: white;
+}
+
+#edit-word-cancel-btn:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: #FADBD8;
+  color: #E3102E;
+}
+
+
+/* ------------ vocab A0 table --------------- */
+#vocab-a0-table {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+#vocab-a0-table h3 {
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+#vocab-a0-table form {
+  margin-bottom: 20px;
+}
+
+#word-form-content {
+  border: 1px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#word-form-content:focus {
+  border-color: #2E4053;
+  outline: none !important;
+}
+
+#word-add-button {
+  border: 1px solid #2E4053;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+}
+
+#word-add-button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+
+#vocab-container-table {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#vocab-container-table-row {
+  border: 1px solid transparent;
+}
+
+#vocab-container-table-row:nth-child(even) {
+  background-color: #E5E8E8;
+}
+
+#vocab-container-table-column {
+  border-right: 1px solid lightgrey;
+  display: inline-block;
+  width: 19%;
+}
+
+#vocab-container-table-column:nth-child(5) {
+  border: 1px;
+  margin-left: 10px;
+}
+
+#vocab-container-table-column p {;
+  margin: 0px;
+  padding: 8px;
+}
+
+#vocab-container-table-column p b {
+  font-weight: 800;
+}
+
+
+#vocab-container-table-column button {
+  border: 1px solid #2E4053;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+}
+
+
+#vocab-container-table-column button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #vocab-container-wrapper {
+    width: 98%;
+  }
+
+  /* ------------ header and explanation part --------------- */
+  #vocab-container-header-box p {
+    font-size: 15px;
+  }
+
+  /* ------------ hidden table word record edit panel --------------- */
+
+  #hidden-table-record-edit-panel-foreground {
+    width: 90%;
+    margin-top: 150px;
+  }
+
+  #hidden-table-record-edit-panel-foreground input {
+    font-size: 20px;
+    padding: 8px 5px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #edit-word-submit-btn {
+    padding: 8px 15px !important;
+
+  }
+
+  #edit-word-cancel-btn {
+    padding: 8px 5px;
+    width: 78%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ------------ vocab A0 table --------------- */
+
+  #vocab-container-table {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 95%;
+  }
+
+  #vocab-container-table-row {
+    border: 1px solid black;
+  }
+
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 0px;
+    font-size:10px;
+  }
+
+  #vocab-container-table-column button {
+    font-size: 11px;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #vocab-container-wrapper {
+    width: 98%;
+  }
+
+  /* ------------ header and explanation part --------------- */
+  #vocab-container-header-box p {
+    font-size: 15px;
+  }
+
+  /* ------------ hidden table word record edit panel --------------- */
+
+  #hidden-table-record-edit-panel-foreground {
+    width: 90%;
+    margin-top: 150px;
+  }
+
+  #hidden-table-record-edit-panel-foreground input {
+    font-size: 20px;
+    padding: 8px 5px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #edit-word-submit-btn {
+    padding: 8px 15px !important;
+
+  }
+
+  #edit-word-cancel-btn {
+    padding: 8px 5px;
+    width: 65%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ------------ vocab A0 table --------------- */
+
+  #vocab-container-table {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 95%;
+  }
+
+  #vocab-container-table-row {
+    border: 1px solid black;
+  }
+
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 0px;
+    font-size:10px;
+  }
+
+  #vocab-container-table-column button {
+    font-size: 11px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #vocab-container-wrapper {
+    width: 98%;
+  }
+
+  /* ------------ header and explanation part --------------- */
+  #vocab-container-header-box p {
+    font-size: 15px;
+  }
+
+  /* ------------ hidden table word record edit panel --------------- */
+
+  #hidden-table-record-edit-panel-foreground {
+    width: 90%;
+    margin-top: 150px;
+  }
+
+  #hidden-table-record-edit-panel-foreground input {
+    font-size: 20px;
+    padding: 8px 5px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #edit-word-submit-btn {
+    padding: 8px 15px !important;
+
+  }
+
+  #edit-word-cancel-btn {
+    padding: 8px 5px;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ------------ vocab A0 table --------------- */
+
+  #vocab-container-table {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 95%;
+  }
+
+  #vocab-container-table-row {
+    border: 1px solid black;
+  }
+
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 0px;
+    font-size:10px;
+  }
+
+  #vocab-container-table-column button {
+    font-size: 11px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  /* ------------ hidden table word record edit panel --------------- */
+
+  #hidden-table-record-edit-panel-foreground {
+    width: 90%;
+    margin-top: 150px;
+  }
+
+  #hidden-table-record-edit-panel-foreground input {
+    font-size: 20px;
+    padding: 8px 5px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  #edit-word-submit-btn {
+    padding: 8px 15px !important;
+
+  }
+
+  #edit-word-cancel-btn {
+    padding: 8px 5px;
+    width: 33%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #vocab-container-table {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 95%;
+  }
+
+  #vocab-container-table-row {
+    border: 1px solid black;
+  }
+
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 18%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 5px 5px;
+    font-size: 15px;
+  }
+
+  #vocab-container-table-column button {
+    font-size: 15px;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
