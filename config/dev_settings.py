@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'teacher_language_explore',
     'teacher_dashboard',
     'teacher_vocab_container',
+    'teacher_forum',
 ]
 
 MIDDLEWARE = [
