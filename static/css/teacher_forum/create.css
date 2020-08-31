@@ -59,7 +59,7 @@ body {
   padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid lightgrey;
-  width: 70%;
+  width: 74%;
 }
 
 #forum-create-form textarea {
@@ -87,6 +87,7 @@ body {
   background-color: #2E4053;
   border: 1px solid #2E4053;
   color: white;
+  width: 74% !important;
 }
 
 #forum-post-create-btn:hover {
@@ -126,6 +127,7 @@ body {
   #forum-create-form input {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
   }
 
   #forum-create-form select {
@@ -136,6 +138,11 @@ body {
   #forum-create-form textarea {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
+  }
+
+  #forum-post-create-btn {
+    width: 100% !important;
   }
 }
 
@@ -165,6 +172,7 @@ body {
   #forum-create-form input {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
   }
 
   #forum-create-form select {
@@ -175,6 +183,11 @@ body {
   #forum-create-form textarea {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
+  }
+
+  #forum-post-create-btn {
+    width: 100% !important;
   }
 }
 
@@ -204,6 +217,7 @@ body {
   #forum-create-form input {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
   }
 
   #forum-create-form select {
@@ -214,6 +228,11 @@ body {
   #forum-create-form textarea {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
+  }
+
+  #forum-post-create-btn {
+    width: 100% !important;
   }
 }
 
@@ -244,6 +263,7 @@ body {
   #forum-create-form input {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
   }
 
   #forum-create-form select {
@@ -254,8 +274,12 @@ body {
   #forum-create-form textarea {
     font-size: 20px;
     width: 100%;
+    padding: 10px 0px;
   }
 
+  #forum-post-create-btn {
+    width: 100% !important;
+  }
 }
 
 
