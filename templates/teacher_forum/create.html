@@ -1,1 +1,33 @@
-c
+l
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/create.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="teacher-forum-container">
+
+  <!-- header part -->
+  <div id="forum-header-part">
+      <h1>Post Creation Panel</h1>
+  </div>
+
+  <!-- create post form part -->
+  <div id="forum-create-form">
+    <form>
+        <input type="text" placeholder="Post Title" />
+        <select>
+          <option>Spanish</option>
+        </select>
+        <textarea placeholder="Type your post content"></textarea>
+        <input type="submit" value="Post" id="forum-post-create-btn" />
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

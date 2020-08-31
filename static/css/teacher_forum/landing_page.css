@@ -1,0 +1,302 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#teacher-forum-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+
+/* ---------------- teacher forum header and info -------------------- */
+#forum-header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ---------------- first 50 posts -------------------- */
+#forum-page-posts-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#forum-post-cell {
+  border: 1px solid transparent;
+  margin-bottom: 8px;
+}
+
+#forum-post-cell-left-part {
+  border: 1px solid transparent;
+  vertical-align: top;
+  width: 5%;
+  display: inline-block;
+  text-align: center;
+}
+
+#forum-post-cell-left-part form {
+  margin-top: 5px;
+}
+
+#forum-post-cell-left-part form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+#forum-post-cell-left-part form input:hover {
+  cursor: pointer;
+  color: #27AE60;
+}
+
+#forum-post-cell-right-part {
+  border: 1px solid transparent;
+  vertical-align: top;
+  width: 92%;
+  display: inline-block;
+}
+
+#forum-post-cell-right-part-top-part {
+
+}
+
+#forum-post-cell-right-part-top-part a {
+  color: black;
+  text-decoration: none;
+}
+
+#forum-post-cell-right-part-top-part a h1 {
+  margin: 0px;
+  font-size: 25px;
+}
+
+#forum-post-cell-right-part-top-part a:hover {
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+#forum-post-cell-right-part-bottom-part {
+
+}
+
+#forum-post-cell-right-part-bottom-part p {
+  margin: 0px;
+  margin-top: 5px;
+  color: grey;
+}
+
+#forum-post-cell-right-part-bottom-part p a {
+  color: grey;
+  text-decoration: none;
+}
+
+#forum-post-cell-right-part-bottom-part p a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- pagination links -------------------- */
+#forum-pagination-links {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#forum-pagination-links a {
+  background-color: #2E4053;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+#forum-pagination-links a:hover {
+  background-color: #D7DBDD;
+  color: black;
+  transition: 0.2s;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  /* ---------------- teacher forum header and info -------------------- */
+  #forum-header {
+    width: 95%;
+  }
+
+  /* ---------------- first 50 posts -------------------- */
+  #forum-page-posts-container {
+    width: 95%;
+  }
+
+  #forum-post-cell {
+    border: 1px solid transparent;
+    margin-bottom: 8px;
+  }
+
+  #forum-post-cell-left-part {
+    width: 5%;
+    text-align: left;
+  }
+
+  #forum-post-cell-left-part form {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-right-part {
+    width: 92%;
+  }
+
+  #forum-post-cell-right-part-top-part a h1 {
+    font-size: 17px;
+  }
+
+  #forum-post-cell-right-part-bottom-part p {
+    font-size: 13px;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  /* ---------------- teacher forum header and info -------------------- */
+  #forum-header {
+    width: 95%;
+  }
+
+  /* ---------------- first 50 posts -------------------- */
+  #forum-page-posts-container {
+    width: 95%;
+  }
+
+  #forum-post-cell {
+    border: 1px solid transparent;
+    margin-bottom: 8px;
+  }
+
+  #forum-post-cell-left-part {
+    width: 5%;
+    text-align: left;
+  }
+
+  #forum-post-cell-left-part form {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-right-part {
+    width: 92%;
+  }
+
+  #forum-post-cell-right-part-top-part a h1 {
+    font-size: 18px;
+  }
+
+  #forum-post-cell-right-part-bottom-part p {
+    font-size: 13px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  /* ---------------- teacher forum header and info -------------------- */
+  #forum-header {
+    width: 95%;
+  }
+
+  /* ---------------- first 50 posts -------------------- */
+  #forum-page-posts-container {
+    width: 95%;
+  }
+
+  #forum-post-cell {
+    border: 1px solid transparent;
+    margin-bottom: 8px;
+  }
+
+  #forum-post-cell-left-part {
+    width: 5%;
+    text-align: left;
+  }
+
+  #forum-post-cell-left-part form {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #forum-post-cell-right-part {
+    width: 92%;
+  }
+
+  #forum-post-cell-right-part-top-part a h1 {
+    font-size: 19px;
+  }
+
+  #forum-post-cell-right-part-bottom-part p {
+    font-size: 13px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

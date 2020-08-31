@@ -1,0 +1,277 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#teacher-forum-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+#forum-header-part {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#forum-header-part h1 {
+  margin-top: 20px;
+}
+
+/* ---------------- create post form part -------------------- */
+#forum-create-form {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#forum-create-form input {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  width: 70%;
+}
+
+#forum-create-form input:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#forum-create-form input:hover {
+  transition: 0.2s;
+  border-color: black;
+}
+
+#forum-create-form select {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  width: 70%;
+}
+
+#forum-create-form textarea {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  width: 70%;
+  height: 200px;
+}
+
+#forum-create-form textarea:hover {
+  transition: 0.2s;
+  border-color: black;
+}
+
+#forum-create-form textarea:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#forum-post-create-btn {
+  background-color: #2E4053;
+  border: 1px solid #2E4053;
+  color: white;
+}
+
+#forum-post-create-btn:hover {
+  transition: 0.2s;
+  background-color: #D7DBDD;
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  #forum-header-part {
+    text-align: center;
+  }
+
+  #forum-header-part h1 {
+    font-size: 25px;
+  }
+
+  /* ---------------- create post form part -------------------- */
+  #forum-create-form {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  #forum-create-form input {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form select {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form textarea {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  #forum-header-part {
+    text-align: center;
+  }
+
+  #forum-header-part h1 {
+    font-size: 25px;
+  }
+
+  /* ---------------- create post form part -------------------- */
+  #forum-create-form {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  #forum-create-form input {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form select {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form textarea {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  #forum-header-part {
+    text-align: center;
+  }
+
+  #forum-header-part h1 {
+    font-size: 25px;
+  }
+
+  /* ---------------- create post form part -------------------- */
+  #forum-create-form {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  #forum-create-form input {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form select {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form textarea {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #teacher-forum-container {
+    width: 98%;
+  }
+
+  #forum-header-part {
+    text-align: center;
+  }
+
+  #forum-header-part h1 {
+    font-size: 25px;
+  }
+
+  /* ---------------- create post form part -------------------- */
+  #forum-create-form {
+    border: 1px solid transparent;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  #forum-create-form input {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form select {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  #forum-create-form textarea {
+    font-size: 20px;
+    width: 100%;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

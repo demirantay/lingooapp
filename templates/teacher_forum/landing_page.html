@@ -1,1 +1,71 @@
 l
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="teacher-forum-container">
+
+  <!-- teacher forum header and info -->
+  <div id="forum-header">
+    <h1>Teacher Forum</h1>
+    <p>This is a <b>private</b> forum restricted to only teachers.</p>
+  </div>
+
+  <!-- first 50 posts -->
+  <div id="forum-page-posts-container">
+
+    <!-- POST CELL -->
+    <div id="forum-post-cell">
+      <div id="forum-post-cell-left-part">
+        <form>
+            <input type="hidden" />
+            <input type="submit" value="&#9650;" />
+        </form>
+      </div>
+      <div id="forum-post-cell-right-part">
+        <div id="forum-post-cell-right-part-top-part">
+          <a href=""><h1>Lorem Ipsum Dolor Sit Amet</h1></a>
+        </div>
+        <div id="forum-post-cell-right-part-bottom-part">
+          <p>75 points by <a href="">@demir</a> | 22, June 2020 | <a href="">25 comments</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- /cell -->
+
+    <!-- POST CELL -->
+    <div id="forum-post-cell">
+      <div id="forum-post-cell-left-part">
+        <form>
+            <input type="hidden" />
+            <input type="submit" value="&#9650;" />
+        </form>
+      </div>
+      <div id="forum-post-cell-right-part">
+        <div id="forum-post-cell-right-part-top-part">
+          <a href=""><h1>Lorem Ipsum Dolor Sit Amet</h1></a>
+        </div>
+        <div id="forum-post-cell-right-part-bottom-part">
+          <p>75 points by <a href="">@demir</a> | 22, June 2020 | <a href="">25 comments</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- /cell -->
+
+  </div>
+
+  <!-- pagination links -->
+  <div id="forum-pagination-links">
+    <a href=""><</a>
+    <a href="">></a>
+  </div>
+
+</div>
+
+{% endblock %}
