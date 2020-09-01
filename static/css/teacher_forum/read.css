@@ -1,0 +1,612 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#teacher-forum-container {
+  border: 1px solid lightgrey;
+  height: auto;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+#horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* ---------------- post content -------------------- */
+#forum-post-content {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 20px;
+}
+
+#forum-post-content-left-part {
+  width: 15%;
+  border: 1px solid transparent;
+  vertical-align: top;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+}
+
+#profile-photo {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #E5E8E8;
+  margin: 0 auto;
+}
+
+#forum-post-content-right-part {
+  width: 83%;
+  border: 1px solid transparent;
+  vertical-align: top;
+  height: auto;
+  display: inline-block;
+}
+
+#forum-post-content-right-part-top {
+  width: 100%;
+  border: 1px solid transparent;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+#forum-post-content-right-part-top h1 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#forum-post-content-right-part-top p {
+  margin-top: 0px;
+}
+
+#forum-post-content-right-part-top p a {
+  text-decoration: none;
+  color: #3498DB;
+}
+
+#forum-post-content-right-part-middle {
+  width: 100%;
+  border: 1px solid transparent;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#forum-post-content-right-part-middle p {
+  margin: 0px;
+}
+
+#forum-post-content-right-part-bottom {
+  width: 100%;
+  border: 1px solid transparent;
+  height: auto;
+}
+
+#forum-post-content-right-part-bottom p {
+  display: inline-block;
+}
+
+#forum-post-content-right-part-bottom form {
+  display: inline-block;
+}
+
+#forum-post-content-right-part-bottom form input {
+
+}
+
+#forum-post-content-right-part-bottom a {
+  display: inline-block;
+  border: 1px solid grey;
+  color: black;
+  text-decoration: none;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#forum-post-content-right-part-bottom a:hover {
+  background-color: black;
+  color: white;
+  transition: 0.2s;
+}
+
+
+/* ---------------- create comment -------------------- */
+#forum-post-create-comment {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#forum-post-create-comment form {
+
+}
+
+#forum-post-create-comment form textarea {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  height: 100px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#forum-post-create-comment form textarea:hover {
+  transition: 0.2s;
+  border-color: black;
+}
+
+#forum-post-create-comment form textarea:focus {
+  border-color: black;
+  outline: none !important;
+}
+
+#forum-post-create-comment form input {
+  display: block;
+  margin-top: 10px;
+  margin-left: 5%;
+  background-color: #2E4053;
+  color: white;
+  border: 1px solid #2E4053;
+  padding: 7px 18px;
+  border-radius: 7px;
+}
+
+#forum-post-create-comment form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #D7DBDD;
+  color: black;
+}
+
+
+/* ---------------- comment section -------------------- */
+
+#comment-section {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 20px;
+}
+
+#comment-cell {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#comment-cell-left-part {
+  border: 1px solid transparent;
+  width: 5%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+  text-align: center;
+}
+
+#comment-cell-left-part form {
+  margin-bottom: 2px;
+}
+
+#comment-cell-left-part form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+#comment-cell-left-part form input:hover {
+  color: #3498DB;
+  cursor: pointer;
+}
+
+#comment-cell-right-part {
+  border: 1px solid transparent;
+  width: 92%;
+  display: inline-block;
+  vertical-align: top;
+  height: auto;
+}
+
+#comment-cell-right-part-top-part {
+  margin-bottom: 5px;
+}
+
+#comment-cell-right-part-top-part p {
+  margin: 0px;
+}
+
+#comment-cell-right-part-top-part p a {
+  text-decoration: none;
+  color: #3498DB;
+}
+
+#comment-cell-right-part-top-part p a:hover {
+  text-decoration: underline;
+}
+
+#comment-cell-right-part-bottom-part {
+
+}
+
+#comment-cell-right-part-bottom-part p {
+  margin: 0px;
+}
+
+/* ----------- hidden delete form ----------- */
+#hidden-delete-form-background-greying {
+  background-color: black;
+  z-index: 9;
+  position: fixed;
+  opacity: 0.6;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+#hidden-delete-form {
+  background-color: white;
+  border-radius: 5px;
+  height: auto;
+  width: 60%;
+  margin: 0 auto;
+  z-index: 999 !important;
+  position: fixed;
+  top: 0;
+  margin-top: 200px;
+  text-align: center;
+  padding: 20px 0px;
+  display: none;
+}
+
+#hidden-delete-form form {
+  display: inline-block;
+}
+
+#hidden-delete-form form input {
+  background-color: #E3102E;
+  color: white;
+  border: #E3102E;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#hidden-delete-form form input:hover {
+  transition: 0.3s;
+  background-color: black;
+  border-color: black;
+  cursor: pointer;
+
+}
+
+#hidden-delete-form a {
+  display: inline-block;
+  text-decoration: none;
+  color: #E3102E;
+  margin-left: 5px;
+}
+
+#hidden-delete-form a:hover {
+  text-decoration: underline;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #teacher-forum-container {
+    width: 99%;
+  }
+
+  #horizontal-line {
+    width: 90%;
+  }
+
+  /* ---------------- post content -------------------- */
+  #forum-post-content {
+    width: 95%;
+  }
+
+  #forum-post-content-left-part {
+    display: none;
+  }
+
+  #forum-post-content-right-part {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #forum-post-content-right-part-top h1 {
+    font-size: 25px;
+  }
+
+  #forum-post-content-right-part-top p {
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-middle p {
+    font-size: 15px;
+    margin-bottom: -10px;
+  }
+
+  #forum-post-content-right-part-bottom p {
+    display: block;
+    font-size: 14px;
+  }
+
+  #forum-post-content-right-part-bottom form {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-bottom a {
+    font-size: 14px;
+  }
+
+  /* ---------------- create comment -------------------- */
+  #forum-post-create-comment {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  /* ---------------- comment section -------------------- */
+
+  #comment-section {
+    width: 95%;
+  }
+
+  #comment-cell {
+    width: 100%;
+  }
+
+  #comment-cell-left-part {
+    width: 10%;
+    text-align: left;
+  }
+
+  #comment-cell-right-part {
+    width: 87%;
+  }
+
+  #comment-cell-right-part-top-part p {
+    font-size: 15px;
+  }
+
+  #comment-cell-right-part-bottom-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #teacher-forum-container {
+    width: 99%;
+  }
+
+  #horizontal-line {
+    width: 90%;
+  }
+
+  /* ---------------- post content -------------------- */
+  #forum-post-content {
+    width: 95%;
+  }
+
+  #forum-post-content-left-part {
+    display: none;
+  }
+
+  #forum-post-content-right-part {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #forum-post-content-right-part-top h1 {
+    font-size: 25px;
+  }
+
+  #forum-post-content-right-part-top p {
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-middle p {
+    font-size: 15px;
+    margin-bottom: -10px;
+  }
+
+  #forum-post-content-right-part-bottom p {
+    display: block;
+    font-size: 14px;
+  }
+
+  #forum-post-content-right-part-bottom form {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-bottom a {
+    font-size: 14px;
+  }
+
+  /* ---------------- create comment -------------------- */
+  #forum-post-create-comment {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  /* ---------------- comment section -------------------- */
+
+  #comment-section {
+    width: 95%;
+  }
+
+  #comment-cell {
+    width: 100%;
+  }
+
+  #comment-cell-left-part {
+    width: 10%;
+    text-align: left;
+  }
+
+  #comment-cell-right-part {
+    width: 87%;
+  }
+
+  #comment-cell-right-part-top-part p {
+    font-size: 15px;
+  }
+
+  #comment-cell-right-part-bottom-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #teacher-forum-container {
+    width: 99%;
+  }
+
+  #horizontal-line {
+    width: 90%;
+  }
+
+  /* ---------------- post content -------------------- */
+  #forum-post-content {
+    width: 95%;
+  }
+
+  #forum-post-content-left-part {
+    display: none;
+  }
+
+  #forum-post-content-right-part {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #forum-post-content-right-part-top h1 {
+    font-size: 25px;
+  }
+
+  #forum-post-content-right-part-top p {
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-middle p {
+    font-size: 15px;
+    margin-bottom: -10px;
+  }
+
+  #forum-post-content-right-part-bottom p {
+    display: block;
+    font-size: 14px;
+  }
+
+  #forum-post-content-right-part-bottom form {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #forum-post-content-right-part-bottom a {
+    font-size: 14px;
+  }
+
+  /* ---------------- create comment -------------------- */
+  #forum-post-create-comment {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  /* ---------------- comment section -------------------- */
+
+  #comment-section {
+    width: 95%;
+  }
+
+  #comment-cell {
+    width: 100%;
+  }
+
+  #comment-cell-left-part {
+    width: 10%;
+    text-align: left;
+  }
+
+  #comment-cell-right-part {
+    width: 87%;
+  }
+
+  #comment-cell-right-part-top-part p {
+    font-size: 15px;
+  }
+
+  #comment-cell-right-part-bottom-part p {
+    font-size: 15px;
+  }
+
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  /* ----------- hidden delete form ----------- */
+  #hidden-delete-form {
+    width: 90%;
+  }
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

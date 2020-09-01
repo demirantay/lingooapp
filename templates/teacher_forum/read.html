@@ -1,1 +1,141 @@
-r
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/read.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <div id="teacher-forum-container">
+
+    <!-- post content -->
+    <div id="forum-post-content">
+      <div id="forum-post-content-left-part">
+        <div id="profile-photo"></div>
+      </div>
+      <div id="forum-post-content-right-part">
+        <div id="forum-post-content-right-part-top">
+          <h1>Lorem Ipsum Dolor Sit Amet</h1>
+          <p><a href="">@demir</a> (#spanish)</p>
+        </div>
+        <div id="forum-post-content-right-part-middle">
+          <p>
+            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum
+            dolor lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor
+          </p>
+        </div>
+        <div id="forum-post-content-right-part-bottom">
+          <!-- operations -->
+          <p>65</p>
+          <!-- upvote -->
+          <form>
+              <input type="submit" value="up" />
+          </form>
+          <!-- downvote -->
+          <form>
+            <input type="submit" value="down" />
+          </form>
+          <p>| Aug. 18, 2020 |</p>
+          <a href="">EDIT</a>
+          <a href="" id="hidden_delete_open_button">DELETE</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="horizontal-line"></div>
+
+    <!-- create comment -->
+    <div id="forum-post-create-comment">
+      <form>
+          <textarea placeholder="Leave a comment ..."></textarea>
+          <input type="submit" value="POST" />
+      </form>
+    </div>
+
+    <!-- comment listings -->
+    <div id="comment-section">
+
+      <!-- comment cell -->
+      <div id="comment-cell">
+        <div id="comment-cell-left-part">
+          <!-- upvote-button -->
+          <form>
+              <input type="hidden" />
+              <input type="submit" value="&#9650;" />
+          </form>
+          <!-- downvote-button -->
+          <form>
+              <input type="hidden" />
+              <input type="submit" value="&#9660;" />
+          </form>
+        </div>
+        <div id="comment-cell-right-part">
+          <div id="comment-cell-right-part-top-part">
+            <p><a href="">@demir</a> 0 points | Aug. 18, 2020</p>
+          </div>
+          <div id="comment-cell-right-part-bottom-part">
+            <p>
+                Lorem ipsum dolor site amet midolor ipsum dolor site amet midoloripsum dolor site amet midolor ipsum dolor site amet midolor ipsum dolor site amet midolor v ipsum dolor site amet midolor v v v.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /cell -->
+
+      <!-- comment cell -->
+      <div id="comment-cell">
+        <div id="comment-cell-left-part">
+          <!-- upvote-button -->
+          <form>
+              <input type="hidden" />
+              <input type="submit" value="&#9650;" />
+          </form>
+          <!-- downvote-button -->
+          <form>
+              <input type="hidden" />
+              <input type="submit" value="&#9660;" />
+          </form>
+        </div>
+        <div id="comment-cell-right-part">
+          <div id="comment-cell-right-part-top-part">
+            <p><a href="">@demir</a> 0 points | Aug. 18, 2020</p>
+          </div>
+          <div id="comment-cell-right-part-bottom-part">
+            <p>
+                Lorem ipsum dolor site amet midolor ipsum dolor site amet midoloripsum dolor site amet midolor ipsum dolor site amet midolor ipsum dolor site amet midolor v ipsum dolor site amet midolor v v v.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /cell -->
+
+    </div>
+</div>
+
+<!-- hidden delete form -->
+<div id="hidden-delete-form-background-greying"></div>
+<div id="hidden-delete-form">
+  <h2>Are you sure?</h2>
+  <form method="POST" action="">
+      {% csrf_token %}
+      <input type="submit" value="Delete" name="" />
+  </form>
+  <a href="">Cancel</a>
+</div>
+
+<script>
+  hidden_delete_open_button = document.getElementById("hidden_delete_open_button");
+  hidden_delete_form = document.getElementById("hidden-delete-form");
+  hidden_delete_form_background_greying = document.getElementById("hidden-delete-form-background-greying");
+
+  // onclick open the hidden delete form
+  hidden_delete_open_button.onclick = function (event) {
+    event.preventDefault();
+    hidden_delete_form_background_greying.style.display = "block";
+    hidden_delete_form.style.display = "block"
+  }
+</script>
+
+{% endblock %}
