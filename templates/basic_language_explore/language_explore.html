@@ -1,0 +1,31 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/basic_language_explore/language_explore.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="under_construction_box">
+  <h2><span class="fa fa-lock"></span> This part is under construction.</h2>
+</div>
+
+<div id="horizontal-line"></div>
+
+<div id="contribute_box">
+  <div id="contribute-box-left-side">
+    <!-- i do not have internet right
+     now do not forget to make this black and white -->
+    <div id="contribute-banner-image"></div>
+  </div>
+  <div id="contribute-box-right-side">
+    <h1>Become a Teacher!</h1>
+    <p>If you want to help our community by building new language courses, consider becoming a teacher!</p>
+    <a href="{% url 'teacher_public_landing_page' %}">Contribute to a Course</a>
+  </div>
+</div>
+
+{% endblock %}

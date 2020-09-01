@@ -1,0 +1,208 @@
+
+#horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+
+/* --------- under construction banner ---------- */
+#under_construction_box {
+  border: 1px solid transparent;
+  height: 300px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #E5E8E8;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#under_construction_box h2 {
+  margin: 0px;
+  margin-top: 20px;
+  margin-top: 110px;
+}
+
+/* --------- contribute_box ---------- */
+
+#contribute_box {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 30px;
+}
+
+#contribute-box-left-side {
+  border: 1px solid transparent;
+  height: 200px;
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#contribute-banner-image {
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #E5E8E8;
+  margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../placeholder/test.jpg");
+}
+
+#contribute-box-right-side {
+  border: 1px solid transparent;
+  height: 200px;
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#contribute_box h1 {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+
+#contribute_box p {
+  margin-bottom: 30px;
+}
+
+#contribute_box a {
+  background-color: #E3102E;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#contribute_box a:hover {
+  transition: 0.2s;
+  background-color: #FADBD8;
+  color: #A50E23;
+}
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  /* --------- under construction banner ---------- */
+  #under_construction_box {
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  /* --------- contribute_box ---------- */
+
+  #contribute_box {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  #contribute-box-left-side {
+    display: none;
+  }
+
+  #contribute-box-right-side {
+    width: 100%;
+    display: block;
+  }
+
+  #contribute_box h1 {
+    margin-top:10px;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* --------- under construction banner ---------- */
+  #under_construction_box {
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  /* --------- contribute_box ---------- */
+
+  #contribute_box {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  #contribute-box-left-side {
+    display: none;
+  }
+
+  #contribute-box-right-side {
+    width: 100%;
+    display: block;
+  }
+
+  #contribute_box h1 {
+    margin-top:10px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* --------- under construction banner ---------- */
+  #under_construction_box {
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  /* --------- contribute_box ---------- */
+
+  #contribute_box {
+    border: 1px solid transparent;
+    width: 95%;
+  }
+
+  #contribute-box-left-side {
+    display: none;
+  }
+
+  #contribute-box-right-side {
+    width: 100%;
+    display: block;
+  }
+
+  #contribute_box h1 {
+    margin-top:10px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
