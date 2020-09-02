@@ -1,0 +1,23 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_authentication/apply.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="thank-you-box">
+  <h3>Thank you! for your application.</h3>
+
+  <p>
+    We will review it and email you as soon as we can.
+  </p>
+
+  <a href="{% url 'index' %}"><span class="fa fa-arrow-left"></span> return home</a>
+</div>
+
+
+
+{% endblock %}

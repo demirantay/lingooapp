@@ -15,6 +15,33 @@ body {
   margin-bottom: 20px;
 }
 
+#warning-box {
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+}
+
+#warning-box p {
+  color: red;
+}
+
+#thank-you-box {
+  border: 1px solid transparent;
+  margin:0 auto;
+  width: 90%;
+}
+
+#thank-you-box a {
+  background-color: #E3102E;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#thank-you-box a:hover {
+  transition: 0.2s;
+  background-color: #A50E23;
+}
 
 /* ------------------ header info part ------------------ */
 #course-apply-header-info {

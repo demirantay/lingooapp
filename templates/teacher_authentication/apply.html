@@ -44,7 +44,19 @@
   <div id="course-apply-form">
     <h2>Teacher Application</h2>
 
-    <form>
+    <div id="warning-box">
+      {% if languages_are_same == True %}
+        <p>You cannot choose the same language for course and it's speakers.</p>
+      {% elif empty_credentials == True %}
+        <p>You cannot enter empty inputs.</p>
+      {% elif above_13_years_old == False %}
+        <p>You need to be above 13 years old.</p>
+      {% endif %}
+    </div>
+
+    <form method="POST" action="{% url 'teacher_apply' %}">
+      {% csrf_token %}
+
       <!-- #1 which course to contrib to -->
       <div id="course-apply-form-1-part">
         <div id="course-apply-form-1-part-left-part">
@@ -52,14 +64,74 @@
         </div>
         <div id="course-apply-form-1-part-right-part">
           <label>Which course would you like to contribute to?</label>
-          <select name="">
-            <option>Spanish</option>
-            <option>French</option>
+          <select name="course_language" id="course_language_select">
+            <option value="spanish">spanish</option>
+            <option value="english">english</option>
+            <option value="french">french</option>
+            <option value="german">german</option>
+            <option value="italian">italian</option>
+            <option value="japanese">japanese</option>
+            <option value="chinese">chinese</option>
+            <option value="russian">russian</option>
+            <option value="korean">korean</option>
+            <option value="portuguese">portuguese</option>
+            <option value="arabic">arabic</option>
+            <option value="dutch">dutch</option>
+            <option value="swedish">swedish</option>
+            <option value="norwegian">norwegian</option>
+            <option value="turkish">turkish</option>
+            <option value="polish">polish</option>
+            <option value="irish">irish</option>
+            <option value="greek">greek</option>
+            <option value="hebrew">hebrew</option>
+            <option value="danish">danish</option>
+            <option value="hindi">hindi</option>
+            <option value="czech">czech</option>
+            <option value="esperanto">esperanto</option>
+            <option value="ukranian">ukranian</option>
+            <option value="welsh">welsh</option>
+            <option value="vietnamese">vietnamese</option>
+            <option value="hungarian">hungarian</option>
+            <option value="swahili">swahili</option>
+            <option value="romanian">romanian</option>
+            <option value="indonesian">indonesian</option>
+            <option value="finnish">finnish</option>
+            <option value="bengali">bengali</option>
           </select>
           <p>for</p>
-          <select name="">
-            <option>Spanish</option>
-            <option>French</option>
+          <select name="speakers_language" id="speakers_language_select">
+            <option value="english">english</option>
+            <option value="spanish">spanish</option>
+            <option value="french">french</option>
+            <option value="german">german</option>
+            <option value="italian">italian</option>
+            <option value="japanese">japanese</option>
+            <option value="chinese">chinese</option>
+            <option value="russian">russian</option>
+            <option value="korean">korean</option>
+            <option value="portuguese">portuguese</option>
+            <option value="arabic">arabic</option>
+            <option value="dutch">dutch</option>
+            <option value="swedish">swedish</option>
+            <option value="norwegian">norwegian</option>
+            <option value="turkish">turkish</option>
+            <option value="polish">polish</option>
+            <option value="irish">irish</option>
+            <option value="greek">greek</option>
+            <option value="hebrew">hebrew</option>
+            <option value="danish">danish</option>
+            <option value="hindi">hindi</option>
+            <option value="czech">czech</option>
+            <option value="esperanto">esperanto</option>
+            <option value="ukranian">ukranian</option>
+            <option value="welsh">welsh</option>
+            <option value="vietnamese">vietnamese</option>
+            <option value="hungarian">hungarian</option>
+            <option value="swahili">swahili</option>
+            <option value="romanian">romanian</option>
+            <option value="indonesian">indonesian</option>
+            <option value="finnish">finnish</option>
+            <option value="bengali">bengali</option>
           </select>
           <p>speakers</p>
         </div>
@@ -72,7 +144,7 @@
         </div>
         <div id="course-apply-form-1-part-right-part">
           <label>What is your native language?</label>
-          <input type="text" placeholder="e.g. English" />
+          <input type="text" placeholder="e.g. English" name="native_language" />
         </div>
       </div>
 
@@ -82,9 +154,20 @@
           <p>#3</p>
         </div>
         <div id="course-apply-form-1-part-right-part">
-          <label>In <b>|COURSE LANGUAGE|</b> let us know why you are interested in
+          <label>In <b id="course_language_name">|COURSE LANGUAGE|</b> let us know why you are interested in
             building this course.</label>
-          <textarea placeholder="Your response"></textarea>
+          <textarea placeholder="Your response" name="course_language_text"></textarea>
+          <script>
+            let course_language_name = document.getElementById("course_language_name");
+            let course_language_select = document.getElementById("course_language_select");
+
+            course_language_name.innerHTML = course_language_select.value;
+
+            course_language_select.onchange = function() {
+              course_language_name.innerHTML = course_language_select.value;
+            }
+
+          </script>
         </div>
       </div>
 
@@ -94,9 +177,20 @@
           <p>#4</p>
         </div>
         <div id="course-apply-form-1-part-right-part">
-          <label>Please translate your previous response to <b>|SPEAKERS LANGUAGE|</b>
+          <label>Please translate your previous response to <b id="speakers_language_name">|SPEAKERS LANGUAGE|</b>
             so we know you've got the skills.</label>
-          <textarea placeholder="Your translation" ></textarea>
+          <textarea placeholder="Your translation" name="speakers_language_text" ></textarea>
+          <script>
+            let speakers_language_name = document.getElementById("speakers_language_name");
+            let speakers_language_select = document.getElementById("speakers_language_select");
+
+            speakers_language_name.innerHTML = speakers_language_select.value;
+
+            speakers_language_select.onchange = function() {
+              speakers_language_name.innerHTML = speakers_language_select.value;
+            }
+
+          </script>
         </div>
       </div>
 
@@ -108,7 +202,7 @@
         <div id="course-apply-form-1-part-right-part">
           <label>Please provide your email address. We may share this with
             current course teachers who may contact you about your interest in the course.</label>
-          <input type="text" placeholder="e.g. examle@gmail.com" />
+          <input type="text" placeholder="e.g. examle@gmail.com" name="email" />
         </div>
       </div>
 
@@ -119,7 +213,7 @@
         </div>
         <div id="course-apply-form-1-part-right-part">
           <div id="course-apply-form-6-left-part">
-            <input type="checkbox" value="checked" id="13-year-old-check"/>
+            <input type="checkbox" value="checked" id="13-year-old-check" name="above_13_years_old"/>
           </div>
           <div id="course-apply-form-6-right-part">
             <label for="13-year-old-check">I confirm that I am at least 13 years of age.</label>
@@ -127,7 +221,7 @@
         </div>
       </div>
 
-      <input type="submit" value="Submit" id="course-apply-submit-btn" />
+      <input type="submit" value="Submit" id="course-apply-submit-btn" name="course_apply_submit_btn" />
 
       <p id="form-footer-note">We'll review your application and email you soon!</p>
     </form>
