@@ -53,3 +53,16 @@ def get_other_user_profile(request, other_user_username, User, BasicUserProfile,
         other_basic_user_settings = None
 
     return other_basic_user_settings
+
+
+def get_current_teacher_user_profile(request, User, TeacherUserProfile, ObjectDoesNotExist):
+    """gets the current users teacher profile"""
+    # Get the current user
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+    # Get the current teacher profile
+    try:
+        current_teacher = TeacherUserProfile.objects.get(user=current_basic_user)
+    except ObjectDoesNotExist:
+        current_teacher = None
+
+    return current_teacher

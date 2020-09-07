@@ -21,9 +21,10 @@
 
   <!-- announcament create forum -->
   <div id="announcament-create-form">
-    <form>
-      <textarea placeholder="type your announcament"></textarea>
-      <input type="submit" value="submit" />
+    <form method="POST" action="{% url 'teacher_dashboard_announcament' %}">
+      {% csrf_token %}
+      <textarea placeholder="type your announcament" name="announcament_content"></textarea>
+      <input type="submit" value="submit" name="teacher_announcament_submit_btn"/>
     </form>
   </div>
 
@@ -31,48 +32,24 @@
   <div id="announcament-cell-container">
     <h3>Announcaments</h3>
 
+    {% for announcament in filtered_announcaments %}
+      <!-- announcament CELL -->
+      <div id="announcament-cell">
+        <div id="announcament-cell-top-part">
+          <a href="{% url 'teacher_profile_overview' %}">@{{ announcament.user.username }}</a>
+          <p> | {{ announcament.creation_date }}</p>
+        </div>
+        <div id="announcament-cell-bottom-part">
+          <p>
+            {{ announcament.content }}
+          </p>
+        </div>
+      </div>
+      <!-- /CELL -->
+    {% endfor %}
 
-    <!-- announcament CELL -->
-    <div id="announcament-cell">
-      <div id="announcament-cell-top-part">
-        <a href="">@username</a>
-        <p> | 12, Aug 2020</p>
-      </div>
-      <div id="announcament-cell-bottom-part">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-    <!-- /CELL -->
 
-    <!-- announcament CELL -->
-    <div id="announcament-cell">
-      <div id="announcament-cell-top-part">
-        <a href="">@username</a>
-        <p> | 12, Aug 2020</p>
-      </div>
-      <div id="announcament-cell-bottom-part">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-    <!-- /CELL -->
 
-    <!-- announcament CELL -->
-    <div id="announcament-cell">
-      <div id="announcament-cell-top-part">
-        <a href="">@username</a>
-        <p> | 12, Aug 2020</p>
-      </div>
-      <div id="announcament-cell-bottom-part">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-    <!-- /CELL -->
 
   </div>
 
