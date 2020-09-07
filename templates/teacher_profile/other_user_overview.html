@@ -11,21 +11,21 @@
 <!-- profile information -->
 <div id="profile-information">
   <div id="profile-information-left-part">
-    {% if current_basic_user_profile.profile_photo %}
-      <div id="profile-image" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+    {% if other_user_teacher_profile.profile_photo %}
+      <div id="profile-image" style="background-image: url('{{ other_user_teacher_profile.profile_photo.url }}');"></div>
     {% else %}
       <div id="profile-image" style="background-image: url('');"></div>
     {% endif %}
 
   </div>
   <div id="profile-information-right-part">
-    <h1>John Doe</h1>
-    <h3>@username</h3>
+    <h1>{{ other_user_teacher_profile.first_name }} {{ other_user_teacher_profile.last_name }}</h1>
+    <h3>@{{ other_basic_user.username }}</h3>
     <!-- max char limit: -->
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      {{ other_user_teacher_profile.bio }}
     </p>
-    <a href="" target="_blank">www.google.com</a>
+    <a href="{{ other_user_teacher_profile.personal_url }}" target="_blank">{{ other_user_teacher_profile.personal_url }}</a>
   </div>
 </div>
 
