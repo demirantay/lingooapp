@@ -51,6 +51,8 @@
         <p>You cannot enter empty inputs.</p>
       {% elif above_13_years_old == False %}
         <p>You need to be above 13 years old.</p>
+      {% elif already_has_teacher_profile == True %}
+        <p>This account already has an application in process.</p>
       {% endif %}
     </div>
 

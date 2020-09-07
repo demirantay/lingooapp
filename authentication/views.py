@@ -180,7 +180,6 @@ def login(request):
 
                 if is_valid == True:
                     # update sessions
-                    # update sessions
                     request.session["basic_user_email"] = user.email
                     request.session["basic_user_username"] = user.username
                     request.session["basic_user_logged_in"] = True

@@ -12,19 +12,27 @@
 
     <img alt="teacher-logo" src="{% static 'branding/teacher-logo-black-text.png' %}" />
 
+    <!--
     <h1>Login Gate</h1>
-
+    -->
+    <br />
     <div id="warning-box">
-        <p>Invalid username or password</p>
+        {% if wrong_password == True %}
+          <p>Wrong password</p>
+        {% elif teacher_profile_does_not_exists == True %}
+          <p>This account does not have a teacher profile</p>
+        {% elif empty_credentials == True %}
+          <p>You cannot enter empty credentials</p>
+        {% endif %}
     </div>
 
-    <form>
-      <input type="text" placeholder="teacher username" />
-      <input type="password" placeholder="teacher password" />
-      <input type="submit" value="Login" id="login-submit-btn" />
+    <form method="POST" action="{% url 'teacher_login' %}">
+      {% csrf_token %}
+      <input type="password" placeholder="password" name="password" />
+      <input type="submit" value="Login" id="login-submit-btn" name="teacher_login_submit_btn" />
     </form>
 
-    <p>If you do not have an account, please consider <a href="">applying here</a>.</p>
+    <p>If you want to become a teacher, <a href="{% url 'teacher_apply' %}">apply here</a>.</p>
 
   </div>
 </div>

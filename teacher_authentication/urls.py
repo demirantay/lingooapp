@@ -8,6 +8,6 @@ urlpatterns = [
     path("contrib/apply/thanks/", views.application_thank_you_page, name="application_thank_you_page"),
     # Teacher login gate
     path("teacher/login/", views.teacher_login, name="teacher_login"),
-    # Tecaher signup gate
-    path("teacher/signup/", views.teacher_signup, name="teacher_signup"),
+    # Logout
+    path("teacher/logout/", views.teacher_logout, name="teacher_logout"),
 ]

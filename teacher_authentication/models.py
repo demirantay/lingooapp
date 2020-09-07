@@ -25,7 +25,7 @@ class TeacherUserProfile(models.Model):
     id = models.AutoField(primary_key=True)
 
     # Teacher Signup-Permissions (only assigned by the user)
-    is_permitted_to_signup = models.BooleanField(default=False)
+    is_permitted_to_login = models.BooleanField(default=False)
 
     # Application & Signup Information
     native_language = models.CharField(max_length=200, blank=True, null=True)
@@ -55,6 +55,8 @@ class TeacherUserProfile(models.Model):
 class TeacherApplication(models.Model):
     id = models.AutoField(primary_key=True)
     creation_date = models.DateField(default=timezone.now)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+
     # application info
     course_language = models.CharField(max_length=300, blank=False, null=False)
     course_speakers_language = models.CharField(max_length=300, blank=False, null=False)

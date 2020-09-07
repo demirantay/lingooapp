@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from .models import TeacherApplication, TeacherUserProfile
 from profile_settings.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.auth_utils import get_banned_words
 
 
 def teacher_apply(request):
@@ -35,6 +36,7 @@ def teacher_apply(request):
     empty_credentials = False
     above_13_years_old = True
     languages_are_same = False
+    already_has_teacher_profile = False
 
     if request.POST.get("course_apply_submit_btn"):
         course_language = request.POST.get("course_language")
@@ -75,27 +77,40 @@ def teacher_apply(request):
                    or email == "":
                     empty_credentials = True
                 else:
-                    # create application record and
-                    # redirect to a thank you page
-                    new_application = TeacherApplication(
-                        course_language=course_language,
-                        course_speakers_language=speakers_language,
-                        native_language=native_language,
-                        course_language_why_are_you_interested_text=course_language_text,
-                        speakers_language_why_are_you_interested_text=speakers_language_text,
-                        email=email,
-                        older_than_13=True
-                    )
-                    new_application.save()
-                    # A new teacher profile is created
-                    new_teacher_profile = TeacherUserProfile(
-                        native_language=native_language,
-                        course_language=course_language,
-                        course_speakers_language=speakers_language,
-                        email=email,
-                    )
-                    new_teacher_profile.save()
-                    return HttpResponseRedirect("/contrib/apply/thanks/")
+                    # check if there is an already created teacher profile
+                    # with this basic user credentials
+                    try:
+                        teacher_profile = TeacherUserProfile.objects.get(
+                            user=current_basic_user,
+                        )
+                    except ObjectDoesNotExist:
+                        teacher_profile = None
+
+                    if teacher_profile != None:
+                        already_has_teacher_profile = True
+                    else:
+                        # create application record and
+                        # redirect to a thank you page
+                        new_application = TeacherApplication(
+                            course_language=course_language,
+                            course_speakers_language=speakers_language,
+                            native_language=native_language,
+                            course_language_why_are_you_interested_text=course_language_text,
+                            speakers_language_why_are_you_interested_text=speakers_language_text,
+                            email=email,
+                            older_than_13=True
+                        )
+                        new_application.save()
+                        # A new teacher profile is created
+                        new_teacher_profile = TeacherUserProfile(
+                            user=current_basic_user,
+                            native_language=native_language,
+                            course_language=course_language,
+                            course_speakers_language=speakers_language,
+                            email=email,
+                        )
+                        new_teacher_profile.save()
+                        return HttpResponseRedirect("/contrib/apply/thanks/")
 
     data = {
         "current_basic_user": current_basic_user,
@@ -103,6 +118,7 @@ def teacher_apply(request):
         "languages_are_same": languages_are_same,
         "above_13_years_old": above_13_years_old,
         "empty_credentials": empty_credentials,
+        "already_has_teacher_profile": already_has_teacher_profile,
     }
 
     if current_basic_user == None:
@@ -142,23 +158,90 @@ def application_thank_you_page(request):
 
 def teacher_login(request):
     """
+    in this page the users can login to the teacher platform
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # login form processing
+    wrong_password = False
+    teacher_profile_does_not_exists = False
+    empty_credentials = False
+
+    if request.POST.get("teacher_login_submit_btn"):
+        password = request.POST.get("password")
+
+        # checking if the inputs are empty
+        if bool(password) == False or password == "":
+            empty_credentials = True
+        else:
+            # check if the current basic user has a teacher profile
+            try:
+                teacher_profile = TeacherUserProfile.objects.get(
+                    user=current_basic_user
+                )
+            except ObjectDoesNotExist:
+                teacher_profile = None
+
+            if teacher_profile == None:
+                teacher_profile_does_not_exists = True
+            else:
+                # check if that teacher profile is permitted to login
+                if teacher_profile.is_permitted_to_login == False:
+                    teacher_profile_does_not_exists = True
+                else:
+                    # Check if the user credits (password) are right and
+                    # if they are log the user into the system and add sessions
+                    is_valid = current_basic_user.check_password(password)
+
+                    if is_valid == True:
+                        # update sessions
+                        request.session["teacher_user_logged_in"] = True
+                        return HttpResponseRedirect(
+                            "/teacher/dashboard/announcament/"
+                        )
+                    else:
+                        wrong_password = True
+
+    # Preventing brute force
+    # ... havent implemented this yet
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "wrong_password": wrong_password,
+        "teacher_profile_does_not_exists": teacher_profile_does_not_exists,
+        "empty_credentials": empty_credentials,
     }
-    return render(request, "teacher_authentication/login.html", data)
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "teacher_authentication/login.html", data)
 
 
-def teacher_signup(request):
+def teacher_logout(request):
     """
+    if users visit this page it logs her out.
     """
+    # Deleting sessions regarding basic users
+    if "basic_user_email" in request.session:
+        del request.session["basic_user_email"]
+        del request.session["basic_user_username"]
+        del request.session["basic_user_logged_in"]
 
-    data = {
+        # Deleting sessions regarding teacher users
+        del request.session["teacher_user_logged_in"]
 
-    }
-    return render(request, "teacher_authentication/signup.html", data)
-
-
-# def teacher_logout(request):
-# ...
+    return HttpResponseRedirect("/")

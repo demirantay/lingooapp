@@ -58,7 +58,7 @@
       <div id="left-navgition">
         <a href="{% url 'index' %}" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo.png' %}"  /></a>
         <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
-        <a href="{% url 'basic_language_explore' %}"><span class=""></span> Languages</a>
+        <a href="{% url 'basic_language_explore' %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
         <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
@@ -82,7 +82,7 @@
       {% else %}
         <!-- if logged in -->
         <a href=""><span class="fa fa-home"></span> Home</a>
-        <a href="{% url 'basic_language_explore' %}"><span class=""></span> Languages</a>
+        <a href="{% url 'basic_language_explore' %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
         <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
