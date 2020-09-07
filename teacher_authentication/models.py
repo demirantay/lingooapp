@@ -33,7 +33,6 @@ class TeacherUserProfile(models.Model):
     course_speakers_language = models.CharField(max_length=300, blank=True, null=True)
     first_name = models.CharField(max_length=300, blank=True, null=True)
     last_name = models.CharField(max_length=300, blank=True, null=True)
-    birth_date = models.CharField(max_length=300, blank=True, null=True)
     occupation = models.CharField(max_length=300, blank=True, null=True)
     email = models.CharField(max_length=100, blank=False, null=False)
 
