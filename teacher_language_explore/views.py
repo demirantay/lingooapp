@@ -47,11 +47,24 @@ def teacher_course_overview(request):
     except ObjectDoesNotExist:
         all_teacher_courses = None
 
+    # Getting course contributers count
+    course_contributers = {}
+    for course in all_teacher_courses:
+        contributers = TeacherUserProfile.objects.filter(
+            course_language=course.course_language,
+            course_speakers_language=course.course_speakers_language
+        )
+        contributer_count = 0
+        for contributer in contributers:
+            contributer_count += 1
+        course_contributers[course.id] = contributer_count
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
         "all_teacher_courses": all_teacher_courses,
+        "course_contributers": course_contributers,
     }
 
     if "teacher_user_logged_in" in request.session:
@@ -60,8 +73,9 @@ def teacher_course_overview(request):
         return HttpResponseRedirect("/")
 
 
-def teacher_course_status(request, language, language_for):
+def teacher_course_status(request, language, speakers_language):
     """
+    in this view the teachers can see the status of the other courses
     """
 
     data = {

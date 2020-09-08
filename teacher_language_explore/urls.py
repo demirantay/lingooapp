@@ -10,7 +10,7 @@ urlpatterns = [
     ),
     # Teacher Course Status
     path(
-        "teacher/course/status/<str:language>/<str:language_for>/",
+        "teacher/course/status/<str:language>/<str:speakers_language>/",
         views.teacher_course_status,
         name="teacher_course_status"
     ),
