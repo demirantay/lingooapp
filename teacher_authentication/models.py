@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # My Module Imports
+from teacher_language_explore.models import TeacherLanguageCourse
+
 
 '''
     Not including a basic user because I am going to use
@@ -35,6 +37,8 @@ class TeacherUserProfile(models.Model):
     last_name = models.CharField(max_length=300, blank=True, null=True)
     occupation = models.CharField(max_length=300, blank=True, null=True)
     email = models.CharField(max_length=100, blank=False, null=False)
+
+    teacher_course = models.ForeignKey(TeacherLanguageCourse, on_delete=models.CASCADE, blank=True, null=True)
 
     # Edit Profile -- settings
     profile_photo = models.ImageField(

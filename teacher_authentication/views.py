@@ -92,6 +92,7 @@ def teacher_apply(request):
                         # create application record and
                         # redirect to a thank you page
                         new_application = TeacherApplication(
+                            user=current_basic_user,
                             course_language=course_language,
                             course_speakers_language=speakers_language,
                             native_language=native_language,
@@ -101,7 +102,17 @@ def teacher_apply(request):
                             older_than_13=True
                         )
                         new_application.save()
-                        # A new teacher profile is created
+
+                        '''
+                        I COMMENTED THIS PART OUT BECAUSE I DON"T NEED THE
+                        APPLICATION PART TO CREATE A TEACHER PROFILE SINCE
+                        IT RELATIONSHIPS ITSELF TO THE USER OF THE APPLICATION
+                        I CAN EASILY CREATE IT MANUALLY AND THERE WONT BE
+                        THOUSANDS OF TEACHER PROFILES TO GO THORUGH I WILL JUST
+                        HAVE THOUSANDS OF TEACHER APPLICATIONS TO GO THORUGH
+                        AND I CAN CREATE THE PROFILE MANUALLY FOR THE
+                        APPLICATIONS
+
                         new_teacher_profile = TeacherUserProfile(
                             user=current_basic_user,
                             native_language=native_language,
@@ -110,6 +121,13 @@ def teacher_apply(request):
                             email=email,
                         )
                         new_teacher_profile.save()
+                        '''
+                        # Try to get the new language course if it does exist
+                        # update the teacher profile
+
+                        # if the teacher language course does not exist create
+                        # one and assign it to the newly created teacher.
+
                         return HttpResponseRedirect("/contrib/apply/thanks/")
 
     data = {
@@ -235,13 +253,7 @@ def teacher_logout(request):
     """
     if users visit this page it logs her out.
     """
-    # Deleting sessions regarding basic users
-    if "basic_user_email" in request.session:
-        del request.session["basic_user_email"]
-        del request.session["basic_user_username"]
-        del request.session["basic_user_logged_in"]
-
-        # Deleting sessions regarding teacher users
+    if "teacher_user_logged_in" in request.session:
         del request.session["teacher_user_logged_in"]
 
     return HttpResponseRedirect("/")

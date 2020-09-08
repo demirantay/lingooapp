@@ -11,71 +11,28 @@
 <!-- banner top part -->
 <div id="banner-top-part">
   <h1>Domingo Teacher Panel</h1>
-  <p>Help our community build language courses.</p>
+  <p>Help our community by building language courses.</p>
 </div>
 
 <!-- course cell grid -->
 <div id="course-cell-container">
 
-  <!-- CELL -->
-  <a href="">
-    <div id="course-cell">
-      <div id="course-flag"></div>
-      <div id="for-speakers-flag"></div>
-      <h2>Spanish</h2>
-      <h3>for English speakers</h3>
-      <div id="course-cell-horizontal-line"></div>
-      <div id="course-cell-info">
-        <p><b>2</b> Contributors</p>
+  {% for course in all_teacher_courses %}
+    <!-- CELL -->
+    <a href="">
+      <div id="course-cell">
+        <div id="course-flag"></div>
+        <div id="for-speakers-flag"></div>
+        <h2>Spanish</h2>
+        <h3>for English speakers</h3>
+        <div id="course-cell-horizontal-line"></div>
+        <div id="course-cell-info">
+          <p><b>2</b> Contributors</p>
+        </div>
       </div>
-    </div>
-  </a>
-  <!-- /CELL -->
-
-  <!-- CELL -->
-  <a href="">
-    <div id="course-cell">
-      <div id="course-flag"></div>
-      <div id="for-speakers-flag"></div>
-      <h2>Spanish</h2>
-      <h3>for English speakers</h3>
-      <div id="course-cell-horizontal-line"></div>
-      <div id="course-cell-info">
-        <p><b>2</b> Contributors</p>
-      </div>
-    </div>
-  </a>
-  <!-- /CELL -->
-
-  <!-- CELL -->
-  <a href="">
-    <div id="course-cell">
-      <div id="course-flag"></div>
-      <div id="for-speakers-flag"></div>
-      <h2>Spanish</h2>
-      <h3>for English speakers</h3>
-      <div id="course-cell-horizontal-line"></div>
-      <div id="course-cell-info">
-        <p><b>2</b> Contributors</p>
-      </div>
-    </div>
-  </a>
-  <!-- /CELL -->
-
-  <!-- CELL -->
-  <a href="">
-    <div id="course-cell">
-      <div id="course-flag"></div>
-      <div id="for-speakers-flag"></div>
-      <h2>Spanish</h2>
-      <h3>for English speakers</h3>
-      <div id="course-cell-horizontal-line"></div>
-      <div id="course-cell-info">
-        <p><b>2</b> Contributors</p>
-      </div>
-    </div>
-  </a>
-  <!-- /CELL -->
+    </a>
+    <!-- /CELL -->
+  {% endfor %}
 
 </div>
 

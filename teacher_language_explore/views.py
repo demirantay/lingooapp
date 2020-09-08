@@ -9,17 +9,55 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
+from teacher_authentication.models import TeacherUserProfile
+from .models import TeacherLanguageCourse
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.session_utils import get_current_teacher_user_profile
 
 
 def teacher_course_overview(request):
     """
+    in this view the teachers can see a overview of the languages courses
+    that are being developed
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting all the language courses
+    try:
+        all_teacher_courses = TeacherLanguageCourse.objects.all()
+    except ObjectDoesNotExist:
+        all_teacher_courses = None
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "all_teacher_courses": all_teacher_courses,
     }
-    return render(request, "teacher_language_explore/course_overview.html", data)
+
+    if "teacher_user_logged_in" in request.session:
+        return render(request, "teacher_language_explore/course_overview.html", data)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def teacher_course_status(request, language, language_for):
