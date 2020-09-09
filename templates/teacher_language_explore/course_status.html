@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" /> {% endblock %} {% block content %}
 
 <div id="go-back-container">
-  <a id="go-back-button" href=""><span class="fa fa-arrow-left"></span>  Overview</a>
+  <a id="go-back-button" href="{% url 'teacher_course_overview' %}"><span class="fa fa-arrow-left"></span>  Overview</a>
 </div>
 
 
@@ -166,7 +166,11 @@
     <h2>Conributors</h2>
     <div id="course-contributors-profile-photos">
       {% for contributer in current_course_contributors %}
-        <div id="teacher-profile-photo" style="background-image: url('{{ contributer.profile_photo.url }}');"></div>
+        {% if contributer.profile_photo %}
+          <div id="teacher-profile-photo" style="background-image: url('{{ contributer.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="teacher-profile-photo" style="background-image: url('');"></div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

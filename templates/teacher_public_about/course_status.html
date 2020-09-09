@@ -9,15 +9,15 @@
 {% block content %}
 
 <div id="go-back-container">
-  <a id="go-back-button" href=""><span class="fa fa-arrow-left"></span>  Overview</a>
+  <a id="go-back-button" href="{% url 'teacher_public_landing_page' %}"><span class="fa fa-arrow-left"></span>  Overview</a>
 </div>
 
 
 <div id="course-status-container">
   <!-- Info part -->
   <div id="course-info-part">
-    <h1><b>Spanish</b> for <b>English</b> speakers</h1>
-    <p>If you know both of these languages, would you like to help us out?  <a href="">Apply to Contribute</a></p>
+    <h1><b>{{ current_course.course_language|title }}</b> for <b>{{ current_course.course_speakers_language|title  }}</b> speakers</h1>
+    <p>If you know both of these languages, would you like to help us out?  <a href="{% url 'teacher_apply' %}">Apply to Contribute</a></p>
   </div>
 
   <div id="course-status-horizontal-line"></div>
@@ -28,38 +28,140 @@
 
     <p>A0</p>
     <div id="progress-bar">
-      <div id="progress-amount-0-percent"></div>
-      <span>0%</span>
+      {% if current_course.a0 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.a0 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.a0 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.a0 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.a0 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.a0 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
     <p>A1</p>
     <div id="progress-bar">
-      <div id="progress-amount-25-percent"></div>
-      <span>25%</span>
+      {% if current_course.a1 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.a1 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.a1 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.a1 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.a1 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.a1 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
     <p>A2</p>
     <div id="progress-bar">
-      <div id="progress-amount-50-percent"></div>
-      <span>25%</span>
+      {% if current_course.a2 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.a2 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.a2 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.a2 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.a2 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.a2 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
     <p>B1</p>
     <div id="progress-bar">
-      <div id="progress-amount-75-percent"></div>
-      <span>25%</span>
+      {% if current_course.b1 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.b1 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.b1 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.b1 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.b1 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.b1 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
     <p>B2</p>
     <div id="progress-bar">
-      <div id="progress-amount-100-percent"></div>
-      <span>25%</span>
+      {% if current_course.b2 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.b2 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.b2 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.b2 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.b2 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.b2 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
     <p>C1</p>
     <div id="progress-bar">
-      <div id="progress-amount-10-percent"></div>
-      <span>25%</span>
+      {% if current_course.c1 == 0 %}
+        <div id="progress-amount-0-percent"></div>
+        <span>0%</span>
+      {% elif current_course.c1 == 10 %}
+        <div id="progress-amount-10-percent"></div>
+        <span>10%</span>
+      {% elif current_course.c1 == 25 %}
+        <div id="progress-amount-25-percent"></div>
+        <span>25%</span>
+      {% elif current_course.c1 == 50 %}
+        <div id="progress-amount-50-percent"></div>
+        <span>50%</span>
+      {% elif current_course.c1 == 75 %}
+        <div id="progress-amount-75-percent"></div>
+        <span>75%</span>
+      {% elif current_course.c1 == 100 %}
+        <div id="progress-amount-100-percent"></div>
+        <span>100%</span>
+      {% endif %}
     </div>
 
   </div>
@@ -70,9 +172,13 @@
   <div id="course-contributors-part">
     <h2>Conributors</h2>
     <div id="course-contributors-profile-photos">
-      <div id="teacher-profile-photo"></div>
-      <div id="teacher-profile-photo"></div>
-      <div id="teacher-profile-photo"></div>
+      {% for contributer in current_course_contributors %}
+        {% if contributer.profile_photo %}
+          <div id="teacher-profile-photo" style="background-image: url('{{ contributer.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="teacher-profile-photo" style="background-image: url('');"></div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 
@@ -82,36 +188,30 @@
   <div id="course-update-part">
     <h2>Status Updates</h2>
 
-    <!-- status cell -->
-    <div id="status-update-cell">
-      <div id="status-update-cell-top-part">
-        <div id="status-update-cell-top-part-left-part">
-          <div id="status-updater-photo"></div>
+    {% for status_update in current_course_status_updates %}
+      <!-- status cell -->
+      <div id="status-update-cell">
+        <div id="status-update-cell-top-part">
+          <div id="status-update-cell-top-part-left-part">
+            {% if status_update.teacher.profile_photo %}
+              <div id="status-updater-photo" style="background-image: url('{{ status_update.teacher.profile_photo.url  }}');"></div>
+            {% else %}
+              <div id="status-updater-photo" style="background-image: url('');"></div>
+            {% endif %}
+          </div>
+          <div id="status-update-cell-top-part-right-part">
+            <h2>{{ status_update.title }}</h2>
+            <p>{{ status_update.creation_date }}</p>
+          </div>
         </div>
-        <div id="status-update-cell-top-part-right-part">
-          <h2>Big steps closer to graduation!</h2>
-          <p>Aug 22, 2020</p>
+        <div id="status-update-cell-content">
+          <p>
+              {{ status_update.content|linebreaks }}
+          </p>
         </div>
       </div>
-      <div id="status-update-cell-content">
-        <p>
-          it's been a while since we posted an update. During this silence, we've been working on fixing the errors you're reporting and we're making some good progress on that, but more on that in a second. The course has also grown immensely, with duolingo mentioning more than 450000 learners (at the last update four months ago, we had just under 300000!). So we're growing rapidly.
-          <br />
-          <br />
-          Which could have to do with us inching closer to beta: we mentioned a couple of times that courses graduate from beta if the rate of error reports per 100 users remains below 3 for 14 days. On 21 June, we went below 3 for the first time, and we've stayed below since! Let's see what happens.
-          <br />
-          <Br />
-          This is once again a time to thank everyone involved for their support and help so far! Everyone who left us some comments and reported some errors helped in shaping and improving the course and it's nice to see that we've been making a lot of progress.
-          <br />
-          <br />
-          Once the course has graduated and things are going consistently well, we hope to start our efforts for a follow-up course which irons out some of the structural issues people have been reporting.
-          <br />
-          <br />
-          So thanks for the continuous interest and support and happy learning!
-        </p>
-      </div>
-    </div>
-    <!-- /cell -->
+      <!-- /cell -->
+    {% endfor %}
 
   </div>
 
