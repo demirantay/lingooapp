@@ -13,33 +13,40 @@
     <!-- post content -->
     <div id="forum-post-content">
       <div id="forum-post-content-left-part">
-        <div id="profile-photo"></div>
+        {% if current_post.teacher.profile_photo %}
+          <div id="profile-photo" style="background-image: url('{{ current_post.teacher.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="profile-photo"></div>
+        {% endif %}
       </div>
       <div id="forum-post-content-right-part">
         <div id="forum-post-content-right-part-top">
-          <h1>Lorem Ipsum Dolor Sit Amet</h1>
-          <p><a href="">@demir</a> (#spanish)</p>
+          <h1>{{ current_post.post_title }}</h1>
+          <p><a href="{% url 'teacher_profile_other_user_overview' current_post.teacher.user.username %}">@{{ current_post.teacher.user.username }}</a> (<b>#{{ current_post.teacher.course_language }}</b> teacher)</p>
         </div>
         <div id="forum-post-content-right-part-middle">
           <p>
-            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum
-            dolor lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor
+            {{ current_post.content|linebreaks }}
           </p>
         </div>
         <div id="forum-post-content-right-part-bottom">
           <!-- operations -->
-          <p>65</p>
+          <p>{{ current_post.karma }}</p>
           <!-- upvote -->
-          <form>
-              <input type="submit" value="up" />
+          <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}">
+              {% csrf_token %}
+              <input type="submit" value="&#9650;" name="teacher_forum_read_post_upvote_btn" />
           </form>
           <!-- downvote -->
-          <form>
-            <input type="submit" value="down" />
+          <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}">
+            {% csrf_token %}
+            <input type="submit" value="&#9660;" name="teacher_forum_read_post_downvote_btn" />
           </form>
-          <p>| Aug. 18, 2020 |</p>
-          <a href="">EDIT</a>
-          <a href="" id="hidden_delete_open_button">DELETE</a>
+          <p>| {{ current_post.creation_date }} |</p>
+          {% if current_user_is_teacher == True %}
+            <a href="{% url 'teacher_forum_update' current_post.id %}">EDIT</a>
+            <a href="" id="hidden_delete_open_button">DELETE</a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -48,68 +55,46 @@
 
     <!-- create comment -->
     <div id="forum-post-create-comment">
-      <form>
-          <textarea placeholder="Leave a comment ..."></textarea>
-          <input type="submit" value="POST" />
+      <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}">
+          {% csrf_token %}
+          <textarea placeholder="Leave a comment ..." name="comment_content"></textarea>
+          <input type="submit" value="POST" name="teacher_forum_comment_subtmit_btn" />
       </form>
     </div>
 
     <!-- comment listings -->
     <div id="comment-section">
 
-      <!-- comment cell -->
-      <div id="comment-cell">
-        <div id="comment-cell-left-part">
-          <!-- upvote-button -->
-          <form>
-              <input type="hidden" />
-              <input type="submit" value="&#9650;" />
-          </form>
-          <!-- downvote-button -->
-          <form>
-              <input type="hidden" />
-              <input type="submit" value="&#9660;" />
-          </form>
-        </div>
-        <div id="comment-cell-right-part">
-          <div id="comment-cell-right-part-top-part">
-            <p><a href="">@demir</a> 0 points | Aug. 18, 2020</p>
+      {% for comment in all_post_comments %}
+        <!-- comment cell -->
+        <div id="comment-cell">
+          <div id="comment-cell-left-part">
+            <!-- upvote-button -->
+            <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}" >
+                {% csrf_token %}
+                <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+                <input type="submit" value="&#9650;" name="teacher_forum_comment_upvote_submit" />
+            </form>
+            <!-- downvote-button -->
+            <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}" >
+                {% csrf_token %}
+                <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+                <input type="submit" value="&#9660;" name="teacher_forum_comment_downvote_submit" />
+            </form>
           </div>
-          <div id="comment-cell-right-part-bottom-part">
-            <p>
-                Lorem ipsum dolor site amet midolor ipsum dolor site amet midoloripsum dolor site amet midolor ipsum dolor site amet midolor ipsum dolor site amet midolor v ipsum dolor site amet midolor v v v.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- /cell -->
-
-      <!-- comment cell -->
-      <div id="comment-cell">
-        <div id="comment-cell-left-part">
-          <!-- upvote-button -->
-          <form>
-              <input type="hidden" />
-              <input type="submit" value="&#9650;" />
-          </form>
-          <!-- downvote-button -->
-          <form>
-              <input type="hidden" />
-              <input type="submit" value="&#9660;" />
-          </form>
-        </div>
-        <div id="comment-cell-right-part">
-          <div id="comment-cell-right-part-top-part">
-            <p><a href="">@demir</a> 0 points | Aug. 18, 2020</p>
-          </div>
-          <div id="comment-cell-right-part-bottom-part">
-            <p>
-                Lorem ipsum dolor site amet midolor ipsum dolor site amet midoloripsum dolor site amet midolor ipsum dolor site amet midolor ipsum dolor site amet midolor v ipsum dolor site amet midolor v v v.
-            </p>
+          <div id="comment-cell-right-part">
+            <div id="comment-cell-right-part-top-part">
+              <p><a href="{% url 'teacher_profile_other_user_overview' current_post.teacher.user.username %}">@{{ comment.teacher.user.username }}</a> {{ comment.karma }} points | {{ comment.creation_date }}</p>
+            </div>
+            <div id="comment-cell-right-part-bottom-part">
+              <p>
+                  {{ comment.content|linebreaks }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- /cell -->
+        <!-- /cell -->
+      {% endfor %}
 
     </div>
 </div>

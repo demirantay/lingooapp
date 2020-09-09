@@ -46,6 +46,9 @@ body {
   border-radius: 50%;
   background-color: #E5E8E8;
   margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #forum-post-content-right-part {
@@ -103,7 +106,13 @@ body {
 }
 
 #forum-post-content-right-part-bottom form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
 
+#forum-post-content-right-part-bottom form input:hover {
+  color: red;
+  cursor: pointer;
 }
 
 #forum-post-content-right-part-bottom a {

@@ -185,29 +185,80 @@ def teacher_forum_read(request, post_id):
         current_post = None
 
     # if the post id is not existing redirect to 404
+    if current_post == None:
+        return HttpResponseRedirect("/404/")
 
     # check if the post is owned by the current user if it is pass it on to
     # the template logic
+    current_user_is_teacher = False
+    if current_post.teacher == current_teacher_profile:
+        current_user_is_teacher = True
 
     # current post upvote form processing
+    if request.POST.get("teacher_forum_read_post_upvote_btn"):
+        current_post.karma += 1
+        current_post.save()
 
     # current post downvote form processing
+    if request.POST.get("teacher_forum_read_post_downvote_btn"):
+        current_post.karma -= 1
+        current_post.save()
 
     # get all the coments
-
-    # comment create form processing
+    try:
+        all_post_comments = TeacherForumComment.objects.filter(
+            post=current_post
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        all_post_comments = None
 
     # comment upote form processing
+    if request.POST.get("teacher_forum_comment_upvote_submit"):
+        hidden_comment_id = request.POST.get("hidden_comment_id")
+        current_comment = TeacherForumComment.objects.get(id=hidden_comment_id)
+        current_comment.karma += 1
+        current_comment.save()
+        return HttpResponseRedirect(
+            "/teacher/forum/read/"+str(current_post.id)+"/"
+        )
 
     # comment downvote form processing
+    if request.POST.get("teacher_forum_comment_downvote_submit"):
+        hidden_comment_id = request.POST.get("hidden_comment_id")
+        current_comment = TeacherForumComment.objects.get(id=hidden_comment_id)
+        current_comment.karma -= 1
+        current_comment.save()
+        return HttpResponseRedirect(
+            "/teacher/forum/read/"+str(current_post.id)+"/"
+        )
+
+    # comment create form processing
+    if request.POST.get("teacher_forum_comment_subtmit_btn"):
+        comment_content = request.POST.get("comment_content")
+        # check if it is empty
+        if bool(comment_content) == False or comment_content == "":
+            pass
+        else:
+            new_comment = TeacherForumComment(
+                teacher=current_teacher_profile,
+                post=current_post,
+                content=comment_content
+            )
+            new_comment.save()
+            return HttpResponseRedirect(
+                "/teacher/forum/read/"+str(current_post.id)+"/"
+            )
 
     # Delete the post and its comments form processing
+
 
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
         "current_post": current_post,
+        "current_user_is_teacher": current_user_is_teacher,
+        "all_post_comments": all_post_comments,
     }
 
     if "teacher_user_logged_in" in request.session:
@@ -220,6 +271,10 @@ def teacher_forum_update(request, post_id):
     """
     in this view the teacher can update their own posts
     """
+
+
+    # check if the post is users
+
 
     data = {
 
