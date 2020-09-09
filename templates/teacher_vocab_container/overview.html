@@ -1,5 +1,6 @@
 {% extends 'teacher_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/overview.css' %}" />
@@ -52,9 +53,16 @@
       The limit: 100 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a A0 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if a0_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a0_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -76,24 +84,36 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+
+      {% for word in a0_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a0_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <!--<button class="open-hidden-panel-btn">edit</button>-->
+            <div id="hidden-edit-form">
+              <form>
+                <input type="hidden" />
+                <input type="text" placeholder="Word" />
+                <input type="submit" value="Save" />
+              </form>
+              <button>Cancel</button>
+            </div>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
+
     </div><!--/vocab container table -->
 
   </div>
@@ -105,9 +125,16 @@
       The limit: 500 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a A0 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if a1_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a1_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -129,24 +156,28 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+
+      {% for word in a1_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
+
     </div><!--/vocab container table -->
 
   </div>
@@ -158,9 +189,16 @@
       The limit: 1000 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a A2 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if a2_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a A2 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a2_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -182,24 +220,28 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+
+      {% for word in a2_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a2_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
+
     </div><!--/vocab container table -->
 
   </div>
@@ -211,9 +253,16 @@
       The limit: 2000 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a B1 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if b1_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a B1 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b1_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -235,24 +284,26 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+      {% for word in b1_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ b1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
     </div><!--/vocab container table -->
 
   </div>
@@ -265,9 +316,16 @@
       The limit: 4000 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a B2 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if b2_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a B2 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b2_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -289,24 +347,26 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+      {% for word in b2_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ b2_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
     </div><!--/vocab container table -->
 
   </div>
@@ -318,9 +378,16 @@
       The limit: 8000 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a C1 word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if c1_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a C1 word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_c1_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -342,24 +409,26 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+      {% for word in c1_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ c1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
     </div><!--/vocab container table -->
 
   </div>
@@ -371,9 +440,16 @@
       The limit: 16000 words.
     </p>
 
-    <form >
-        <input type="text" placeholder="Add a Advacned word" id="word-form-content" />
-        <input type="submit" value="add" id="word-add-button" />
+    {% if advanced_limit_reached == True %}
+      <p style="color:red;">
+        Max limit reached
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Add a Advacned word" id="word-form-content" name="word" />
+        <input type="submit" value="add" id="word-add-button" name="teacher_word_add_advanced_submit" />
     </form>
 
     <div id="vocab-container-table">
@@ -395,24 +471,26 @@
           <p><b>edit</b></p>
         </div>
       </div><!-- /voab container table row -->
-      <!-- row data -->
-      <div id="vocab-container-table-row">
-        <div id="vocab-container-table-column">
-          <p>1</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>hello</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>@demir</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p>20, june 2020</p>
-        </div>
-        <div id="vocab-container-table-column">
-          <button class="open-hidden-panel-btn">edit</button>
-        </div>
-      </div><!-- /voab container table row for data records -->
+      {% for word in advanced_word_list %}
+        <!-- row data -->
+        <div id="vocab-container-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ advanced_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.creation_date }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <button class="open-hidden-panel-btn">edit</button>
+          </div>
+        </div><!-- /voab container table row for data records -->
+      {% endfor %}
     </div><!--/vocab container table -->
 
 
@@ -447,7 +525,6 @@
       hidden_fg.style.display = "none";
     }
 
-
     // open panel
     for (let i=0; hidden_panel_open_buttons.length; i++) {
       hidden_panel_open_buttons[i].addEventListener("click", open_panel);
@@ -459,9 +536,6 @@
       hidden_bg.style.display = "block";
       hidden_fg.style.display = "block";
     }
-
-
-
   </script>
 
 </div>
