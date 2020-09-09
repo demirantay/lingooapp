@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" /> {% endblock %} {% block content %}
 
 <div id="go-back-container">
-  <a id="go-back-button" href=""><span class="fa fa-arrow-left"></span>  Overview</a>
+  <a id="go-back-button" href="{% url 'teacher_course_overview' %}"><span class="fa fa-arrow-left"></span>  Overview</a>
 </div>
 
 
@@ -19,96 +19,316 @@
   <div id="course-status-part">
     <h2>Course Status</h2>
 
+    {% with zero="0" %}
+
+    {% endwith %}
+
     <p>A0</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token %}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.a0 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a0 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a0 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a0 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a0 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a0 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_a0_progress_submit_btn" />
     </form>
 
     <p>A1</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token%}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.a1 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a1 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a1 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a1 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a1 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a1 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_a1_progress_submit_btn" />
     </form>
 
     <p>A2</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token%}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.a2 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a2 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a2 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a2 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a2 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.a2 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_a2_progress_submit_btn" />
     </form>
 
     <p>B1</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token%}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.b1 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b1 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b1 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b1 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b1 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b1 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_b1_progress_submit_btn" />
     </form>
 
     <p>B2</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token%}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.b2 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b2 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b2 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b2 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b2 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.b2 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_b2_progress_submit_btn" />
     </form>
 
     <p>C1</p>
-    <form id="course-progress-status-form">
-        <select>
-          <option>0%</option>
-          <option>10%</option>
-          <option>25%</option>
-          <option>50%</option>
-          <option>75%</option>
-          <option>100%</option>
+    <form id="course-progress-status-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token%}
+        <select name="progress_amount">
+          {% if current_teacher_profile.teacher_course.c1 == 0 %}
+            <option value="0" selected>0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.c1 == 10 %}
+            <option value="0">0%</option>
+            <option value="10" selected>10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.c1 == 25 %}
+            <option value="0">0%</option>
+            <option value="10" >10%</option>
+            <option value="25" selected>25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.c1 == 50 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50" selected>50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.c1 == 75 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75" selected>75%</option>
+            <option value="100">100%</option>
+          {% elif current_teacher_profile.teacher_course.c1 == 100 %}
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100" selected>100%</option>
+          {% endif %}
         </select>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" name="teacher_course_status_c1_progress_submit_btn" />
     </form>
 
-  </div>
-
-  <div id="course-status-horizontal-line"></div>
-
-  <!-- contributors -->
-  <div id="course-contributors-part">
-    <h2>Conributors</h2>
-    <div id="course-contributors-profile-photos">
-      <div id="teacher-profile-photo"></div>
-      <div id="teacher-profile-photo"></div>
-      <div id="teacher-profile-photo"></div>
-    </div>
   </div>
 
   <div id="course-status-horizontal-line"></div>
@@ -117,42 +337,37 @@
   <div id="course-update-part">
     <h2>Status Updates</h2>
 
-    <form id="course-update-part-form">
-        <input type="text" placeholder="Update Title" />
-        <textarea placeholder="Update content"></textarea>
-        <input type="submit" value="Submit" id="status-update-submit-btn" />
+    <form id="course-update-part-form" method="POST" action="{% url 'teacher_course_status_update' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Update Title" name="status_title" />
+        <textarea placeholder="Update content" name="status_content"></textarea>
+        <input type="submit" value="Submit" id="status-update-submit-btn" name="teacher_course_status_update_submit_btn" />
     </form>
 
-
-    <!-- status cell -->
-    <div id="status-update-cell">
-      <div id="status-update-cell-top-part">
-        <div id="status-update-cell-top-part-left-part">
-          <div id="status-updater-photo"></div>
+    {% for status_update in all_status_updates %}
+      <!-- status cell -->
+      <div id="status-update-cell">
+        <div id="status-update-cell-top-part">
+          <div id="status-update-cell-top-part-left-part">
+            {% if status_update.teacher.profile_photo %}
+              <div id="status-updater-photo" style="background-image: url('{{ status_update.teacher.profile_photo.url  }}');"></div>
+            {% else %}
+              <div id="status-updater-photo" style="background-image: url('');"></div>
+            {% endif %}
+          </div>
+          <div id="status-update-cell-top-part-right-part">
+            <h2>{{ status_update.title }}</h2>
+            <p>{{ status_update.creation_date }}</p>
+          </div>
         </div>
-        <div id="status-update-cell-top-part-right-part">
-          <h2>Big steps closer to graduation!</h2>
-          <p>Aug 22, 2020</p>
+        <div id="status-update-cell-content">
+          <p>
+            {{ status_update.content|linebreaks }}
+          </p>
         </div>
       </div>
-      <div id="status-update-cell-content">
-        <p>
-          it's been a while since we posted an update. During this silence, we've been working on fixing the errors you're reporting and we're making some good progress on that, but more on that in a second. The course has also grown immensely, with duolingo mentioning
-          more than 450000 learners (at the last update four months ago, we had just under 300000!). So we're growing rapidly.
-          <br />
-          <br /> Which could have to do with us inching closer to beta: we mentioned a couple of times that courses graduate from beta if the rate of error reports per 100 users remains below 3 for 14 days. On 21 June, we went below 3 for the first time,
-          and we've stayed below since! Let's see what happens.
-          <br />
-          <Br /> This is once again a time to thank everyone involved for their support and help so far! Everyone who left us some comments and reported some errors helped in shaping and improving the course and it's nice to see that we've been making a lot
-          of progress.
-          <br />
-          <br /> Once the course has graduated and things are going consistently well, we hope to start our efforts for a follow-up course which irons out some of the structural issues people have been reporting.
-          <br />
-          <br /> So thanks for the continuous interest and support and happy learning!
-        </p>
-      </div>
-    </div>
-    <!-- /cell -->
+      <!-- /cell -->
+    {% endfor %}
 
   </div>
 
