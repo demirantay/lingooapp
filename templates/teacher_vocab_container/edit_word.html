@@ -1,0 +1,40 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/overview.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/edit.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="vocab-container-wrapper">
+
+  <div id="edit-word-panel">
+    <h2>Edit Panel</h2>
+
+    {% if invalid_input == True %}
+      <p style="color:red">
+          You are not allowed to make modifications on this course.
+      </p>
+    {% elif empty_input == True %}
+      <p style="color:red">
+          You can't enter empty input.
+      </p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_edit' current_word.id  current_word.word %}">
+        {% csrf_token %}
+        <input type="text" placeholder="word" value="{{ current_word.word }}" name="updated_word" />
+        <input type="submit" value="Update" id="update-vocab-btn" name="teacher_vocab_container_edit_submit_btn"/>
+    </form>
+
+    <a href="{% url 'teacher_vocab_container_overview' %}" id="cancel-button">Cancel</a>
+  </div>
+
+
+</div>
+
+{% endblock %}

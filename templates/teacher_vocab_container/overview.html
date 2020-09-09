@@ -101,15 +101,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <!--<button class="open-hidden-panel-btn">edit</button>-->
-            <div id="hidden-edit-form">
-              <form>
-                <input type="hidden" />
-                <input type="text" placeholder="Word" />
-                <input type="submit" value="Save" />
-              </form>
-              <button>Cancel</button>
-            </div>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -117,6 +109,38 @@
     </div><!--/vocab container table -->
 
   </div>
+
+  <script>
+    /*
+    let form_open_button = document.getElementsByClassName("open-hidden-panel-btn");
+    //let form_open_button = document.getElementById("hidden-edit-form-open-btn");
+
+    for (let i=0; form_open_button.length; i++) {
+      form_open_button[i].addEventListener("click", open_panel);
+    }
+
+    function open_panel(event) {
+      event.preventDefault();
+      alert(hidden_id.value);
+    }*/
+
+    /*
+    let hidden_panel_open_buttons = document.getElementsByClassName("open-hidden-panel-btn");
+    let hidden_edit_form = document.getElementById("hidden-edit-form");
+
+    // open panel
+    for (let i=0; hidden_panel_open_buttons.length; i++) {
+      hidden_panel_open_buttons[i].addEventListener("click", open_panel);
+    }
+
+    function open_panel(event) {
+      event.preventDefault();
+
+      hidden_bg.style.display = "block";
+      hidden_fg.style.display = "block";
+    }
+    */
+  </script>
 
   <!-- vocab A1 table -->
   <div id="vocab-a0-table">
@@ -173,7 +197,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -237,7 +261,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -300,7 +324,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -363,7 +387,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -425,7 +449,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -487,7 +511,7 @@
             <p>{{ word.creation_date }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <button class="open-hidden-panel-btn">edit</button>
+            <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
           </div>
         </div><!-- /voab container table row for data records -->
       {% endfor %}
@@ -509,21 +533,10 @@
     <button id="edit-word-cancel-btn">Cancel</button>
   </div>
 
+<!--
   <script>
     let hidden_panel_open_buttons = document.getElementsByClassName("open-hidden-panel-btn");
     let hidden_panel_close_btn = document.getElementById("edit-word-cancel-btn");
-    let hidden_bg = document.getElementById("hidden-table-record-edit-panel-background");
-    let hidden_fg = document.getElementById("hidden-table-record-edit-panel-foreground");
-
-    // close panel
-    hidden_panel_close_btn.addEventListener("click", close_panel);
-
-    function close_panel(event) {
-      event.preventDefault();
-
-      hidden_bg.style.display = "none";
-      hidden_fg.style.display = "none";
-    }
 
     // open panel
     for (let i=0; hidden_panel_open_buttons.length; i++) {
@@ -536,7 +549,7 @@
       hidden_bg.style.display = "block";
       hidden_fg.style.display = "block";
     }
-  </script>
+  </script>-->
 
 </div>
 

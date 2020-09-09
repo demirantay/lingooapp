@@ -302,3 +302,68 @@ def teacher_vocab_container_overview(request):
         return render(request, "teacher_vocab_container/overview.html", data)
     else:
         return HttpResponseRedirect("/")
+
+
+def teacher_vocab_container_edit(request, word_id, word):
+    """
+    in this view the teacher can add a word to the list
+    """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current word record
+    try:
+        current_word = TeacherVocabularyContainer.objects.get(id=word_id)
+    except ObjectDoesNotExist:
+        current_word = None
+
+    # edit form processing
+    invalid_input = False
+    empty_input = False
+
+    if request.POST.get("teacher_vocab_container_edit_submit_btn"):
+        updated_word = request.POST.get("updated_word")
+        # check if the words course is the same as the teachers one and see
+        # if she is allowed update it
+        if current_word.course == current_teacher_profile.teacher_course:
+            # check if the input is empty
+            if bool(updated_word) == False or updated_word == "":
+                empty_input = True
+            else:
+                current_word.word = updated_word
+                current_word.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
+        else:
+            invalid_input = True
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_word": current_word,
+        "invalid_input": invalid_input,
+        "empty_input": empty_input,
+    }
+
+    if "teacher_user_logged_in" in request.session:
+        return render(request, "teacher_vocab_container/edit_word.html", data)
+    else:
+        return HttpResponseRedirect("/")

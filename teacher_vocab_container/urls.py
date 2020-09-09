@@ -8,4 +8,10 @@ urlpatterns = [
         views.teacher_vocab_container_overview,
         name="teacher_vocab_container_overview"
     ),
+    # teacher vocab container EDIT WORD
+    path(
+        "teacher/vocab/container/edit/<int:word_id>/<str:word>/",
+        views.teacher_vocab_container_edit,
+        name="teacher_vocab_container_edit"
+    ),
 ]

@@ -196,12 +196,50 @@ body {
   color: white;
 }
 
+#edit-button {
+  border: 1px solid #2E4053;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+  margin:0px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#edit-button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
 
 #vocab-container-table-column button:hover {
   cursor: pointer;
   transition:0.2s;
   background-color: lightgrey;
   color: black;
+}
+
+#hidden-edit-form {
+  border: 1px solid transparent;
+  display: none;
+}
+
+#hidden-edit-form form {
+  padding: 0px;
+  margin: 0px;
+}
+
+#hidden-edit-form form input {
+  display: inline-block;
+  width: 45%;
+}
+
+#hidden-edit-form form input:focus {
+  border-color: #2E4053;
+  outline: none !important;
 }
 
 

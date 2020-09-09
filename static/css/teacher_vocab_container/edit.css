@@ -1,0 +1,169 @@
+#edit-word-panel {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#edit-word-panel form {
+  display: inline-block;
+}
+
+#edit-word-panel form input {
+  display: inline-block;
+  font-size: 20px;
+  padding: 8px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#edit-word-panel form input:focus {
+  border-color: #2E4053;
+  outline: none !important;
+}
+
+#update-vocab-btn {
+  display: inline-block;
+  border: 1px solid #2E4053;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+  font-size: 20px;
+}
+
+#update-vocab-btn:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+#cancel-button {
+  display: inline-block;
+  border: 1px solid #E3102E;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #E3102E;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#cancel-button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: #FADBD8;
+  color: #E3102E;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #edit-word-panel {
+
+  }
+
+  #edit-word-panel form {
+    display: block;
+  }
+
+  #edit-word-panel form input {
+    display: block;
+    margin-bottom: 5px;
+    width: 93%;
+  }
+
+  #update-vocab-btn {
+    display: block;
+    width: 100% !important;
+  }
+
+  #cancel-button {
+    display: block;
+    width: 92% !important;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #edit-word-panel {
+
+  }
+
+  #edit-word-panel form {
+    display: block;
+  }
+
+  #edit-word-panel form input {
+    display: block;
+    margin-bottom: 5px;
+    width: 93%;
+  }
+
+  #update-vocab-btn {
+    display: block;
+    width: 99% !important;
+  }
+
+  #cancel-button {
+    display: block;
+    width: 92% !important;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #edit-word-panel {
+
+  }
+
+  #edit-word-panel form {
+    display: block;
+  }
+
+  #edit-word-panel form input {
+    display: block;
+    margin-bottom: 5px;
+    width: 93%;
+  }
+
+  #update-vocab-btn {
+    display: block;
+    width: 98% !important;
+  }
+
+  #cancel-button {
+    display: block;
+    width: 92% !important;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

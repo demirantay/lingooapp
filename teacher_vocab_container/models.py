@@ -20,7 +20,7 @@ class TeacherVocabularyContainer(models.Model):
     creation_date = models.DateField(default=timezone.now)
     course = models.ForeignKey(TeacherLanguageCourse, on_delete=models.CASCADE, blank=True, null=True)
     teacher = models.ForeignKey(TeacherUserProfile, on_delete=models.CASCADE, blank=True, null=True)
-    word = models.CharField(max_length=500)
+    word = models.CharField(max_length=500, blank=True, null=True)
     LEVEL_CHOICES = (
         ("a0", "a0"),
         ("a1", "a1"),
