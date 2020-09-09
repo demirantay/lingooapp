@@ -1,6 +1,6 @@
-l
 {% extends 'teacher_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
@@ -15,55 +15,47 @@ l
   <div id="forum-header">
     <h1>Teacher Forum</h1>
     <p>This is a <b>private</b> forum restricted to only teachers.</p>
+    <a href="{% url 'teacher_forum_create' %}">create</a>
   </div>
 
   <!-- first 50 posts -->
   <div id="forum-page-posts-container">
 
-    <!-- POST CELL -->
-    <div id="forum-post-cell">
-      <div id="forum-post-cell-left-part">
-        <form>
-            <input type="hidden" />
-            <input type="submit" value="&#9650;" />
-        </form>
-      </div>
-      <div id="forum-post-cell-right-part">
-        <div id="forum-post-cell-right-part-top-part">
-          <a href=""><h1>Lorem Ipsum Dolor Sit Amet</h1></a>
+    {% for post in current_page_posts %}
+      <!-- POST CELL -->
+      <div id="forum-post-cell">
+        <div id="forum-post-cell-left-part">
+          {% with redirect_page="0" %}
+            <form method="POST" action="{% url 'teacher_forum_landing_page' redirect_page %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_post_id" />
+                <input type="submit" value="&#9650;" name="teacher_forum_landing_upvote_submit" />
+            </form>
+          {% endwith %}
         </div>
-        <div id="forum-post-cell-right-part-bottom-part">
-          <p>75 points by <a href="">@demir</a> | 22, June 2020 | <a href="">25 comments</a></p>
-        </div>
-      </div>
-    </div>
-    <!-- /cell -->
-
-    <!-- POST CELL -->
-    <div id="forum-post-cell">
-      <div id="forum-post-cell-left-part">
-        <form>
-            <input type="hidden" />
-            <input type="submit" value="&#9650;" />
-        </form>
-      </div>
-      <div id="forum-post-cell-right-part">
-        <div id="forum-post-cell-right-part-top-part">
-          <a href=""><h1>Lorem Ipsum Dolor Sit Amet</h1></a>
-        </div>
-        <div id="forum-post-cell-right-part-bottom-part">
-          <p>75 points by <a href="">@demir</a> | 22, June 2020 | <a href="">25 comments</a></p>
+        <div id="forum-post-cell-right-part">
+          <div id="forum-post-cell-right-part-top-part">
+            <a href="{% url 'teacher_forum_read' post.id %}"><h1>{{ post.post_title }}</h1></a>
+          </div>
+          <div id="forum-post-cell-right-part-bottom-part">
+            <p>{{ post.karma }} points by <a href="{% url 'teacher_profile_other_user_overview' post.teacher.user.username %}">@{{ post.teacher.user.username }}</a> | {{ post.creation_date }} | <a href="{% url 'teacher_forum_read' post.id %}">{{ page_comments|get_key_value:post.id }} comments</a></p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- /cell -->
+      <!-- /cell -->
+    {% endfor %}
 
   </div>
 
   <!-- pagination links -->
   <div id="forum-pagination-links">
-    <a href=""><</a>
-    <a href="">></a>
+    {% if current_page <= 0 %}
+      <a href=""><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'teacher_forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% elif current_page > 0%}
+      <a href="{% url 'teacher_forum_landing_page' previous_page %}"><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'teacher_forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% endif %}
   </div>
 
 </div>

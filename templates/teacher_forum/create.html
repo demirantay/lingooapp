@@ -17,13 +17,16 @@
 
   <!-- create post form part -->
   <div id="forum-create-form">
-    <form>
-        <input type="text" placeholder="Post Title" />
-        <select>
-          <option>Spanish</option>
-        </select>
-        <textarea placeholder="Type your post content"></textarea>
-        <input type="submit" value="Post" id="forum-post-create-btn" />
+
+    {% if empty_input == True %}
+      <p style="color:red;">You cannot enter empty inputs.</p>
+    {% endif %}
+    
+    <form method="POST" action="{% url 'teacher_forum_create' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Post Title" name="post_title" />
+        <textarea placeholder="Type your post content" name="post_content"></textarea>
+        <input type="submit" value="Post" id="forum-post-create-btn" name="teacher_forum_create_post_btn" />
     </form>
   </div>
 

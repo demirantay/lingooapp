@@ -19,6 +19,25 @@ body {
 #forum-header {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 30px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+#forum-header a {
+  background-color: #2E4053;
+  color: white;
+  border: 1px solid #2E4053;
+  padding: 7px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+#forum-header a:hover {
+  background-color: #D7DBDD;
+  color: black;
+  transition: 0.2s;
 }
 
 /* ---------------- first 50 posts -------------------- */
@@ -105,6 +124,8 @@ body {
   width: 90%;
   margin: 0 auto;
   margin-top: 30px;
+  border-top: 1px solid lightgrey;
+  padding-top: 10px;
 }
 
 #forum-pagination-links a {
