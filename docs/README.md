@@ -7,10 +7,16 @@
 ## Feature Docs
 
 - [About](./module_docs/about.md)
-- [Login/Signup Auth](./module_docs/login_signup_auth.md)
+- [Basic User Auth](./module_docs/login_signup_auth.md)
 - [Basic User Profile](./module_docs/basic_user_profile.md)
 - [Basic Profile Settings](./module_docs/basic_user_profile_settings.md)
 - [Forum](./module_docs/forum.md)
+- [Teacher Auth](./module_docs/teacher_auth.md)
+- [Teacher Dashboard](./module_docs/teacher_dashboard.md)
+- [Teacher Profile Settings](./module_docs/teacher_profile_settings.md)
+- [Teacher Profile](./module_docs/teacher_profile.md)
+- [Teacher Language Explore](./module_docs/teacher_language_explore.md)
+- [Teacher Public About](./module_docs/teacher_public_about.md)
 
 ## System Architecture Docs
 
@@ -20,3 +26,4 @@
 
 - [version 1.1.0](./version_docs/version-1.1.0.md)
 - [version 1.2.0](./version_docs/version-1.2.0.md)
+- [version 1.3.0](./version_docs/version-1.3.0.md)
