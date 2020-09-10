@@ -16,21 +16,21 @@
 <div id="dashboard-announcament-container">
   <!-- announcament header part -->
   <div id="dashboard-announcament-header-part">
-    <h2>Create an announcament</h2>
+    <h2>Create an announcement</h2>
   </div>
 
   <!-- announcament create forum -->
   <div id="announcament-create-form">
     <form method="POST" action="{% url 'teacher_dashboard_announcament' %}">
       {% csrf_token %}
-      <textarea placeholder="type your announcament" name="announcament_content"></textarea>
+      <textarea placeholder="type your announcement" name="announcament_content"></textarea>
       <input type="submit" value="submit" name="teacher_announcament_submit_btn"/>
     </form>
   </div>
 
   <!-- announcament cells (have the delete button) -->
   <div id="announcament-cell-container">
-    <h3>Announcaments</h3>
+    <h3>Announcements</h3>
 
     {% for announcament in filtered_announcaments %}
       <!-- announcament CELL -->
