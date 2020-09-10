@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from .models import TeacherApplication, TeacherUserProfile
 from profile_settings.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.access_control import delete_teacher_user_session
 from utils.auth_utils import get_banned_words
 
 
@@ -21,6 +22,9 @@ def teacher_apply(request):
     # Deleting admin-typed user session
     # Deleting programmer-typed-user session
     # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -153,6 +157,9 @@ def application_thank_you_page(request):
     # Deleting programmer-typed-user session
     # Deleting Teacher-typed user sessions
 
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
@@ -181,6 +188,9 @@ def teacher_login(request):
     # Deleting admin-typed user session
     # Deleting programmer-typed-user session
     # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

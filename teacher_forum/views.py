@@ -310,6 +310,10 @@ def teacher_forum_update(request, post_id):
     except ObjectDoesNotExist:
         current_post = None
 
+    # if the post id is not existing redirect to 404
+    if current_post == None:
+        return HttpResponseRedirect("/404/")
+
     # update form processing
     empty_input = False
     current_teacher_is_owner = True

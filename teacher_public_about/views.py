@@ -13,6 +13,7 @@ from teacher_authentication.models import TeacherUserProfile
 from teacher_language_explore.models import TeacherLanguageCourse
 from teacher_language_explore.models import CourseStatusUpdate
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def teacher_public_landing_page(request):
@@ -25,6 +26,9 @@ def teacher_public_landing_page(request):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -77,6 +81,9 @@ def teacher_public_course_status(request, language, speakers_language):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

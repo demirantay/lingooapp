@@ -94,9 +94,6 @@ def error_404(request):
     # admin user session pop
     # admin user session pop
 
-    # ACCESS CONTROL
-    delete_teacher_user_session(request)
-
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
