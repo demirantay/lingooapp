@@ -216,11 +216,76 @@ class CourseStatusUpdate(models.Model):
 
 `teacher_vocab_container` feature new models:
 
+```python
+# Teacher Vocabulary Container Words
+# -----------------------
+# this model holds the words of the vocabulary contianer, again this is the
+# teacher one that keeeps on changing and developing, the student one is more
+# static so it will be defined in another apps model
+class TeacherVocabularyContainer(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    course = models.ForeignKey(TeacherLanguageCourse, on_delete=models.CASCADE, blank=True, null=True)
+    teacher = models.ForeignKey(TeacherUserProfile, on_delete=models.CASCADE, blank=True, null=True)
+    word = models.CharField(max_length=500, blank=True, null=True)
+    LEVEL_CHOICES = (
+        ("a0", "a0"),
+        ("a1", "a1"),
+        ("a2", "a2"),
+        ("b1", "b1"),
+        ("b2", "b2"),
+        ("c1", "c1"),
+        ("advanced", "advanced"),
+    )
+    level = models.CharField(max_length=100, default="a0", choices=LEVEL_CHOICES)
+
+    def __str__(self):
+        return "Word: " + self.word + " | course: " + str(self.course)
+```
+
 `teacher_vocab_container` feature new views:
+- Vocab container overview page: (`teacher_vocab_container_overview`) -- url path: `teacher/vocab/container/overview/`
+- Vocab container edit page: (`teacher_vocab_container_edit`) -- url path: `teacher/vocab/container/edit/<int:word_id>/<str:word>/`
 
 `teacher_forum` feature new models:
 
+```python
+# Teacher Forum Post
+# -------------
+# This model holds the records of teacher users forum posts
+class TeacherForumPost(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    teacher = models.ForeignKey(TeacherUserProfile, on_delete=models.CASCADE, blank=True, null=True)
+    course = models.ForeignKey(TeacherLanguageCourse, on_delete=models.CASCADE, blank=True, null=True)
+    post_title = models.CharField(max_length=500, blank=True, null=True)
+    content = models.TextField(max_length=10000, blank=True, null=True)
+    karma = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "id: " + str(self.id) + " | title: " + self.post_title
+
+
+# Teacher Forum Comment
+# -------------
+# This model holds the records of teacher users forum posts Comments
+class TeacherForumComment(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    teacher = models.ForeignKey(TeacherUserProfile, on_delete=models.CASCADE, blank=True, null=True)
+    post = models.ForeignKey(TeacherForumPost, on_delete=models.CASCADE, blank=True, null=True)
+    content = models.TextField(max_length=1000, blank=True, null=True)
+    karma = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "comment id: " + str(self.id) + " | post: " + str(self.post)
+```
+
 `teacher_forum` feature new views:
+- Landing page: (`teacher_forum_landing_page`) -- url path: `teacher/forum/<int:page>/`
+- Create page: (`teacher_forum_create`) -- url path: `teacher/forum/create/`
+- Read page: (`teacher_forum_read`) -- url path: `teacher/forum/read/<int:post_id>/`
+- Update page: (`teacher_forum_update`) -- url path: `teacher/forum/update/<int:post_id>/`
 
 ## DevOps Updates
 

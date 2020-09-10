@@ -17,6 +17,8 @@
 - [Teacher Profile](./module_docs/teacher_profile.md)
 - [Teacher Language Explore](./module_docs/teacher_language_explore.md)
 - [Teacher Public About](./module_docs/teacher_public_about.md)
+- [Teacher Vocab Container](./module_docs/teacher_vocab_container.md)
+- [Teacher Forum](./module_docs/teacher_forum.md)
 
 ## System Architecture Docs
 
