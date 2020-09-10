@@ -56,9 +56,9 @@
     </p>
 
     {% if a0_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_a0_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -152,9 +152,9 @@
     </p>
 
     {% if a1_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_a1_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -216,9 +216,9 @@
     </p>
 
     {% if a2_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_a2_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -280,9 +280,9 @@
     </p>
 
     {% if b1_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_b1_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -343,9 +343,9 @@
     </p>
 
     {% if b2_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_b2_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -405,9 +405,9 @@
     </p>
 
     {% if c1_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_c1_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
@@ -467,9 +467,9 @@
     </p>
 
     {% if advanced_limit_reached == True %}
-      <p style="color:red;">
-        Max limit reached
-      </p>
+      <p style="color:red;">Max limit reached</p>
+    {% elif empty_advanced_input == True %}
+      <p style="color:red;">empty input</p>
     {% endif %}
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >

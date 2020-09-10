@@ -145,6 +145,7 @@ def teacher_vocab_container_overview(request):
 
     # vocab add A0 processing
     a0_limit_reached = False
+    empty_a0_input = False
 
     if request.POST.get("teacher_word_add_a0_submit"):
         word = request.POST.get("word")
@@ -152,17 +153,22 @@ def teacher_vocab_container_overview(request):
         if len(a0_word_list) > 100:
             a0_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="a0"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_a0_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="a0"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add A1 processing
     a1_limit_reached = False
+    empty_a1_input = False
 
     if request.POST.get("teacher_word_add_a1_submit"):
         word = request.POST.get("word")
@@ -170,17 +176,22 @@ def teacher_vocab_container_overview(request):
         if len(a1_word_list) > 500:
             a1_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="a1"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_a1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="a1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add A2 processing
     a2_limit_reached = False
+    empty_a2_input = False
 
     if request.POST.get("teacher_word_add_a2_submit"):
         word = request.POST.get("word")
@@ -188,17 +199,22 @@ def teacher_vocab_container_overview(request):
         if len(a2_word_list) > 1000:
             a2_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="a2"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_a2_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="a2"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add B1 processing
     b1_limit_reached = False
+    empty_b1_input = False
 
     if request.POST.get("teacher_word_add_b1_submit"):
         word = request.POST.get("word")
@@ -206,17 +222,22 @@ def teacher_vocab_container_overview(request):
         if len(b1_word_list) > 2000:
             b1_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="b1"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_b1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="b1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add B2 processing
     b2_limit_reached = False
+    empty_b2_input = False
 
     if request.POST.get("teacher_word_add_b2_submit"):
         word = request.POST.get("word")
@@ -224,17 +245,22 @@ def teacher_vocab_container_overview(request):
         if len(b2_word_list) > 4000:
             b2_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="b2"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_b2_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="b2"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add C1 processing
     c1_limit_reached = False
+    empty_c1_input = False
 
     if request.POST.get("teacher_word_add_c1_submit"):
         word = request.POST.get("word")
@@ -242,17 +268,22 @@ def teacher_vocab_container_overview(request):
         if len(c1_word_list) > 8000:
             c1_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="c1"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_c1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="c1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab add Advanced processing
     advanced_limit_reached = False
+    empty_advanced_input = False
 
     if request.POST.get("teacher_word_add_advanced_submit"):
         word = request.POST.get("word")
@@ -260,14 +291,18 @@ def teacher_vocab_container_overview(request):
         if len(c1_word_list) > 16000:
             advanced_limit_reached = True
         else:
-            new_word_record = TeacherVocabularyContainer(
-                course=current_teacher_profile.teacher_course,
-                teacher=current_teacher_profile,
-                word=word,
-                level="advanced"
-            )
-            new_word_record.save()
-            return HttpResponseRedirect("/teacher/vocab/container/overview/")
+            # check if it is empty
+            if bool(word) == False or word == "":
+                empty_advanced_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=word,
+                    level="advanced"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # vocab update form processing
 
@@ -296,6 +331,13 @@ def teacher_vocab_container_overview(request):
         "b2_limit_reached": b2_limit_reached,
         "c1_limit_reached": c1_limit_reached,
         "advanced_limit_reached": advanced_limit_reached,
+        "empty_a0_input": empty_a0_input,
+        "empty_a1_input": empty_a1_input,
+        "empty_a2_input": empty_a2_input,
+        "empty_b1_input": empty_b1_input,
+        "empty_b2_input": empty_b2_input,
+        "empty_c1_input": empty_c1_input,
+        "empty_advanced_input": empty_advanced_input,
     }
 
     if "teacher_user_logged_in" in request.session:
