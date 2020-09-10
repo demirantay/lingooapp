@@ -10,8 +10,10 @@ from django.contrib.auth.models import User
 # My Module Imports
 from .models import ForumPost, ForumComment
 from profile_settings.models import BasicUserProfile
+from teacher_authentication.models import TeacherUserProfile
 from basic_language_explore.models import Language
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.session_utils import get_current_teacher_user_profile
 from algorithms.selection_sort import descending_selection_sort
 
 
@@ -32,6 +34,14 @@ def forum_landing_page(request, page):
         request,
         User,
         BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
         ObjectDoesNotExist
     )
 
@@ -104,6 +114,7 @@ def forum_landing_page(request, page):
         "next_page": next_page,
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "all_languages": all_languages,
         "pinned_posts": pinned_posts,
     }
@@ -131,6 +142,14 @@ def forum_category_page(request, category_language, page):
         request,
         User,
         BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
         ObjectDoesNotExist
     )
 
@@ -207,6 +226,7 @@ def forum_category_page(request, category_language, page):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "all_languages": all_languages,
         "current_language": current_language,
         "current_page": page,
@@ -244,6 +264,14 @@ def forum_create(request):
         ObjectDoesNotExist
     )
 
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
     # get all languages (categories)
     try:
         all_languages = Language.objects.all()
@@ -278,6 +306,7 @@ def forum_create(request):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "all_languages": all_languages,
         "empty_input": empty_input,
     }
@@ -305,6 +334,14 @@ def forum_read(request, post_id):
         request,
         User,
         BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
         ObjectDoesNotExist
     )
 
@@ -402,6 +439,7 @@ def forum_read(request, post_id):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "all_languages": all_languages,
         "current_post": current_post,
         "current_post_comments": current_post_comments,
@@ -432,6 +470,14 @@ def forum_update(request, post_id):
         request,
         User,
         BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
         ObjectDoesNotExist
     )
 
@@ -478,6 +524,7 @@ def forum_update(request, post_id):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "all_languages": all_languages,
         "current_post": current_post,
         "empty_input": empty_input,

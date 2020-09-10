@@ -9,8 +9,10 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
+from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_other_user, get_other_user_profile
+from utils.session_utils import get_current_teacher_user_profile
 
 
 def profile_overview(request):
@@ -33,9 +35,18 @@ def profile_overview(request):
         ObjectDoesNotExist
     )
 
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
     }
 
     if current_basic_user == None:
@@ -64,6 +75,14 @@ def other_user_profile_overview(request, other_user_username):
         ObjectDoesNotExist
     )
 
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
     # Get the other user
     other_basic_user = get_other_user(
         request,
@@ -86,6 +105,7 @@ def other_user_profile_overview(request, other_user_username):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "other_basic_user": other_basic_user,
         "other_basic_user_profile": other_basic_user_profile,
     }

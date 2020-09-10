@@ -9,7 +9,9 @@ from django.contrib.auth.models import User
 
 # My Module Imports
 from profile_settings.models import BasicUserProfile
+from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.session_utils import get_current_teacher_user_profile
 
 
 def basic_language_explore(request):
@@ -31,9 +33,18 @@ def basic_language_explore(request):
         ObjectDoesNotExist
     )
 
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
     }
 
     if current_basic_user == None:
