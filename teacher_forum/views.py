@@ -250,7 +250,19 @@ def teacher_forum_read(request, post_id):
             )
 
     # Delete the post and its comments form processing
-
+    if request.POST.get("teacher_forum_delete_post_submit"):
+        # check if the current user is the owner
+        if current_post.teacher == current_teacher_profile:
+            # delete the ppost
+            current_post.delete()
+            # delete all the comments
+            all_post_comments.delete()
+            # redirect to landing page
+            return HttpResponseRedirect("/teacher/forum/0/")
+        else:
+            return HttpResponseRedirect(
+                "/teacher/forum/read/"+str(current_post.id)+"/"
+            )
 
     data = {
         "current_basic_user": current_basic_user,
@@ -271,12 +283,67 @@ def teacher_forum_update(request, post_id):
     """
     in this view the teacher can update their own posts
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
 
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
-    # check if the post is users
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
 
+    # Getting the teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current post
+    try:
+        current_post = TeacherForumPost.objects.get(id=post_id)
+    except ObjectDoesNotExist:
+        current_post = None
+
+    # update form processing
+    empty_input = False
+    current_teacher_is_owner = True
+
+    if request.POST.get("teacher_forum_update_submit_btn"):
+        post_update_title = request.POST.get("post_update_title")
+        post_update_content = request.POST.get("post_update_content")
+
+        # check if any of the inputs are empty
+        if bool(post_update_title) == False or post_update_title == "" \
+           or bool(post_update_content) == False or post_update_content == "":
+            empty_input = True
+        else:
+            # check if the post is owned by current teacher
+            if current_post.teacher == current_teacher_profile:
+                current_post.post_title = post_update_title
+                current_post.content = post_update_content
+                current_post.save()
+                return HttpResponseRedirect(
+                    "/teacher/forum/read/"+str(current_post.id)+"/"
+                )
+            else:
+                current_teacher_is_owner = False
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_post": current_post,
+        "empty_input": empty_input,
+        "current_teacher_is_owner": current_teacher_is_owner,
     }
-    return render(request, "teacher_forum/update.html", data)
+
+    if "teacher_user_logged_in" in request.session:
+        return render(request, "teacher_forum/update.html", data)
+    else:
+        return HttpResponseRedirect("/")

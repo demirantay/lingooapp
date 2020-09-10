@@ -103,9 +103,9 @@
 <div id="hidden-delete-form-background-greying"></div>
 <div id="hidden-delete-form">
   <h2>Are you sure?</h2>
-  <form method="POST" action="">
+  <form method="POST" action="{% url 'teacher_forum_read' current_post.id %}">
       {% csrf_token %}
-      <input type="submit" value="Delete" name="" />
+      <input type="submit" value="Delete" name="teacher_forum_delete_post_submit" />
   </form>
   <a href="">Cancel</a>
 </div>

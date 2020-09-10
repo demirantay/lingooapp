@@ -17,11 +17,18 @@
 
   <!-- create post form part -->
   <div id="forum-create-form">
-    <form>
-        <input type="text" placeholder="Post Title" />
-        <p>Category: <b>Spanish</b></p>
-        <textarea placeholder="Type your post content"></textarea>
-        <input type="submit" value="Post" id="forum-post-create-btn" />
+
+    {% if empty_input == True %}
+      <p style="color:red;" >You cannot enter empty input</p>
+    {% elif current_teacher_is_owner == False %}
+      <p style="color:red;" >You are not the owner of this post.</p>
+    {% endif %}
+
+    <form method="POSt" action="{% url 'teacher_forum_update' current_post.id %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Post Title" name="post_update_title" value="{{ current_post.post_title }}" />
+        <textarea placeholder="Type your post content" name="post_update_content">{{ current_post.content }}</textarea>
+        <input type="submit" value="Post" id="forum-post-create-btn" name="teacher_forum_update_submit_btn" />
     </form>
   </div>
 
