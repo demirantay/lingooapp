@@ -14,6 +14,7 @@ from teacher_authentication.models import TeacherUserProfile
 from basic_language_explore.models import Language
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
+from utils.access_control import delete_teacher_user_session
 from algorithms.selection_sort import descending_selection_sort
 
 
@@ -26,6 +27,9 @@ def forum_landing_page(request, page):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -134,6 +138,9 @@ def forum_category_page(request, category_language, page):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -254,6 +261,9 @@ def forum_create(request):
     # admin user session pop
     # admin user session pop
 
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
@@ -326,6 +336,9 @@ def forum_read(request, post_id):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -462,6 +475,9 @@ def forum_update(request, post_id):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

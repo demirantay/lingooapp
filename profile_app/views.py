@@ -13,6 +13,7 @@ from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_other_user, get_other_user_profile
 from utils.session_utils import get_current_teacher_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def profile_overview(request):
@@ -24,6 +25,9 @@ def profile_overview(request):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -64,6 +68,9 @@ def other_user_profile_overview(request, other_user_username):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

@@ -12,6 +12,7 @@ from utils.auth_utils import get_banned_words
 from profile_settings.models import BasicUserProfile
 from basic_language_explore.models import Language, Student
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def signup(request):
@@ -21,6 +22,9 @@ def signup(request):
     # admin user session pop
     # admin user session pop
     # Deleting any sessions regarding top-tier type of users
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Deleting sessions regarding basic users
     if "basic_user_email" in request.session:
@@ -147,6 +151,9 @@ def login(request):
     # admin user session pop
     # Deleting any sessions regarding top-tier type of users
 
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
     # Deleting sessions regarding basic users
     if "basic_user_email" in request.session:
         del request.session["basic_user_email"]
@@ -220,6 +227,9 @@ def welcome(request):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

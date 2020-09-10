@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # Django Admin Panel
-    path('admin/', admin.site.urls),
+    path('domingo_private_admin/', admin.site.urls),
 
     # Home App
     # --------

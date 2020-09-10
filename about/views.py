@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 # My Module Imports
 from profile_settings.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def about(request):
@@ -21,6 +22,9 @@ def about(request):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
@@ -47,6 +51,9 @@ def about_community_rules(request):
     # admin user session pop
     # admin user session pop
 
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
@@ -72,6 +79,9 @@ def about_terms(request):
     # admin user session pop
     # admin user session pop
 
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
 
@@ -96,6 +106,9 @@ def about_privacy(request):
     # session.pop("programmer_logged_in", None) <-- these are flask change it
     # admin user session pop
     # admin user session pop
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)

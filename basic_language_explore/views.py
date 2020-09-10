@@ -12,6 +12,7 @@ from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def basic_language_explore(request):
@@ -22,6 +23,9 @@ def basic_language_explore(request):
     # Deleting admin-typed user session
     # Deleting programmer-typed-user session
     # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
     # Get the current users
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
