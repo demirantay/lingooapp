@@ -64,6 +64,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a0_submit" />
     </form>
 
@@ -80,7 +81,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -100,7 +101,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -160,6 +165,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a1_submit" />
     </form>
 
@@ -176,7 +182,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -196,7 +202,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -224,6 +234,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a A2 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a2_submit" />
     </form>
 
@@ -240,7 +251,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -260,7 +271,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -288,6 +303,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a B1 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b1_submit" />
     </form>
 
@@ -304,7 +320,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -323,7 +339,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -351,6 +371,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a B2 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b2_submit" />
     </form>
 
@@ -367,7 +388,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -386,7 +407,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -413,6 +438,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a C1 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_c1_submit" />
     </form>
 
@@ -429,7 +455,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -448,7 +474,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>
@@ -475,6 +505,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Add a Advacned word" id="word-form-content" name="word" />
+        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_advanced_submit" />
     </form>
 
@@ -491,7 +522,7 @@
           <p><b>added by</b></p>
         </div>
         <div id="vocab-container-table-column">
-          <p><b>date</b></p>
+          <p><b>translation</b></p>
         </div>
         <div id="vocab-container-table-column">
           <p><b>edit</b></p>
@@ -510,7 +541,11 @@
             <p>@{{ word.teacher.user.username }}</p>
           </div>
           <div id="vocab-container-table-column">
-            <p>{{ word.creation_date }}</p>
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
           </div>
           <div id="vocab-container-table-column">
             <a id="edit-button" href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">edit</a>

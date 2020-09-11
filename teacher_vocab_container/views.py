@@ -149,18 +149,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_a0_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if a0 list has 100 words
         if len(a0_word_list) > 100:
             a0_limit_reached = True
         else:
-            # check if it is empty
-            if bool(word) == False or word == "":
+            # check if inputs are empty
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_a0_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="a0"
                 )
                 new_word_record.save()
@@ -172,18 +176,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_a1_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if a1 list has 500 words
         if len(a1_word_list) > 500:
             a1_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
-                empty_a1_input = True
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
+                empty_a0_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="a1"
                 )
                 new_word_record.save()
@@ -195,18 +203,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_a2_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if a2 list has 1000 words
         if len(a2_word_list) > 1000:
             a2_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_a2_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="a2"
                 )
                 new_word_record.save()
@@ -218,18 +230,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_b1_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if b1 list has 2000 words
         if len(b1_word_list) > 2000:
             b1_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_b1_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="b1"
                 )
                 new_word_record.save()
@@ -241,18 +257,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_b2_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if b2 list has 4000 words
         if len(b2_word_list) > 4000:
             b2_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_b2_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="b2"
                 )
                 new_word_record.save()
@@ -264,18 +284,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_c1_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if c1 list has 8000 words
         if len(c1_word_list) > 8000:
             c1_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_c1_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="c1"
                 )
                 new_word_record.save()
@@ -287,18 +311,22 @@ def teacher_vocab_container_overview(request):
 
     if request.POST.get("teacher_word_add_advanced_submit"):
         word = request.POST.get("word")
+        translation = request.POST.get("translation")
+
         # check if advanced list has 16000 words
         if len(c1_word_list) > 16000:
             advanced_limit_reached = True
         else:
             # check if it is empty
-            if bool(word) == False or word == "":
+            if bool(word) == False or word == "" or \
+               bool(translation) == False or translation == "":
                 empty_advanced_input = True
             else:
                 new_word_record = TeacherVocabularyContainer(
                     course=current_teacher_profile.teacher_course,
                     teacher=current_teacher_profile,
                     word=word,
+                    word_translation=translation,
                     level="advanced"
                 )
                 new_word_record.save()
@@ -383,14 +411,18 @@ def teacher_vocab_container_edit(request, word_id, word):
 
     if request.POST.get("teacher_vocab_container_edit_submit_btn"):
         updated_word = request.POST.get("updated_word")
+        updated_translation = request.POST.get("updated_translation")
+
         # check if the words course is the same as the teachers one and see
         # if she is allowed update it
         if current_word.course == current_teacher_profile.teacher_course:
             # check if the input is empty
-            if bool(updated_word) == False or updated_word == "":
+            if bool(updated_word) == False or updated_word == "" \
+               or bool(updated_translation) == False or updated_translation == "":
                 empty_input = True
             else:
                 current_word.word = updated_word
+                current_word.word_translation = updated_translation
                 current_word.save()
                 return HttpResponseRedirect("/teacher/vocab/container/overview/")
         else:

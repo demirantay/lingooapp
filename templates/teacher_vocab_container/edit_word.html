@@ -28,6 +28,7 @@
     <form method="POST" action="{% url 'teacher_vocab_container_edit' current_word.id  current_word.word %}">
         {% csrf_token %}
         <input type="text" placeholder="word" value="{{ current_word.word }}" name="updated_word" />
+        <input type="text" placeholder="translation" value="{{ current_word.word_translation }}" name="updated_translation" />
         <input type="submit" value="Update" id="update-vocab-btn" name="teacher_vocab_container_edit_submit_btn"/>
     </form>
 
