@@ -7,6 +7,36 @@
   width: 90%;
 }
 
+/* --------- langauge explore top banner ---------- */
+
+#language-explore-top-banner {
+  border: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#language-explore-top-banner p {
+  display: inline-block;
+}
+
+#language-explore-top-banner form {
+  display: inline-block;
+}
+
+#language-explore-top-banner form select {
+
+}
+
+/* --------- langauge cells ---------- */
+
+#language-cells-container {
+
+}
+
+#langauge-cell {
+  border: 1px solid black;
+}
+
 
 /* --------- under construction banner ---------- */
 #under_construction_box {
