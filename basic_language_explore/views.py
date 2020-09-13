@@ -55,3 +55,15 @@ def basic_language_explore(request):
         return HttpResponseRedirect("/auth/login/")
     else:
         return render(request, "basic_language_explore/language_explore.html", data)
+
+
+def basic_language_explore_info(request, language_name):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_language_explore/info.html", data)

@@ -1,0 +1,73 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/basic_language_explore/info.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- information container -->
+<div id="info-container">
+  <a href="" id="go-back-button"><span class="fa fa-arrow-left"></span> All Language Courses</a>
+
+  <!-- info start course banner -->
+  <div id="language-banner">
+    <!-- left part -->
+    <div id="language-banner-banner-left-part">
+      <div id="language-flag"></div>
+      <div id="language-banner-left-part-right-box">
+          <h3>Learn Spanish from English</h3>
+          <p>2.45M active learners</p>
+      </div>
+    </div>
+    <!-- right part -->
+    <div id="language-banner-right-part">
+        <form>
+          <input type="submit" value="Get started now" />
+        </form>
+    </div>
+  </div>
+
+  <!-- language info part -->
+  <div id="language-info-part">
+    <h3>About the Language</h3>
+    <p>
+        Portuguese (português or, in full, língua portuguesa) is a Western
+        Romance language originating in the Iberian Peninsula of Europe. It is
+        the sole official language of Portugal, Brazil, Cape Verde,
+        Guinea-Bissau, Mozambique, Angola and São Tomé and Príncipe.
+        <br /><Br />
+        With approximately 215 to 220 million native speakers and 270 million
+        total speakers, Portuguese is usually listed as the sixth most natively
+        spoken language in the world. It is also the third-most spoken European
+        language in the world in terms of native speakers.
+    </p>
+  </div>
+
+  <!-- course teachers part -->
+  <div id="language-teachers-part">
+    <h3>Course Teachers</h3>
+
+    <div id="teacher-cell">
+      <div id="teacher-cell-profile-photo"></div>
+      <h4>@username</h4>
+    </div>
+
+    <div id="teacher-cell">
+      <div id="teacher-cell-profile-photo"></div>
+      <h4>@username</h4>
+    </div>
+
+    <div id="teacher-cell">
+      <div id="teacher-cell-profile-photo"></div>
+      <h4>@username</h4>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

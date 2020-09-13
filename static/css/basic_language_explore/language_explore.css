@@ -10,13 +10,15 @@
 /* --------- langauge explore top banner ---------- */
 
 #language-explore-top-banner {
-  border: 1px solid black;
+  border: 1px solid transparent;
   width: 90%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 #language-explore-top-banner p {
   display: inline-block;
+  font-size: 22px;
 }
 
 #language-explore-top-banner form {
@@ -24,17 +26,75 @@
 }
 
 #language-explore-top-banner form select {
-
+  font-size: 22px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
 }
 
 /* --------- langauge cells ---------- */
 
 #language-cells-container {
+  border: 1px solid transparent;
+  padding: 5px;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 5px;
+  text-align: center;
+}
 
+#language-cells-container a {
+  text-decoration: none;
 }
 
 #langauge-cell {
-  border: 1px solid black;
+  border: 1px solid lightgrey;
+  display: inline-block;
+  margin: 0px 8px;
+  width: 22%;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  color: black;
+  padding: 20px 0px;
+  position: relative;
+}
+
+#enrolled-text {
+  color: green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 12%;
+}
+
+#langauge-cell:hover {
+  transition: 0.2s;
+  border-color: lightgrey;
+  -webkit-box-shadow: 0px 2px 25px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 25px -9px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 25px -9px rgba(0,0,0,0.75);
+}
+
+#flag {
+  background-color: #E5E8E8;
+  height: 90px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/spanish.png");
+}
+
+#langauge-cell h3 {
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+
+#langauge-cell p {
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 
@@ -65,6 +125,7 @@
   margin: 0 auto;
   height: auto;
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 #contribute-box-left-side {
@@ -150,6 +211,35 @@
     margin-top:10px;
   }
 
+  /* --------- langauge cells ---------- */
+
+  #language-cells-container {
+    width: 90%;
+
+  }
+
+  #langauge-cell {
+    display: block;
+    margin: 0px;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 15px;
+  }
+
+  #enrolled-text {
+    margin-left: 5%;
+  }
+
+  #flag {
+    background-color: #E5E8E8;
+    height: 80px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+
 }
 
 
@@ -179,6 +269,34 @@
 
   #contribute_box h1 {
     margin-top:10px;
+  }
+
+  /* --------- langauge cells ---------- */
+
+  #language-cells-container {
+    width: 90%;
+
+  }
+
+  #langauge-cell {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    margin-bottom: 16px;
+    border-radius: 15px;
+  }
+
+  #enrolled-text {
+    margin-left: 5%;
+  }
+
+  #flag {
+    background-color: #E5E8E8;
+    height: 80px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 20px;
   }
 }
 
@@ -210,11 +328,52 @@
   #contribute_box h1 {
     margin-top:10px;
   }
+
+  /* --------- langauge cells ---------- */
+
+  #language-cells-container {
+    width: 90%;
+
+  }
+
+  #langauge-cell {
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    margin-bottom: 16px;
+    border-radius: 15px;
+  }
+
+  #enrolled-text {
+    margin-left: 5%;
+  }
+
+  #flag {
+    background-color: #E5E8E8;
+    height: 80px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
 }
 
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* --------- langauge explore top banner ---------- */
+
+  #language-explore-top-banner {
+    border: 1px solid transparent;
+    width: 80%;
+  }
+
+  /* --------- langauge cells ---------- */
+
+  #langauge-cell {
+    width: 26%;
+  }
 
 
 }
@@ -222,7 +381,19 @@
 
 /* Laptop ------------------------------------------------------------------ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* nothing for now */
+  /* --------- langauge explore top banner ---------- */
+
+  #language-explore-top-banner {
+    border: 1px solid transparent;
+    width: 80%;
+  }
+
+  /* --------- langauge cells ---------- */
+
+  #langauge-cell {
+    width: 26%;
+  }
+
 }
 
 
