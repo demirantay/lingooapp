@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'profile_settings',
     'forum',
     'basic_language_explore',
+    'basic_vocab_container',
 
     # Teacher User Apps
     'teacher_public_about',

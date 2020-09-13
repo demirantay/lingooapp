@@ -82,6 +82,11 @@ urlpatterns = [
     # ...
     path("", include("teacher_forum.urls")),
 
+    # Basic Vocab Container
+    # --------------
+    # ...
+    path("", include("basic_vocab_container.urls")),
+
 ]
 
 if settings.DEBUG:
