@@ -1,0 +1,201 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/learning_tree.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+<!-- center part -->
+<div id="center-part">
+
+  <!-- language dropdown open btn -->
+  <div id="language-profile-dropdown-open-button">
+    <a href=""><div id="language-dropdown-flag"></div> Spanish <span class="fa fa-caret-down"></span></a>
+  </div>
+
+  <!-- student language profile dropdown -->
+  <div id="language-profile-dropdown">
+    <a href=""><div id="language-dropdown-flag"></div> Spanish</a>
+    <a href=""><div id="language-dropdown-flag"></div> French</a>
+  </div>
+
+
+
+  <script>
+
+    let panel_open_button = document.getElementById("language-profile-dropdown-open-button");
+
+    panel_open_button.addEventListener("click", toggle_panel)
+
+    // hidden open-close functions
+    function toggle_panel(event) {
+      event.preventDefault();
+      let x = document.getElementById("language-profile-dropdown");
+
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+
+      // Prevent event bubbling (so in this case the window listener
+      // won't catch the event and simply close it immediately)
+      event.stopPropagation();
+    }
+
+
+  </script>
+
+
+  <!-- A0 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>A0</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/100</p>
+    </div>
+    <h3>A0 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- lesson cell -->
+  <br />
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell" class="locked-lesson-cell">
+      <p><span class="fa fa-lock"></span></p>
+    </div>
+    <h3>Locked</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- A1 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>A1</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/500</p>
+    </div>
+    <h3>A1 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- A2 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>A2</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/1000</p>
+    </div>
+    <h3>A2 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- B1 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>B1</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/2000</p>
+    </div>
+    <h3>B1 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- B2 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>B2</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/4000</p>
+    </div>
+    <h3>B2 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- C1 -->
+  <div id="level-divider-banner">
+    <div id="middle-line"></div>
+    <h1>C1</h1>
+    <div id="middle-line"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/8000</p>
+    </div>
+    <h3>C1 Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+  <!-- Advanced -->
+  <div id="level-divider-banner">
+    <div id="middle-line-advacned"></div>
+    <h1>Advanced</h1>
+    <div id="middle-line-advacned"></div>
+  </div>
+
+  <!-- lesson cell -->
+  <a href="" id="lesson-cell-link">
+    <div id="lesson-cell">
+      <p>0/16000</p>
+    </div>
+    <h3>Advanced Vocabulary</h3>
+  </a>
+  <!-- /cell -->
+
+
+
+</div>
+
+<!-- right part -->
+<div id="right-part">
+
+  <!-- learned words cell -->
+  <div id="learned-words-box">
+    <p id="words">2500</p>
+    <p>words learned</p>
+    <a href="" id="review-link">
+      <p><span class="fa fa-repeat"></span></p>
+    </a>
+    <p><b>Review Vocabulary</b></p>
+  </div>
+
+  <!-- social links box -->
+  <div id="social-links-box">
+    <a target="_blank" href="https://twitter.com/getdomingo"><span id="social-link" class="fa fa-twitter"></span></a>
+    <a target="_blank" href="https://www.reddit.com/r/DomingoApp/"><span id="social-link" class="fa fa-reddit"></span></a>
+    <a target="_blank" href=""><span id="social-link" class="fa fa-spotify"></span></a>
+  </div>
+
+</div>
+
+{% endblock %}

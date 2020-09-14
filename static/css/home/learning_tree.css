@@ -1,0 +1,461 @@
+body {
+  background-color: #F4F6F6 !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-none {
+  display: none !important;
+}
+
+
+/* -------------------- CENTER PART ------------------- */
+#center-part {
+  border: 1px solid transparent;
+  width: 63%;
+  vertical-align: top;
+  padding-bottom: 20px;
+  display: inline-block;
+  margin-right: 1%;
+  text-align: center;
+}
+
+#language-profile-dropdown-open-button {
+  border: 1px solid transparent;
+  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  z-index: 99;
+}
+
+
+#language-profile-dropdown-open-button a {
+  border: 1px solid lightgrey;
+  display: block;
+  vertical-align: middle;
+  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  margin-left: 15px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  background-color: white;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+#language-profile-dropdown-open-button a:hover {
+  border-color: red !important;
+  transition: 0.2s;
+}
+
+#language-profile-dropdown-open-button a span {
+  vertical-align: middle;
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+#language-profile-dropdown {
+  border: 1px solid transparent;
+  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+  display: none;
+  z-index: 99;
+}
+
+#language-profile-dropdown a {
+  border: 1px solid lightgrey;
+  display: block;
+  vertical-align: middle;
+  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  margin-left: 15px;
+  text-decoration: none;
+  margin-bottom: 0px;
+  background-color: white;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+#language-profile-dropdown a:hover {
+  background-color: lightgrey;
+}
+
+#language-dropdown-flag {
+  width: 60px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #F4F6F6;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../flags/spanish.png");
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#level-divider-banner {
+
+}
+
+#level-divider-banner  h1 {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+#middle-line {
+  vertical-align: middle;
+  border: 2px solid black;
+  display: inline-block;
+  width: 30%;
+}
+
+#middle-line-advacned {
+  vertical-align: middle;
+  border: 2px solid black;
+  display: inline-block;
+  width: 15%;
+}
+
+#lesson-cell-link {
+  color: white;
+  text-decoration: none;
+}
+
+#lesson-cell {
+  background-color: #1B1B1B;
+  width: 30%;
+  margin: 0 auto;
+  color: white;
+  padding: 25px 0px;
+  border-radius: 15px;
+}
+
+#lesson-cell:hover {
+  transition: 0.3s;
+  background-color: #E3102E;
+}
+
+#lesson-cell-link h3 {
+  color: black !important;
+}
+
+#lesson-cell p {
+  font-size: 25px;
+}
+
+.locked-lesson-cell {
+  background-color: grey !important;
+}
+.locked-lesson-cell:hover {
+  cursor: no-drop;
+}
+
+/* -------------------- RIGHT PART ------------------- */
+#right-part {
+  border: 1px solid transparent;
+  width: 33%;
+  vertical-align: top;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+#learned-words-box {
+  border: 1px solid lightgrey;
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+#learned-words-box p {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+#words {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+#review-link {
+  font-size: 30px;
+  color: black;
+
+}
+
+#review-link p {
+    background-color: #3498DB;
+    width: 50%;
+    color: white;
+    padding: 30px 0px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#review-link p:hover {
+  transition: 0.2s;
+  background-color: #21618C;
+}
+
+#social-links-box {
+  border: 1px solid lightgrey;
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+#social-links-box a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  font-size: 40px;
+  margin: 0px 5px;
+}
+
+#social-links-box a:hover {
+  color white;
+  background-color: black;
+  transition: 0.2s;
+}
+
+#social-links-box a:hover #social-link  {
+  color: white;
+  transition: 0.2s;
+}
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+
+  /* -------------------- CENTER PART ------------------- */
+  #center-part {
+    width: 98%;
+    padding-bottom: 20px;
+    display: block;
+    margin-right: 0%;
+  }
+
+  #language-profile-dropdown-open-button {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  #language-profile-dropdown-open-button a {
+    margin-left: 0px;
+  }
+
+  #language-profile-dropdown {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #language-profile-dropdown a {
+    margin-left: 0px;
+  }
+
+  #level-divider-banner  h1 {
+    font-size: 30px;
+  }
+
+  #middle-line {
+    width: 30%;
+  }
+
+  #middle-line-advacned {
+    width: 12%;
+  }
+
+  #lesson-cell {
+    width: 60%;
+    color: white;
+  }
+
+
+  /* -------------------- RIGHT PART ------------------- */
+  #right-part {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #learned-words-box {
+    border: 1px solid lightgrey;
+    margin-top: 0px;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+    /* -------------------- CENTER PART ------------------- */
+    #center-part {
+      width: 98%;
+      padding-bottom: 20px;
+      display: block;
+      margin-right: 0%;
+    }
+
+    #language-profile-dropdown-open-button {
+      width: 95%;
+      margin-top: 10px;
+    }
+
+    #language-profile-dropdown-open-button a {
+      margin-left: 0px;
+    }
+
+    #language-profile-dropdown {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    #language-profile-dropdown a {
+      margin-left: 0px;
+    }
+
+    #level-divider-banner  h1 {
+      font-size: 30px;
+    }
+
+    #middle-line {
+      width: 30%;
+    }
+
+    #middle-line-advacned {
+      width: 12%;
+    }
+
+    #lesson-cell {
+      width: 60%;
+      color: white;
+    }
+
+
+    /* -------------------- RIGHT PART ------------------- */
+    #right-part {
+      width: 95%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #learned-words-box {
+      border: 1px solid lightgrey;
+      margin-top: 0px;
+    }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+
+    /* -------------------- CENTER PART ------------------- */
+    #center-part {
+      width: 98%;
+      padding-bottom: 20px;
+      display: block;
+      margin-right: 0%;
+    }
+
+    #language-profile-dropdown-open-button {
+      width: 95%;
+      margin-top: 10px;
+    }
+
+    #language-profile-dropdown-open-button a {
+      margin-left: 0px;
+    }
+
+    #language-profile-dropdown {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    #language-profile-dropdown a {
+      margin-left: 0px;
+    }
+
+    #level-divider-banner  h1 {
+      font-size: 30px;
+    }
+
+    #middle-line {
+      width: 30%;
+    }
+
+    #middle-line-advacned {
+      width: 12%;
+    }
+
+    #lesson-cell {
+      width: 60%;
+      color: white;
+    }
+
+
+    /* -------------------- RIGHT PART ------------------- */
+    #right-part {
+      width: 95%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #learned-words-box {
+      border: 1px solid lightgrey;
+      margin-top: 0px;
+    }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
