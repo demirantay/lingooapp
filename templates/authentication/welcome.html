@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
 
 <!-- welcome banner -->
 <div id="welcome-banner">
@@ -18,17 +19,81 @@
 <!-- language cells -->
 <div id="language-cell-container">
 
-  {% for language in all_languages %}
+  {% for course in language_courses %}
     <!-- flag cell -->
     <div id="flag-cell">
-      <div id="flag" style="background-image: url('{{ language.flag.url }}');" ></div>
-      <h1>{{ language.name }}</h1>
-      <p>
-          ... Learners
-      </p>
+      {% if course.course_language == spanish %}
+        <div id="flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div>
+      {% elif course.course_language == english  %}
+        <div id="flag" style="background-image: url({% static 'flags/english.png' %});"></div>
+      {% elif course.course_language == french %}
+        <div id="flag" style="background-image: url({% static 'flags/french.png' %});"></div>
+      {% elif course.course_language == german %}
+        <div id="flag" style="background-image: url({% static 'flags/german.png' %});"></div>
+      {% elif course.course_language == italian %}
+        <div id="flag" style="background-image: url({% static 'flags/italian.png' %});"></div>
+      {% elif course.course_language == japanese %}
+        <div id="flag" style="background-image: url({% static 'flags/japanese.png' %});"></div>
+      {% elif course.course_language == chinese %}
+        <div id="flag" style="background-image: url({% static 'flags/chinese.png' %});"></div>
+      {% elif course.course_language == russian %}
+        <div id="flag" style="background-image: url({% static 'flags/russian.png' %});"></div>
+      {% elif course.course_language == korean %}
+        <div id="flag" style="background-image: url({% static 'flags/korean.png' %});"></div>
+      {% elif course.course_language == portuguese %}
+        <div id="flag" style="background-image: url({% static 'flags/portuguese.png' %});"></div>
+      {% elif course.course_language == arabic %}
+        <div id="flag" style="background-image: url({% static 'flags/arabic.png' %});"></div>
+      {% elif course.course_language == dutch %}
+        <div id="flag" style="background-image: url({% static 'flags/dutch.png' %});"></div>
+      {% elif course.course_language == swedish %}
+        <div id="flag" style="background-image: url({% static 'flags/swedish.png' %});"></div>
+      {% elif course.course_language == norwegian %}
+        <div id="flag" style="background-image: url({% static 'flags/norwegian.png' %});"></div>
+      {% elif course.course_language == turkish %}
+        <div id="flag" style="background-image: url({% static 'flags/turkish.png' %});"></div>
+      {% elif course.course_language == polish %}
+        <div id="flag" style="background-image: url({% static 'flags/polish.png' %});"></div>
+      {% elif course.course_language == irish %}
+        <div id="flag" style="background-image: url({% static 'flags/irish.png' %});"></div>
+      {% elif course.course_language == greek %}
+        <div id="flag" style="background-image: url({% static 'flags/greek.png' %});"></div>
+      {% elif course.course_language == hebrew %}
+        <div id="flag" style="background-image: url({% static 'flags/hebrew.png' %});"></div>
+      {% elif course.course_language == danish %}
+        <div id="flag" style="background-image: url({% static 'flags/danish.png' %});"></div>
+      {% elif course.course_language == hindi %}
+        <div id="flag" style="background-image: url({% static 'flags/hindi.png' %});"></div>
+      {% elif course.course_language == czech %}
+        <div id="flag" style="background-image: url({% static 'flags/czech.png' %});"></div>
+      {% elif course.course_language == esperanto %}
+        <div id="flag" style="background-image: url({% static 'flags/esperanto.png' %});"></div>
+      {% elif course.course_language == ukranian %}
+        <div id="flag" style="background-image: url({% static 'flags/ukranian.png' %});"></div>
+      {% elif course.course_language == welsh %}
+        <div id="flag" style="background-image: url({% static 'flags/welsh.png' %});"></div>
+      {% elif course.course_language == vietnamese %}
+        <div id="flag" style="background-image: url({% static 'flags/vietnamese.png' %});"></div>
+      {% elif course.course_language == hungarian %}
+        <div id="flag" style="background-image: url({% static 'flags/hungarian.png' %});"></div>
+      {% elif course.course_language == swahili %}
+        <div id="flag" style="background-image: url({% static 'flags/swahili.png' %});"></div>
+      {% elif course.course_language == romanian %}
+        <div id="flag" style="background-image: url({% static 'flags/romanian.png' %});"></div>
+      {% elif course.course_language == indonesian %}
+        <div id="flag" style="background-image: url({% static 'flags/indonesian.png' %});"></div>
+      {% elif course.course_language == finnish %}
+        <div id="flag" style="background-image: url({% static 'flags/finnish.png' %});"></div>
+      {% elif course.course_language == bengali %}
+        <div id="flag" style="background-image: url({% static 'flags/bengali.png' %});"></div>
+      {% else %}
+        <div id="flag" style="background-image: url('');"></div>
+      {% endif %}
+      <h1>{{ course.course_language|title }}</h1>
+      <br />
       <form action="{% url 'welcome' %}" method="POST">
           {% csrf_token %}
-          <input type="hidden" value="{{ language.name }}" name="hidden_langauge"/>
+          <input type="hidden" value="{{ course.course_language }}" name="hidden_langauge"/>
           <input type="submit" value="Choose" name="langauge_choose_submit_btn"/>
       </form>
     </div>
@@ -36,4 +101,5 @@
 
 </div>
 
+{% endwith %}
 {% endblock %}

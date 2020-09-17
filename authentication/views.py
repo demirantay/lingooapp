@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 # My Module Imports
 from utils.auth_utils import get_banned_words
 from profile_settings.models import BasicUserProfile
-from basic_language_explore.models import Language, Student
+from basic_language_explore.models import Language, Student, BasicLanguageCourse
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.access_control import delete_teacher_user_session
 
@@ -262,41 +262,63 @@ def welcome(request):
     except ObjectDoesNotExist:
         all_languages = None
 
+    # Get all of the english language courses
+    try:
+        language_courses = BasicLanguageCourse.objects.filter(
+            course_speakers_language="english"
+        )
+    except ObjectDoesNotExist:
+        language_courses = None
+
     # Create new student form processing
     if request.POST.get("langauge_choose_submit_btn"):
-        hidden_language_name = request.POST.get("hidden_langauge")
-        # get the language obj
-        try:
-            language = Language.objects.get(name=hidden_language_name)
-        except ObjectDoesNotExist:
-            language = None
+        course_language = request.POST.get("hidden_langauge")
 
-        # check if the student is already created and connected to a langauge
-        # if created dont create a new one
+        # get the current course to pass it as a parameter
         try:
-            student = Student.objects.get(
-                langauge=language,
-                basic_user_profile=current_basic_user_profile
+            current_course = BasicLanguageCourse.objects.get(
+                course_language=course_language,
+                course_speakers_language="english"
             )
         except ObjectDoesNotExist:
-            student = None
+            current_course = None
 
-        if student == None:
-            # there is no record so create one and redirect
+        # Get the language instance
+        try:
+            current_language = Language.objects.get(name=course_language)
+        except ObjectDoesNotExist:
+            current_language = None
+
+        print(current_language)
+
+        # check if the student already has the course, if yes then do nothing
+        # and just redirect
+        try:
+            current_student = Student.objects.get(
+                basic_user_profile=current_basic_user_profile,
+                course=current_course
+            )
+        except ObjectDoesNotExist:
+            current_student = None
+
+        if current_student == None:
+            # its none so enroll a new user
             new_student = Student(
-                langauge=language,
-                basic_user_profile=current_basic_user_profile
+                langauge=current_language,
+                basic_user_profile=current_basic_user_profile,
+                course=current_course
             )
             new_student.save()
             return HttpResponseRedirect("/")
         else:
-            # there is a record do not create anything just redirect
+            # it does have a student so just redirect
             return HttpResponseRedirect("/")
 
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "all_languages": all_languages,
+        "language_courses": language_courses,
     }
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
