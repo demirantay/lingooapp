@@ -16,7 +16,7 @@ from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
 
 
-def basic_language_explore(request):
+def basic_language_explore(request, speaker_language):
     """
     In this page the users can explore different kind of languages and enroll
     in them to learn those language courses.
@@ -46,10 +46,45 @@ def basic_language_explore(request):
         ObjectDoesNotExist
     )
 
+    # Get all of the courses
+    try:
+        all_courses = BasicLanguageCourse.objects.filter(
+            course_speakers_language=speaker_language
+        )
+    except ObjectDoesNotExist:
+        all_courses = None
+
+    # course is_enrolled dictionary for every course
+    try:
+        current_users_students = Student.objects.filter(
+            basic_user_profile=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        current_users_students = None
+
+    course_enrollment = {}
+    for student in current_users_students:
+        for course in all_courses:
+            if student.course == course:
+                course_enrollment[course.id] = True
+            else:
+                continue
+
+    # course active learners count
+    course_learners_count = {}
+    for course in all_courses:
+        course_students = Student.objects.filter(course=course)
+        students_count = len(course_students)
+        course_learners_count[course.id] = students_count
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "all_courses": all_courses,
+        "course_enrollment": course_enrollment,
+        "course_learners_count": course_learners_count,
+        "speaker_language": speaker_language,
     }
 
     if current_basic_user == None:

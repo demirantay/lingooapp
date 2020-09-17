@@ -8,52 +8,306 @@
 {% endblock %}
 
 {% block content %}
+{% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
+
 
 <!-- langauge explore top banner -->
 <div id="language-explore-top-banner">
   <p>I speak :</p>
   <form>
-      <select>
-        <option>English</option>
-        <option>Spanish</option>
-        <option>French</option>
-        <option>German</option>
-        <option>Italian</option>
-        <option>Japanese</option>
-        <option>Chinese</option>
-        <option>Russian</option>
-        <option>Korean</option>
-        <option>Portuguese</option>
-        <option>Arabic</option>
-        <option>Dutch</option>
-        <option>Swedish</option>
-        <option>Norwegian</option>
-        <option>Turkish</option>
-        <option>Polish</option>
-        <option>Irish</option>
-        <option>Greek</option>
-        <option>Hebrew</option>
-        <option>Danish</option>
-        <option>Hindi</option>
-        <option>Czech</option>
-        <option>Esperanto</option>
-        <option>Ukranian</option>
-        <option>Welsh</option>
-        <option>Vietnamese</option>
-        <option>Hungarian</option>
-        <option>Swahili</option>
-        <option>Romanian</option>
-        <option>Indonesian</option>
-        <option>Finnish</option>
-        <option>Bengali</option>
+      <select id="current_user_language">
+        {% if speaker_language == english %}
+          <option value="english" selected>English</option>
+        {% else %}
+          <option value="english">English</option>
+        {% endif %}
+
+        {% if speaker_language == spanish %}
+          <option value="spanish" selected>Spanish</option>
+        {% else %}
+          <option value="spanish">Spanish</option>
+        {% endif %}
+
+        {% if speaker_language == french %}
+          <option value="french" selected>French</option>
+        {% else %}
+          <option value="french">French</option>
+        {% endif %}
+
+        {% if speaker_language == german %}
+          <option value="german" selected>German</option>
+        {% else %}
+          <option value="german">German</option>
+        {% endif %}
+
+        {% if speaker_language == italian %}
+          <option value="italian" selected>Italian</option>
+        {% else %}
+          <option value="italian">Italian</option>
+        {% endif %}
+
+        {% if speaker_language == japanese %}
+          <option value="japanese" selected>Japanese</option>
+        {% else %}
+          <option value="japanese">Japanese</option>
+        {% endif %}
+
+        {% if speaker_language == chinese %}
+          <option value="chinese" selected>Chinese</option>
+        {% else %}
+          <option value="chinese">Chinese</option>
+        {% endif %}
+
+        {% if speaker_language == russian %}
+          <option value="russian" selected>Russian</option>
+        {% else %}
+          <option value="russian">Russian</option>
+        {% endif %}
+
+        {% if speaker_language == korean %}
+          <option value="korean" selected>Korean</option>
+        {% else %}
+          <option value="korean">Korean</option>
+        {% endif %}
+
+        {% if speaker_language == portuguese %}
+          <option value="portuguese" selected>Portuguese</option>
+        {% else %}
+          <option value="portuguese">Portuguese</option>
+        {% endif %}
+
+        {% if speaker_language == arabic %}
+          <option value="arabic" selected>Arabic</option>
+        {% else %}
+          <option value="arabic">Arabic</option>
+        {% endif %}
+
+        {% if speaker_language == dutch %}
+          <option value="dutch" selected>Dutch</option>
+        {% else %}
+          <option value="dutch">Dutch</option>
+        {% endif %}
+
+        {% if speaker_language == swedish %}
+          <option value="swedish" selected>Swedish</option>
+        {% else %}
+          <option value="swedish">Swedish</option>
+        {% endif %}
+
+        {% if speaker_language == norwegian %}
+          <option value="norwegian" selected>Norwegian</option>
+        {% else %}
+          <option value="norwegian">Norwegian</option>
+        {% endif %}
+
+        {% if speaker_language == turkish %}
+          <option value="turkish" selected>Turkish</option>
+        {% else %}
+          <option value="turkish">Turkish</option>
+        {% endif %}
+
+        {% if speaker_language == polish %}
+          <option value="polish" selected>Polish</option>
+        {% else %}
+          <option value="polish">Polish</option>
+        {% endif %}
+
+        {% if speaker_language == irish %}
+          <option value="irish" selected>Irish</option>
+        {% else %}
+          <option value="irish">Irish</option>
+        {% endif %}
+
+        {% if speaker_language == greek %}
+          <option value="greek" selected>Greek</option>
+        {% else %}
+          <option value="greek">Greek</option>
+        {% endif %}
+
+        {% if speaker_language == hebrew %}
+          <option value="hebrew" selected>Hebrew</option>
+        {% else %}
+          <option value="hebrew">Hebrew</option>
+        {% endif %}
+
+        {% if speaker_language == danish %}
+          <option value="danish" selected>Danish</option>
+        {% else %}
+          <option value="danish">Danish</option>
+        {% endif %}
+
+        {% if speaker_language == hindi %}
+          <option value="hindi" selected>Hindi</option>
+        {% else %}
+          <option value="hindi">Hindi</option>
+        {% endif %}
+
+        {% if speaker_language == czech %}
+          <option value="czech" selected>Czech</option>
+        {% else %}
+          <option value="czech">Czech</option>
+        {% endif %}
+
+        {% if speaker_language == esperanto %}
+          <option value="esperanto" selected>Esperanto</option>
+        {% else %}
+          <option value="esperanto">Esperanto</option>
+        {% endif %}
+
+        {% if speaker_language == ukranian %}
+          <option value="ukranian" selected>Ukranian</option>
+        {% else %}
+          <option value="ukranian">Ukranian</option>
+        {% endif %}
+
+        {% if speaker_language == welsh %}
+          <option value="welsh" selected>Welsh</option>
+        {% else %}
+          <option value="welsh">Welsh</option>
+        {% endif %}
+
+        {% if speaker_language == vietnamese %}
+          <option value="vietnamese" selected>Vietnamese</option>
+        {% else %}
+          <option value="vietnamese">Vietnamese</option>
+        {% endif %}
+
+        {% if speaker_language == hungarian %}
+          <option value="hungarian" selected>Hungarian</option>
+        {% else %}
+          <option value="hungarian">Hungarian</option>
+        {% endif %}
+
+        {% if speaker_language == swahili %}
+          <option value="swahili" selected>Swahili</option>
+        {% else %}
+          <option value="swahili">Swahili</option>
+        {% endif %}
+
+        {% if speaker_language == romanian %}
+          <option value="romanian" selected>Romanian</option>
+        {% else %}
+          <option value="romanian">Romanian</option>
+        {% endif %}
+
+        {% if speaker_language == indonesian %}
+          <option value="indonesian" selected>Indonesian</option>
+        {% else %}
+          <option value="indonesian">Indonesian</option>
+        {% endif %}
+
+        {% if speaker_language == finnish %}
+          <option value="finnish" selected>Finnish</option>
+        {% else %}
+          <option value="finnish">Finnish</option>
+        {% endif %}
+
+        {% if speaker_language == bengali %}
+          <option value="bengali" selected>Bengali</option>
+        {% else %}
+          <option value="bengali">Bengali</option>
+        {% endif %}
       </select>
   </form>
+
+  <script>
+    let current_user_language = document.getElementById("current_user_language");
+
+    current_user_language.onchange= function() {
+      window.location.href = '/language/explore/' + current_user_language.value + '/';
+    }
+
+  </script>
+
 </div>
 
 <!-- language cells -->
 <div id="language-cells-container">
 
-  <!-- cell -->
+  {% for course in all_courses %}
+    <!-- cell -->
+    <a href="{% url 'basic_language_explore_info' course.course_language course.course_speakers_language %}">
+      <div id="langauge-cell">
+        {% if course.id in course_enrollment %}
+          <p id="enrolled-text"><span class="fa fa-check"></span> Enrolled</p>
+        {% endif %}
+
+        {% if course.course_language == spanish %}
+          <div id="flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div>
+        {% elif course.course_language == english  %}
+          <div id="flag" style="background-image: url({% static 'flags/english.png' %});"></div>
+        {% elif course.course_language == french %}
+          <div id="flag" style="background-image: url({% static 'flags/french.png' %});"></div>
+        {% elif course.course_language == german %}
+          <div id="flag" style="background-image: url({% static 'flags/german.png' %});"></div>
+        {% elif course.course_language == italian %}
+          <div id="flag" style="background-image: url({% static 'flags/italian.png' %});"></div>
+        {% elif course.course_language == japanese %}
+          <div id="flag" style="background-image: url({% static 'flags/japanese.png' %});"></div>
+        {% elif course.course_language == chinese %}
+          <div id="flag" style="background-image: url({% static 'flags/chinese.png' %});"></div>
+        {% elif course.course_language == russian %}
+          <div id="flag" style="background-image: url({% static 'flags/russian.png' %});"></div>
+        {% elif course.course_language == korean %}
+          <div id="flag" style="background-image: url({% static 'flags/korean.png' %});"></div>
+        {% elif course.course_language == portuguese %}
+          <div id="flag" style="background-image: url({% static 'flags/portuguese.png' %});"></div>
+        {% elif course.course_language == arabic %}
+          <div id="flag" style="background-image: url({% static 'flags/arabic.png' %});"></div>
+        {% elif course.course_language == dutch %}
+          <div id="flag" style="background-image: url({% static 'flags/dutch.png' %});"></div>
+        {% elif course.course_language == swedish %}
+          <div id="flag" style="background-image: url({% static 'flags/swedish.png' %});"></div>
+        {% elif course.course_language == norwegian %}
+          <div id="flag" style="background-image: url({% static 'flags/norwegian.png' %});"></div>
+        {% elif course.course_language == turkish %}
+          <div id="flag" style="background-image: url({% static 'flags/turkish.png' %});"></div>
+        {% elif course.course_language == polish %}
+          <div id="flag" style="background-image: url({% static 'flags/polish.png' %});"></div>
+        {% elif course.course_language == irish %}
+          <div id="flag" style="background-image: url({% static 'flags/irish.png' %});"></div>
+        {% elif course.course_language == greek %}
+          <div id="flag" style="background-image: url({% static 'flags/greek.png' %});"></div>
+        {% elif course.course_language == hebrew %}
+          <div id="flag" style="background-image: url({% static 'flags/hebrew.png' %});"></div>
+        {% elif course.course_language == danish %}
+          <div id="flag" style="background-image: url({% static 'flags/danish.png' %});"></div>
+        {% elif course.course_language == hindi %}
+          <div id="flag" style="background-image: url({% static 'flags/hindi.png' %});"></div>
+        {% elif course.course_language == czech %}
+          <div id="flag" style="background-image: url({% static 'flags/czech.png' %});"></div>
+        {% elif course.course_language == esperanto %}
+          <div id="flag" style="background-image: url({% static 'flags/esperanto.png' %});"></div>
+        {% elif course.course_language == ukranian %}
+          <div id="flag" style="background-image: url({% static 'flags/ukranian.png' %});"></div>
+        {% elif course.course_language == welsh %}
+          <div id="flag" style="background-image: url({% static 'flags/welsh.png' %});"></div>
+        {% elif course.course_language == vietnamese %}
+          <div id="flag" style="background-image: url({% static 'flags/vietnamese.png' %});"></div>
+        {% elif course.course_language == hungarian %}
+          <div id="flag" style="background-image: url({% static 'flags/hungarian.png' %});"></div>
+        {% elif course.course_language == swahili %}
+          <div id="flag" style="background-image: url({% static 'flags/swahili.png' %});"></div>
+        {% elif course.course_language == romanian %}
+          <div id="flag" style="background-image: url({% static 'flags/romanian.png' %});"></div>
+        {% elif course.course_language == indonesian %}
+          <div id="flag" style="background-image: url({% static 'flags/indonesian.png' %});"></div>
+        {% elif course.course_language == finnish %}
+          <div id="flag" style="background-image: url({% static 'flags/finnish.png' %});"></div>
+        {% elif course.course_language == bengali %}
+          <div id="flag" style="background-image: url({% static 'flags/bengali.png' %});"></div>
+        {% else %}
+          <div id="flag" style="background-image: url('');"></div>
+        {% endif %}
+
+        <h3>{{ course.course_language|title }}</h3>
+        <p><span class="fa fa-user"></span> {{ course_learners_count|get_key_value:course.id }} Learners</p>
+      </div>
+    </a>
+    <!-- /cell -->
+  {% endfor %}
+
+  <!-- cell
   <a href="">
     <div id="langauge-cell">
       <p id="enrolled-text"><span class="fa fa-check"></span> Enrolled</p>
@@ -62,77 +316,7 @@
       <p><span class="fa fa-user"></span> 10 Learners</p>
     </div>
   </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
-
-  <!-- cell -->
-  <a href="">
-    <div id="langauge-cell">
-      <div id="flag"></div>
-      <h3>Spanish</h3>
-      <p><span class="fa fa-user"></span> 25 Learners</p>
-    </div>
-  </a>
-  <!-- /cell -->
+   /cell -->
 
 </div>
 
@@ -151,4 +335,5 @@
   </div>
 </div>
 
+{% endwith %}
 {% endblock %}

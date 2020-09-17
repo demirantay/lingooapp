@@ -3,7 +3,11 @@ from . import views
 
 urlpatterns = [
     # Language Explore
-    path("language/explore/", views.basic_language_explore, name="basic_language_explore"),
+    path(
+        "language/explore/<str:speaker_language>/",
+        views.basic_language_explore,
+        name="basic_language_explore"
+    ),
     # Specific Language Page
     path(
         "language/explore/info/<str:course_language>/<str:speakers_language>/",
