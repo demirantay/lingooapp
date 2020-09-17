@@ -42,7 +42,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../flags/dutch.png");
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
@@ -131,7 +130,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../flags/spanish.png");
+  
 }
 
 /* Mobile Small  --------------------------------------------------------- */

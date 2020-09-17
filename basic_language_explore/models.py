@@ -27,6 +27,21 @@ class Language(models.Model):
         return "Language: " + str(self.name)
 
 
+# Language Course
+# ---------------
+# This model holds all of the production-level courses for the langauges
+class BasicLanguageCourse(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    course_language = models.CharField(max_length=300, blank=False, null=False)
+    course_speakers_language = models.CharField(max_length=300, blank=False, null=False)
+    about_language = models.TextField(default="...")
+
+    def __str__(self):
+        return "Course Language: " + self.course_language + \
+               " | Speakers: " + self.course_speakers_language
+
+
 # Student
 # -------------
 # This model holds all of the language learners recordsd and is a child
@@ -42,6 +57,12 @@ class Student(models.Model):
     basic_user_profile = models.ForeignKey(
         BasicUserProfile,
         on_delete=models.CASCADE,
+    )
+    course = models.ForeignKey(
+        BasicLanguageCourse,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
     )
 
     def __str__(self):

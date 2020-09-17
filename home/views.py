@@ -56,6 +56,16 @@ def index(request):
         return render(request, "home/learning_tree.html", data)
 
 
+def learn_index(request, course_language, speakers_language):
+    """
+
+    """
+
+    data = {}
+
+    return render(request, "home/learning_tree.html", data)
+
+
 def under_construction(request):
     """under constrction page"""
 

@@ -47,3 +47,6 @@ class CourseStatusUpdate(models.Model):
     teacher = models.ForeignKey("teacher_authentication.TeacherUserProfile", on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=200, null=False, blank=False, default="")
     content = models.TextField()
+
+    def __str__(self):
+        return "Course: " + str(self.course)

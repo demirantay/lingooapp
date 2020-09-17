@@ -8,25 +8,97 @@
 {% endblock %}
 
 {% block content %}
+  {% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
 
 <!-- information container -->
 <div id="info-container">
-  <a href="" id="go-back-button"><span class="fa fa-arrow-left"></span> All Language Courses</a>
+  <a href="{% url 'basic_language_explore' %}" id="go-back-button"><span class="fa fa-arrow-left"></span> All Language Courses</a>
 
   <!-- info start course banner -->
   <div id="language-banner">
     <!-- left part -->
     <div id="language-banner-banner-left-part">
-      <div id="language-flag"></div>
+      {% if current_course.course_language == spanish %}
+        <div id="language-flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div>
+      {% elif current_course.course_language == english  %}
+        <div id="language-flag" style="background-image: url({% static 'flags/english.png' %});"></div>
+      {% elif current_course.course_language == french %}
+        <div id="language-flag" style="background-image: url({% static 'flags/french.png' %});"></div>
+      {% elif current_course.course_language == german %}
+        <div id="language-flag" style="background-image: url({% static 'flags/german.png' %});"></div>
+      {% elif current_course.course_language == italian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/italian.png' %});"></div>
+      {% elif current_course.course_language == japanese %}
+        <div id="language-flag" style="background-image: url({% static 'flags/japanese.png' %});"></div>
+      {% elif current_course.course_language == chinese %}
+        <div id="language-flag" style="background-image: url({% static 'flags/chinese.png' %});"></div>
+      {% elif current_course.course_language == russian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/russian.png' %});"></div>
+      {% elif current_course.course_language == korean %}
+        <div id="language-flag" style="background-image: url({% static 'flags/korean.png' %});"></div>
+      {% elif current_course.course_language == portuguese %}
+        <div id="language-flag" style="background-image: url({% static 'flags/portuguese.png' %});"></div>
+      {% elif current_course.course_language == arabic %}
+        <div id="language-flag" style="background-image: url({% static 'flags/arabic.png' %});"></div>
+      {% elif current_course.course_language == dutch %}
+        <div id="language-flag" style="background-image: url({% static 'flags/dutch.png' %});"></div>
+      {% elif current_course.course_language == swedish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/swedish.png' %});"></div>
+      {% elif current_course.course_language == norwegian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/norwegian.png' %});"></div>
+      {% elif current_course.course_language == turkish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/turkish.png' %});"></div>
+      {% elif current_course.course_language == polish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/polish.png' %});"></div>
+      {% elif current_course.course_language == irish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/irish.png' %});"></div>
+      {% elif current_course.course_language == greek %}
+        <div id="language-flag" style="background-image: url({% static 'flags/greek.png' %});"></div>
+      {% elif current_course.course_language == hebrew %}
+        <div id="language-flag" style="background-image: url({% static 'flags/hebrew.png' %});"></div>
+      {% elif current_course.course_language == danish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/danish.png' %});"></div>
+      {% elif current_course.course_language == hindi %}
+        <div id="language-flag" style="background-image: url({% static 'flags/hindi.png' %});"></div>
+      {% elif current_course.course_language == czech %}
+        <div id="language-flag" style="background-image: url({% static 'flags/czech.png' %});"></div>
+      {% elif current_course.course_language == esperanto %}
+        <div id="language-flag" style="background-image: url({% static 'flags/esperanto.png' %});"></div>
+      {% elif current_course.course_language == ukranian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/ukranian.png' %});"></div>
+      {% elif current_course.course_language == welsh %}
+        <div id="language-flag" style="background-image: url({% static 'flags/welsh.png' %});"></div>
+      {% elif current_course.course_language == vietnamese %}
+        <div id="language-flag" style="background-image: url({% static 'flags/vietnamese.png' %});"></div>
+      {% elif current_course.course_language == hungarian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/hungarian.png' %});"></div>
+      {% elif current_course.course_language == swahili %}
+        <div id="language-flag" style="background-image: url({% static 'flags/swahili.png' %});"></div>
+      {% elif current_course.course_language == romanian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/romanian.png' %});"></div>
+      {% elif current_course.course_language == indonesian %}
+        <div id="language-flag" style="background-image: url({% static 'flags/indonesian.png' %});"></div>
+      {% elif current_course.course_language == finnish %}
+        <div id="language-flag" style="background-image: url({% static 'flags/finnish.png' %});"></div>
+      {% elif current_course.course_language == bengali %}
+        <div id="language-flag" style="background-image: url({% static 'flags/bengali.png' %});"></div>
+      {% else %}
+        <div id="language-flag" style="background-image: url('');"></div>
+      {% endif %}
       <div id="language-banner-left-part-right-box">
-          <h3>Learn Spanish from English</h3>
-          <p>2.45M active learners</p>
+          <h3>Learn {{ current_course.course_language|title }} from {{ current_course.course_speakers_language|title }}</h3>
+          <p><b>{{ current_course_learners_count }}</b> active learners</p>
       </div>
     </div>
     <!-- right part -->
     <div id="language-banner-right-part">
-        <form>
-          <input type="submit" value="Get started now" />
+        <form method="POST" action="{% url 'basic_language_explore_info' current_course.course_language current_course.course_speakers_language %}">
+          {% csrf_token %}
+          {% if is_enrolled == True %}
+            <input style="background-color: #27AE60;" type="submit" value="Resume" name="basic_course_enroll_submit_btn" />
+          {% else %}
+            <input type="submit" value="Get started now" name="basic_course_enroll_submit_btn" />
+          {% endif %}
         </form>
     </div>
   </div>
@@ -35,15 +107,7 @@
   <div id="language-info-part">
     <h3>About the Language</h3>
     <p>
-        Portuguese (português or, in full, língua portuguesa) is a Western
-        Romance language originating in the Iberian Peninsula of Europe. It is
-        the sole official language of Portugal, Brazil, Cape Verde,
-        Guinea-Bissau, Mozambique, Angola and São Tomé and Príncipe.
-        <br /><Br />
-        With approximately 215 to 220 million native speakers and 270 million
-        total speakers, Portuguese is usually listed as the sixth most natively
-        spoken language in the world. It is also the third-most spoken European
-        language in the world in terms of native speakers.
+        {{ current_course.about_language|linebreaks }}
     </p>
   </div>
 
@@ -51,23 +115,16 @@
   <div id="language-teachers-part">
     <h3>Course Teachers</h3>
 
-    <div id="teacher-cell">
-      <div id="teacher-cell-profile-photo"></div>
-      <h4>@username</h4>
-    </div>
-
-    <div id="teacher-cell">
-      <div id="teacher-cell-profile-photo"></div>
-      <h4>@username</h4>
-    </div>
-
-    <div id="teacher-cell">
-      <div id="teacher-cell-profile-photo"></div>
-      <h4>@username</h4>
-    </div>
+    {% for teacher in current_course_teachers %}
+      <div id="teacher-cell">
+        <div id="teacher-cell-profile-photo" style="background-image: url('{{ teacher.profile_photo.url }}');"></div>
+        <h4>@{{ teacher.user.username }}</h4>
+      </div>
+    {% endfor %}
 
   </div>
 
 </div>
 
+  {% endwith %}
 {% endblock %}
