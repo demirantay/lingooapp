@@ -1,0 +1,50 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_vocab_container/learning.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="vocab-learn-container">
+
+  <!-- top part -->
+  <div id="top-part">
+    <button><span class="fa fa-close"></span></button>
+
+    <div id="progress-bar">
+        <div id="progress-status"></div>
+    </div>
+
+  </div>
+
+  <!-- learn content -->
+  <div id="middle-part">
+    <h3>Jamais</h3>
+    <div id="middle-part-answer-selections">
+      <div id="answer-cell">
+        <p><span id="answer-select-color">1</span> Never</p>
+      </div>
+      <div id="answer-cell">
+        <p><span id="answer-select-color">2</span> How</p>
+      </div>
+      <div id="answer-cell">
+        <p><span id="answer-select-color">3</span> Know</p>
+      </div>
+      <div id="answer-cell">
+        <p><span id="answer-select-color">4</span> Oteki</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom check part -->
+  <div id="bottom-part">
+    <button id="report-button"><span class="fa fa-flag"></span> Report</button>
+    <button id="check-button"><span class="fa fa-check"></span> Check</button>
+  </div>
+
+
+</div>
+
+{% endblock %}

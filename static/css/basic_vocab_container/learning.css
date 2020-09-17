@@ -1,0 +1,420 @@
+body {
+
+}
+
+#vocab-learn-container {
+
+}
+
+/* ----------------- top part -------------------- */
+
+#top-part {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#top-part button {
+  font-size: 32px;
+  background-color: white;
+  border: 1px solid white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#top-part button:hover {
+  cursor: pointer;
+  color: red;
+}
+
+#progress-bar {
+  display: inline-block;
+  border: 1px solid transparent;
+  width: 90%;
+  height: 20px;
+  border-radius: 15px;
+  vertical-align: middle;
+  background-color: #E5E8E8;
+}
+
+#progress-status {
+  width: 30%;
+  background-color: #3498DB;
+  height: 20px;
+  border-radius: 15px;
+}
+
+/* ----------------- middle part -------------------- */
+#middle-part {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+#middle-part h3 {
+  border: 1px solid lightgrey;
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px 0px;
+  border-radius: 10px;
+  font-size: 40px;
+}
+
+#middle-part-answer-selections {
+  border: 1px solid transparent;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#answer-cell {
+  display: inline-block;
+  border: 1px solid lightgrey;
+  width: 48%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#answer-cell:hover {
+  transition: 0.2s;
+  border-color: black;
+  cursor: pointer;
+}
+
+#answer-cell:hover #answer-select-color {
+  transition: 0.2s;
+  background-color: black;
+}
+
+#answer-cell p {
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+#answer-cell p span {
+  color: white;
+  font-weight: 900;
+  background-color: lightgrey;
+  padding: 5px 8px;
+  border-radius: 5px;
+  float: left;
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-top: -5px;
+  margin-right: -30px;
+}
+
+
+/* ----------------- bottom part -------------------- */
+#bottom-part {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid lightgrey;
+  height: 100px;
+  padding-top: 30px;
+}
+
+#report-button {
+  float: left;
+  margin-left: 10%;
+  font-size: 23px;
+  padding: 7px 15px;
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+#report-button:hover {
+  background-color: #A50E23;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#check-button {
+  float: right;
+  margin-right: 10%;
+  font-size: 23px;
+  padding: 7px 15px;
+  background: #27AE60;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+#check-button:hover {
+  background-color: #186A3B;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ----------------- top part -------------------- */
+
+  #top-part {
+    width: 95%;
+  }
+
+  #top-part button {
+    font-size: 32px;
+  }
+
+  #progress-bar {
+    width: 80%;
+  }
+
+  /* ----------------- middle part -------------------- */
+  #middle-part {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  #middle-part h3 {
+    border: 1px solid lightgrey;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  #middle-part-answer-selections {
+    width: 100%;
+  }
+
+  #answer-cell p {
+    font-size: 22px;
+  }
+
+  #answer-cell p span {
+    display: none;
+  }
+
+
+  /* ----------------- bottom part -------------------- */
+  #bottom-part {
+    height: 100px;
+    padding-top: 30px;
+  }
+
+  #report-button {
+    margin-left: 5%;
+    font-size: 20px;
+  }
+
+  #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ----------------- top part -------------------- */
+
+  #top-part {
+    width: 95%;
+  }
+
+  #top-part button {
+    font-size: 32px;
+  }
+
+  #progress-bar {
+    width: 80%;
+  }
+
+  /* ----------------- middle part -------------------- */
+  #middle-part {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  #middle-part h3 {
+    border: 1px solid lightgrey;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  #middle-part-answer-selections {
+    width: 100%;
+  }
+
+  #answer-cell p {
+    font-size: 22px;
+  }
+
+  #answer-cell p span {
+    display: none;
+  }
+
+
+  /* ----------------- bottom part -------------------- */
+  #bottom-part {
+    height: 100px;
+    padding-top: 30px;
+  }
+
+  #report-button {
+    margin-left: 5%;
+    font-size: 20px;
+  }
+
+  #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ----------------- top part -------------------- */
+
+  #top-part {
+    width: 95%;
+  }
+
+  #top-part button {
+    font-size: 32px;
+  }
+
+  #progress-bar {
+    width: 80%;
+  }
+
+  /* ----------------- middle part -------------------- */
+  #middle-part {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  #middle-part h3 {
+    border: 1px solid lightgrey;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  #middle-part-answer-selections {
+    width: 100%;
+  }
+
+  #answer-cell p {
+    font-size: 22px;
+  }
+
+  #answer-cell p span {
+    display: none;
+  }
+
+
+  /* ----------------- bottom part -------------------- */
+  #bottom-part {
+    height: 100px;
+    padding-top: 30px;
+  }
+
+  #report-button {
+    margin-left: 5%;
+    font-size: 20px;
+  }
+
+  #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* ----------------- top part -------------------- */
+
+  #top-part {
+    width: 95%;
+  }
+
+  #top-part button {
+    font-size: 32px;
+  }
+
+  #progress-bar {
+    width: 80%;
+  }
+
+  /* ----------------- middle part -------------------- */
+  #middle-part {
+    border: 1px solid transparent;
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  #middle-part h3 {
+    border: 1px solid lightgrey;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  #middle-part-answer-selections {
+    width: 100%;
+  }
+
+  #answer-cell p {
+    font-size: 22px;
+  }
+
+  #answer-cell p span {
+    display: block;
+  }
+
+
+  /* ----------------- bottom part -------------------- */
+  #bottom-part {
+    height: 100px;
+    padding-top: 30px;
+  }
+
+  #report-button {
+    margin-left: 5%;
+    font-size: 20px;
+  }
+
+  #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

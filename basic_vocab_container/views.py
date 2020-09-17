@@ -10,6 +10,16 @@ from django.contrib.auth.models import User
 # My Module ImportsImports
 
 
+def basic_vocab_learn_start(request):
+    """
+
+    """
+
+    data = {}
+
+    return render(request, "basic_vocab_container/learning_start.html", data)
+
+
 def basic_vocab_learn(request):
     """
     """
