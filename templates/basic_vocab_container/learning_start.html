@@ -8,26 +8,49 @@
 {% block content %}
 
 <div id="vocab-learn-start-container">
+  <a href="{% url 'index' %}" id="close-button"><span class="fa fa-close"></span></a>
+
   <h1>Current Lesson Words</h1>
 
   <div id="words-table">
 
     <!-- ROW -->
     <div id="words-table-row">
+      <!--
       <div id="words-table-column">
         <p><b>id</b></p>
       </div>
+      -->
       <div id="words-table-column">
-        <p><b>spanish</b></p>
+        <p><b>{{ current_course.course_language|title }}</b></p>
       </div>
       <div id="words-table-column" class="words-table-column-right">
-        <p><b>english</b></p>
+        <p><b>{{ current_course.course_speakers_language|title }}</b></p>
       </div>
     </div>
 
     <!-- /row -->
 
-    <!-- ROW -->
+    {% for word in lesson_pack %}
+      <!-- ROW -->
+      <div id="words-table-row">
+        <!--
+        <div id="words-table-column">
+          <p>1</p>
+        </div>
+        -->
+        <div id="words-table-column">
+          <p>{{ word.vocab_container_word.word }}</p>
+        </div>
+        <div id="words-table-column" class="words-table-column-right">
+          <p>{{ word.vocab_container_word.word_translation }}</p>
+        </div>
+      </div>
+      <!-- /row -->
+    {% endfor %}
+
+
+    <!-- ROW
     <div id="words-table-row">
       <div id="words-table-column">
         <p>1</p>
@@ -39,133 +62,7 @@
         <p>hello</p>
       </div>
     </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
-
-    <!-- ROW -->
-    <div id="words-table-row">
-      <div id="words-table-column">
-        <p>1</p>
-      </div>
-      <div id="words-table-column">
-        <p>hola</p>
-      </div>
-      <div id="words-table-column" class="words-table-column-right">
-        <p>hello</p>
-      </div>
-    </div>
-    <!-- /row -->
+    -->
 
   </div>
 
