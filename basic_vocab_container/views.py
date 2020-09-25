@@ -1,4 +1,5 @@
 # Main Imports
+import json
 
 # Django Imports
 from django.shortcuts import render, get_object_or_404, HttpResponse
@@ -59,6 +60,8 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
 
     # if the student does not exists for the current course return 404
     # !!!!!!!!!
+    # !!!!!!!!!
+    # !!!!!!!!!
 
     # Get the next 10 words to learn and display them to the user
     try:
@@ -83,6 +86,10 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
             if word.is_learned == False:
                 unlearned_words.append(word)
     lesson_pack = unlearned_words[:10]
+
+    # If the current lesson pack do not serve the lesson
+    if len(unlearned_words) < 10:
+        return HttpResponseRedirect("/")
 
     # Based on the current CEFR level update the student progresses word list
     # if there are any additions to the main vocab container
@@ -158,6 +165,7 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
         "current_basic_user_profile": current_basic_user_profile,
         "lesson_pack": lesson_pack,
         "current_course": current_course,
+        "cefr_level": cefr_level,
     }
 
     if current_basic_user == None:
@@ -166,12 +174,88 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
         return render(request, "basic_vocab_container/learning_start.html", data)
 
 
-def basic_vocab_learn(request):
+def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     """
+    in this view the person can learn new vocabulary on courses
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current course
+    try:
+        current_course = BasicLanguageCourse.objects.get(
+            course_language=course_language,
+            course_speakers_language=speakers_langauge
+        )
+    except ObjectDoesNotExist:
+        current_course = None
+
+    # Get the current student
+    try:
+        current_student = Student.objects.get(
+            basic_user_profile=current_basic_user_profile,
+            course=current_course
+        )
+    except ObjectDoesNotExist:
+        current_student = None
+
+    # Get the current students progress words
+    try:
+        current_student_progress = StudentVocabProgress.objects.filter(
+            student=current_student
+        )
+    except ObjectDoesNotExist:
+        current_student_progress = None
+
+    # Get the current lessons packs (10) words
+    unlearned_words = []
+    for word in current_student_progress:
+        if word.vocab_container_word.level == cefr_level:
+            if word.is_learned == False:
+                unlearned_words.append(word)
+    lesson_pack = unlearned_words[:10]
+
+    lesson_pack_words = {}
+    for word in unlearned_words[:10]:
+        lesson_pack_words[word.vocab_container_word.word] = word.vocab_container_word.word_translation
+
+    # If the current lesson pack do not serve the lesson
+    if len(unlearned_words) < 10:
+        return HttpResponseRedirect("/")
+
+    # If every checkpoint is done and the lessons are learned, update the
+    # student progress
+    if request.POST.get("vocab_learning_lesson_finish_button"):
+        for word in unlearned_words[:10]:
+            word.is_learned = True
+            word.save()
+        return HttpResponseRedirect("/")
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "lesson_pack": lesson_pack,
+        "lesson_pack_words": lesson_pack_words,
+        "cefr_level": cefr_level,
+        "course_language": course_language,
+        "speakers_langauge": speakers_langauge,
     }
 
-    return render(request, "basic_vocab_container/learning.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_vocab_container/learning.html", data)

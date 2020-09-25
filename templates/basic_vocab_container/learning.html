@@ -11,7 +11,7 @@
 
   <!-- top part -->
   <div id="top-part">
-    <button><span class="fa fa-close"></span></button>
+    <a href="{% url 'index' %}"><span class="fa fa-close"></span></a>
 
     <div id="progress-bar">
         <div id="progress-status"></div>
@@ -20,30 +20,49 @@
   </div>
 
   <!-- learn content -->
+  <!--
   <div id="middle-part">
     <h3>Jamais</h3>
     <div id="middle-part-answer-selections">
-      <div id="answer-cell">
+      <div class="answer-cell" tabindex="-1">
         <p><span id="answer-select-color">1</span> Never</p>
       </div>
-      <div id="answer-cell">
+      <div class="answer-cell" tabindex="-1">
         <p><span id="answer-select-color">2</span> How</p>
       </div>
-      <div id="answer-cell">
+      <div class="answer-cell" tabindex="-1">
         <p><span id="answer-select-color">3</span> Know</p>
       </div>
-      <div id="answer-cell">
+      <div class="answer-cell" tabindex="-1">
         <p><span id="answer-select-color">4</span> Oteki</p>
       </div>
     </div>
   </div>
 
+ -->
+
+  <div id="questions-canvas">
+
+  </div>
+
+
   <!-- bottom check part -->
   <div id="bottom-part">
     <button id="report-button"><span class="fa fa-flag"></span> Report</button>
-    <button id="check-button"><span class="fa fa-check"></span> Check</button>
+    <button class="check-button" id="check-button" ><span class="fa fa-check"></span> Check</button>
+    <button class="check-button" id="next-button"><span class="fa fa-arrow-right"></span> Next</button>
+
+    <form id="finish-button" method="POST" action="{% url 'basic_vocab_learn' cefr_level course_language speakers_langauge %}">
+      {% csrf_token %}
+      <input type="submit" value="Finish" class="check-button" name="vocab_learning_lesson_finish_button"/>
+    </form>
   </div>
 
+  <script>
+    let lesson_pack_words = {{ lesson_pack_words|safe }}
+  </script>
+
+  <script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
 
 </div>
 
