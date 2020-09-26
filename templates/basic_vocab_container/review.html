@@ -64,18 +64,18 @@
     <button class="check-button" id="check-button" ><span class="fa fa-check"></span> Check</button>
     <button class="check-button" id="next-button"><span class="fa fa-arrow-right"></span> Next</button>
 
-    <form id="finish-button" method="POST" action="{% url 'basic_vocab_learn' cefr_level course_language speakers_langauge %}">
+    <form id="finish-button" method="POST" action="{% url 'basic_vocab_review' course_language speakers_langauge %}">
       {% csrf_token %}
       <input type="hidden" name="hidden_errors_array" id="hidden_errors_input"  />
-      <input type="submit" value="Finish" class="check-button" name="vocab_learning_lesson_finish_button"/>
+      <input type="submit" value="Finish" class="check-button" name="vocab_review_lesson_finish_button"/>
     </form>
   </div>
 
   <script>
-    let lesson_pack_words = {{ lesson_pack_words|safe }}
+    let lesson_pack_words = {{ review_pack_words|safe }};
   </script>
 
-  <script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
+  <script src="{% static 'js/basic_vocab_container/review.js' %}"></script>
 
   <!-- error reporting panel toggle logic in javascript -->
   <script>

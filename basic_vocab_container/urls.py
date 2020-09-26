@@ -14,4 +14,10 @@ urlpatterns = [
         views.basic_vocab_learn_start,
         name="basic_vocab_learn_start"
     ),
+    # Review page
+    path(
+        "vocab/review/<str:course_language>/<str:speakers_langauge>/",
+        views.basic_vocab_review,
+        name="basic_vocab_review"
+    ),
 ]

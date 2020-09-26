@@ -1,7 +1,8 @@
-//let lesson_pack_words = {{ lesson_pack_words|safe }}
+// let lesson_pack_words = {{ review_pack_words|safe }};
 
 // ^^ the code above will be added into another script tag inside the html
 // because it contains djangos own templating syntax which js cant compile
+
 
 let questions = [];
 let answered_questions = [];
@@ -16,6 +17,7 @@ let error_report_button = document.getElementById("error-report-btn");
 var panel = document.getElementById("hidden-error-panel");
 var panel_background_greying = document.getElementById("background-greying");
 let hidden_errors_input = document.getElementById("hidden_errors_input");
+
 
 // Error Data Scturcutre
 function Error(question, content) {
@@ -37,8 +39,9 @@ function Question(word, word_translation) {
   this.answer_options = [];
 
   // CREATING THE ANSWER OPTIONS
+  let size = Object.keys(lesson_pack_words).length;
   function random_num() {
-    return Math.floor(Math.random() * 9) + 1;
+    return Math.floor(Math.random() * size-1) + 1;
   }
 
   function shuffle(array) {
@@ -86,6 +89,7 @@ function Question(word, word_translation) {
   this.get_options = function() {
     return this.answer_options;
   };
+
   this.get_question_slide = function() {
     answers = this.get_options();
     slide_template = `<div id="middle-part">
@@ -153,7 +157,8 @@ answer_4.onclick = function() {
 // if check button is clicked show if the answer is true or not
 check_button.onclick = function() {
   // if the lenght is 10 and lesson is finished submit it to backend
-  if (answered_questions.length === 10) {
+  let size = Object.keys(lesson_pack_words).length;
+  if (answered_questions.length === size) {
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
@@ -177,7 +182,6 @@ check_button.onclick = function() {
 
   // ANSWERED CORRECTLY
   if (selected_answer === current_question.get_answer()) {
-
     // show the right answers
     if (selected_answer == answer_options[0]) {
       answer_1.style.backgroundColor = "#27AE60";
@@ -261,7 +265,8 @@ function get_next_question() {
 
 next_button.onclick = function() {
   // if the lenght is 10 and lesson is finished submit it to backend
-  if (answered_questions.length === 10) {
+  let size = Object.keys(lesson_pack_words).length;
+  if (answered_questions.length === size) {
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
@@ -270,40 +275,257 @@ next_button.onclick = function() {
   var progress_bar = document.getElementById("progress-bar");
   var progress_status = document.getElementById("progress-status");
 
-  // based on how many questions lenght update progress status
-  if (answered_questions.length === 0) {
-    progress_status.style.width = "0%";
+  // Based on the lesson size adjust the progress bar status
+  if (size == 5) {
+    if (answered_questions.length === 0) {
+      progress_status.style.width = "0%";
+    }
+    else if (answered_questions.length === 1) {
+      progress_status.style.width = "20%";
+    }
+    else if (answered_questions.length === 2) {
+      progress_status.style.width = "40%";
+    }
+    else if (answered_questions.length === 3) {
+      progress_status.style.width = "60%";
+    }
+    else if (answered_questions.length === 4) {
+      progress_status.style.width = "80%";
+    }
+    else if (answered_questions.length === 5) {
+      progress_status.style.width = "100%";
+    }
   }
-  else if (answered_questions.length === 1) {
-    progress_status.style.width = "10%";
+  else if (size == 10) {
+    if (answered_questions.length === 0) {
+      progress_status.style.width = "0%";
+    }
+    else if (answered_questions.length === 1) {
+      progress_status.style.width = "10%";
+    }
+    else if (answered_questions.length === 2) {
+      progress_status.style.width = "20%";
+    }
+    else if (answered_questions.length === 3) {
+      progress_status.style.width = "30%";
+    }
+    else if (answered_questions.length === 4) {
+      progress_status.style.width = "40%";
+    }
+    else if (answered_questions.length === 5) {
+      progress_status.style.width = "50%";
+    }
+    else if (answered_questions.length === 6) {
+      progress_status.style.width = "60%";
+    }
+    else if (answered_questions.length === 7) {
+      progress_status.style.width = "70%";
+    }
+    else if (answered_questions.length === 8) {
+      progress_status.style.width = "80%";
+    }
+    else if (answered_questions.length === 9) {
+      progress_status.style.width = "90%";
+    }
+    else if (answered_questions.length === 10) {
+      progress_status.style.width = "100%";
+    }
   }
-  else if (answered_questions.length === 2) {
-    progress_status.style.width = "20%";
+  else if (size == 15) {
+    if (answered_questions.length === 0) {
+      progress_status.style.width = "0%";
+    }
+    else if (answered_questions.length === 1) {
+      progress_status.style.width = "7%";
+    }
+    else if (answered_questions.length === 2) {
+      progress_status.style.width = "14%";
+    }
+    else if (answered_questions.length === 3) {
+      progress_status.style.width = "21%";
+    }
+    else if (answered_questions.length === 4) {
+      progress_status.style.width = "28%";
+    }
+    else if (answered_questions.length === 5) {
+      progress_status.style.width = "35%";
+    }
+    else if (answered_questions.length === 6) {
+      progress_status.style.width = "42%";
+    }
+    else if (answered_questions.length === 7) {
+      progress_status.style.width = "50%";
+    }
+    else if (answered_questions.length === 8) {
+      progress_status.style.width = "57%";
+    }
+    else if (answered_questions.length === 9) {
+      progress_status.style.width = "64%";
+    }
+    else if (answered_questions.length === 10) {
+      progress_status.style.width = "71%";
+    }
+    else if (answered_questions.length === 11) {
+      progress_status.style.width = "78%";
+    }
+    else if (answered_questions.length === 12) {
+      progress_status.style.width = "85%";
+    }
+    else if (answered_questions.length === 13) {
+      progress_status.style.width = "92%";
+    }
+    else if (answered_questions.length === 14) {
+      progress_status.style.width = "96%";
+    }
+    else if (answered_questions.length === 15) {
+      progress_status.style.width = "100%";
+    }
   }
-  else if (answered_questions.length === 3) {
-    progress_status.style.width = "30%";
+  else if (size == 20) {
+    if (answered_questions.length === 0) {
+      progress_status.style.width = "0%";
+    }
+    else if (answered_questions.length === 1) {
+      progress_status.style.width = "5%";
+    }
+    else if (answered_questions.length === 2) {
+      progress_status.style.width = "10%";
+    }
+    else if (answered_questions.length === 3) {
+      progress_status.style.width = "15%";
+    }
+    else if (answered_questions.length === 4) {
+      progress_status.style.width = "20%";
+    }
+    else if (answered_questions.length === 5) {
+      progress_status.style.width = "25%";
+    }
+    else if (answered_questions.length === 6) {
+      progress_status.style.width = "30%";
+    }
+    else if (answered_questions.length === 7) {
+      progress_status.style.width = "35%";
+    }
+    else if (answered_questions.length === 8) {
+      progress_status.style.width = "40%";
+    }
+    else if (answered_questions.length === 9) {
+      progress_status.style.width = "45%";
+    }
+    else if (answered_questions.length === 10) {
+      progress_status.style.width = "50%";
+    }
+    else if (answered_questions.length === 11) {
+      progress_status.style.width = "55%";
+    }
+    else if (answered_questions.length === 12) {
+      progress_status.style.width = "60%";
+    }
+    else if (answered_questions.length === 13) {
+      progress_status.style.width = "65%";
+    }
+    else if (answered_questions.length === 14) {
+      progress_status.style.width = "70%";
+    }
+    else if (answered_questions.length === 15) {
+      progress_status.style.width = "75%";
+    }
+    else if (answered_questions.length === 16) {
+      progress_status.style.width = "80%";
+    }
+    else if (answered_questions.length === 17) {
+      progress_status.style.width = "85%";
+    }
+    else if (answered_questions.length === 18) {
+      progress_status.style.width = "90%";
+    }
+    else if (answered_questions.length === 19) {
+      progress_status.style.width = "95%";
+    }
+    else if (answered_questions.length === 20) {
+      progress_status.style.width = "100%";
+    }
   }
-  else if (answered_questions.length === 4) {
-    progress_status.style.width = "40%";
-  }
-  else if (answered_questions.length === 5) {
-    progress_status.style.width = "50%";
-  }
-  else if (answered_questions.length === 6) {
-    progress_status.style.width = "60%";
-  }
-  else if (answered_questions.length === 7) {
-    progress_status.style.width = "70%";
-  }
-  else if (answered_questions.length === 8) {
-    progress_status.style.width = "80%";
-  }
-  else if (answered_questions.length === 9) {
-    progress_status.style.width = "90%";
-  }
-  else if (answered_questions.length === 10) {
-    progress_status.style.width = "100%";
-  }
+  else if (size == 25) {
+    if (answered_questions.length === 0) {
+      progress_status.style.width = "0%";
+    }
+    else if (answered_questions.length === 1) {
+      progress_status.style.width = "8%";
+    }
+    else if (answered_questions.length === 2) {
+      progress_status.style.width = "12%";
+    }
+    else if (answered_questions.length === 3) {
+      progress_status.style.width = "16%";
+    }
+    else if (answered_questions.length === 4) {
+      progress_status.style.width = "20%";
+    }
+    else if (answered_questions.length === 5) {
+      progress_status.style.width = "24%";
+    }
+    else if (answered_questions.length === 6) {
+      progress_status.style.width = "28%";
+    }
+    else if (answered_questions.length === 7) {
+      progress_status.style.width = "32%";
+    }
+    else if (answered_questions.length === 8) {
+      progress_status.style.width = "36%";
+    }
+    else if (answered_questions.length === 9) {
+      progress_status.style.width = "40%";
+    }
+    else if (answered_questions.length === 10) {
+      progress_status.style.width = "44%";
+    }
+    else if (answered_questions.length === 11) {
+      progress_status.style.width = "48%";
+    }
+    else if (answered_questions.length === 12) {
+      progress_status.style.width = "52%";
+    }
+    else if (answered_questions.length === 13) {
+      progress_status.style.width = "56%";
+    }
+    else if (answered_questions.length === 14) {
+      progress_status.style.width = "60%";
+    }
+    else if (answered_questions.length === 15) {
+      progress_status.style.width = "64%";
+    }
+    else if (answered_questions.length === 16) {
+      progress_status.style.width = "68%";
+    }
+    else if (answered_questions.length === 17) {
+      progress_status.style.width = "72%";
+    }
+    else if (answered_questions.length === 18) {
+      progress_status.style.width = "76%";
+    }
+    else if (answered_questions.length === 19) {
+      progress_status.style.width = "80%";
+    }
+    else if (answered_questions.length === 20) {
+      progress_status.style.width = "84%";
+    }
+    else if (answered_questions.length === 21) {
+      progress_status.style.width = "88%";
+    }
+    else if (answered_questions.length === 22) {
+      progress_status.style.width = "92%";
+    }
+    else if (answered_questions.length === 23) {
+      progress_status.style.width = "96%";
+    }
+    else if (answered_questions.length === 24) {
+      progress_status.style.width = "98%";
+    }
+    else if (answered_questions.length === 25) {
+      progress_status.style.width = "100%";
+    }
+  };
 
   // get the current question and get the next one
   // if the next one is in
@@ -312,7 +534,7 @@ next_button.onclick = function() {
   while(true) {
     current_question = get_next_question();
 
-    if (iteration_count == 10) {
+    if (iteration_count == size) {
       break;
     }
 
@@ -355,13 +577,13 @@ next_button.onclick = function() {
   };
 
   // turn the check button to next button
-  if (answered_questions.length === 10) {
+  if (answered_questions.length === size) {
     check_button.style.display = "none";
   } else {
     check_button.style.display = "block";
   }
   next_button.style.display = "none";
-};
+}
 
 
 // Error Button onclick logic
@@ -376,4 +598,4 @@ error_report_button.onclick = function() {
 
   // set the errors to the hidden input
   hidden_errors_input.value = JSON.stringify(errors);
-};
+}

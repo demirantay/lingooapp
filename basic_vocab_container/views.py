@@ -50,6 +50,9 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
     except ObjectDoesNotExist:
         current_course = None
 
+    if current_course == None:
+        return HttpResponseRedirect("/")
+
     # Get the current student
     try:
         current_student = Student.objects.get(
@@ -59,10 +62,8 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
     except ObjectDoesNotExist:
         current_student = None
 
-    # if the student does not exists for the current course return 404
-    # !!!!!!!!!
-    # !!!!!!!!!
-    # !!!!!!!!!
+    if current_student == None:
+        return HttpResponseRedirect("/")
 
     # Get the next 10 words to learn and display them to the user
     try:
@@ -205,6 +206,9 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     except ObjectDoesNotExist:
         current_course = None
 
+    if current_course == None:
+        return HttpResponseRedirect("/")
+
     # Get the current student
     try:
         current_student = Student.objects.get(
@@ -213,6 +217,9 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         )
     except ObjectDoesNotExist:
         current_student = None
+
+    if current_student == None:
+        return HttpResponseRedirect("/")
 
     # Get the current students progress words
     try:
@@ -290,3 +297,157 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         return HttpResponseRedirect("/auth/login/")
     else:
         return render(request, "basic_vocab_container/learning.html", data)
+
+
+def basic_vocab_review(request, course_language, speakers_langauge):
+    """
+    in this view the users can review the languages that they have learned in
+    their student progresses for each courses
+    """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current course
+    try:
+        current_course = BasicLanguageCourse.objects.get(
+            course_language=course_language,
+            course_speakers_language=speakers_langauge
+        )
+    except ObjectDoesNotExist:
+        current_course = None
+
+    if current_course == None:
+        return HttpResponseRedirect("/")
+
+    # Get the current student
+    try:
+        current_student = Student.objects.get(
+            basic_user_profile=current_basic_user_profile,
+            course=current_course
+        )
+    except ObjectDoesNotExist:
+        current_student = None
+
+    if current_student == None:
+        return HttpResponseRedirect("/")
+
+    # Get the current students progress words for is_learned words
+    try:
+        current_student_progress = StudentVocabProgress.objects.filter(
+            student=current_student,
+            is_learned=True
+        )
+    except ObjectDoesNotExist:
+        current_student_progress = None
+
+    # Get the current lessons packs (25) words
+    unreviewed_words = []
+
+    for word in current_student_progress:
+        if word.is_reviewed == False:
+            unreviewed_words.append(word)
+
+    lesson_pack = []
+    current_lesson_length = 0
+    review_pack_words = {}
+
+    def get_review_pack_words(limit):
+        for word in unreviewed_words[:limit]:
+            review_pack_words[word.vocab_container_word.word] = word.vocab_container_word.word_translation
+
+    if len(unreviewed_words) > 25:
+        lesson_pack = unreviewed_words[:25]
+        get_review_pack_words(25)
+        current_lesson_length = 25
+    elif len(unreviewed_words) < 25 and len(unreviewed_words) >= 20:
+        lesson_pack = unreviewed_words[:20]
+        get_review_pack_words(20)
+        current_lesson_length = 20
+    elif len(unreviewed_words) < 20 and len(unreviewed_words) >= 15:
+        lesson_pack = unreviewed_words[:15]
+        get_review_pack_words(15)
+        current_lesson_length = 15
+    elif len(unreviewed_words) < 15 and len(unreviewed_words) >= 10:
+        lesson_pack = unreviewed_words[:10]
+        get_review_pack_words(10)
+        current_lesson_length = 10
+    elif len(unreviewed_words) < 10 and len(unreviewed_words) > 5:
+        lesson_pack = unreviewed_words[:5]
+        get_review_pack_words(5)
+        current_lesson_length = 5
+    elif len(unreviewed_words) <= 5:
+        # If the current needs_reviewing words are less than 5 then set all of
+        # the words needs_reviewing to false, so that user can review new cycle
+        for word in current_student_progress:
+            word.is_reviewed = False
+            word.save()
+        return HttpResponseRedirect("/")
+    else:
+        pass
+
+    # If everything is done and the lesson is learned correctly then update
+    # the is_reviewed boolean columns of the progress words
+    if request.POST.get("vocab_review_lesson_finish_button"):
+        hidden_errors_array = request.POST.get("hidden_errors_array")
+
+        parsed_json = []
+        if hidden_errors_array:
+            parsed_json = json.loads(hidden_errors_array)
+        else:
+            parsed_json = []
+
+        # print(current_lesson_length)
+
+        # Add the ERRORs
+        if bool(parsed_json) == False or parsed_json == {} or parsed_json == []:
+            # its empty pass
+            pass
+        else:
+            # Get the current vocab container recrod
+            for data in parsed_json:
+                for word in lesson_pack:
+                    if data.get("question") == word.vocab_container_word.word:
+                        # it matches create a error record
+                        new_error = BasicVocabErrorReport(
+                            student=current_student,
+                            course=current_course,
+                            vocab_container=word.vocab_container_word,
+                            error_report=data.get("content")
+                        )
+                        new_error.save()
+                    else:
+                        pass
+
+        # Make the words reviewed = true
+        for word in lesson_pack:
+            word.is_reviewed = True
+            word.save()
+        return HttpResponseRedirect("/")
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "lesson_pack": lesson_pack,
+        "review_pack_words": review_pack_words,
+        "course_language": course_language,
+        "speakers_langauge": speakers_langauge,
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_vocab_container/review.html", data)

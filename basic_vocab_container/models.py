@@ -44,6 +44,7 @@ class StudentVocabProgress(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True, null=True)
     vocab_container_word = models.ForeignKey(BasicVocabularyContainer, on_delete=models.CASCADE, blank=True, null=True)
     is_learned = models.BooleanField(default=False)
+    is_reviewed = models.BooleanField(default=False)
 
     def __str__(self):
         return "student: " + str(self.student)
