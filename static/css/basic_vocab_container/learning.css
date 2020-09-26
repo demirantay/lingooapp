@@ -6,6 +6,96 @@ body {
 
 }
 
+/* ----------------- hidden error panel -------------------- */
+#background-greying {
+  position: fixed;
+  background-color: black;
+  z-index: 9;
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  opacity: 0.4;
+  display: none;
+}
+
+#hidden-error-panel {
+  position: absolute;
+  background-color: white;
+  z-index: 99;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  padding: 60px 0px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  top: 45%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+#error-panel-close-button {
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+  border:1px solid white;
+  font-size: 22px;
+}
+
+#error-panel-close-button:hover {
+  color:red;
+  cursor: pointer;
+}
+
+#hidden-error-panel h3 {
+  width: 55%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#error-panel-operations-content {
+  width: 60%;
+  border: 1px solid transparent;
+  margin: 0 auto;
+}
+
+#hidden-error-panel textarea {
+  display: block;
+  width: 90%;
+  border: 1px solid lightgrey;
+  height: 150px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+#hidden-error-panel textarea:focus {
+  outline: none;
+  border-color: black;
+}
+
+#error-report-btn {
+  display: block;
+  width: 90%;
+  border: 1px solid #E3102E;
+  background-color: #E3102E;
+  color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 8px 0px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#error-report-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
 /* ----------------- top part -------------------- */
 
 #top-part {
@@ -181,6 +271,24 @@ body {
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+
+  /* ----------------- hidden error panel -------------------- */
+  #hidden-error-panel {
+    padding: 0px;
+    width: 90%;
+    padding: 60px 0px;
+    top: 45%;
+  }
+
+  #hidden-error-panel h3 {
+    width: 85%;
+  }
+
+  #error-panel-operations-content {
+    width: 90%;
+  }
+
+
   /* ----------------- top part -------------------- */
 
   #top-part {
@@ -246,6 +354,22 @@ body {
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ----------------- hidden error panel -------------------- */
+  #hidden-error-panel {
+    padding: 0px;
+    width: 90%;
+    padding: 60px 0px;
+    top: 45%;
+  }
+
+  #hidden-error-panel h3 {
+    width: 85%;
+  }
+
+  #error-panel-operations-content {
+    width: 90%;
+  }
+
   /* ----------------- top part -------------------- */
 
   #top-part {
@@ -310,6 +434,22 @@ body {
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ----------------- hidden error panel -------------------- */
+  #hidden-error-panel {
+    padding: 0px;
+    width: 90%;
+    padding: 60px 0px;
+    top: 45%;
+  }
+
+  #hidden-error-panel h3 {
+    width: 85%;
+  }
+
+  #error-panel-operations-content {
+    width: 90%;
+  }
+
   /* ----------------- top part -------------------- */
 
   #top-part {
@@ -374,6 +514,22 @@ body {
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* ----------------- hidden error panel -------------------- */
+  #hidden-error-panel {
+    padding: 0px;
+    width: 70%;
+    padding: 60px 0px;
+    top: 45%;
+  }
+
+  #hidden-error-panel h3 {
+    width: 85%;
+  }
+
+  #error-panel-operations-content {
+    width: 90%;
+  }
 
   /* ----------------- top part -------------------- */
 

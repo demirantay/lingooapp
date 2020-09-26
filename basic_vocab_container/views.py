@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 # My Module ImportsImports
 from .models import BasicVocabularyContainer, StudentVocabProgress
+from .models import BasicVocabErrorReport
 from basic_language_explore.models import BasicLanguageCourse, Student, Language
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
@@ -240,6 +241,35 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     # If every checkpoint is done and the lessons are learned, update the
     # student progress
     if request.POST.get("vocab_learning_lesson_finish_button"):
+        hidden_errors_array = request.POST.get("hidden_errors_array")
+
+        parsed_json = []
+        if hidden_errors_array:
+            parsed_json = json.loads(hidden_errors_array)
+        else:
+            parsed_json = []
+
+        # Add the ERRORs
+        if bool(parsed_json) == False or parsed_json == {} or parsed_json == []:
+            # its empty pass
+            pass
+        else:
+            # Get the current vocab container recrod
+            for data in parsed_json:
+                for word in unlearned_words[:10]:
+                    if data.get("question") == word.vocab_container_word.word:
+                        # it matches create a error record
+                        new_error = BasicVocabErrorReport(
+                            student=current_student,
+                            course=current_course,
+                            vocab_container=word.vocab_container_word,
+                            error_report=data.get("content")
+                        )
+                        new_error.save()
+                    else:
+                        pass
+
+        # Make the words learned
         for word in unlearned_words[:10]:
             word.is_learned = True
             word.save()
@@ -253,6 +283,7 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         "cefr_level": cefr_level,
         "course_language": course_language,
         "speakers_langauge": speakers_langauge,
+
     }
 
     if current_basic_user == None:

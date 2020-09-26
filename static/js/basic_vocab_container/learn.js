@@ -4,13 +4,31 @@
 // because it contains djangos own templating syntax which js cant compile
 
 let questions = [];
-let answered_questions = []
+let answered_questions = [];
+let errors = [];
 let questions_canvas = document.getElementById("questions-canvas");
 
 let check_button = document.getElementById("check-button");
 let next_button = document.getElementById("next-button");
 let finish_button = document.getElementById("finish-button");
 
+let error_report_button = document.getElementById("error-report-btn");
+var panel = document.getElementById("hidden-error-panel");
+var panel_background_greying = document.getElementById("background-greying");
+let hidden_errors_input = document.getElementById("hidden_errors_input");
+
+// Error Data Scturcutre
+function Error(question, content) {
+    this.question = question;
+    this.content = content;
+
+    this.get_question = function() {
+      return this.question;
+    };
+    this.get_content = function(){
+      return this.content;
+    };
+}
 
 // Question Data Structure
 function Question(word, word_translation) {
@@ -88,7 +106,7 @@ function Question(word, word_translation) {
         </div>
       </div>`;
     return slide_template;
-  }
+  };
 }
 
 // building the Question List
@@ -343,4 +361,20 @@ next_button.onclick = function() {
     check_button.style.display = "block";
   }
   next_button.style.display = "none";
+};
+
+
+// Error Button onclick logic
+error_report_button.onclick = function() {
+  current_error_content = document.getElementById("error-content");
+  new_error = new Error(current_question.word, current_error_content.value);
+  errors.push(new_error);
+
+  current_error_content.value = null;
+  panel.style.display = "none";
+  panel_background_greying.style.display = "none";
+
+  // set the errors to the hidden input
+  hidden_errors_input.value = JSON.stringify(errors);
+  console.log(JSON.stringify(errors));
 };

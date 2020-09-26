@@ -7,6 +7,19 @@
 
 {% block content %}
 
+<!-- hidden error panel -->
+<div id="background-greying"></div>
+<div id="hidden-error-panel">
+  <button id="error-panel-close-button"><span class="fa fa-close"></span></button>
+  <h3>Error Reporting</h3>
+  <div id="error-panel-operations-content">
+    <textarea placeholder="Please type in your error report" id="error-content"></textarea>
+    <button id="error-report-btn"><span class="fa fa-flag"></span> Report</button>
+  </div>
+
+</div>
+
+
 <div id="vocab-learn-container">
 
   <!-- top part -->
@@ -54,6 +67,7 @@
 
     <form id="finish-button" method="POST" action="{% url 'basic_vocab_learn' cefr_level course_language speakers_langauge %}">
       {% csrf_token %}
+      <input type="hidden" name="hidden_errors_array" id="hidden_errors_input"  />
       <input type="submit" value="Finish" class="check-button" name="vocab_learning_lesson_finish_button"/>
     </form>
   </div>
@@ -64,6 +78,24 @@
 
   <script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
 
+  <!-- error reporting panel toggle logic in javascript -->
+  <script>
+    var panel_open_button = document.getElementById("report-button");
+    var panel_close_button = document.getElementById("error-panel-close-button");
+    var panel = document.getElementById("hidden-error-panel");
+    var panel_background_greying = document.getElementById("background-greying");
+
+    panel_open_button.onclick = function() {
+      panel.style.display = "block";
+      panel_background_greying.style.display = "block";
+    }
+
+    panel_close_button.onclick = function() {
+      panel.style.display = "none";
+      panel_background_greying.style.display = "none";
+    }
+
+  </script>
 </div>
 
 {% endblock %}

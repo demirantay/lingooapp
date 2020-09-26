@@ -48,3 +48,16 @@ class StudentVocabProgress(models.Model):
     def __str__(self):
         return "student: " + str(self.student)
         + " | word: " + str(self.vocab_container_word.word)
+
+
+# Basic Vocab Error Reports
+class BasicVocabErrorReport(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True, null=True)
+    course = models.ForeignKey(BasicLanguageCourse, on_delete=models.CASCADE, blank=True, null=True)
+    vocab_container = models.ForeignKey(BasicVocabularyContainer, on_delete=models.CASCADE, blank=True, null=True)
+    error_report = models.TextField(default="...")
+
+    def __str__(self):
+        return "Error id: " + str(self.id) + " | " + self.error_report
