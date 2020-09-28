@@ -10,6 +10,10 @@ from django.contrib.auth.models import User
 # My Module Imports
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from basic_vocab_container.models import BasicVocabularyContainer
+from basic_vocab_container.models import StudentVocabProgress
+from basic_vocab_container.models import BasicVocabErrorReport
+from basic_language_explore.models import BasicLanguageCourse, Student, Language
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -44,6 +48,13 @@ def index(request):
         ObjectDoesNotExist
     )
 
+
+    # IF USER DOES HAVE COURSES REDIRECT TO THE COURSES TREE WITH THE STUDENT
+    # IN THE SESSION
+
+    # IF THE USER DOES NOT HAVE A COURSE SUCH AS A NEW USER REDIRECT TO A PLACE
+    # HOLDER HOME TELLING THE USERS TO SELECCT A LANGUAGE TO LEARN
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -58,12 +69,158 @@ def index(request):
 
 def learn_index(request, course_language, speakers_language):
     """
-
+    in this page the user can switch their student account and view their main
+    learning tree this is the main deal
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
 
-    data = {}
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
-    return render(request, "home/learning_tree.html", data)
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current course
+    try:
+        current_course = BasicLanguageCourse.objects.get(
+            course_language=course_language,
+            course_speakers_language=speakers_language
+        )
+    except ObjectDoesNotExist:
+        current_course = None
+
+    if current_course == None:
+        return HttpResponseRedirect("/")
+
+    # Get the current student
+    try:
+        current_student = Student.objects.get(
+            basic_user_profile=current_basic_user_profile,
+            course=current_course
+        )
+    except ObjectDoesNotExist:
+        current_student = None
+
+    if current_student == None:
+        return HttpResponseRedirect("/")
+
+    # Get the words learned for the current_students course progress
+    try:
+        current_words = StudentVocabProgress.objects.filter(
+            student=current_student,
+            is_learned=True,
+        )
+    except ObjectDoesNotExist:
+        current_words = None
+
+    # Get all of current users student records
+    try:
+        all_current_user_student_profiles = Student.objects.filter(
+            basic_user_profile=current_basic_user_profile,
+        )
+    except ObjectDoesNotExist:
+        all_current_user_student_profiles = None
+
+    # Current Student A0 progress
+    a0_progress = 0
+    a1_progress = 0
+    a2_progress = 0
+    b1_progress = 0
+    b2_progress = 0
+    c1_progress = 0
+    advanced_progress = 0
+
+    for word in current_words:
+        if word.vocab_container_word.level == "a0":
+            a0_progress += 1
+        elif word.vocab_container_word.level == "a1":
+            a1_progress += 1
+        elif word.vocab_container_word.level == "a2":
+            a2_progress += 1
+        elif word.vocab_container_word.level == "b1":
+            b1_progress += 1
+        elif word.vocab_container_word.level == "b2":
+            b2_progress += 1
+        elif word.vocab_container_word.level == "c1":
+            c1_progress += 1
+        elif word.vocab_container_word.level == "advanced":
+            advanced_progress += 1
+        else:
+            continue
+
+    is_a0_done = False
+    is_a1_done = False
+    is_a2_done = False
+    is_b1_done = False
+    is_b2_done = False
+    is_c1_done = False
+    is_advanced_done = False
+
+    # is a0 done
+    if a0_progress >= 100:
+        is_a0_done = True
+
+    # is a1 done
+    if a1_progress >= 500:
+        is_a1_done = True
+
+    # is a2 done
+    if a2_progress >= 1000:
+        is_a2_done = True
+
+    # is b1 done
+    if b1_progress >= 2000:
+        is_b1_done = True
+
+    # is b2 done
+    if b2_progress >= 4000:
+        is_b2_done = True
+
+    # is c1 done
+    if c1_progress >= 8000:
+        is_c1_done = True
+
+    # is advanced done
+    if advanced_progress >= 16000:
+        is_advanced_done = True
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "words_learned": len(current_words),
+        "course_language": course_language,
+        "speakers_language": speakers_language,
+        "current_student": current_student,
+        "all_current_user_student_profiles": all_current_user_student_profiles,
+        "a0_progress": a0_progress,
+        "a1_progress": a1_progress,
+        "a2_progress": a2_progress,
+        "b1_progress": b1_progress,
+        "b2_progress": b2_progress,
+        "c1_progress": c1_progress,
+        "advanced_progress": advanced_progress,
+        "is_a0_done": is_a0_done,
+        "is_a1_done": is_a1_done,
+        "is_a2_done": is_a2_done,
+        "is_b1_done": is_b1_done,
+        "is_b2_done": is_b2_done,
+        "is_c1_done": is_c1_done,
+        "is_advanced_done": is_advanced_done,
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "home/learning_tree.html", data)
 
 
 def under_construction(request):

@@ -73,6 +73,54 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
     except ObjectDoesNotExist:
         all_course_words = None
 
+    # Course Words Count for redirection
+    a0_words = 0
+    a1_words = 0
+    a2_words = 0
+    b1_words = 0
+    b2_words = 0
+    c1_words = 0
+    advanced_words = 0
+
+    for word in all_course_words:
+        if word.level == "a0":
+            a0_words += 1
+        elif word.level == "a1":
+            a1_words += 1
+        elif word.level == "a2":
+            a2_words += 1
+        elif word.level == "b1":
+            b1_words += 1
+        elif word.level == "b2":
+            b2_words += 1
+        elif word.level == "c1":
+            c1_words += 1
+        elif word.level == "advanced":
+            advanced_words += 1
+
+    # if levels do not have the word limit that they should have return to home
+    if cefr_level == "a0":
+        if a0_words < 100:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a1":
+        if a1_words < 500:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a2":
+        if a2_words < 1000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b1":
+        if b1_words < 2000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b2":
+        if b2_words < 4000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "c1":
+        if c1_words < 8000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "advanced":
+        if advanced_words < 16000:
+            return HttpResponseRedirect("/")
+
     # Get the current students progress words
     try:
         current_student_progress = StudentVocabProgress.objects.filter(
@@ -89,9 +137,96 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
                 unlearned_words.append(word)
     lesson_pack = unlearned_words[:10]
 
-    # If the current lesson pack do not serve the lesson
-    if len(unlearned_words) < 10:
-        return HttpResponseRedirect("/")
+    # If previous level is not finished return home beacuse you cannot jump
+    # between levels you need to finish one, in order to move to the next.
+    a0_progress = 0
+    a1_progress = 0
+    a2_progress = 0
+    b1_progress = 0
+    b2_progress = 0
+    c1_progress = 0
+    advanced_progress = 0
+
+    for word in current_student_progress:
+        if word.vocab_container_word.level == "a0":
+            if word.is_learned == True:
+                a0_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a1":
+            if word.is_learned == True:
+                a1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a2":
+            if word.is_learned == True:
+                a2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b1":
+            if word.is_learned == True:
+                b1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b2":
+            if word.is_learned == True:
+                b2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "c1":
+            if word.is_learned == True:
+                c1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "advanced":
+            if word.is_learned == True:
+                advanced_progress += 1
+            else:
+                continue
+
+    a0_completed = False
+    a1_completed = False
+    a2_completed = False
+    b1_completed = False
+    b2_completed = False
+    c1_completed = False
+    advanced_completed = False
+
+    if a0_progress >= 100:
+        a0_completed = True
+    elif a1_progress >= 500:
+        a1_completed = True
+    elif a2_progress >= 1000:
+        a2_completed = True
+    elif b1_progress >= 2000:
+        b1_completed = True
+    elif b2_progress >= 4000:
+        b2_completed = True
+    elif c1_progress >= 8000:
+        c1_completed = True
+    elif advanced_progress >= 16000:
+        advanced_completed = True
+
+    if cefr_level == "a0":
+        pass
+    elif cefr_level == "a1":
+        if a0_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a2":
+        if a1_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b1":
+        if a2_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b2":
+        if b1_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "c1":
+        if b2_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "advanced":
+        if c1_completed == False:
+            return HttpResponseRedirect("/")
 
     # Based on the current CEFR level update the student progresses word list
     # if there are any additions to the main vocab container
@@ -117,11 +252,11 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
                     vocab_container_word=word,
                 )
                 new_progress.save()
-                return HttpResponseRedirect(
-                    "/vocab/learn/start/" + str(cefr_level) + "/" +
-                    str(current_course.course_language) + "/" +
-                    str(current_course.course_speakers_language) + "/"
-                )
+        return HttpResponseRedirect(
+            "/vocab/learn/start/" + str(cefr_level) + "/" +
+            str(current_course.course_language) + "/" +
+            str(current_course.course_speakers_language) + "/"
+        )
 
     if cefr_level == "a0":
         '''
@@ -221,6 +356,62 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     if current_student == None:
         return HttpResponseRedirect("/")
 
+    # Get the next 10 words to learn and display them to the user
+    try:
+        all_course_words = BasicVocabularyContainer.objects.filter(
+            course=current_course
+        )
+    except ObjectDoesNotExist:
+        all_course_words = None
+
+    # Course Words Count for redirection
+    a0_words = 0
+    a1_words = 0
+    a2_words = 0
+    b1_words = 0
+    b2_words = 0
+    c1_words = 0
+    advanced_words = 0
+
+    for word in all_course_words:
+        if word.level == "a0":
+            a0_words += 1
+        elif word.level == "a1":
+            a1_words += 1
+        elif word.level == "a2":
+            a2_words += 1
+        elif word.level == "b1":
+            b1_words += 1
+        elif word.level == "b2":
+            b2_words += 1
+        elif word.level == "c1":
+            c1_words += 1
+        elif word.level == "advanced":
+            advanced_words += 1
+
+    # if levels do not have the word limit that they should have return to home
+    if cefr_level == "a0":
+        if a0_words < 100:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a1":
+        if a1_words < 500:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a2":
+        if a2_words < 1000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b1":
+        if b1_words < 2000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b2":
+        if b2_words < 4000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "c1":
+        if c1_words < 8000:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "advanced":
+        if advanced_words < 16000:
+            return HttpResponseRedirect("/")
+
     # Get the current students progress words
     try:
         current_student_progress = StudentVocabProgress.objects.filter(
@@ -244,6 +435,97 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     # If the current lesson pack do not serve the lesson
     if len(unlearned_words) < 10:
         return HttpResponseRedirect("/")
+
+    # If previous level is not finished return home beacuse you cannot jump
+    # between levels you need to finish one, in order to move to the next.
+    a0_progress = 0
+    a1_progress = 0
+    a2_progress = 0
+    b1_progress = 0
+    b2_progress = 0
+    c1_progress = 0
+    advanced_progress = 0
+
+    for word in current_student_progress:
+        if word.vocab_container_word.level == "a0":
+            if word.is_learned == True:
+                a0_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a1":
+            if word.is_learned == True:
+                a1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a2":
+            if word.is_learned == True:
+                a2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b1":
+            if word.is_learned == True:
+                b1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b2":
+            if word.is_learned == True:
+                b2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "c1":
+            if word.is_learned == True:
+                c1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "advanced":
+            if word.is_learned == True:
+                advanced_progress += 1
+            else:
+                continue
+
+    a0_completed = False
+    a1_completed = False
+    a2_completed = False
+    b1_completed = False
+    b2_completed = False
+    c1_completed = False
+    advanced_completed = False
+
+    if a0_progress >= 100:
+        a0_completed = True
+    elif a1_progress >= 500:
+        a1_completed = True
+    elif a2_progress >= 1000:
+        a2_completed = True
+    elif b1_progress >= 2000:
+        b1_completed = True
+    elif b2_progress >= 4000:
+        b2_completed = True
+    elif c1_progress >= 8000:
+        c1_completed = True
+    elif advanced_progress >= 16000:
+        advanced_completed = True
+
+    if cefr_level == "a0":
+        pass
+    elif cefr_level == "a1":
+        if a0_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "a2":
+        if a1_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b1":
+        if a2_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "b2":
+        if b1_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "c1":
+        if b2_completed == False:
+            return HttpResponseRedirect("/")
+    elif cefr_level == "advanced":
+        if c1_completed == False:
+            return HttpResponseRedirect("/")
 
     # If every checkpoint is done and the lessons are learned, update the
     # student progress

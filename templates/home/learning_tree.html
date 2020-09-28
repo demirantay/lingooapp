@@ -7,27 +7,158 @@
 {% endblock %}
 
 {% block content %}
+{% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
 
 <!-- center part -->
 <div id="center-part">
 
+
   <!-- language dropdown open btn -->
   <div id="language-profile-dropdown-open-button">
-    <a href=""><div id="language-dropdown-flag"></div> Spanish <span class="fa fa-caret-down"></span></a>
+    {% if current_student.course.course_language == english %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/english.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == spanish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == french %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/french.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == german %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/german.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == italian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/italian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == japanese %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/japanese.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == chinese %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/chinese.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == russian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/russian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == korean %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/korean.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == portuguese %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/portuguese.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == arabic %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/arabic.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == dutch %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/dutch.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == swedish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/swedish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == norwegian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/norwegian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == turkish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/turkish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == polish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/polish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == irish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/irish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == greek %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/greek.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == hebrew %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hebrew.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == danish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/danish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == hindi %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hindi.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == czech %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/czech.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == esperanto %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/esperanto.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == ukranian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/ukranian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == welsh %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/welsh.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == vietnamese %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/vietnamese.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == hungarian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hungarian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == swahili %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/swahili.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == romanian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/romanian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == indonesian %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/indonesian.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == finnish %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/finnish.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% elif current_student.course.course_language == bengali %}
+      <a href=""><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/bengali.png' %}');"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% else %}
+      <a href=""><div id="language-dropdown-flag"></div> {{ current_student.course.course_language|title }} <span class="fa fa-caret-down"></span></a>
+    {% endif %}
   </div>
 
   <!-- student language profile dropdown -->
   <div id="language-profile-dropdown">
-    <a href=""><div id="language-dropdown-flag"></div> Spanish</a>
-    <a href=""><div id="language-dropdown-flag"></div> French</a>
+    {% for student_profile in all_current_user_student_profiles %}
+      {% if student_profile.course.course_language == english %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/english.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == spanish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == french %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/french.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == german %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/german.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == italian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/italian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == japanese %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/japanese.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == chinese %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/chinese.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == russian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/russian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == korean %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/korean.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == portuguese %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/portuguese.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == arabic %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/arabic.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == dutch %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/dutch.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == swedish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/swedish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == norwegian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/norwegian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == turkish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/turkish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == polish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/polish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == irish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/irish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == greek %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/greek.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == hebrew %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hebrew.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == danish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/danish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == hindi %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hindi.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == czech %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/czech.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == esperanto %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/esperanto.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == ukranian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/ukranian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == welsh %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/welsh.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == vietnamese %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/vietnamese.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == hungarian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/hungarian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == swahili %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/swahili.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == romanian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/romanian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == indonesian %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/indonesian.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == finnish %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/finnish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course.course_language == bengali %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/bengali.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% else %}
+        <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag"></div> {{ student_profile.course.course_language|title }}</a>
+      {% endif %}
+    {% endfor %}
   </div>
 
-
-
   <script>
-
     let panel_open_button = document.getElementById("language-profile-dropdown-open-button");
-
     panel_open_button.addEventListener("click", toggle_panel)
 
     // hidden open-close functions
@@ -45,10 +176,9 @@
       // won't catch the event and simply close it immediately)
       event.stopPropagation();
     }
-
-
   </script>
 
+  {% with a0="a0" a1="a1" a2="a2" b1="b1" b2="b2" c1="c1" advanced="advanced" %}
 
   <!-- A0 -->
   <div id="level-divider-banner">
@@ -57,24 +187,25 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/100</p>
-    </div>
-    <h3>A0 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_a0_done == True %}
+    <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+      <div id="lesson-cell" class="finished-lesson">
+        <h3><span class="fa fa-check"></span></h3>
+        <p>{{ a0_progress }}/100</p>
+      </div>
+      <h3>A0 Vocabulary</h3>
+    </a>
+  {% elif is_a0_done == False %}
+    <a href="{% url 'basic_vocab_learn_start' a0 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+      <div id="lesson-cell">
+        <p>{{ a0_progress }}/100</p>
+      </div>
+      <h3>A0 Vocabulary</h3>
+    </a>
+  {% endif %}
 
-  <!-- lesson cell -->
-  <br />
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell" class="locked-lesson-cell">
-      <p><span class="fa fa-lock"></span></p>
-    </div>
-    <h3>Locked</h3>
-  </a>
-  <!-- /cell -->
+
+  <!-- /a0 -->
 
   <!-- A1 -->
   <div id="level-divider-banner">
@@ -83,14 +214,34 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/500</p>
-    </div>
-    <h3>A1 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_a0_done == True %}
+    {% if is_a1_done == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ a1_progress }}/500</p>
+        </div>
+        <h3>A1 Vocabulary</h3>
+      </a>
+    {% elif is_a1_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' a1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ a1_progress }}/500</p>
+        </div>
+        <h3>A1 Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_a0_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /a1 -->
 
   <!-- A2 -->
   <div id="level-divider-banner">
@@ -99,14 +250,34 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/1000</p>
-    </div>
-    <h3>A2 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_a1_done == True %}
+    {% if is_a2_done == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ a2_progress }}/1000</p>
+        </div>
+        <h3>A2 Vocabulary</h3>
+      </a>
+    {% elif is_a2_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' a2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ a2_progress }}/1000</p>
+        </div>
+        <h3>A2 Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_a1_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /a2 -->
 
   <!-- B1 -->
   <div id="level-divider-banner">
@@ -115,14 +286,34 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/2000</p>
-    </div>
-    <h3>B1 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_a2_done == True %}
+    {% if is_b1_done == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ b1_progress }}/2000</p>
+        </div>
+        <h3>B1 Vocabulary</h3>
+      </a>
+    {% elif is_b1_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' b1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ b1_progress }}/2000</p>
+        </div>
+        <h3>B1 Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_a2_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /b1 -->
 
   <!-- B2 -->
   <div id="level-divider-banner">
@@ -131,14 +322,34 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/4000</p>
-    </div>
-    <h3>B2 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_b1_done == True %}
+    {% if is_b2_done == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ b2_progress }}/4000</p>
+        </div>
+        <h3>B2 Vocabulary</h3>
+      </a>
+    {% elif is_b2_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' b2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ b2_progress }}/4000</p>
+        </div>
+        <h3>B2 Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_b1_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /b2 -->
 
   <!-- C1 -->
   <div id="level-divider-banner">
@@ -147,14 +358,34 @@
     <div id="middle-line"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/8000</p>
-    </div>
-    <h3>C1 Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_b2_done == True %}
+    {% if is_c1_done == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ c1_progress }}/8000</p>
+        </div>
+        <h3>C1 Vocabulary</h3>
+      </a>
+    {% elif is_c1_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' c1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ c1_progress }}/8000</p>
+        </div>
+        <h3>C1 Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_b2_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /c1 -->
 
   <!-- Advanced -->
   <div id="level-divider-banner">
@@ -163,16 +394,36 @@
     <div id="middle-line-advacned"></div>
   </div>
 
-  <!-- lesson cell -->
-  <a href="" id="lesson-cell-link">
-    <div id="lesson-cell">
-      <p>0/16000</p>
-    </div>
-    <h3>Advanced Vocabulary</h3>
-  </a>
-  <!-- /cell -->
+  {% if is_c1_done == True %}
+    {% if is_advanced_done == True %}
+      <a href="" id="lesson-cell-link"  onclick="alert('You already finished this lesson. Please consider reviewing it.')">
+        <div id="lesson-cell" class="finished-lesson">
+          <h3><span class="fa fa-check"></span></h3>
+          <p>{{ advanced_progress }}/16000</p>
+        </div>
+        <h3>Advanced Vocabulary</h3>
+      </a>
+    {% elif is_advanced_done == False %}
+      <a href="{% url 'basic_vocab_learn_start' advanced current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ advanced_progress }}/16000</p>
+        </div>
+        <h3>Advanced Vocabulary</h3>
+      </a>
+    {% endif %}
+  {% elif is_c1_done == False %}
+    <!-- locked cell -->
+    <br />
+    <a href="" id="lesson-cell-link" onclick="alert('You need to finish the previous lesson.')">
+      <div id="lesson-cell" class="locked-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <h3>Locked</h3>
+    </a>
+  {% endif %}
+  <!-- /advanced -->
 
-
+  {% endwith %}
 
 </div>
 
@@ -181,9 +432,9 @@
 
   <!-- learned words cell -->
   <div id="learned-words-box">
-    <p id="words">2500</p>
+    <p id="words">{{ words_learned }}</p>
     <p>words learned</p>
-    <a href="" id="review-link">
+    <a href="{% url 'basic_vocab_review' course_language speakers_language %}" id="review-link">
       <p><span class="fa fa-repeat"></span></p>
     </a>
     <p><b>Review Vocabulary</b></p>
@@ -193,9 +444,10 @@
   <div id="social-links-box">
     <a target="_blank" href="https://twitter.com/getdomingo"><span id="social-link" class="fa fa-twitter"></span></a>
     <a target="_blank" href="https://www.reddit.com/r/DomingoApp/"><span id="social-link" class="fa fa-reddit"></span></a>
-    <a target="_blank" href=""><span id="social-link" class="fa fa-spotify"></span></a>
+    <a target="_blank" href="https://open.spotify.com/user/mrv1sogpykei6bpha5icfsriv"><span id="social-link" class="fa fa-spotify"></span></a>
   </div>
 
 </div>
 
+{% endwith %}
 {% endblock %}

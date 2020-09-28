@@ -91,10 +91,9 @@ body {
   width: 60px;
   height: 40px;
   border-radius: 6px;
-  background-color: #F4F6F6;
+  background-color: lightgrey;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../../flags/spanish.png");
   background-size: cover;
   display: inline-block;
   vertical-align: middle;
@@ -157,6 +156,21 @@ body {
 }
 .locked-lesson-cell:hover {
   cursor: no-drop;
+}
+
+
+.finished-lesson {
+  background-color: #27AE60 !important;
+  padding: 20px 0px !important;
+}
+
+.finished-lesson h3 span {
+  color: white !important;
+  font-size: 30px;
+}
+
+.finished-lesson p {
+  font-size: 14px !important;
 }
 
 /* -------------------- RIGHT PART ------------------- */
