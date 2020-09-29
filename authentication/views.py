@@ -14,6 +14,8 @@ from basic_language_explore.models import Language, Student, BasicLanguageCourse
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.access_control import delete_teacher_user_session
 
+from basic_language_explore.models import Student
+
 
 def signup(request):
     """
@@ -190,11 +192,39 @@ def login(request):
                 is_valid = user.check_password(password)
 
                 if is_valid == True:
-                    # update sessions
+                    # update user info sessions
                     request.session["basic_user_email"] = user.email
                     request.session["basic_user_username"] = user.username
                     request.session["basic_user_logged_in"] = True
-                    return HttpResponseRedirect("/forum/0/")
+
+                    # update current student course sessions
+
+                    # Get the current user settings
+                    try:
+                        current_user_profile = BasicUserProfile.objects.get(
+                            user=user
+                        )
+                    except ObjectDoesNotExist:
+                        current_user_profile = None
+
+                    if current_user_profile != None:
+                        try:
+                            all_student_profiles = Student.objects.filter(
+                                basic_user_profile=current_user_profile
+                            )
+                        except ObjectDoesNotExist:
+                            all_student_profiles = None
+
+                        if all_student_profiles == None:
+                            pass
+                        else:
+                            current_student = all_student_profiles[0]
+                            request.session["current_course_langauge"] = current_student.course.course_language
+                            request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
+                    else:
+                        pass
+
+                    return HttpResponseRedirect("/")
                 else:
                     invalid_credentials = True
 
@@ -217,8 +247,11 @@ def logout(request):
         del request.session["basic_user_email"]
         del request.session["basic_user_username"]
         del request.session["basic_user_logged_in"]
-        del request.session["current_course_langauge"]
-        del request.session["current_course_speakers_language"]
+
+        # if the user has course student profiles delete them too
+        if "current_course_langauge" in request.session:
+            del request.session["current_course_langauge"]
+            del request.session["current_course_speakers_language"]
 
     return HttpResponseRedirect("/")
 

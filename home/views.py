@@ -12,8 +12,7 @@ from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from basic_vocab_container.models import BasicVocabularyContainer
 from basic_vocab_container.models import StudentVocabProgress
-from basic_vocab_container.models import BasicVocabErrorReport
-from basic_language_explore.models import BasicLanguageCourse, Student, Language
+from basic_language_explore.models import BasicLanguageCourse, Student
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -48,16 +47,30 @@ def index(request):
         ObjectDoesNotExist
     )
 
-    # If the user has the courses parameter info redirect to that courses home
-    # page with the parameters
+    # If the user has the courses parameter info redirect to that
+    # courses home page with the parameters
     if "current_course_langauge" in request.session:
         return HttpResponseRedirect(
             "/home/" + request.session["current_course_langauge"] + "/" +
             request.session["current_course_speakers_language"] + "/"
         )
 
-    # IF THE USER DOES NOT HAVE A COURSE SUCH AS A NEW USER REDIRECT TO A PLACE
-    # HOLDER HOME TELLING THE USERS TO SELECCT A LANGUAGE TO LEARN
+    # This part of redirection is to see for some reason if the user has
+    # enrolled in a course but the sessions are for some reson not set
+    try:
+        current_student_profiles = Student.objects.get(
+            basic_user_profile=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        current_student_profiles = None
+
+    if current_student_profiles != None:
+        current_student = current_student_profiles[0]
+        request.session["current_course_langauge"] = current_student.course.course_language
+        request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
+        return HttpResponseRedirect("/")
+    else:
+        pass
 
     data = {
         "current_basic_user": current_basic_user,
