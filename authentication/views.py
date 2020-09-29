@@ -31,6 +31,8 @@ def signup(request):
         del request.session["basic_user_email"]
         del request.session["basic_user_username"]
         del request.session["basic_user_logged_in"]
+        del request.session["current_course_langauge"]
+        del request.session["current_course_speakers_language"]
 
     # Signup Form Processing
     invalid_credentials = False
@@ -159,6 +161,8 @@ def login(request):
         del request.session["basic_user_email"]
         del request.session["basic_user_username"]
         del request.session["basic_user_logged_in"]
+        del request.session["current_course_langauge"]
+        del request.session["current_course_speakers_language"]
 
     # Login Form Processing
     invalid_credentials = False
@@ -213,6 +217,8 @@ def logout(request):
         del request.session["basic_user_email"]
         del request.session["basic_user_username"]
         del request.session["basic_user_logged_in"]
+        del request.session["current_course_langauge"]
+        del request.session["current_course_speakers_language"]
 
     return HttpResponseRedirect("/")
 

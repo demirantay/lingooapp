@@ -2,14 +2,17 @@
 {% load static %}
 
 {% block css_links %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/components/footer.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/forum/read.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/placeholder.css' %}" />
 {% endblock %}
 
 {% block content %}
 
-<h1><span class="fa fa-lock"></span></h1>
-<h2>This page is under construction.</h2>
+<div id="placeholder-container">
+  <h2>Looks like you have not enrolled in any courses!</h2>
+  <p>Please click the button below to enroll in a course:</p>
+  {% with english="english" %}
+    <a href="{% url 'basic_language_explore' english %}">Enroll Now!</a>
+  {% endwith %}
+</div>
 
 {% endblock %}

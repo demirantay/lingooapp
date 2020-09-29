@@ -48,9 +48,13 @@ def index(request):
         ObjectDoesNotExist
     )
 
-
-    # IF USER DOES HAVE COURSES REDIRECT TO THE COURSES TREE WITH THE STUDENT
-    # IN THE SESSION
+    # If the user has the courses parameter info redirect to that courses home
+    # page with the parameters
+    if "current_course_langauge" in request.session:
+        return HttpResponseRedirect(
+            "/home/" + request.session["current_course_langauge"] + "/" +
+            request.session["current_course_speakers_language"] + "/"
+        )
 
     # IF THE USER DOES NOT HAVE A COURSE SUCH AS A NEW USER REDIRECT TO A PLACE
     # HOLDER HOME TELLING THE USERS TO SELECCT A LANGUAGE TO LEARN
@@ -64,7 +68,7 @@ def index(request):
     if current_basic_user == None:
         return render(request, "home/landing_page_v2.html", data)
     else:
-        return render(request, "home/learning_tree.html", data)
+        return render(request, "home/placeholder_home.html", data)
 
 
 def learn_index(request, course_language, speakers_language):
@@ -112,6 +116,10 @@ def learn_index(request, course_language, speakers_language):
 
     if current_student == None:
         return HttpResponseRedirect("/")
+
+    # Add the session
+    request.session["current_course_langauge"] = current_student.course.course_language
+    request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
 
     # Get the words learned for the current_students course progress
     try:
