@@ -151,6 +151,8 @@
         <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/finnish.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
       {% elif student_profile.course.course_language == bengali %}
         <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/bengali.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
+      {% elif student_profile.course == None %}
+      
       {% else %}
         <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag"></div> {{ student_profile.course.course_language|title }}</a>
       {% endif %}

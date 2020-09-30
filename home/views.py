@@ -67,10 +67,18 @@ def index(request):
     if len(current_student_profiles) == 0:
         pass
     else:
-        current_student = current_student_profiles[0]
-        request.session["current_course_langauge"] = current_student.course.course_language
-        request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
-        return HttpResponseRedirect("/")
+        for student in current_student_profiles:
+            if student.course == None or bool(student.course) == False:
+                current_student = None
+            else:
+                current_student = student
+        # current_student = current_student_profiles[0]
+        if current_student == None:
+            pass
+        else:
+            request.session["current_course_langauge"] = current_student.course.course_language
+            request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
+            return HttpResponseRedirect("/")
 
     data = {
         "current_basic_user": current_basic_user,

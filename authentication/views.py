@@ -215,12 +215,21 @@ def login(request):
                         except ObjectDoesNotExist:
                             all_student_profiles = None
 
-                        if all_student_profiles == None:
+                        print(bool(all_student_profiles))
+
+                        if all_student_profiles == None or \
+                           bool(all_student_profiles) == False or \
+                           len(all_student_profiles) == 0:
                             pass
                         else:
                             current_student = all_student_profiles[0]
-                            request.session["current_course_langauge"] = current_student.course.course_language
-                            request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
+        
+                            if current_student.course == None or \
+                               bool(current_student) == False:
+                                pass
+                            else:
+                                request.session["current_course_langauge"] = current_student.course.course_language
+                                request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
                     else:
                         pass
 
