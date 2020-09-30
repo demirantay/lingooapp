@@ -30,7 +30,11 @@
       <div id="post-content-right-part">
         <h1>{{ current_post.post_title }}</h1>
         <a href="{% url 'other_user_profile_overview' current_post.user_profile.username %}">@{{ current_post.user_profile.username }}</a>
-        <div id="post-content-right-part-flag" style="background-image: url('{{ current_post.language.flag.url }}');"></div>
+        {% if current_post.language.flag %}
+          <div id="post-content-right-part-flag" style="background-image: url('{{ current_post.language.flag.url }}');"></div>
+        {% else %}
+          <div id="post-content-right-part-flag" style="background-image: url('');"></div>
+        {% endif %}
         <p>
             {{ current_post.content|linebreaks }}
         </p>
@@ -137,8 +141,12 @@
       {% for language in all_languages %}
         <div id="category-cell">
           <a href="{% url 'forum_category_page' language.name redirected_page %}">
-            <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
-             {{ language.name }}
+            {% if language.flag %}
+              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+            {% else %}
+              <div id="category-flag" style="background-image: url('');"></div>
+            {% endif %}
+            {{ language.name|title }}
           </a>
         </div>
       {% endfor %}

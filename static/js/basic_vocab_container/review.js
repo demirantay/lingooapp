@@ -1,8 +1,8 @@
 // let lesson_pack_words = {{ review_pack_words|safe }};
+// let current_lesson_length = {{ current_lesson_length|safe }};
 
 // ^^ the code above will be added into another script tag inside the html
 // because it contains djangos own templating syntax which js cant compile
-
 
 let questions = [];
 let answered_questions = [];
@@ -276,7 +276,7 @@ next_button.onclick = function() {
   var progress_status = document.getElementById("progress-status");
 
   // Based on the lesson size adjust the progress bar status
-  if (size == 5) {
+  if (current_lesson_length == 5) {
     if (answered_questions.length === 0) {
       progress_status.style.width = "0%";
     }
@@ -296,7 +296,7 @@ next_button.onclick = function() {
       progress_status.style.width = "100%";
     }
   }
-  else if (size == 10) {
+  else if (current_lesson_length == 10) {
     if (answered_questions.length === 0) {
       progress_status.style.width = "0%";
     }
@@ -331,7 +331,7 @@ next_button.onclick = function() {
       progress_status.style.width = "100%";
     }
   }
-  else if (size == 15) {
+  else if (current_lesson_length == 15) {
     if (answered_questions.length === 0) {
       progress_status.style.width = "0%";
     }
@@ -381,7 +381,7 @@ next_button.onclick = function() {
       progress_status.style.width = "100%";
     }
   }
-  else if (size == 20) {
+  else if (current_lesson_length == 20) {
     if (answered_questions.length === 0) {
       progress_status.style.width = "0%";
     }
@@ -446,7 +446,7 @@ next_button.onclick = function() {
       progress_status.style.width = "100%";
     }
   }
-  else if (size == 25) {
+  else if (current_lesson_length == 25) {
     if (answered_questions.length === 0) {
       progress_status.style.width = "0%";
     }
@@ -525,7 +525,7 @@ next_button.onclick = function() {
     else if (answered_questions.length === 25) {
       progress_status.style.width = "100%";
     }
-  };
+  }
 
   // get the current question and get the next one
   // if the next one is in

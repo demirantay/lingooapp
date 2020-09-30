@@ -58,19 +58,19 @@ def index(request):
     # This part of redirection is to see for some reason if the user has
     # enrolled in a course but the sessions are for some reson not set
     try:
-        current_student_profiles = Student.objects.get(
+        current_student_profiles = Student.objects.filter(
             basic_user_profile=current_basic_user_profile
         )
     except ObjectDoesNotExist:
         current_student_profiles = None
 
-    if current_student_profiles != None:
+    if len(current_student_profiles) == 0:
+        pass
+    else:
         current_student = current_student_profiles[0]
         request.session["current_course_langauge"] = current_student.course.course_language
         request.session["current_course_speakers_language"] = current_student.course.course_speakers_language
         return HttpResponseRedirect("/")
-    else:
-        pass
 
     data = {
         "current_basic_user": current_basic_user,
@@ -103,6 +103,14 @@ def learn_index(request, course_language, speakers_language):
         request,
         User,
         BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
         ObjectDoesNotExist
     )
 
@@ -217,6 +225,7 @@ def learn_index(request, course_language, speakers_language):
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
         "words_learned": len(current_words),
         "course_language": course_language,
         "speakers_language": speakers_language,

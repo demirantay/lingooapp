@@ -13,7 +13,7 @@
 
   <!-- header and explanation part -->
   <div id="vocab-container-header-box">
-    <h1>Vocabulary Container</h1>
+    <h1>Vocabulary Container ({{ current_teacher_profile.teacher_course.course_language|title }})</h1>
 
     <h3>FAQ</h3>
     <b>1) What is the Vocabulary Container?</b><br />
@@ -63,8 +63,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} A0 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a0_submit" />
     </form>
 
@@ -164,8 +164,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a A0 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} A0 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a1_submit" />
     </form>
 
@@ -233,8 +233,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a A2 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} A2 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_a2_submit" />
     </form>
 
@@ -302,8 +302,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a B1 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} B1 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b1_submit" />
     </form>
 
@@ -370,8 +370,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a B2 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} B2 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_b2_submit" />
     </form>
 
@@ -437,8 +437,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a C1 word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} C1 word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_c1_submit" />
     </form>
 
@@ -504,8 +504,8 @@
 
     <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="Add a Advacned word" id="word-form-content" name="word" />
-        <input type="text" placeholder="Translation" id="word-form-content" name="translation" />
+        <input type="text" placeholder="Add a {{ current_teacher_profile.teacher_course.course_language|title }} Advacned word" id="word-form-content" name="word" />
+        <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" id="word-form-content" name="translation" />
         <input type="submit" value="add" id="word-add-button" name="teacher_word_add_advanced_submit" />
     </form>
 

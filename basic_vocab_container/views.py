@@ -651,7 +651,7 @@ def basic_vocab_review(request, course_language, speakers_langauge):
         for word in unreviewed_words[:limit]:
             review_pack_words[word.vocab_container_word.word] = word.vocab_container_word.word_translation
 
-    if len(unreviewed_words) > 25:
+    if len(unreviewed_words) >= 25:
         lesson_pack = unreviewed_words[:25]
         get_review_pack_words(25)
         current_lesson_length = 25
@@ -667,11 +667,11 @@ def basic_vocab_review(request, course_language, speakers_langauge):
         lesson_pack = unreviewed_words[:10]
         get_review_pack_words(10)
         current_lesson_length = 10
-    elif len(unreviewed_words) < 10 and len(unreviewed_words) > 5:
+    elif len(unreviewed_words) < 10 and len(unreviewed_words) >= 5:
         lesson_pack = unreviewed_words[:5]
         get_review_pack_words(5)
         current_lesson_length = 5
-    elif len(unreviewed_words) <= 5:
+    elif len(unreviewed_words) < 5:
         # If the current needs_reviewing words are less than 5 then set all of
         # the words needs_reviewing to false, so that user can review new cycle
         for word in current_student_progress:
@@ -727,6 +727,7 @@ def basic_vocab_review(request, course_language, speakers_langauge):
         "review_pack_words": review_pack_words,
         "course_language": course_language,
         "speakers_langauge": speakers_langauge,
+        "current_lesson_length": current_lesson_length,
     }
 
     if current_basic_user == None:

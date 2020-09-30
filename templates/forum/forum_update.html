@@ -57,8 +57,12 @@
       {% for language in all_languages %}
         <div id="category-cell">
           <a href="{% url 'forum_category_page' language.name redirected_page %}">
-            <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
-             {{ language.name }}
+            {% if language.flag %}
+              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+            {% else %}
+              <div id="category-flag" style="background-image: url('');"></div>
+            {% endif %}
+            {{ language.name|title }}
           </a>
         </div>
       {% endfor %}
