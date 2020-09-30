@@ -34,4 +34,5 @@
 - [ ] with main settings.py collectstatic
 - [ ] Run manage.py check --deploy
 - [ ] restart application server gunicorn with main settings.py
+      (this time I had to run it in the background with this: nohup ./gunicorn_start.sh &)
 - [ ] reload nginx
