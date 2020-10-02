@@ -61,70 +61,118 @@
   <!-- a0 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-a0-panel">
     <h3>Add an A0 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_a0_limit_reached == True %}
+      <script>alert("A0 word list have reached it's limit.")</script>
+    {% elif hidden_empty_a0_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}" />
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" value="Add" class="short-cut-submit-btn" name="teacher_vocab_shortcut_a0_submit_btn"/>
     </form>
     <button id="a0-close-btn">Cancel</button>
   </div>
+
   <!-- a1 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-a1-panel">
     <h3>Add an A1 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_a1_limit_reached == True %}
+      <script>alert("A1 word list have reached it's limit.")</script>
+    {% elif hidden_empty_a1_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_a1_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="a1-close-btn">Cancel</button>
   </div>
+
   <!-- a2 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-a2-panel">
     <h3>Add an A2 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_a2_limit_reached == True %}
+      <script>alert("A2 word list have reached it's limit.")</script>
+    {% elif hidden_empty_a2_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_a2_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="a2-close-btn">Cancel</button>
   </div>
+
   <!-- b1 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-b1-panel">
     <h3>Add an B1 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_b1_limit_reached == True %}
+      <script>alert("B1 word list have reached it's limit.")</script>
+    {% elif hidden_empty_b1_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_b1_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="b1-close-btn">Cancel</button>
   </div>
+
   <!-- b2 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-b2-panel">
     <h3>Add an B2 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_b2_limit_reached == True %}
+      <script>alert("B2 word list have reached it's limit.")</script>
+    {% elif hidden_empty_b2_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_b2_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="b2-close-btn">Cancel</button>
   </div>
+
   <!-- c1 shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-c1-panel">
     <h3>Add an C1 word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_c1_limit_reached == True %}
+      <script>alert("C1 word list have reached it's limit.")</script>
+    {% elif hidden_empty_c1_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_c1_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="c1-close-btn">Cancel</button>
   </div>
+
   <!-- Advanced shortcut hidden panel -->
   <div class="shortcut-hidden-panel" id="hidden-shortcut-advanced-panel">
     <h3>Add an Advanced word:</h3>
-    <form>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
-      <input type="text" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
-      <input type="submit" value="Add" class="short-cut-submit-btn"/>
+    {% if hidden_advanced_limit_reached == True %}
+      <script>alert("Advanced word list have reached it's limit.")</script>
+    {% elif hidden_empty_advanced_input == True %}
+      <script>alert("You cannot enter empty input.")</script>
+    {% endif %}
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
+      <input type="text" name="new_word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }}"/>
+      <input type="text" name="new_word_translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }}" />
+      <input type="submit" name="teacher_vocab_shortcut_advanced_submit_btn" value="Add" class="short-cut-submit-btn"/>
     </form>
     <button id="advanced-close-btn">Cancel</button>
   </div>

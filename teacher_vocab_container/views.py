@@ -335,19 +335,186 @@ def teacher_vocab_container_overview(request):
     # VOCAB SHORT CUT FORM PROCESSINGS
 
     # Shortcut - A0
+    hidden_a0_limit_reached = False
+    hidden_empty_a0_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_a0_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(a0_word_list) >= 100:
+            hidden_a0_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_a0_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="a0"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - A1
+    hidden_a1_limit_reached = False
+    hidden_empty_a1_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_a1_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(a1_word_list) >= 500:
+            hidden_a1_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_a1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="a1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - A2
+    hidden_a2_limit_reached = False
+    hidden_empty_a2_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_a2_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(a2_word_list) >= 1000:
+            hidden_a2_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_a2_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="a2"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - B1
+    hidden_b1_limit_reached = False
+    hidden_empty_b1_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_b1_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(b1_word_list) >= 2000:
+            hidden_b1_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_b1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="b1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - B2
+    hidden_b2_limit_reached = False
+    hidden_empty_b2_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_b2_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(b2_word_list) >= 4000:
+            hidden_b2_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_b2_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="b2"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - C1
+    hidden_c1_limit_reached = False
+    hidden_empty_c1_input = False
+
+    if request.POST.get("teacher_vocab_shortcut_c1_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(b2_word_list) >= 8000:
+            hidden_c1_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_c1_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="c1"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     # Shortcut - Advanced
+    hidden_advanced_limit_reached = False
+    hidden_empty_advanced_input = False
 
+    if request.POST.get("teacher_vocab_shortcut_advanced_submit_btn"):
+        new_word = request.POST.get("new_word")
+        new_word_translation = request.POST.get("new_word_translation")
+
+        if len(b2_word_list) >= 16000:
+            hidden_advanced_limit_reached = True
+        else:
+            # check if it is empty
+            if bool(new_word) == False or new_word == "" or \
+               bool(new_word_translation) == False or new_word_translation == "":
+                hidden_empty_advanced_input = True
+            else:
+                new_word_record = TeacherVocabularyContainer(
+                    course=current_teacher_profile.teacher_course,
+                    teacher=current_teacher_profile,
+                    word=new_word,
+                    word_translation=new_word_translation,
+                    level="advanced"
+                )
+                new_word_record.save()
+                return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
     data = {
         "current_basic_user": current_basic_user,
@@ -381,6 +548,20 @@ def teacher_vocab_container_overview(request):
         "empty_b2_input": empty_b2_input,
         "empty_c1_input": empty_c1_input,
         "empty_advanced_input": empty_advanced_input,
+        "hidden_a0_limit_reached": hidden_a0_limit_reached,
+        "hidden_empty_a0_input": hidden_empty_a0_input,
+        "hidden_a1_limit_reached": hidden_a1_limit_reached,
+        "hidden_empty_a1_input": hidden_empty_a1_input,
+        "hidden_a2_limit_reached": hidden_a2_limit_reached,
+        "hidden_empty_a2_input": hidden_empty_a2_input,
+        "hidden_b1_limit_reached": hidden_b1_limit_reached,
+        "hidden_empty_b1_input": hidden_empty_b1_input,
+        "hidden_b2_limit_reached": hidden_b2_limit_reached,
+        "hidden_empty_b2_input": hidden_empty_b2_input,
+        "hidden_c1_limit_reached": hidden_c1_limit_reached,
+        "hidden_empty_c1_input": hidden_empty_c1_input,
+        "hidden_advanced_limit_reached": hidden_advanced_limit_reached,
+        "hidden_empty_advanced_input": hidden_empty_advanced_input,
     }
 
     if "teacher_user_logged_in" in request.session:
