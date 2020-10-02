@@ -109,6 +109,113 @@ body {
   color: #E3102E;
 }
 
+/* ----------------------- Shortucts --------------------- */
+#vocab-shortcut-links {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+#vocab-shortcut-links button {
+  border: 1px solid #2E4053;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+#vocab-shortcut-links button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+#hidden-shortuct-background-greying {
+  z-index: 99 !important;
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+  display: none;
+}
+
+.shortcut-hidden-panel {
+  border: 1px solid grey;
+  z-index: 999 !important;
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 53%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 5px;
+  height: auto;
+  padding-bottom: 40px;
+  display: none;
+}
+
+.shortcut-hidden-panel h3 {
+
+}
+
+.shortcut-hidden-panel form {
+  display: inline-block;
+}
+
+.shortcut-hidden-panel form input {
+  font-size: 20px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+.shortcut-hidden-panel form input:focus {
+  border-color: #2E4053;
+  outline: none !important;
+}
+
+.short-cut-submit-btn {
+  display: inline-block;
+  border: 1px solid #2E4053;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #2E4053;
+  color: white;
+}
+
+.short-cut-submit-btn:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: lightgrey;
+  color: black;
+}
+
+.shortcut-hidden-panel button {
+  display: inline-block;
+  border: 1px solid #E3102E;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #E3102E;
+  font-size: 20px;
+  color: white;
+}
+
+.shortcut-hidden-panel button:hover {
+  cursor: pointer;
+  transition:0.2s;
+  background-color: #FADBD8;
+  color: #E3102E;
+}
 
 /* ------------ vocab A0 table --------------- */
 #vocab-a0-table {
@@ -254,6 +361,42 @@ body {
     font-size: 15px;
   }
 
+  /* ----------------------- Shortucts --------------------- */
+  #vocab-shortcut-links {
+    width: 95%;
+    padding: 5px 0px;
+  }
+
+  #vocab-shortcut-links button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+  }
+
+  .shortcut-hidden-panel {
+    width: 85%;
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+
+  .shortcut-hidden-panel form input {
+    font-size: 20px;
+    padding: 8px 0px;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .short-cut-submit-btn {
+    border: 1px solid #2E4053 !important;
+  }
+
+  .shortcut-hidden-panel button {
+    padding: 8px 10px;
+    width: 100%;
+  }
+
   /* ------------ hidden table word record edit panel --------------- */
 
   #hidden-table-record-edit-panel-foreground {
@@ -325,6 +468,42 @@ body {
     font-size: 15px;
   }
 
+  /* ----------------------- Shortucts --------------------- */
+  #vocab-shortcut-links {
+    width: 95%;
+    padding: 5px 0px;
+  }
+
+  #vocab-shortcut-links button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+  }
+
+  .shortcut-hidden-panel {
+    width: 85%;
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+
+  .shortcut-hidden-panel form input {
+    font-size: 20px;
+    padding: 8px 0px;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .short-cut-submit-btn {
+    border: 1px solid #2E4053 !important;
+  }
+
+  .shortcut-hidden-panel button {
+    padding: 8px 10px;
+    width: 100%;
+  }
+
   /* ------------ hidden table word record edit panel --------------- */
 
   #hidden-table-record-edit-panel-foreground {
@@ -392,6 +571,42 @@ body {
   /* ------------ header and explanation part --------------- */
   #vocab-container-header-box p {
     font-size: 15px;
+  }
+
+  /* ----------------------- Shortucts --------------------- */
+  #vocab-shortcut-links {
+    width: 95%;
+    padding: 5px 0px;
+  }
+
+  #vocab-shortcut-links button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+  }
+
+  .shortcut-hidden-panel {
+    width: 85%;
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+
+  .shortcut-hidden-panel form input {
+    font-size: 20px;
+    padding: 8px 0px;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .short-cut-submit-btn {
+    border: 1px solid #2E4053 !important;
+  }
+
+  .shortcut-hidden-panel button {
+    padding: 8px 10px;
+    width: 100%;
   }
 
   /* ------------ hidden table word record edit panel --------------- */
@@ -508,12 +723,62 @@ body {
     font-size: 15px;
   }
 
+  /* ----------------------- Shortucts --------------------- */
+  #vocab-shortcut-links {
+    width: 95%;
+    padding: 5px 0px;
+  }
+
+  #vocab-shortcut-links button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+  }
+
+  .shortcut-hidden-panel {
+    width: 83%;
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+
+  .shortcut-hidden-panel form input {
+    font-size: 18px;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+  }
+
 }
 
 
 /* Laptop ------------------------------------------------------------------ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* nothing for now */
+  /* ----------------------- Shortucts --------------------- */
+  #vocab-shortcut-links {
+    width: 95%;
+    padding: 5px 0px;
+  }
+
+  #vocab-shortcut-links button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+  }
+
+  .shortcut-hidden-panel {
+    width: 63%;
+    margin-top: 100px;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+
+  .shortcut-hidden-panel form input {
+    font-size: 18px;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+  }
 }
 
 

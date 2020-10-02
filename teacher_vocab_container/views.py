@@ -332,7 +332,22 @@ def teacher_vocab_container_overview(request):
                 new_word_record.save()
                 return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
-    # vocab update form processing
+    # VOCAB SHORT CUT FORM PROCESSINGS
+
+    # Shortcut - A0
+
+    # Shortcut - A1
+
+    # Shortcut - A2
+
+    # Shortcut - B1
+
+    # Shortcut - B2
+
+    # Shortcut - C1
+
+    # Shortcut - Advanced
+
 
     data = {
         "current_basic_user": current_basic_user,
