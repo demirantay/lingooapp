@@ -87,6 +87,11 @@ urlpatterns = [
     # ...
     path("", include("basic_vocab_container.urls")),
 
+    # Basic Voting System
+    # --------------
+    # ...
+    path("", include("basic_voting_sys.urls")),
+
 ]
 
 if settings.DEBUG:
