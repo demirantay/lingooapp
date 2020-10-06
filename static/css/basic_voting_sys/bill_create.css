@@ -1,0 +1,242 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#create-bill-container {
+  border: 1px solid lightgrey;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+#create-bill-container h1 {
+  margin-top: 25px;
+  margin-left: 10%;
+}
+
+#create-bill-container form {
+  margin-top: 10px;
+  margin-left: 10%;
+}
+
+#create-bill-container form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+#create-bill-container form select {
+  margin-bottom: 10px;
+  font-size: 22px;
+  border: 1px solid lightgrey;
+  padding: 5px 15px;
+  border-radius: 8px;
+  width: 83%;
+}
+
+#create-bill-container form select option {
+
+}
+
+#create-bill-container form input {
+  margin-bottom: 10px;
+  width: 80%;
+  font-size: 22px;
+  border: 1px solid lightgrey;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+#create-bill-container form input:focus {
+  outline: none;
+  border-color: black;
+}
+
+#create-bill-container form textarea {
+  margin-bottom: 10px;
+  width: 80%;
+  font-size: 22px;
+  border: 1px solid lightgrey;
+  padding: 5px 10px;
+  border-radius: 8px;
+  height: 300px;
+}
+
+#create-bill-container form textarea:focus {
+  outline: none;
+  border-color: black;
+}
+
+#create-bill-submit-btn {
+  color: white !important;
+  background-color: #E3102E;
+  border: 1px solid #E3102E !important;
+  width: 83% !important;
+  margin-bottom: 30px !important;
+}
+
+#create-bill-submit-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #create-bill-container {
+    width: 100%;
+  }
+
+  #create-bill-container h1 {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form label {
+    font-size: 22px;
+  }
+
+  #create-bill-container form select {
+    font-size: 20px;
+    padding: 5px 15px;
+    width: 91%;
+  }
+
+  #create-bill-container form input {
+    width: 83%;
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  #create-bill-container form textarea {
+    width: 85%;
+    font-size: 20px;
+    padding: 5px 10px;
+    height: 300px;
+  }
+
+  #create-bill-submit-btn {
+    width: 95% !important;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #create-bill-container {
+    width: 100%;
+  }
+
+  #create-bill-container h1 {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form label {
+    font-size: 22px;
+  }
+
+  #create-bill-container form select {
+    font-size: 20px;
+    padding: 5px 15px;
+    width: 91%;
+  }
+
+  #create-bill-container form input {
+    width: 83%;
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  #create-bill-container form textarea {
+    width: 85%;
+    font-size: 20px;
+    padding: 5px 10px;
+    height: 300px;
+  }
+
+  #create-bill-submit-btn {
+    width: 95% !important;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #create-bill-container {
+    width: 100%;
+  }
+
+  #create-bill-container h1 {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form {
+    margin-left: 5%;
+  }
+
+  #create-bill-container form label {
+    font-size: 22px;
+  }
+
+  #create-bill-container form select {
+    font-size: 20px;
+    padding: 5px 15px;
+    width: 91%;
+  }
+
+  #create-bill-container form input {
+    width: 83%;
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  #create-bill-container form textarea {
+    width: 85%;
+    font-size: 20px;
+    padding: 5px 10px;
+    height: 300px;
+  }
+
+  #create-bill-submit-btn {
+    width: 95% !important;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

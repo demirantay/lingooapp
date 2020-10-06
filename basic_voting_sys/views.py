@@ -20,4 +20,4 @@ def basic_create_bill(request):
 
     }
 
-    return render(request, "templates/basic_voting_sys/create_bill.html", data)
+    return render(request, "basic_voting_sys/create_bill.html", data)

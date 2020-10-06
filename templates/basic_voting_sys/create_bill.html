@@ -1,0 +1,37 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_voting_sys/bill_create.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="create-bill-container">
+  <h1>Create Bill</h1>
+
+  <form>
+    {% csrf_token %}
+
+    <label>Title</label>
+    <input type="text" placeholder="Type in your Bill's title" />
+
+    <label>Category:</label>
+    <select>
+      <option>New Feature</option>
+      <option>Small Addition</option>
+      <option>Feature Complaint</option>
+      <option>Small Removal</option>
+      <option>Feature Removal</option>
+    </select>
+
+    <label>Bill Request:</label>
+    <textarea placeholder="Please be descriptive about your request ..."></textarea>
+
+    <input type="submit" value="Create Bill" id="create-bill-submit-btn" />
+
+  </form>
+</div>
+
+
+{% endblock %}
