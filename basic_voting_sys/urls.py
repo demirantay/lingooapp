@@ -14,4 +14,10 @@ urlpatterns = [
         views.basic_read_bill,
         name="basic_read_bill",
     ),
+    # Bill post update page
+    path(
+        "voting/congress/bill/update/<int:bill_id>/",
+        views.basic_update_bill,
+        name="basic_update_bill",
+    ),
 ]

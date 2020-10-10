@@ -1,0 +1,31 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_voting_sys/update_bill.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="update-bill-container">
+
+  <h1>Update Bill</h1>
+
+  <form>
+    {% csrf_token %}
+
+    <label>Title</label>
+    <input type="text" placeholder="Type in your Bill's title" value="..." />
+
+    <p>Category: <span>New Feature</span></p>
+
+    <label>Bill Request:</label>
+    <textarea placeholder="Please be descriptive about your request ...">...</textarea>
+
+    <input type="submit" value="Update Bill" id="update-bill-submit-btn" />
+
+  </form>
+
+</div>
+
+{% endblock %}

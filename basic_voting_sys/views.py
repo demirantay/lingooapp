@@ -33,3 +33,15 @@ def basic_read_bill(request, bill_id):
     }
 
     return render(request, "basic_voting_sys/read_bill.html", data)
+
+
+def basic_update_bill(request, bill_id):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_voting_sys/update_bill.html", data)
