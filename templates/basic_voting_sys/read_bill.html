@@ -1,0 +1,159 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_voting_sys/read_bill.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- bill read info -->
+<div id="bill-read-container">
+  <button id="hidden-post-operation-buttons"><span class="fa fa-ellipsis-v"></span></button>
+  <div id="hidden-post-buttons-panel-close-box">
+    <button id="hidden-post-operations-buttons-close"><span class="fa fa-close"></span></button>
+  </div>
+  <div id="hidden-post-buttons-panel">
+    <a href="">Update</a>
+    <a href="">Delete</a>
+  </div>
+
+  <script>
+    let hidden_buttons_panel = document.getElementById("hidden-post-buttons-panel");
+    let hidden_buttons_panel_top_part = document.getElementById("hidden-post-buttons-panel-close-box");
+    let panel_open_button = document.getElementById("hidden-post-operation-buttons");
+    let panel_close_button = document.getElementById("hidden-post-operations-buttons-close")
+
+    panel_open_button.onclick = function () {
+      hidden_buttons_panel.style.display = "block";
+      hidden_buttons_panel_top_part.style.display = "block";
+    }
+
+    panel_close_button.onclick = function () {
+      hidden_buttons_panel.style.display = "none";
+      hidden_buttons_panel_top_part.style.display = "none";
+    }
+  </script>
+
+
+  <div id="bill-meta-info-box">
+    <p>CREATED IN SEP 20 2020</p>
+    <h2>Passed</h2>
+    <h1>Bill 100</h1>
+    <p>THIS BILL IS SPONSORED BY <a href="">USERNAME</a></p>
+  </div>
+
+  <div id="bill-horizontal-line"></div>
+
+  <div id="bill-info">
+    <h2>Lorem Ipsum Dolor Sit Amet</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <br />
+      <br />
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</div>
+
+<!-- bill edit history -->
+<div id="bill-edit-history">
+  <h2>Update History</h2>
+
+  <div id="edit-history-cell">
+    <h3>Discard Date: 20 Oct 2020</h3>
+    <h1>Lorem Ipsum Dolor</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <span class="fa fa-circle"></span>
+
+  <div id="edit-history-cell">
+    <h3>Discard Date: 20 Oct 2020</h3>
+    <h1>Lorem Ipsum Dolor</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+<!-- bill vote operations -->
+<div id="vote-operations-container">
+  <h2>VOTE</h2>
+  <div class="vote-box" id="aye-box">
+    <h3 id="aye-h3">Aye</h3>
+    <span id="aye-span" class="fa fa-check"></span>
+  </div>
+  <div class="vote-box" id="neutral-box">
+    <h3 id="neutral-h3">Neutral</h3>
+    <span id="neutral-span" class="fa fa-bars"></span>
+  </div>
+  <div class="vote-box" id='nay-box'>
+    <h3 id="nay-h3">Nay</h3>
+    <span id="nay-span" class="fa fa-close"></span>
+  </div>
+
+  <form id="vote-form">
+    <input type="hidden" id="vote-form-hidden-input" />
+    <input type="submit" value="Vote" />
+  </form>
+</div>
+
+<script>
+  let aye_box = document.getElementById("aye-box");
+  let aye_h3 = document.getElementById("aye-h3");
+  let aye_span = document.getElementById("aye-span");
+
+  let neutral_box = document.getElementById("neutral-box");
+  let neutral_h3 = document.getElementById("neutral-h3");
+  let neutral_span = document.getElementById("neutral-span");
+
+  let nay_box = document.getElementById("nay-box");
+  let nay_h3 = document.getElementById("nay-h3");
+  let nay_span = document.getElementById("nay-span");
+
+  let vote_form = document.getElementById("vote-form");
+  let vote_form_hidden_input = document.getElementById("vote-form-hidden-input");
+
+  // aye box operations
+  aye_box.onclick = function() {
+    vote_form.submit();
+  }
+
+  // neutral box operations
+
+  // nay box operations
+</script>
+
+<!-- bill votes -->
+<div id="bill-vote-stats-container">
+  <h2>Voting Statistics</h2>
+
+  <div id="stat-numbers">
+    <p>
+        <b>Aye:</b> 152 <b>Neutral:</b> 152 <b>Nay:</b> 152
+    </p>
+  </div>
+
+
+  <div class="voting-stats-column" id="aye-column">
+    <h4>Aye</h4>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+  </div>
+  <div class="voting-stats-column" id="neutral-column">
+    <h4>Neutral</h4>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+  </div>
+  <div class="voting-stats-column" id="nay-column">
+    <h4>Nay</h4>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+  </div>
+</div>
+
+{% endblock %}

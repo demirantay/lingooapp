@@ -21,3 +21,15 @@ def basic_create_bill(request):
     }
 
     return render(request, "basic_voting_sys/create_bill.html", data)
+
+
+def basic_read_bill(request, bill_id):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_voting_sys/read_bill.html", data)

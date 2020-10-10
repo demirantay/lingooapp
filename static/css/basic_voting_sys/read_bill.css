@@ -1,0 +1,1023 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* ---------------------- bill read info --------------------- */
+
+#bill-horizontal-line {
+  border-bottom: 1px solid black;
+  width: 35%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#bill-read-container {
+  border: 1px solid lightgrey;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+  position: relative;
+}
+
+#bill-meta-info-box {
+  width: 90%;
+  border: 1px solid transparent;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#bill-meta-info-box h1 {
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 45px;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+#bill-meta-info-box h2 {
+  margin: 0px;
+  margin-bottom: 15px;
+  font-family: monospace;
+  font-size: 27px;
+}
+
+#bill-meta-info-box p {
+  margin: 0px;
+  margin-bottom: 15px;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+#bill-meta-info-box p a {
+  text-decoration: none;
+  color: black;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+#bill-meta-info-box p a:hover {
+  transition: 0.2s;
+  text-decoration: underline;
+}
+
+#bill-info {
+  border: 1px solid transparent;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+#bill-info h2 {
+  text-align: center;
+  font-family: monospace;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+#bill-info p {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+
+/* ---------------------- hidden post operations box  --------------------- */
+#hidden-post-operation-buttons {
+  float: right;
+  font-size: 25px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 0px 20px;
+}
+
+#hidden-post-buttons-panel-close-box {
+  float: right;
+  background-color: white;
+  border: 1px solid lightgrey;
+  z-index: 99;
+  position: absolute;
+  right:0;
+  top:0;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: none;
+  border-bottom-color: transparent;
+}
+
+#hidden-post-buttons-panel-close-box button {
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+#hidden-post-buttons-panel-close-box button:hover {
+  color: red;
+  cursor: pointer;
+}
+
+#hidden-post-operation-buttons:hover {
+  cursor: pointer;
+  color: red;
+}
+
+#hidden-post-buttons-panel {
+  border: 1px solid black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  z-index: 9 !important;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  -webkit-box-shadow: 0px 0px 16px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 16px -2px rgba(0,0,0,0.75);
+  margin-right: 10px;
+  margin-top: 65px;
+  text-align:center;
+  padding: 5px 0px;
+  display: none;
+  border-top-right-radius: 0px;
+}
+
+#hidden-post-buttons-panel a {
+  padding: 10px 0px;
+  width: 80%;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin: 0 auto;
+  text-align: center;
+}
+#hidden-post-buttons-panel a:hover {
+  background-color: lightgrey;
+  color: black;
+  transition: 0.2s;
+}
+
+/* ---------------------- bill edit history--------------------- */
+#bill-edit-history {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  background-color: transparent;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#bill-edit-history h2 {
+  margin-left: 4%;
+}
+
+#bill-edit-history span {
+  margin-left: 4%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: grey;
+  padding-left: 2px;
+}
+
+#edit-history-cell {
+  margin: 0 auto;
+  width: 90%;
+  border: 2px solid transparent;
+  border-left-color: lightgrey;
+}
+
+#edit-history-cell h3 {
+  color: grey;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#edit-history-cell h1 {
+  color: grey;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+#edit-history-cell p {
+  color: grey;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+
+/* ---------------------- bill vote operations --------------------- */
+#vote-operations-container {
+  border: 1px solid lightgrey;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#vote-operations-container h2 {
+  margin: 0px;
+  margin-top: 20px;
+}
+
+.vote-box {
+  border: 2px solid lightgrey;
+  width: 20%;
+  height: 100px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  margin-left: 2%;
+  margin-right: 2%;
+  vertical-align: top;
+}
+
+.vote-box h3 {
+  margin: 0px;
+  margin-top: 35px;
+}
+
+.vote-box:hover {
+  cursor: pointer;
+}
+
+#aye-span {
+  display: none;
+}
+
+#neutral-span {
+  display: none;
+}
+
+#nay-span {
+  display: none;
+}
+
+#aye-box:hover {
+  transition: 0.2s;
+  background-color: #27AE60;
+}
+
+#aye-box:hover h3 {
+  display: none;
+}
+
+#aye-box:hover #aye-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 35px;
+}
+
+#neutral-box:hover {
+  transition: 0.2s;
+  background-color: grey;
+}
+
+#neutral-box:hover h3 {
+  display: none;
+}
+
+#neutral-box:hover #neutral-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 33px;
+}
+
+#nay-box:hover {
+  transition: 0.2s;
+  background-color: #E3102E;
+}
+
+#nay-box:hover h3 {
+  display: none;
+}
+
+#nay-box:hover #nay-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 35px;
+}
+
+#vote-operations-container form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#vote-operations-container form input {
+  font-size: 21px;
+  padding: 10px 0px;
+  width: 30%;
+  border-radius: 8px;
+  color: white;
+  background-color: #E3102E;
+  border: 1px solid #E3102E;
+  display: none;
+}
+
+#vote-operations-container form input:hover {
+  background-color: #A50E23;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+
+/* ---------------------- bill votes --------------------- */
+#bill-vote-stats-container {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#bill-vote-stats-container h2 {
+  margin-left: 5%;
+  text-align: left;
+}
+
+#stat-numbers {
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#stat-numbers p {
+  margin-left: 4%;
+}
+
+#stat-numbers p b {
+  margin-left: 10px;
+}
+
+.voting-stats-column {
+  border: 1px solid transparent;
+  width: 30%;
+  height: auto;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  vertical-align: top;
+}
+
+.voting-stats-column p {
+  vertical-align: middle;
+  border: 1px solid transparent;
+  width: 45%;
+  padding: 5px 0px;
+  display: inline-block;
+  margin: 0px;
+}
+
+.voting-stats-column p a {
+  text-decoration: none;
+  color: black;
+}
+
+.voting-stats-column p a:hover {
+  text-decoration: underline;
+}
+
+.voting-stats-column p a span {
+  vertical-align: middle;
+  font-size: 11px;
+}
+
+#aye-column p a span {
+  color: #27AE60;
+}
+
+#neutral-column p a span {
+  color: grey
+}
+
+#nay-column p a span {
+  color: #E3102E;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ---------------------- bill read info --------------------- */
+
+  #bill-horizontal-line {
+    border-bottom: 1px solid black;
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #bill-read-container {
+    border: 1px solid lightgrey;
+    width: 100%;
+  }
+
+  #bill-meta-info-box {
+    width: 99%;
+    margin-top: 40px;
+  }
+
+  #bill-meta-info-box h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  #bill-meta-info-box h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  #bill-meta-info-box p {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  #bill-meta-info-box p a {
+    font-size: 14px;
+  }
+
+  #bill-info {
+    width: 90%;
+  }
+
+  #bill-info h2 {
+    font-size: 19px;
+  }
+
+  #bill-info p {
+    font-size: 16px;
+    margin-left: 10px;
+    word-break: break-word;
+  }
+
+
+  /* ---------------------- hidden post operations box  --------------------- */
+  #hidden-post-operation-buttons {
+    float: right;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0px 5px;
+    z-index: 99 !important;
+  }
+
+  #hidden-post-buttons-panel-close-box {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  #hidden-post-buttons-panel {
+    width: 80%;
+    margin-right: 10px;
+    margin-top: 55px;
+    padding: 5px 0px;
+  }
+
+  #hidden-post-buttons-panel a {
+    padding: 10px 10px;
+    width: 80%;
+  }
+
+  /* ---------------------- bill edit history--------------------- */
+  #bill-edit-history {
+    border: 1px solid transparent;
+    width: 99%;
+  }
+
+  #bill-edit-history h2 {
+    margin-left: 1%;
+    font-size: 22px;
+  }
+
+  #bill-edit-history span {
+    margin-left: 1%;
+    font-size: 10px;
+    padding-left: 0px;
+  }
+
+  #edit-history-cell {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  #edit-history-cell h3 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  #edit-history-cell h1 {
+    font-size: 17px;
+  }
+
+  #edit-history-cell p {
+    font-size: 15px;
+  }
+
+
+  /* ---------------------- bill vote operations --------------------- */
+  #vote-operations-container {
+    width: 99%;
+  }
+
+  #vote-operations-container h2 {
+    margin-top: 16px;
+  }
+
+  .vote-box {
+    width: 25%;
+    height: 70px;
+  }
+
+  .vote-box h3 {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+
+  #aye-box:hover #aye-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #neutral-box:hover #neutral-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #nay-box:hover #nay-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  /* ---------------------- bill votes --------------------- */
+  #bill-vote-stats-container {
+    width: 99%;
+    margin-bottom: 50px;
+  }
+
+  #bill-vote-stats-container h2 {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+
+  #stat-numbers {
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+  }
+
+  #stat-numbers p {
+    margin-left: 0%;
+    text-align: left;
+  }
+
+  .voting-stats-column {
+    width: 28%;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+
+  .voting-stats-column p {
+    width: 100%;
+    padding: 5px 0px;
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  .voting-stats-column p a span {
+    font-size: 9px;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ---------------------- bill read info --------------------- */
+
+  #bill-horizontal-line {
+    border-bottom: 1px solid black;
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #bill-read-container {
+    border: 1px solid lightgrey;
+    width: 100%;
+  }
+
+  #bill-meta-info-box {
+    width: 99%;
+    margin-top: 40px;
+  }
+
+  #bill-meta-info-box h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  #bill-meta-info-box h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  #bill-meta-info-box p {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  #bill-meta-info-box p a {
+    font-size: 14px;
+  }
+
+  #bill-info {
+    width: 90%;
+  }
+
+  #bill-info h2 {
+    font-size: 19px;
+  }
+
+  #bill-info p {
+    font-size: 16px;
+    margin-left: 10px;
+    word-break: break-word;
+  }
+
+
+  /* ---------------------- hidden post operations box  --------------------- */
+  #hidden-post-operation-buttons {
+    float: right;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0px 5px;
+    z-index: 99 !important;
+  }
+
+  #hidden-post-buttons-panel-close-box {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  #hidden-post-buttons-panel {
+    width: 80%;
+    margin-right: 10px;
+    margin-top: 55px;
+    padding: 5px 0px;
+  }
+
+  #hidden-post-buttons-panel a {
+    padding: 10px 10px;
+    width: 80%;
+  }
+
+  /* ---------------------- bill edit history--------------------- */
+  #bill-edit-history {
+    border: 1px solid transparent;
+    width: 99%;
+  }
+
+  #bill-edit-history h2 {
+    margin-left: 1%;
+    font-size: 22px;
+  }
+
+  #bill-edit-history span {
+    margin-left: 1%;
+    font-size: 10px;
+    padding-left: 0px;
+  }
+
+  #edit-history-cell {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  #edit-history-cell h3 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  #edit-history-cell h1 {
+    font-size: 17px;
+  }
+
+  #edit-history-cell p {
+    font-size: 15px;
+  }
+
+
+  /* ---------------------- bill vote operations --------------------- */
+  #vote-operations-container {
+    width: 99%;
+  }
+
+  #vote-operations-container h2 {
+    margin-top: 16px;
+  }
+
+  .vote-box {
+    width: 25%;
+    height: 70px;
+  }
+
+  .vote-box h3 {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+
+  #aye-box:hover #aye-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #neutral-box:hover #neutral-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #nay-box:hover #nay-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  /* ---------------------- bill votes --------------------- */
+  #bill-vote-stats-container {
+    width: 99%;
+    margin-bottom: 50px;
+  }
+
+  #bill-vote-stats-container h2 {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+
+  #stat-numbers {
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+  }
+
+  #stat-numbers p {
+    margin-left: 0%;
+    text-align: left;
+  }
+
+  .voting-stats-column {
+    width: 28%;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+
+  .voting-stats-column p {
+    width: 100%;
+    padding: 5px 0px;
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  .voting-stats-column p a span {
+    font-size: 9px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ---------------------- bill read info --------------------- */
+
+  #bill-horizontal-line {
+    border-bottom: 1px solid black;
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #bill-read-container {
+    border: 1px solid lightgrey;
+    width: 100%;
+  }
+
+  #bill-meta-info-box {
+    width: 99%;
+    margin-top: 40px;
+  }
+
+  #bill-meta-info-box h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  #bill-meta-info-box h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  #bill-meta-info-box p {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  #bill-meta-info-box p a {
+    font-size: 14px;
+  }
+
+  #bill-info {
+    width: 90%;
+  }
+
+  #bill-info h2 {
+    font-size: 19px;
+  }
+
+  #bill-info p {
+    font-size: 16px;
+    margin-left: 10px;
+    word-break: break-word;
+  }
+
+
+  /* ---------------------- hidden post operations box  --------------------- */
+  #hidden-post-operation-buttons {
+    float: right;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0px 5px;
+    z-index: 99 !important;
+  }
+
+  #hidden-post-buttons-panel-close-box {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  #hidden-post-buttons-panel {
+    width: 80%;
+    margin-right: 10px;
+    margin-top: 55px;
+    padding: 5px 0px;
+  }
+
+  #hidden-post-buttons-panel a {
+    padding: 10px 10px;
+    width: 80%;
+  }
+
+  /* ---------------------- bill edit history--------------------- */
+  #bill-edit-history {
+    border: 1px solid transparent;
+    width: 99%;
+  }
+
+  #bill-edit-history h2 {
+    margin-left: 1%;
+    font-size: 22px;
+  }
+
+  #bill-edit-history span {
+    margin-left: 1%;
+    font-size: 10px;
+    padding-left: 0px;
+  }
+
+  #edit-history-cell {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  #edit-history-cell h3 {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  #edit-history-cell h1 {
+    font-size: 17px;
+  }
+
+  #edit-history-cell p {
+    font-size: 15px;
+  }
+
+
+  /* ---------------------- bill vote operations --------------------- */
+  #vote-operations-container {
+    width: 99%;
+  }
+
+  #vote-operations-container h2 {
+    margin-top: 16px;
+  }
+
+  .vote-box {
+    width: 25%;
+    height: 70px;
+  }
+
+  .vote-box h3 {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+
+  #aye-box:hover #aye-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #neutral-box:hover #neutral-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  #nay-box:hover #nay-span {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  /* ---------------------- bill votes --------------------- */
+  #bill-vote-stats-container {
+    width: 99%;
+    margin-bottom: 50px;
+  }
+
+  #bill-vote-stats-container h2 {
+    margin-left: 1%;
+    font-size: 20px;
+  }
+
+  #stat-numbers {
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+  }
+
+  #stat-numbers p {
+    margin-left: 0%;
+    text-align: left;
+  }
+
+  .voting-stats-column {
+    width: 28%;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+
+  .voting-stats-column p {
+    width: 100%;
+    padding: 5px 0px;
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  .voting-stats-column p a span {
+    font-size: 9px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
