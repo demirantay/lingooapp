@@ -15,7 +15,7 @@
   </div>
   <div id="hidden-post-buttons-panel">
     <a href="">Update</a>
-    <a href="">Delete</a>
+    <a href="" id="delete_panel_open_btn">Delete</a>
   </div>
 
   <script>
@@ -34,6 +34,41 @@
       hidden_buttons_panel_top_part.style.display = "none";
     }
   </script>
+
+  <!-- Hidden Delete Request Panel -->
+  <div id="background-greying-for-hidden-delete-panel"></div>
+  <div id="hidden-delete-panel">
+    <h1>Bill Delete Request</h1>
+    <p>
+      <b>Warning:</b> If there is a vote on your bill you cannot disregard it and delete the bill.
+    </p>
+    <form>
+        <input type="submit" value="Request" />
+    </form>
+    <button id="delete_panel_close_btn">Cancel</button>
+  </div>
+
+  <script>
+    let open_button = document.getElementById("delete_panel_open_btn");
+    let close_button = document.getElementById("delete_panel_close_btn");
+    let hidden_delete_panel = document.getElementById("hidden-delete-panel");
+    let hidden_bg_greying = document.getElementById("background-greying-for-hidden-delete-panel")
+
+    // open
+    open_button.onclick = function(event) {
+      event.preventDefault();
+      hidden_delete_panel.style.display = "block";
+      hidden_bg_greying.style.display = "block";
+    }
+
+    // close
+    close_button.onclick = function(event) {
+      event.preventDefault();
+      hidden_delete_panel.style.display = "none";
+      hidden_bg_greying.style.display = "none";
+    }
+  </script>
+
 
 
   <div id="bill-meta-info-box">
