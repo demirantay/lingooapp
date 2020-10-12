@@ -92,6 +92,11 @@ urlpatterns = [
     # ...
     path("", include("basic_voting_sys.urls")),
 
+    # Basic Feedback
+    # --------------
+    # ...
+    path("", include("basic_feedback.urls")),
+
 ]
 
 if settings.DEBUG:
