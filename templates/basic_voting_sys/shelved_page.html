@@ -1,0 +1,205 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_voting_sys/landing_page.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- bill landing page left part -->
+<div id="bill-container-left-part">
+  <h1>Congress</h1>
+
+  <!-- hidden mobile top nav -->
+  <div id="hidden-mobile-congress-nav">
+    <a href="" id="sponsor-button"><span class="fa fa-plus"></span> Sponsor a Bill</a>
+
+    <div id="right-part-navigation">
+        <a href=""><span class="fa fa-paper-plane"></span> Top</a>
+        <a href=""><span class="fa fa-leaf"></span> New Bills</a>
+        <a href=""><span class="fa fa-check"></span> Passed</a>
+        <a href="" id="checked-navigation"><span class="fa fa-archive"></span> Shelved</a>
+    </div>
+  </div>
+
+  <!-- bill cell -->
+  <a href="" id="bill-cell-link">
+    <div id="shelved-bill-cell">
+      <div id="bill-cell-top-part">
+        <p><span class="fa fa-exclamation-triangle" id="shelved-bill-icon"></span> Bill No: 15</p>
+        <span id="bill-category">Feature Request</span>
+      </div>
+      <div id="bill-cell-middle-part">
+        <p id="content-meta-info">Sponsored by <a href="">@username</a> in Jun 20, 2020</p>
+        <h1>Lorem Ipsum Dolor Sit Amet</h1>
+        <!-- max: 280 char -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit ...</p>
+      </div>
+      <div id="bill-cell-bottom-part">
+        <p><b>Current Votes:</b> <span>+124</span></p>
+      </div>
+    </div>
+  </a>
+  <!-- /cell -->
+
+  <!-- pagination -->
+  <div id="bill-page-pagination">
+    <a href=""><span class="fa fa-arrow-left"></span></a>
+    <a href=""><span class="fa fa-arrow-right"></span></a>
+  </div>
+</div>
+
+<!-- bill landing page right part -->
+<div id="bill-container-right-part">
+
+  <div id="hidden-desktop-congress-nav">
+    <a href="" id="sponsor-button"><span class="fa fa-plus"></span> Sponsor a Bill</a>
+
+    <div id="right-part-navigation">
+        <a href=""><span class="fa fa-paper-plane"></span> Top</a>
+        <a href=""><span class="fa fa-leaf"></span> New Bills</a>
+        <a href=""><span class="fa fa-check"></span> Passed</a>
+        <a href="" id="checked-navigation"><span class="fa fa-archive"></span> Shelved</a>
+    </div>
+  </div>
+
+  <div id="right-part-faq">
+    <div id="faq-header">
+        <h1>FAQ</h1>
+    </div>
+    <!-- question cell -->
+    <div class="question-button" id="question-1">
+      <h3><span class="fa fa-caret-down"></span> What is the Congress?</h3>
+    </div>
+    <div class="hidden-question-answer" id="answer-1">
+      <p>
+        Our platform believes that community comes before everything. So in Congress
+        the users of the Domingo can use various tools to make decisions on the
+        features of the site.
+      </p>
+    </div>
+    <!-- /cell-->
+
+    <!-- question cell -->
+    <div class="question-button" id="question-2">
+      <h3><span class="fa fa-caret-down"></span> What is a Bill?</h3>
+    </div>
+    <div class="hidden-question-answer" id="answer-2">
+      <p>
+        A bill is basically a short-cut name for "feature requests that are
+        created by a single user that gets voted by the community in order to
+        decide whether or not our platform needs it."
+      </p>
+    </div>
+    <!-- /cell-->
+
+    <!-- question cell -->
+    <div class="question-button" id="question-3">
+      <h3><span class="fa fa-caret-down"></span> What is a Passed Bill?</h3>
+    </div>
+    <div class="hidden-question-answer" id="answer-3">
+      <p>
+        If the state of the vote is "Passed" it means that the voting on that
+        particular bill has ended and the contents of the bill will be implemented
+        in the next update.
+      </p>
+    </div>
+    <!-- /cell-->
+
+    <!-- question cell -->
+    <div class="question-button" id="question-4">
+      <h3><span class="fa fa-caret-down"></span> What is a Shelved Bill?</h3>
+    </div>
+    <div class="hidden-question-answer" id="answer-4">
+      <p>
+        If the state of the vote is "Shelved" it means that the voting on that
+        particular bill has ended but the bill will not be implemented because
+        of an issue.
+      </p>
+    </div>
+    <!-- /cell-->
+
+    <!-- question cell -->
+    <div class="question-button" id="question-5">
+      <h3><span class="fa fa-caret-down"></span> How many votes do I have?</h3>
+    </div>
+    <div class="hidden-question-answer" id="answer-5">
+      <p>
+        You can vote on every bill out there. However, remember that you can
+        only vote once on every single bill.
+      </p>
+    </div>
+    <!-- /cell-->
+  </div>
+</div>
+
+<script>
+  let question_1 = document.getElementById("question-1");
+  let question_2 = document.getElementById("question-2");
+  let question_3 = document.getElementById("question-3");
+  let question_4 = document.getElementById("question-4");
+  let question_5 = document.getElementById("question-5");
+
+  // #1
+  question_1.onclick = function() {
+    let answer_1 = document.getElementById("answer-1");
+
+    if (answer_1.style.display == "block") {
+      answer_1.style.display = "none";
+    } else {
+      answer_1.style.display = "block";
+    }
+  }
+
+  // #2
+  question_2.onclick = function() {
+    let answer_2 = document.getElementById("answer-2");
+
+    if (answer_2.style.display == "block") {
+      answer_2.style.display = "none";
+    } else {
+      answer_2.style.display = "block";
+    }
+  }
+
+  // #3
+  question_3.onclick = function() {
+    let answer_3 = document.getElementById("answer-3");
+
+    if (answer_3.style.display == "block") {
+      answer_3.style.display = "none";
+    } else {
+      answer_3.style.display = "block";
+    }
+  }
+
+  // #4
+  question_4.onclick = function() {
+    let answer_4 = document.getElementById("answer-4");
+
+    if (answer_4.style.display == "block") {
+      answer_4.style.display = "none";
+    } else {
+      answer_4.style.display = "block";
+    }
+  }
+
+  // #5
+  question_5.onclick = function() {
+    let answer_5 = document.getElementById("answer-5");
+
+    if (answer_5.style.display == "block") {
+      answer_5.style.display = "none";
+    } else {
+      answer_5.style.display = "block";
+    }
+  }
+</script>
+
+
+{% endblock %}

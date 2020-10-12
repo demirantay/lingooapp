@@ -56,3 +56,36 @@ def basic_bill_landing_page(request):
     }
 
     return render(request, "basic_voting_sys/landing_page.html", data)
+
+
+def basic_bill_passed_page(request):
+    """
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_voting_sys/passed_page.html", data)
+
+
+def basic_bill_shelved_page(request):
+    """
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_voting_sys/shelved_page.html", data)
+
+
+def basic_bill_new_page(request):
+    """
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_voting_sys/new_page.html", data)

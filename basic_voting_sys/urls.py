@@ -20,10 +20,28 @@ urlpatterns = [
         views.basic_update_bill,
         name="basic_update_bill",
     ),
-    # Bill post update page
+    # Bills landing page
     path(
         "voting/congress/",
         views.basic_bill_landing_page,
         name="basic_bill_landing_page",
+    ),
+    # Bills passed bills page
+    path(
+        "voting/congress/passed/",
+        views.basic_bill_passed_page,
+        name="basic_bill_passed_page",
+    ),
+    # Bills shelved bills page
+    path(
+        "voting/congress/shelved/",
+        views.basic_bill_shelved_page,
+        name="basic_bill_shelved_page",
+    ),
+    # Bills shelved bills page
+    path(
+        "voting/congress/new/",
+        views.basic_bill_new_page,
+        name="basic_bill_new_page",
     ),
 ]
