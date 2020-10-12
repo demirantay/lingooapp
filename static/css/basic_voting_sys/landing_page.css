@@ -1,0 +1,632 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* ---------- Responsive nav viewing --------- */
+#hidden-desktop-congress-nav {
+  display: block;
+}
+
+#hidden-mobile-congress-nav {
+  display: none;
+}
+
+
+/* -------------------- bill landing page left part ------------------*/
+#bill-container-left-part {
+  border: 1px solid transparent;
+  height: auto;
+  width: 60%;
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+#bill-container-left-part h1 {
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+#bill-cell-link {
+  color: black;
+  text-decoration: none;
+}
+
+#bill-cell {
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  background-color: white;
+  padding: 10px 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+#bill-cell:hover {
+  transition: 0.2s;
+  -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+#bill-cell-top-part {
+  border: 1px solid transparent;
+}
+
+#bill-cell-top-part p {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px;
+  padding: 8px;
+}
+
+#bill-cell-top-part p span {
+  display: inline-block;
+  color: #F1C40F;
+  font-size: 18px;
+}
+
+#bill-category {
+  float: right;
+  vertical-align: middle;
+  background-color: grey;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin-top: 0px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+#bill-cell-middle-part {
+  border: 1px solid transparent;
+}
+
+#content-meta-info {
+    font-size: 14px;
+}
+
+#bill-cell-middle-part p {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#bill-cell-middle-part p a {
+  color: black;
+  text-decoration: none;
+}
+
+#bill-cell-middle-part p a:hover {
+  text-decoration: underline;
+}
+
+#bill-cell-middle-part h1 {
+  margin: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 23px;
+}
+
+#bill-cell-bottom-part {
+
+}
+
+#bill-cell-bottom-part p {
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+#bill-cell-bottom-part p b {
+
+}
+
+#bill-cell-bottom-part p span {
+  color: #27AE60;
+}
+
+#bill-page-pagination {
+
+}
+
+#bill-page-pagination a {
+  display: inline-block;
+  border: 1px solid #E3102E;
+  background-color: #E3102E;
+  color: white;
+  font-size: 23px;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+#bill-page-pagination a:hover {
+  transition: 0.2s;
+  background-color: #A50E23
+}
+
+#bill-page-pagination a span {
+
+}
+
+/* -------------------- bill landing page right part ------------------*/
+#bill-container-right-part {
+  border: 1px solid transparent;
+  height: 100px;
+  width: 38%;
+  vertical-align: top;
+  display: inline-block;
+  padding-top: 20px;
+}
+
+#sponsor-button {
+  background-color: #27AE60;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+#sponsor-button:hover {
+  transition: 0.2s;
+  background-color: #186A3B;;
+}
+
+#sponsor-button span {
+  margin-right: 8px;
+}
+
+#right-part-navigation {
+  margin-top: 30px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  height: auto;
+}
+
+#right-part-navigation a {
+  display: block;
+  padding: 10px 0px;
+  border: 2px solid lightgrey;
+  text-decoration: none;
+  border-radius: 7px;
+  margin: 5px 0px;
+  text-align: left;
+  color: grey;
+  padding-left: 20px;
+  font-weight: 800;
+  background-color: white;
+  z-index: 99;
+  font-size: 23px;
+}
+
+#right-part-navigation a:hover {
+  -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  transition: 0.2s;
+  border: 2px solid #E3102E;
+  background-color: #E3102E;
+  color: white;
+}
+
+#right-part-navigation a span {
+  margin-right: 8px;
+}
+
+#checked-navigation {
+  border: 2px solid #E3102E !important;
+  background-color: #E3102E !important;
+  color: white !important;
+}
+
+
+#right-part-faq {
+  border: 1px solid lightgrey;
+  margin-top: 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+#faq-header {
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  padding: 8px 10px;
+}
+
+#faq-header h1 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.question-button {
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
+  border-top: 1px solid transparent;
+}
+
+.question-button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: lightgrey;
+}
+
+.question-button h3 {
+  margin-left: 15px;
+}
+
+.question-button h3 span {
+  margin-right: 10px;
+}
+
+.hidden-question-answer p {
+  padding: 0px 10px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+#question-5 {
+  border-bottom: 1px solid transparent;
+  border-radius: 0px 0px 8px 8px;
+}
+
+#answer-1 {
+  display: none;
+}
+
+#answer-2 {
+  display: none;
+}
+
+#answer-3 {
+  display: none;
+}
+
+#answer-4 {
+  display: none;
+}
+
+#answer-5 {
+  display: none;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  /* ---------- Responsive nav viewing --------- */
+  #hidden-desktop-congress-nav {
+    display: none;
+  }
+
+  #hidden-mobile-congress-nav {
+    display: block;
+  }
+
+
+  /* -------------------- bill landing page left part ------------------*/
+  #bill-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  #bill-container-left-part h1 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #bill-cell {
+    padding: 10px 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+
+  #bill-cell-top-part p {
+    display: block;
+    margin: 0px;
+    padding: 8px;
+    font-weight: 700;
+  }
+
+  #bill-category {
+    float: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 0px;
+    display: none;
+    width: 50%;
+  }
+
+  #bill-cell-middle-part p {
+    margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  #bill-cell-middle-part h1 {
+    font-size: 20px;
+  }
+
+  #bill-page-pagination a {
+    font-size: 25px;
+    padding: 15px 25px;
+    border-radius: 8px;
+  }
+
+
+  /* -------------------- bill landing page right part ------------------*/
+  #bill-container-right-part {
+    height: auto;
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+  }
+
+  #sponsor-button {
+    padding: 8px 15px;
+    font-size: 22px;
+    margin-right: 10px;
+    display: block;
+    margin-bottom: -20px;
+    margin-top: 20px;
+  }
+
+  #sponsor-button span {
+    margin-right: 8px;
+  }
+
+  #right-part-navigation {
+    margin-top: 30px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+  }
+
+  #right-part-navigation a {
+    margin: 5px 0px;
+  }
+
+  #right-part-faq {
+    margin-right: 5px;
+    margin-top: -35px;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ---------- Responsive nav viewing --------- */
+  #hidden-desktop-congress-nav {
+    display: none;
+  }
+
+  #hidden-mobile-congress-nav {
+    display: block;
+  }
+
+
+  /* -------------------- bill landing page left part ------------------*/
+  #bill-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  #bill-container-left-part h1 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #bill-cell {
+    padding: 10px 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+
+  #bill-cell-top-part p {
+    display: block;
+    margin: 0px;
+    padding: 8px;
+    font-weight: 700;
+  }
+
+  #bill-category {
+    float: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 0px;
+    display: none;
+    width: 50%;
+  }
+
+  #bill-cell-middle-part p {
+    margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  #bill-cell-middle-part h1 {
+    font-size: 20px;
+  }
+
+  #bill-page-pagination a {
+    font-size: 25px;
+    padding: 15px 25px;
+    border-radius: 8px;
+  }
+
+
+  /* -------------------- bill landing page right part ------------------*/
+  #bill-container-right-part {
+    height: auto;
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+  }
+
+  #sponsor-button {
+    padding: 8px 15px;
+    font-size: 22px;
+    margin-right: 10px;
+    display: block;
+    margin-bottom: -20px;
+    margin-top: 20px;
+  }
+
+  #sponsor-button span {
+    margin-right: 8px;
+  }
+
+  #right-part-navigation {
+    margin-top: 30px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+  }
+
+  #right-part-navigation a {
+    margin: 5px 0px;
+  }
+
+  #right-part-faq {
+    margin-right: 5px;
+    margin-top: -35px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ---------- Responsive nav viewing --------- */
+  #hidden-desktop-congress-nav {
+    display: none;
+  }
+
+  #hidden-mobile-congress-nav {
+    display: block;
+  }
+
+
+  /* -------------------- bill landing page left part ------------------*/
+  #bill-container-left-part {
+    border: 1px solid transparent;
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  #bill-container-left-part h1 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #bill-cell {
+    padding: 10px 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+
+  #bill-cell-top-part p {
+    display: block;
+    margin: 0px;
+    padding: 8px;
+    font-weight: 700;
+  }
+
+  #bill-category {
+    float: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 0px;
+    display: none;
+    width: 50%;
+  }
+
+  #bill-cell-middle-part p {
+    margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  #bill-cell-middle-part h1 {
+    font-size: 20px;
+  }
+
+  #bill-page-pagination a {
+    font-size: 25px;
+    padding: 15px 25px;
+    border-radius: 8px;
+  }
+
+
+  /* -------------------- bill landing page right part ------------------*/
+  #bill-container-right-part {
+    height: auto;
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+  }
+
+  #sponsor-button {
+    padding: 8px 15px;
+    font-size: 22px;
+    margin-right: 10px;
+    display: block;
+    margin-bottom: -20px;
+    margin-top: 20px;
+  }
+
+  #sponsor-button span {
+    margin-right: 8px;
+  }
+
+  #right-part-navigation {
+    margin-top: 30px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+  }
+
+  #right-part-navigation a {
+    margin: 5px 0px;
+  }
+
+  #right-part-faq {
+    margin-right: 5px;
+    margin-top: -35px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

@@ -83,7 +83,7 @@
         <a href="{% url 'login' %}"><span class="fa fa-sign-in"></span> Login</a>
       {% else %}
         <!-- if logged in -->
-        <a href=""><span class="fa fa-home"></span> Home</a>
+        <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
         <a href="{% url 'basic_language_explore' english %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
