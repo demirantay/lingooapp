@@ -1,0 +1,428 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* -------- feedback header ----------- */
+#feedback-header {
+  border: 1px solid transparent;
+  width: 82%;
+  margin-top: 20px;
+}
+
+#feedback-header h1 {
+  display: inline-block;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+#feedback-header button {
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+  font-size: 20px;
+  color: white;
+  background-color: #27AE60;
+  border: 1px solid #27AE60;
+  padding: 7px 20px;
+  border-radius: 10px;
+}
+
+#feedback-header button:hover {
+  background-color: #186A3B;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#feedback-header button span {
+
+}
+
+/* --------- feedback cell ------------- */
+#feedback-cell {
+    width: 80%;
+    border: 1px solid lightgrey;
+    height: auto;
+    background-color: white;
+    margin-top: 15px;
+    padding: 10px 10px;
+}
+
+#feedback-cell a {
+  color: black;
+  text-decoration: none;
+}
+
+#feedback-cell h1 {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+#feedback-cell h1:hover {
+  color: #E3102E;
+  transition: 0.2s;
+}
+
+#feedback-cell-meta-info {
+  margin: 0px;
+}
+
+#feedbacker-profile-photo {
+  height: 22px;
+  width: 22px;
+  background-color: #E5E8E8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../placeholder/test.jpg");
+}
+
+#post-info {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#post-info a {
+  color: #E3102E;
+  font-weight: 700;
+    border-bottom: 2px solid transparent;
+}
+
+#post-info a:hover {
+  transition: 0.2s;
+  border-bottom: 2px solid #E3102E;
+}
+
+#post-content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#post-content a {
+  color: #E3102E;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+}
+
+#post-content a:hover {
+  border-bottom: 2px solid #E3102E;
+  transition: 0.2s;
+}
+
+#feedback-views {
+  color: grey;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+/* -------------- feedback-pagination ---------------*/
+#feedback-pagination {
+  border: 1px solid transparent;
+  margin-top: 40px;
+}
+
+#feedback-pagination a {
+  background-color: #E3102E;
+  color: white;
+  font-size: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 50px;
+}
+
+#feedback-pagination a:hover {
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
+#feedback-pagination a span {
+  font-size: 20px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* -------- feedback header ----------- */
+  #feedback-header {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #feedback-header h1 {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #feedback-header button {
+    display: block;
+    float: none;
+    width: 100%:
+    padding: 7px 20px;
+
+  }
+
+  /* --------- feedback cell ------------- */
+  #feedback-cell {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px 10px;
+  }
+
+  #feedback-cell h1 {
+    font-size: 16px;
+  }
+
+  #feedbacker-profile-photo {
+    height: 22px;
+    width: 22px;
+  }
+
+  #post-info a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  #post-content {
+    font-size: 14px;
+  }
+
+  #post-content a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  /* -------------- feedback-pagination ---------------*/
+  #feedback-pagination {
+    text-align: center;
+  }
+
+  #feedback-pagination a span {
+    font-size: 25px;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* -------- feedback header ----------- */
+  #feedback-header {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #feedback-header h1 {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #feedback-header button {
+    display: block;
+    float: none;
+    width: 100%:
+    padding: 7px 20px;
+
+  }
+
+  /* --------- feedback cell ------------- */
+  #feedback-cell {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px 10px;
+  }
+
+  #feedback-cell h1 {
+    font-size: 16px;
+  }
+
+  #feedbacker-profile-photo {
+    height: 22px;
+    width: 22px;
+  }
+
+  #post-info a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  #post-content {
+    font-size: 14px;
+  }
+
+  #post-content a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  /* -------------- feedback-pagination ---------------*/
+  #feedback-pagination {
+    text-align: center;
+  }
+
+  #feedback-pagination a span {
+    font-size: 25px;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* -------- feedback header ----------- */
+  #feedback-header {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #feedback-header h1 {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #feedback-header button {
+    display: block;
+    float: none;
+    width: 100%:
+    padding: 7px 20px;
+
+  }
+
+  /* --------- feedback cell ------------- */
+  #feedback-cell {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px 10px;
+  }
+
+  #feedback-cell h1 {
+    font-size: 16px;
+  }
+
+  #feedbacker-profile-photo {
+    height: 22px;
+    width: 22px;
+  }
+
+  #post-info a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  #post-content {
+    font-size: 14px;
+  }
+
+  #post-content a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  /* -------------- feedback-pagination ---------------*/
+  #feedback-pagination {
+    text-align: center;
+  }
+
+  #feedback-pagination a span {
+    font-size: 25px;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* -------- feedback header ----------- */
+  #feedback-header {
+    width: 83%;
+    margin: 0 auto;
+  }
+
+  #feedback-header h1 {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #feedback-header button {
+    display: block;
+    float: none;
+    width: 100%:
+    padding: 7px 20px;
+
+  }
+
+  /* --------- feedback cell ------------- */
+  #feedback-cell {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px 10px;
+  }
+
+  #feedback-cell h1 {
+    font-size: 16px;
+  }
+
+  #feedbacker-profile-photo {
+    height: 22px;
+    width: 22px;
+  }
+
+  #post-info a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  #post-content {
+    font-size: 14px;
+  }
+
+  #post-content a {
+    color: #E3102E;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+
+  /* -------------- feedback-pagination ---------------*/
+  #feedback-pagination {
+    text-align: center;
+  }
+
+  #feedback-pagination a span {
+    font-size: 25px;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

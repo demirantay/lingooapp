@@ -1,0 +1,83 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_feedback/landing_page.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="feedback-container">
+
+  <div id="feedback-header">
+    <h1>Feedback</h1>
+    <button><span class="fa fa-plus"></span> Write Feedback</button>
+  </div>
+
+  <!-- feedback cell -->
+  <div id="feedback-cell">
+    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
+    <div id="feedback-cell-meta-info">
+      <div id="feedbacker-profile-photo"></div>
+      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
+      <!-- count max: 300 char -->
+      <p id="post-content">
+          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
+          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
+          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
+          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
+          azından müşteri hizmetleri <a href="">... read more</a>
+      </p>
+    </div>
+    <p id="feedback-views">1500 views</p>
+  </div>
+  <!-- /cell -->
+
+  <!-- feedback cell -->
+  <div id="feedback-cell">
+    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
+    <div id="feedback-cell-meta-info">
+      <div id="feedbacker-profile-photo"></div>
+      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
+      <!-- count max: 300 char -->
+      <p id="post-content">
+          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
+          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
+          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
+          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
+          azından müşteri hizmetleri <a href="">... read more</a>
+      </p>
+    </div>
+    <p id="feedback-views">1500 views</p>
+  </div>
+  <!-- /cell -->
+
+  <!-- feedback cell -->
+  <div id="feedback-cell">
+    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
+    <div id="feedback-cell-meta-info">
+      <div id="feedbacker-profile-photo"></div>
+      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
+      <!-- count max: 300 char -->
+      <p id="post-content">
+          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
+          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
+          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
+          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
+          azından müşteri hizmetleri <a href="">... read more</a>
+      </p>
+    </div>
+    <p id="feedback-views">1500 views</p>
+  </div>
+  <!-- /cell -->
+
+  <div id="feedback-pagination">
+      <a href=""><span class="fa fa-arrow-left"></span></a>
+      <a href=""><span class="fa fa-arrow-right"></span></a>
+  </div>
+
+
+</div>
+
+
+{% endblock %}
