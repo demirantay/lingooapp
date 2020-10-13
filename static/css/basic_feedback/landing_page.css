@@ -45,6 +45,7 @@ body {
     background-color: white;
     margin-top: 15px;
     padding: 10px 10px;
+    border-radius: 8px;
 }
 
 #feedback-cell a {
@@ -148,6 +149,109 @@ body {
 }
 
 
+
+/* -------------- hidden feedback create panel ---------------*/
+#hidden-feedback-create-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 10%;
+  height: auto;
+  width: 400px;
+  border: 1px solid grey;
+  background-color: white;
+  z-index: 9;
+  -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  padding: 10px;
+  border-radius: 8px 8px 0px 0px;
+  display: none;
+}
+
+#hidden-feedback-create-panel button {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top:0;
+  border: 1px solid transparent;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#hidden-feedback-create-panel button:hover {
+  cursor: pointer;
+  color: red;
+}
+
+#hidden-feedback-create-panel h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#hidden-feedback-create-panel p {
+  display: none;
+  color: red;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+#hidden-feedback-create-panel form {
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+}
+
+#hidden-feedback-create-panel form label {
+  font-weight: 700;
+  display: block;
+  margin-top: 10px;
+}
+
+#hidden-feedback-create-panel form input {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#hidden-feedback-create-panel form input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+#hidden-feedback-create-panel form textarea {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+  padding: 10px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#hidden-feedback-create-panel form textarea:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+#feedback-create-button {
+  color: white;
+  background-color: #27AE60;
+}
+
+#feedback-create-button:hover {
+  transition: 0.2s;
+  background-color: #186A3B;
+  cursor: pointer;
+}
+
+
+
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
   /* -------- feedback header ----------- */
@@ -210,6 +314,44 @@ body {
   #feedback-pagination a span {
     font-size: 25px;
   }
+
+  /* -------------- hidden feedback create panel ---------------*/
+  #hidden-feedback-create-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    border-radius: 0px;
+    margin-right: 0%;
+    border: 1px solid transparent;
+    width: 100%;
+    padding: 0px;
+  }
+
+  #hidden-feedback-create-panel button {
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 18px;
+  }
+
+  #hidden-feedback-create-panel h3 {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 22px;
+  }
+
+  #hidden-feedback-create-panel p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #hidden-feedback-create-panel form {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
 }
 
 
@@ -275,6 +417,45 @@ body {
   #feedback-pagination a span {
     font-size: 25px;
   }
+
+  /* -------------- hidden feedback create panel ---------------*/
+  #hidden-feedback-create-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    border-radius: 0px;
+    margin-right: 0%;
+    border: 1px solid transparent;
+    width: 100%;
+    padding: 0px;
+  }
+
+  #hidden-feedback-create-panel button {
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 18px;
+  }
+
+  #hidden-feedback-create-panel h3 {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 22px;
+  }
+
+  #hidden-feedback-create-panel p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #hidden-feedback-create-panel form {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
 }
 
 
@@ -340,6 +521,44 @@ body {
   #feedback-pagination a span {
     font-size: 25px;
   }
+
+  /* -------------- hidden feedback create panel ---------------*/
+  #hidden-feedback-create-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    border-radius: 0px;
+    margin-right: 0%;
+    border: 1px solid transparent;
+    width: 100%;
+    padding: 0px;
+  }
+
+  #hidden-feedback-create-panel button {
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 18px;
+  }
+
+  #hidden-feedback-create-panel h3 {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 22px;
+  }
+
+  #hidden-feedback-create-panel p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #hidden-feedback-create-panel form {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
 }
 
 

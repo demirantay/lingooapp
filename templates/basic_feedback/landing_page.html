@@ -11,46 +11,8 @@
 
   <div id="feedback-header">
     <h1>Feedback</h1>
-    <button><span class="fa fa-plus"></span> Write Feedback</button>
+    <button id="open-create-panel-button"><span class="fa fa-plus"></span> Write Feedback</button>
   </div>
-
-  <!-- feedback cell -->
-  <div id="feedback-cell">
-    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
-    <div id="feedback-cell-meta-info">
-      <div id="feedbacker-profile-photo"></div>
-      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
-      <!-- count max: 300 char -->
-      <p id="post-content">
-          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
-          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
-          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
-          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
-          azından müşteri hizmetleri <a href="">... read more</a>
-      </p>
-    </div>
-    <p id="feedback-views">1500 views</p>
-  </div>
-  <!-- /cell -->
-
-  <!-- feedback cell -->
-  <div id="feedback-cell">
-    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
-    <div id="feedback-cell-meta-info">
-      <div id="feedbacker-profile-photo"></div>
-      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
-      <!-- count max: 300 char -->
-      <p id="post-content">
-          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
-          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
-          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
-          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
-          azından müşteri hizmetleri <a href="">... read more</a>
-      </p>
-    </div>
-    <p id="feedback-views">1500 views</p>
-  </div>
-  <!-- /cell -->
 
   <!-- feedback cell -->
   <div id="feedback-cell">
@@ -75,9 +37,40 @@
       <a href=""><span class="fa fa-arrow-left"></span></a>
       <a href=""><span class="fa fa-arrow-right"></span></a>
   </div>
-
-
 </div>
+
+
+<!-- hidden feed back create panel -->
+<div id="hidden-feedback-create-panel">
+  <button id="close-create-panel-button"><span class="fa fa-close"></span></button>
+  <h3>Give us a feedback</h3>
+
+  <p>You cannot add more than 1 feedback in a single day.</p>
+
+  <form>
+      <label>Title:</label>
+      <input type="text" placeholder="Feedback type" />
+      <label>Your Feedback:</label>
+      <textarea placeholder="Please be precise"></textarea>
+      <input type="submit" value="Post" id="feedback-create-button" />
+  </form>
+</div>
+
+<script>
+
+  let open_button = document.getElementById("open-create-panel-button");
+  let close_button = document.getElementById("close-create-panel-button");
+  let hidden_create_panel = document.getElementById("hidden-feedback-create-panel");
+
+  open_button.onclick = function () {
+    hidden_create_panel.style.display = "block";
+  }
+
+  close_button.onclick = function () {
+    hidden_create_panel.style.display = "none";
+  }
+
+</script>
 
 
 {% endblock %}
