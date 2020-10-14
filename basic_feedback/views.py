@@ -21,3 +21,15 @@ def basic_feedback_landing_page(request):
     }
 
     return render(request, "basic_feedback/landing_page.html", data)
+
+
+def basic_feedback_read(request, feedback_id):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "basic_feedback/read.html", data)

@@ -1,0 +1,1117 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* ----------------------- users feedback part --------------------------- */
+#feedback-part {
+  border: 1px solid lightgrey;
+  width: 80%;
+  height: auto;
+  display: block;
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+#feedback-part h1 {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#feedback-part-meta-info {
+  border: 1px solid transparent;
+}
+
+#feedback-part-profile-photo {
+  height: 25px;
+  width: 25px;
+  background-color: #E5E8E8;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../placeholder/test.jpg");
+  background-size: cover;
+}
+
+#meta-profile-info {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+#meta-profile-info a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+#feedback-content {
+
+}
+
+#feedback-bottom-info-part {
+  border: 1px solid transparent;
+}
+
+#feedback-bottom-info-part p {
+  color: black;
+  display: inline-block;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 20px;
+
+}
+
+#feedback-bottom-info-part a {
+  background-color: #333333;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+#feedback-bottom-info-part a:hover {
+  background-color: #E3102E;
+  transition: 0.2s;
+}
+
+/* ----------------------- dev answer part --------------------------- */
+#dev-answer-part {
+  border: 1px solid #27AE60;
+  width: 80%;
+  height: auto;
+  display: block;
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+}
+
+#dev-answer-part h1 {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #27AE60;
+}
+
+#dev-answer-meta-info {}
+
+#dev-answer-meta-profile-info {}
+
+#dev-answer-meta-profile-info span {
+  color: black;
+  font-weight: 700;
+}
+
+#dev-answer-content {}
+
+
+/* ----------------------- Make comment part --------------------------- */
+#commments-part {
+  border: 1px solid lightgrey;
+  width: 80%;
+  height: auto;
+  display: block;
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 25px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
+
+#create-comment-part {
+  border: 1px solid transparent;
+}
+
+#create-comment-part form {
+  width: 100%;
+}
+
+#create-comment-part form textarea {
+  width: 98%;
+  height: 100px;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #F4F6F6;
+}
+
+#create-comment-part form textarea:focus {
+  outline: none;
+  border: 1px solid black;
+
+}
+
+#create-comment-part form input {
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid #E3102E;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+
+#create-comment-part form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
+
+/* ----------------------- Comments part --------------------------- */
+#all-comments {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+#comment-cell {
+  margin-bottom: 8px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#comment-meta-info {
+
+}
+
+#comment-profile-photo {
+  height: 25px;
+  width: 25px;
+  background-color: #F4F6F6;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../placeholder/test.jpg");
+  background-size: cover;
+  margin-right: 5px;
+}
+
+#comment-meta-info a {
+  vertical-align: middle;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 15px;
+  font-size: 17px;
+}
+
+#comment-meta-info a:hover {
+  transition: 0.2s;
+  color: #E3102E;
+}
+
+#comment-meta-info p {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px;
+  color: grey;
+  font-size: 15px;
+}
+
+#comment-content {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+#comment-bottom-operations {
+  margin-bottom: 10px;
+  margin-left: -5px;
+}
+
+#comment-bottom-operations form {
+  display: inline-block;
+}
+
+#comment-bottom-operations form input {
+  font-weight: 700;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 15px;
+}
+
+#comment-bottom-operations form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  color: #E3102E;
+}
+
+#comment-bottom-operations button {
+  display: inline-block;
+  font-weight: 700;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 15px;
+}
+
+#comment-bottom-operations button:focus {
+  outline: none;
+}
+
+#comment-bottom-operations button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  color: #E3102E;
+}
+
+#comment-upvotes {
+  font-size: 14px;
+  color: grey;
+  margin:0px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#hidden-reply-form {
+  display: none;
+}
+
+#hidden-reply-form form {
+
+}
+
+#hidden-reply-form form input {
+  display: block;
+  padding: 3px 15px;
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid #E3102E;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#hidden-reply-form form input:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #A50E23;
+}
+
+#hidden-reply-form form textarea {
+  width: 50%;
+  display: block;
+  height: 70px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  background-color: #F4F6F6;
+  margin-bottom: 3px;
+}
+
+#hidden-reply-form form textarea:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+
+#hidden-replies-open-button {
+  color: #A50E23;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 16px;
+}
+
+#hidden-replies-open-button:hover {
+  cursor: pointer;
+}
+
+#hidden-replies-open-button:focus {
+  outline: none;
+}
+
+#comment-replies-container {
+  display: none;
+}
+
+#comment-reply-cell {
+  border-bottom: 1px solid lightgrey;
+  width: 95%;
+  margin-left: 5%;
+  padding: 5px 0px;
+}
+
+#comment-reply-cell-meta-info {
+
+}
+
+#comment-reply-cell-meta-info a {
+  display: inline-block;
+  margin: 0px;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#comment-reply-cell-meta-info p {
+  display: inline-block;
+  margin: 0px;
+}
+
+#comment-reply-cell-content {
+  margin: 0px;
+  margin-top: 5px;
+}
+
+
+/* -------------------  hidden-feedback-update-panel ---------------------- */
+#hidden-feedback-update-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 10%;
+  height: auto;
+  width: 400px;
+  border: 1px solid grey;
+  background-color: white;
+  z-index: 9;
+  -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+  padding: 10px;
+  border-radius: 8px 8px 0px 0px;
+  display: none;
+}
+
+#hidden-feedback-update-panel button {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top:0;
+  border: 1px solid transparent;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#hidden-feedback-update-panel button:hover {
+  cursor: pointer;
+  color: #E3102E;
+}
+
+#hidden-feedback-update-panel h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#hidden-feedback-update-panel p {
+  display: none;
+  color: #E3102E;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+#hidden-feedback-update-panel form {
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+}
+
+#hidden-feedback-update-panel form label {
+  font-weight: 700;
+  display: block;
+  margin-top: 10px;
+}
+
+#hidden-feedback-update-panel form input {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#hidden-feedback-update-panel form input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+#hidden-feedback-update-panel form textarea {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+  padding: 10px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#hidden-feedback-update-panel form textarea:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+#feedback-update-button {
+  color: white;
+  background-color: #27AE60;
+}
+
+#feedback-update-button:hover {
+  transition: 0.2s;
+  background-color: #186A3B;
+  cursor: pointer;
+}
+
+
+/* -------------------  hidden-feedback-delete-panel ---------------------- */
+#hidden-feedback-delete-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 99;
+  opacity: 0.4;
+  display: none;
+}
+
+#hidden-feedback-delete-panel {
+  position: fixed;
+  top:0;
+  left: 0;
+  background-color: white;
+  z-index: 999;
+  padding: 20px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 10%;
+  text-align: center;
+  display: none;
+}
+
+#hidden-feedback-delete-panel h1 {
+  font-size: 25px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+#hidden-feedback-delete-panel form {
+  display: inline-block;
+}
+
+#hidden-feedback-delete-panel form input {
+  background-color:#E3102E;
+  color: white;
+  border: 1px solid #E3102E;
+  font-size: 20px;
+  padding: 5px 8px;
+  border-radius: 6px;
+
+}
+
+#hidden-feedback-delete-panel form input:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #A50E23;
+}
+
+#hidden-feedback-delete-panel button {
+  display: inline-block;
+  background-color: transparent;
+  color: #E3102E;
+  border: 1px solid transparent;
+  font-size: 20px;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+#hidden-feedback-delete-panel button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  border-bottom: 1px solid #E3102E;
+  border-radius: 6px 6px 0px 0px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ----------------------- users feedback part --------------------------- */
+  #feedback-part {
+    border: 1px solid lightgrey;
+    width: 80%;
+    height: auto;
+    display: block;
+    background-color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  #feedback-part h1 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #feedback-part-meta-info {
+    border: 1px solid transparent;
+  }
+
+  #feedback-part-profile-photo {
+    height: 25px;
+    width: 25px;
+    background-color: #E5E8E8;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../placeholder/test.jpg");
+    background-size: cover;
+  }
+
+  #meta-profile-info {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  #meta-profile-info a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+  }
+
+  #feedback-content {
+
+  }
+
+  #feedback-bottom-info-part {
+    border: 1px solid transparent;
+  }
+
+  #feedback-bottom-info-part p {
+    color: black;
+    display: inline-block;
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+
+  }
+
+  #feedback-bottom-info-part a {
+    background-color: #333333;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  #feedback-bottom-info-part a:hover {
+    background-color: #E3102E;
+    transition: 0.2s;
+  }
+
+  /* ----------------------- dev answer part --------------------------- */
+  #dev-answer-part {
+    border: 1px solid #27AE60;
+    width: 80%;
+    height: auto;
+    display: block;
+    background-color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+  }
+
+  #dev-answer-part h1 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #27AE60;
+  }
+
+  #dev-answer-meta-info {}
+
+  #dev-answer-meta-profile-info {}
+
+  #dev-answer-meta-profile-info span {
+    color: black;
+    font-weight: 700;
+  }
+
+  #dev-answer-content {}
+
+
+  /* ----------------------- Make comment part --------------------------- */
+  #commments-part {
+    border: 1px solid lightgrey;
+    width: 80%;
+    height: auto;
+    display: block;
+    background-color: white;
+    padding: 10px 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+  }
+
+  #create-comment-part {
+    border: 1px solid transparent;
+  }
+
+  #create-comment-part form {
+    width: 100%;
+  }
+
+  #create-comment-part form textarea {
+    width: 98%;
+    height: 100px;
+    border-radius: 6px;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #F4F6F6;
+  }
+
+  #create-comment-part form textarea:focus {
+    outline: none;
+    border: 1px solid black;
+
+  }
+
+  #create-comment-part form input {
+    background-color: #E3102E;
+    color: white;
+    border: 1px solid #E3102E;
+    padding: 5px 12px;
+    border-radius: 5px;
+  }
+
+  #create-comment-part form input:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #A50E23;
+  }
+
+
+  /* ----------------------- Comments part --------------------------- */
+  #all-comments {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  #comment-cell {
+    margin-bottom: 8px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  #comment-meta-info {
+
+  }
+
+  #comment-profile-photo {
+    height: 25px;
+    width: 25px;
+    background-color: #F4F6F6;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../placeholder/test.jpg");
+    background-size: cover;
+    margin-right: 5px;
+  }
+
+  #comment-meta-info a {
+    vertical-align: middle;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 15px;
+    font-size: 17px;
+  }
+
+  #comment-meta-info a:hover {
+    transition: 0.2s;
+    color: #E3102E;
+  }
+
+  #comment-meta-info p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px;
+    color: grey;
+    font-size: 15px;
+  }
+
+  #comment-content {
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+
+  #comment-bottom-operations {
+    margin-bottom: 10px;
+    margin-left: -5px;
+  }
+
+  #comment-bottom-operations form {
+    display: inline-block;
+  }
+
+  #comment-bottom-operations form input {
+    font-weight: 700;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 15px;
+  }
+
+  #comment-bottom-operations form input:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #E3102E;
+  }
+
+  #comment-bottom-operations button {
+    display: inline-block;
+    font-weight: 700;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 15px;
+  }
+
+  #comment-bottom-operations button:focus {
+    outline: none;
+  }
+
+  #comment-bottom-operations button:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #E3102E;
+  }
+
+  #comment-upvotes {
+    font-size: 14px;
+    color: grey;
+    margin:0px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  #hidden-reply-form {
+    display: none;
+  }
+
+  #hidden-reply-form form {
+
+  }
+
+  #hidden-reply-form form input {
+    display: block;
+    padding: 3px 15px;
+    background-color: #E3102E;
+    color: white;
+    border: 1px solid #E3102E;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  #hidden-reply-form form input:hover {
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: #A50E23;
+  }
+
+  #hidden-reply-form form textarea {
+    width: 50%;
+    display: block;
+    height: 70px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    background-color: #F4F6F6;
+    margin-bottom: 3px;
+  }
+
+  #hidden-reply-form form textarea:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+
+
+  #hidden-replies-open-button {
+    color: #A50E23;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 16px;
+  }
+
+  #hidden-replies-open-button:hover {
+    cursor: pointer;
+  }
+
+  #hidden-replies-open-button:focus {
+    outline: none;
+  }
+
+  #comment-replies-container {
+    display: none;
+  }
+
+  #comment-reply-cell {
+    border-bottom: 1px solid lightgrey;
+    width: 95%;
+    margin-left: 5%;
+    padding: 5px 0px;
+  }
+
+  #comment-reply-cell-meta-info {
+
+  }
+
+  #comment-reply-cell-meta-info a {
+    display: inline-block;
+    margin: 0px;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  #comment-reply-cell-meta-info p {
+    display: inline-block;
+    margin: 0px;
+  }
+
+  #comment-reply-cell-content {
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+
+  /* -------------------  hidden-feedback-update-panel ---------------------- */
+  #hidden-feedback-update-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 10%;
+    height: auto;
+    width: 400px;
+    border: 1px solid grey;
+    background-color: white;
+    z-index: 9;
+    -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+    display: none;
+  }
+
+  #hidden-feedback-update-panel button {
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top:0;
+    border: 1px solid transparent;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  #hidden-feedback-update-panel button:hover {
+    cursor: pointer;
+    color: #E3102E;
+  }
+
+  #hidden-feedback-update-panel h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  #hidden-feedback-update-panel p {
+    display: none;
+    color: #E3102E;
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+
+  #hidden-feedback-update-panel form {
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+  }
+
+  #hidden-feedback-update-panel form label {
+    font-weight: 700;
+    display: block;
+    margin-top: 10px;
+  }
+
+  #hidden-feedback-update-panel form input {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 0px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+
+  #hidden-feedback-update-panel form input:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+
+  #hidden-feedback-update-panel form textarea {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    height: 150px;
+    padding: 10px 0px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+
+  #hidden-feedback-update-panel form textarea:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+
+  #feedback-update-button {
+    color: white;
+    background-color: #27AE60;
+  }
+
+  #feedback-update-button:hover {
+    transition: 0.2s;
+    background-color: #186A3B;
+    cursor: pointer;
+  }
+
+
+  /* -------------------  hidden-feedback-delete-panel ---------------------- */
+  #hidden-feedback-delete-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 99;
+    opacity: 0.4;
+    display: none;
+  }
+
+  #hidden-feedback-delete-panel {
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: white;
+    z-index: 999;
+    padding: 20px 10px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10%;
+    text-align: center;
+    display: none;
+  }
+
+  #hidden-feedback-delete-panel h1 {
+    font-size: 25px;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+
+  #hidden-feedback-delete-panel form {
+    display: inline-block;
+  }
+
+  #hidden-feedback-delete-panel form input {
+    background-color:#E3102E;
+    color: white;
+    border: 1px solid #E3102E;
+    font-size: 20px;
+    padding: 5px 8px;
+    border-radius: 6px;
+
+  }
+
+  #hidden-feedback-delete-panel form input:hover {
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: #A50E23;
+  }
+
+  #hidden-feedback-delete-panel button {
+    display: inline-block;
+    background-color: transparent;
+    color: #E3102E;
+    border: 1px solid transparent;
+    font-size: 20px;
+    padding: 5px 8px;
+    border-radius: 6px;
+  }
+
+  #hidden-feedback-delete-panel button:hover {
+    transition: 0.2s;
+    cursor: pointer;
+    border-bottom: 1px solid #E3102E;
+    border-radius: 6px 6px 0px 0px;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
