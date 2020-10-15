@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # My Module ImportsImports
-from .models import Bill, LastBillCreationDate
+from .models import Bill, LastBillCreationDate, BillVote
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
@@ -165,8 +165,64 @@ def basic_read_bill(request, bill_id):
     # Getting the current history
 
     # Getting the votes
+    try:
+        current_bill_aye_votes = BillVote.objects.filter(
+            vote="aye", bill=current_bill,
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        current_bill_aye_votes = None
+
+    try:
+        current_bill_neutral_votes = BillVote.objects.filter(
+            vote="neutral", bill=current_bill,
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        current_bill_neutral_votes = None
+
+    try:
+        current_bill_nay_votes = BillVote.objects.filter(
+            vote="nay", bill=current_bill,
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        current_bill_nay_votes = None
+
+    # Get the current user vote
+    try:
+        current_user_vote = BillVote.objects.get(
+            voter=current_basic_user_profile, bill=current_bill,
+        )
+    except ObjectDoesNotExist:
+        current_user_vote = None
 
     # Vote form processing
+    if request.POST.get("basic_voting_bill_vote_submit_button"):
+        hidden_vote_value = request.POST.get("hidden_vote_value")
+
+        # check if the hidden vote value is empty
+        if bool(hidden_vote_value) == False or hidden_vote_value == "":
+            # do nothing since it is an empty cast vote
+            pass
+        else:
+            # if there is no vote already create one. If there is a vote just
+            # update the vote value. A user can only have one vote on each bill
+            if bool(current_user_vote) == False or current_user_vote == None:
+                # create a new one
+                new_vote = BillVote(
+                    voter=current_basic_user_profile,
+                    bill=current_bill,
+                    vote=hidden_vote_value,
+                )
+                new_vote.save()
+                return HttpResponseRedirect(
+                    "/voting/congress/bill/read/" + str(current_bill.id) + "/"
+                )
+            else:
+                # update the vote
+                current_user_vote.vote = hidden_vote_value
+                current_user_vote.save()
+                return HttpResponseRedirect(
+                    "/voting/congress/bill/read/" + str(current_bill.id) + "/"
+                )
 
     # Delete request form processing
 
@@ -175,6 +231,13 @@ def basic_read_bill(request, bill_id):
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
         "current_bill": current_bill,
+        "current_bill_aye_votes": current_bill_aye_votes,
+        "current_bill_neutral_votes": current_bill_neutral_votes,
+        "current_bill_nay_votes": current_bill_nay_votes,
+        "aye_amount": len(current_bill_aye_votes),
+        "neutral_amount": len(current_bill_neutral_votes),
+        "nay_amount": len(current_bill_nay_votes),
+        "current_user_vote": current_user_vote,
     }
 
     if current_basic_user == None:

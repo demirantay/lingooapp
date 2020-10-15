@@ -228,6 +228,17 @@ body {
   margin-bottom: 10px;
 }
 
+#vote-operations-your-vote {
+  margin-top: 20px;
+  vertical-align: middle;
+}
+
+#vote-operations-your-vote span {
+  vertical-align: middle;
+  font-size: 11px;
+  margin-left: 10px;
+}
+
 #vote-operations-container h2 {
   margin: 0px;
   margin-top: 20px;
@@ -240,7 +251,7 @@ body {
   text-align: center;
   display: inline-block;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
   border-radius: 10px;
   margin-left: 2%;
   margin-right: 2%;
@@ -268,6 +279,22 @@ body {
   display: none;
 }
 
+.aye-box-active {
+  background-color: #27AE60;
+}
+
+.aye-box-active h3 {
+  display: none;
+}
+
+.aye-box-active #aye-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 35px;
+}
+
 #aye-box:hover {
   transition: 0.2s;
   background-color: #27AE60;
@@ -285,6 +312,22 @@ body {
   margin-top: 35px;
 }
 
+.neutral-box-active {
+  background-color: grey;
+}
+
+.neutral-box-active h3 {
+  display: none;
+}
+
+.neutral-box-active #neutral-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 33px;
+}
+
 #neutral-box:hover {
   transition: 0.2s;
   background-color: grey;
@@ -300,6 +343,22 @@ body {
   color: white;
   font-size: 30px;
   margin-top: 33px;
+}
+
+.nay-box-active {
+  background-color: #E3102E;
+}
+
+.nay-box-active h3 {
+  display: none;
+}
+
+.nay-box-active #nay-span {
+  display: block;
+  transition: 0.2s;
+  color: white;
+  font-size: 30px;
+  margin-top: 35px;
 }
 
 #nay-box:hover {
@@ -322,6 +381,7 @@ body {
 #vote-operations-container form {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: hidden;
 }
 
 #vote-operations-container form input {
@@ -332,7 +392,8 @@ body {
   color: white;
   background-color: #E3102E;
   border: 1px solid #E3102E;
-  display: none;
+  display: block;
+  margin: 0 auto;
 }
 
 #vote-operations-container form input:hover {

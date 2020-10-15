@@ -9,31 +9,36 @@
 
 <!-- bill read info -->
 <div id="bill-read-container">
+
+
+  {% if current_bill.sponsor == current_basic_user_profile %}
   <button id="hidden-post-operation-buttons"><span class="fa fa-ellipsis-v"></span></button>
   <div id="hidden-post-buttons-panel-close-box">
     <button id="hidden-post-operations-buttons-close"><span class="fa fa-close"></span></button>
   </div>
-  <div id="hidden-post-buttons-panel">
-    <a href="{% url 'basic_update_bill' current_bill.id %}">Update</a>
-    <a href="" id="delete_panel_open_btn">Delete</a>
-  </div>
 
-  <script>
-    let hidden_buttons_panel = document.getElementById("hidden-post-buttons-panel");
-    let hidden_buttons_panel_top_part = document.getElementById("hidden-post-buttons-panel-close-box");
-    let panel_open_button = document.getElementById("hidden-post-operation-buttons");
-    let panel_close_button = document.getElementById("hidden-post-operations-buttons-close")
+    <div id="hidden-post-buttons-panel">
+      <a href="{% url 'basic_update_bill' current_bill.id %}">Update</a>
+      <a href="" id="delete_panel_open_btn">Delete</a>
+    </div>
 
-    panel_open_button.onclick = function () {
-      hidden_buttons_panel.style.display = "block";
-      hidden_buttons_panel_top_part.style.display = "block";
-    }
+    <script>
+      let hidden_buttons_panel = document.getElementById("hidden-post-buttons-panel");
+      let hidden_buttons_panel_top_part = document.getElementById("hidden-post-buttons-panel-close-box");
+      let panel_open_button = document.getElementById("hidden-post-operation-buttons");
+      let panel_close_button = document.getElementById("hidden-post-operations-buttons-close")
 
-    panel_close_button.onclick = function () {
-      hidden_buttons_panel.style.display = "none";
-      hidden_buttons_panel_top_part.style.display = "none";
-    }
-  </script>
+      panel_open_button.onclick = function () {
+        hidden_buttons_panel.style.display = "block";
+        hidden_buttons_panel_top_part.style.display = "block";
+      }
+
+      panel_close_button.onclick = function () {
+        hidden_buttons_panel.style.display = "none";
+        hidden_buttons_panel_top_part.style.display = "none";
+      }
+    </script>
+  {% endif %}
 
   <!-- Hidden Delete Request Panel -->
   <div id="background-greying-for-hidden-delete-panel"></div>
@@ -106,7 +111,17 @@
 
 <!-- bill vote operations -->
 <div id="vote-operations-container">
-  <h2>VOTE</h2>
+
+  {% if current_user_vote == None %}
+
+  {% elif current_user_vote.vote == "aye" %}
+    <p id="vote-operations-your-vote"><b>Your vote:</b> <span class="fa fa-circle" style="color:#27AE60;"></span> Aye</p>
+  {% elif current_user_vote.vote == "neutral" %}
+    <p id="vote-operations-your-vote"><b>Your vote:</b> <span class="fa fa-circle" style="color:grey;"></span> Neutral</p>
+  {% elif current_user_vote.vote == "nay" %}
+    <p id="vote-operations-your-vote"><b>Your vote:</b> <span class="fa fa-circle" style="color:#E3102E;"></span> Nay</p>
+  {% endif %}
+
   <div class="vote-box" id="aye-box">
     <h3 id="aye-h3">Aye</h3>
     <span id="aye-span" class="fa fa-check"></span>
@@ -120,36 +135,46 @@
     <span id="nay-span" class="fa fa-close"></span>
   </div>
 
-  <form id="vote-form">
-    <input type="hidden" id="vote-form-hidden-input" />
-    <input type="submit" value="Vote" />
+  <form id="basic-bill-vote-form" method="POST" action="{% url 'basic_read_bill' current_bill.id %}">
+    {% csrf_token %}
+    <input type="hidden" id="vote-form-hidden-input" name="hidden_vote_value" />
+    <input type="submit" value="Vote" name="basic_voting_bill_vote_submit_button" />
   </form>
 </div>
 
 <script>
   let aye_box = document.getElementById("aye-box");
-  let aye_h3 = document.getElementById("aye-h3");
-  let aye_span = document.getElementById("aye-span");
-
   let neutral_box = document.getElementById("neutral-box");
-  let neutral_h3 = document.getElementById("neutral-h3");
-  let neutral_span = document.getElementById("neutral-span");
-
   let nay_box = document.getElementById("nay-box");
-  let nay_h3 = document.getElementById("nay-h3");
-  let nay_span = document.getElementById("nay-span");
 
-  let vote_form = document.getElementById("vote-form");
   let vote_form_hidden_input = document.getElementById("vote-form-hidden-input");
+
+  // neutral box operations
+  neutral_box.onclick = function() {
+    vote_form_hidden_input.value = "neutral";
+
+    neutral_box.classList.add("neutral-box-active");
+    aye_box.classList.remove("aye-box-active");
+    nay_box.classList.remove("nay-box-active");
+  }
 
   // aye box operations
   aye_box.onclick = function() {
-    vote_form.submit();
+    vote_form_hidden_input.value = "aye";
+
+    aye_box.classList.add("aye-box-active");
+    neutral_box.classList.remove("neutral-box-active");
+    nay_box.classList.remove("nay-box-active");
   }
 
-  // neutral box operations
-
   // nay box operations
+  nay_box.onclick = function() {
+    vote_form_hidden_input.value = "nay";
+
+    nay_box.classList.add("nay-box-active");
+    aye_box.classList.remove("aye-box-active");
+    neutral_box.classList.remove("neutral-box-active");
+  }
 </script>
 
 <!-- bill votes -->
@@ -158,31 +183,28 @@
 
   <div id="stat-numbers">
     <p>
-        <b>Aye:</b> 152 <b>Neutral:</b> 152 <b>Nay:</b> 152
+        <b>Aye:</b> {{ aye_amount }} <b>Neutral:</b> {{ neutral_amount }} <b>Nay:</b> {{ nay_amount }}
     </p>
   </div>
 
 
   <div class="voting-stats-column" id="aye-column">
     <h4>Aye</h4>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    {% for vote in current_bill_aye_votes %}
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+    {% endfor %}
   </div>
   <div class="voting-stats-column" id="neutral-column">
     <h4>Neutral</h4>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    {% for vote in current_bill_neutral_votes %}
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+    {% endfor %}
   </div>
   <div class="voting-stats-column" id="nay-column">
     <h4>Nay</h4>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
-    <p><a href=""><span class="fa fa-circle"></span> username</a></p>
+    {% for vote in current_bill_nay_votes %}
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+    {% endfor %}
   </div>
 </div>
 

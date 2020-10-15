@@ -42,6 +42,9 @@ class Bill(models.Model):
 
 
 # Bill Last Add Date
+# ------------
+# This model holds the bill last creaiton dates so that the user cannot create
+# more than one bill in a single day to prevent spamming and brute force
 class LastBillCreationDate(models.Model):
     id = models.AutoField(primary_key=True)
     user_profile = models.OneToOneField(BasicUserProfile, on_delete=models.CASCADE)
@@ -50,3 +53,24 @@ class LastBillCreationDate(models.Model):
     def __str__(self):
         return "user: " + str(self.user_profile) + " | last creation: " + \
                 str(self.creation_date)
+
+
+# Bill Votes
+# --------------
+# This model holds the records for the user votes on the bills
+class BillVote(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    voter = models.ForeignKey(BasicUserProfile, on_delete=models.CASCADE)
+    bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
+    VOTE_CHOICES = (
+        ("aye", "aye"),
+        ("neutral", "neutral"),
+        ("nay", "nay"),
+    )
+    vote = models.CharField(max_length=50, default="neutral",
+                            choices=VOTE_CHOICES)
+
+    def __str__(self):
+        return "Voter: " + str(self.voter.user.username) + " | bill: " \
+                + str(self.bill.id)
