@@ -28,19 +28,19 @@ urlpatterns = [
     ),
     # Bills passed bills page
     path(
-        "voting/congress/passed/",
+        "voting/congress/passed/<int:page>/",
         views.basic_bill_passed_page,
         name="basic_bill_passed_page",
     ),
     # Bills shelved bills page
     path(
-        "voting/congress/shelved/",
+        "voting/congress/shelved/<int:page>/",
         views.basic_bill_shelved_page,
         name="basic_bill_shelved_page",
     ),
     # Bills shelved bills page
     path(
-        "voting/congress/new/",
+        "voting/congress/new/<int:page>/",
         views.basic_bill_new_page,
         name="basic_bill_new_page",
     ),

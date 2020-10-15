@@ -376,7 +376,75 @@ def basic_bill_landing_page(request, page):
     return render(request, "basic_voting_sys/landing_page.html", data)
 
 
-def basic_bill_passed_page(request):
+def basic_bill_new_page(request, page):
+    """
+    in this page the users can see all of the newly created bills
+    """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get all of the bills in a ordered array from the newly created one
+    # At every page there will be 45 entries so always multiply it by that and
+    # then reduce your objects
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    bill_records_starting_point = current_page * 46
+    bill_records_ending_point = bill_records_starting_point + 46
+    try:
+        current_page_bills = Bill.objects.all().order_by("-id")[bill_records_starting_point:bill_records_ending_point]
+    except ObjectDoesNotExist:
+        current_page_bills = None
+
+    # Bill votes
+    bill_votes = {}
+    for bill in current_page_bills:
+        aye_votes = BillVote.objects.filter(bill=bill, vote="aye")
+        nay_votes = BillVote.objects.filter(bill=bill, vote="nay")
+        total_vote_value = len(aye_votes) - len(nay_votes)
+        bill_votes[bill.id] = total_vote_value
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_page_bills": current_page_bills,
+        "current_page": current_page,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "bill_votes": bill_votes,
+    }
+
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_voting_sys/new_page.html", data)
+
+
+def basic_bill_passed_page(request, page):
     """
     """
 
@@ -387,7 +455,7 @@ def basic_bill_passed_page(request):
     return render(request, "basic_voting_sys/passed_page.html", data)
 
 
-def basic_bill_shelved_page(request):
+def basic_bill_shelved_page(request, page):
     """
     """
 
@@ -396,14 +464,3 @@ def basic_bill_shelved_page(request):
     }
 
     return render(request, "basic_voting_sys/shelved_page.html", data)
-
-
-def basic_bill_new_page(request):
-    """
-    """
-
-    data = {
-
-    }
-
-    return render(request, "basic_voting_sys/new_page.html", data)

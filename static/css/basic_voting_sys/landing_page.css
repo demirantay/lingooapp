@@ -28,11 +28,6 @@ body {
   margin-bottom: 30px;
 }
 
-#bill-cell-link {
-  color: black;
-  text-decoration: none;
-}
-
 #bill-cell {
   border: 1px solid lightgrey;
   border-radius: 6px;
@@ -40,19 +35,30 @@ body {
   padding: 10px 5px;
   margin-right: 10px;
   margin-bottom: 15px;
-}
-
-#bill-cell:hover {
-  transition: 0.2s;
-  -webkit-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 12px -3px rgba(0,0,0,0.75);
-  cursor: pointer;
+  position: relative;
 }
 
 #bill-cell-top-part {
   border: 1px solid transparent;
 }
+
+#bill-cell-link {
+  color: black;
+  text-decoration: none;
+}
+
+#bill-cell-link p:hover {
+  text-decoration: none;
+}
+
+#bill-cell-link:hover {
+  text-decoration: none;
+}
+
+#bill-cell-link h1:hover {
+  text-decoration: underline !important;
+}
+
 
 #bill-cell-top-part p {
   display: inline-block;
@@ -93,13 +99,21 @@ body {
   margin-bottom: 10px;
 }
 
+#bill-cell-middle-part p:hover {
+  text-decoration: none;
+}
+
 #bill-cell-middle-part p a {
   color: black;
   text-decoration: none;
 }
 
 #bill-cell-middle-part p a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+#bill-sponsor-link:hover {
+  text-decoration: underline !important;
 }
 
 #bill-cell-middle-part h1 {
@@ -107,6 +121,10 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 23px;
+}
+
+#bill-cell-middle-part h1:hover {
+  text-decoration: underline !important;
 }
 
 #bill-cell-bottom-part {

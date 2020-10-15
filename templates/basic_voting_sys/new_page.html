@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/basic_voting_sys/landing_page.css' %}" />
@@ -16,41 +17,52 @@
     <a href="" id="sponsor-button"><span class="fa fa-plus"></span> Sponsor a Bill</a>
 
     <div id="right-part-navigation">
-        <a href="" id="checked-navigation"><span class="fa fa-paper-plane"></span> Top</a>
-        <a href=""><span class="fa fa-leaf"></span> New</a>
-        <a href=""><span class="fa fa-check"></span> Passed</a>
-        <a href=""><span class="fa fa-archive"></span> Shelved</a>
+      {% with redirect_page="0" %}
+        <a href="{% url 'basic_bill_landing_page' redirect_page %}"><span class="fa fa-paper-plane"></span> Top</a>
+        <a href="{% url 'basic_bill_new_page' redirect_page %}" id="checked-navigation"><span class="fa fa-leaf"></span> New</a>
+        <a href="{% url 'basic_bill_passed_page' redirect_page %}"><span class="fa fa-check"></span> Passed</a>
+        <a href="{% url 'basic_bill_shelved_page' redirect_page %}"><span class="fa fa-archive"></span> Shelved</a>
+      {% endwith %}
     </div>
   </div>
 
-  <!-- bill cell -->
-  <a href="" id="bill-cell-link">
-    <div id="bill-cell">
-      <div id="bill-cell-top-part">
-        <p><span class="fa fa-certificate"></span> Bill No: 15</p>
-        <span id="bill-category">Feature Request</span>
+  {% for bill in current_page_bills %}
+    <!-- bill cell -->
+      <div id="bill-cell">
+        <div id="bill-cell-top-part">
+          <p><span class="fa fa-certificate"></span> Bill No: {{ bill.id }}</p>
+          <span id="bill-category">{{ bill.get_category_display }}</span>
+        </div>
+        <div id="bill-cell-middle-part">
+          <p id="content-meta-info">Sponsored by <a href="{% url 'other_user_profile_overview' bill.sponsor.user.username %}" id="bill-sponsor-link">@{{ bill.sponsor.user.username }}</a> in {{ bill.creation_date }}</p>
+          <h1><a href="{% url 'basic_read_bill' bill.id %}" id="bill-cell-link">{{ bill.title|title }}</a></h1>
+          <!-- max: 280 char -->
+          <p><a href="{% url 'basic_read_bill' bill.id %}" id="bill-cell-link">{{ bill.content|truncatechars:280 }}</a></p>
+        </div>
+        <div id="bill-cell-bottom-part">
+          {% if bill_votes|get_key_value:bill.id >= 0 %}
+            <p><b>Current Votes:</b> <span style="color:#27AE60;">+{{ bill_votes|get_key_value:bill.id }}</span></p>
+          {% else %}
+            <p><b>Current Votes:</b> <span style="color:#E3102E;">{{ bill_votes|get_key_value:bill.id }}</span></p>
+          {% endif %}
+
+        </div>
       </div>
-      <div id="bill-cell-middle-part">
-        <p id="content-meta-info">Sponsored by <a href="">@username</a> in Jun 20, 2020</p>
-        <h1>Lorem Ipsum Dolor Sit Amet</h1>
-        <!-- max: 280 char -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate velit ...</p>
-      </div>
-      <div id="bill-cell-bottom-part">
-        <p><b>Current Votes:</b> <span>+124</span></p>
-      </div>
-    </div>
-  </a>
-  <!-- /cell -->
+
+    <!-- /cell -->
+  {% endfor %}
+
 
   <!-- pagination -->
   <div id="bill-page-pagination">
-    <a href=""><span class="fa fa-arrow-left"></span></a>
-    <a href=""><span class="fa fa-arrow-right"></span></a>
+
+    {% if current_page <= 0 %}
+      <a href=""><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'basic_bill_new_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% elif current_page > 0%}
+      <a href="{% url 'basic_bill_new_page' previous_page %}"><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'basic_bill_new_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% endif %}
   </div>
 </div>
 
@@ -58,13 +70,15 @@
 <div id="bill-container-right-part">
 
   <div id="hidden-desktop-congress-nav">
-    <a href="" id="sponsor-button"><span class="fa fa-plus"></span> Sponsor a Bill</a>
+    <a href="{% url 'basic_create_bill' %}" id="sponsor-button"><span class="fa fa-plus"></span> Sponsor a Bill</a>
 
     <div id="right-part-navigation">
-        <a href="" id="checked-navigation"><span class="fa fa-paper-plane"></span> Top</a>
-        <a href=""><span class="fa fa-leaf"></span> New</a>
-        <a href=""><span class="fa fa-check"></span> Passed</a>
-        <a href=""><span class="fa fa-archive"></span> Shelved</a>
+      {% with redirect_page="0" %}
+        <a href="{% url 'basic_bill_landing_page' redirect_page %}"><span class="fa fa-paper-plane"></span> Top</a>
+        <a href="{% url 'basic_bill_new_page' redirect_page %}" id="checked-navigation"><span class="fa fa-leaf"></span> New</a>
+        <a href="{% url 'basic_bill_passed_page' redirect_page %}"><span class="fa fa-check"></span> Passed</a>
+        <a href="{% url 'basic_bill_shelved_page' redirect_page %}"><span class="fa fa-archive"></span> Shelved</a>
+      {% endwith %}
     </div>
   </div>
 
