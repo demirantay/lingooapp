@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # My Module ImportsImports
-from .models import Bill, LastBillCreationDate, BillVote
+from .models import Bill, LastBillCreationDate, BillVote, BillUpdateHistory
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
@@ -163,6 +163,16 @@ def basic_read_bill(request, bill_id):
         current_bill = None
 
     # Getting the current history
+    try:
+        current_bill_history = BillUpdateHistory.objects.filter(
+            bill=current_bill
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        current_bill_history = None
+
+    current_bill_history_empty = False
+    if bool(current_bill_history) == False or current_bill_history == []:
+        current_bill_history_empty = True
 
     # Getting the votes
     try:
@@ -238,6 +248,8 @@ def basic_read_bill(request, bill_id):
         "neutral_amount": len(current_bill_neutral_votes),
         "nay_amount": len(current_bill_nay_votes),
         "current_user_vote": current_user_vote,
+        "current_bill_history": current_bill_history,
+        "current_bill_history_empty": current_bill_history_empty,
     }
 
     if current_basic_user == None:
@@ -248,14 +260,84 @@ def basic_read_bill(request, bill_id):
 
 def basic_update_bill(request, bill_id):
     """
-
+    in this view the user an update their bill if it is theirs
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current bill
+    try:
+        current_bill = Bill.objects.get(id=bill_id)
+    except ObjectDoesNotExist:
+        current_bill = None
+
+    # Update form processing
+    empty_input = False
+    bill_is_not_owned = False
+
+    if request.POST.get("basic_voting_bill_update_submit"):
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+
+        # check if the bill is the current users
+        if current_bill.sponsor == current_basic_user_profile:
+            # check if the the inputs are empty
+            if bool(title) == False or title == "" \
+               or bool(content) == False or content == "":
+                empty_input = True
+            else:
+                # create a new history record
+                new_history_record = BillUpdateHistory(
+                    bill=current_bill,
+                    title=current_bill.title,
+                    content=current_bill.content
+                )
+                new_history_record.save()
+                # update the bill and return the bill's page
+                current_bill.title = title
+                current_bill.content = content
+                current_bill.save()
+                return HttpResponseRedirect(
+                    "/voting/congress/bill/read/" + str(current_bill.id) + "/"
+                )
+        else:
+            bill_is_not_owned = True
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_bill": current_bill,
+        "empty_input": empty_input,
+        "bill_is_not_owned": bill_is_not_owned,
     }
 
-    return render(request, "basic_voting_sys/update_bill.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_voting_sys/update_bill.html", data)
 
 
 def basic_bill_landing_page(request):

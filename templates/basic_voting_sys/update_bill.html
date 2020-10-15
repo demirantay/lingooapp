@@ -11,18 +11,29 @@
 
   <h1>Update Bill</h1>
 
-  <form>
+  <p id="update-bill-warning">
+      <b>Warning: </b>Please be aware that any update you make to your bill will be recorded and displayed
+      on the bill's page under the update history.
+  </p>
+
+  <form method="POST" action="{% url 'basic_update_bill' current_bill.id %}">
     {% csrf_token %}
 
+    {% if empty_input == True %}
+      <p style="color:red;">You cannot enter empty inputs!</p>
+    {% elif bill_is_not_owned == True %}
+      <p style="color:red;">You do not own this bill!</p>
+    {% endif %}
+
     <label>Title</label>
-    <input type="text" placeholder="Type in your Bill's title" value="..." />
+    <input type="text" placeholder="Type in your Bill's title" name="title" value="{{ current_bill.title }}" />
 
     <p>Category: <span>New Feature</span></p>
 
     <label>Bill Request:</label>
-    <textarea placeholder="Please be descriptive about your request ...">...</textarea>
+    <textarea placeholder="Please be descriptive about your request ..." name="content">{{ current_bill.content }}</textarea>
 
-    <input type="submit" value="Update Bill" id="update-bill-submit-btn" />
+    <input type="submit" value="Update Bill" id="update-bill-submit-btn" name="basic_voting_bill_update_submit" />
 
   </form>
 

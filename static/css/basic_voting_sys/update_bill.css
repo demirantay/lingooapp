@@ -16,6 +16,18 @@ body {
   margin-left: 10%;
 }
 
+#update-bill-warning {
+  margin-left: 10%;
+  margin-right: 15%;
+  margin-bottom: 20px;
+  color: grey;
+}
+
+#update-bill-warning b {
+  color: black;
+}
+
+
 #update-bill-container form {
   margin-top: 10px;
   margin-left: 10%;
