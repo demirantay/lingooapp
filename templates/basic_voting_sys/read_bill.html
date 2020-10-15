@@ -47,8 +47,9 @@
     <p>
       <b>Warning:</b> If there is a vote on your bill you cannot disregard it and delete the bill.
     </p>
-    <form>
-        <input type="submit" value="Request" />
+    <form method="POST" action="{% url 'basic_read_bill' current_bill.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Request" name="basic_voting_bill_delete_request_submit_btn" />
     </form>
     <button id="delete_panel_close_btn">Cancel</button>
   </div>

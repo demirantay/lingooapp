@@ -22,7 +22,7 @@ urlpatterns = [
     ),
     # Bills landing page
     path(
-        "voting/congress/",
+        "voting/congress/<int:page>/",
         views.basic_bill_landing_page,
         name="basic_bill_landing_page",
     ),

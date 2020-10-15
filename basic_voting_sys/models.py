@@ -77,6 +77,8 @@ class BillVote(models.Model):
 
 
 # Bill Update History
+# -----------
+# In this model the bills edit (update) history is archived
 class BillUpdateHistory(models.Model):
     id = models.AutoField(primary_key=True)
     creation_date = models.DateField(default=timezone.now)
@@ -86,3 +88,16 @@ class BillUpdateHistory(models.Model):
 
     def __str__(self):
         return "Bill: " + str(self.bill)
+
+
+# Bill Delete Request
+# ---------
+# The users cannot delete their bill if there is a vote other than their own
+# account that is why they need to request it
+class BillDeleteRequest(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Delete id: " + str(self.id)

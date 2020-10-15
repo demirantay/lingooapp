@@ -12,6 +12,7 @@ from django.utils import timezone
 
 # My Module ImportsImports
 from .models import Bill, LastBillCreationDate, BillVote, BillUpdateHistory
+from .models import BillDeleteRequest
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
@@ -235,6 +236,30 @@ def basic_read_bill(request, bill_id):
                 )
 
     # Delete request form processing
+    if request.POST.get("basic_voting_bill_delete_request_submit_btn"):
+        # check if the user is the owner of the bill
+        if current_bill.sponsor == current_basic_user_profile:
+            # check if there is a vote on the bill
+            try:
+                current_votes = BillVote.objects.filter(
+                    bill=current_bill
+                )
+            except ObjectDoesNotExist:
+                current_votes = None
+
+            # if there is no vote than delete the bill
+            if bool(current_votes) == False or current_votes == []:
+                current_bill.delete()
+                return HttpResponseRedirect("/voting/congress/0/")
+            else:
+                # if there is a vote submit a delete request
+                new_delete_request = BillDeleteRequest(
+                    bill=current_bill
+                )
+                new_delete_request.save()
+                return HttpResponseRedirect("/voting/congress/0/")
+        else:
+            pass
 
     data = {
         "current_basic_user": current_basic_user,
@@ -340,7 +365,7 @@ def basic_update_bill(request, bill_id):
         return render(request, "basic_voting_sys/update_bill.html", data)
 
 
-def basic_bill_landing_page(request):
+def basic_bill_landing_page(request, page):
     """
     """
 
