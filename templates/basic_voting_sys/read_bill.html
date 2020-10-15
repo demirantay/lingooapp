@@ -14,7 +14,7 @@
     <button id="hidden-post-operations-buttons-close"><span class="fa fa-close"></span></button>
   </div>
   <div id="hidden-post-buttons-panel">
-    <a href="">Update</a>
+    <a href="{% url 'basic_update_bill' current_bill.id %}">Update</a>
     <a href="" id="delete_panel_open_btn">Delete</a>
   </div>
 
@@ -69,24 +69,19 @@
     }
   </script>
 
-
-
   <div id="bill-meta-info-box">
-    <p>CREATED IN SEP 20 2020</p>
-    <h2>Passed</h2>
-    <h1>Bill 100</h1>
-    <p>THIS BILL IS SPONSORED BY <a href="">USERNAME</a></p>
+    <p>CREATED IN {{ current_bill.creation_date|upper }}</p>
+    <h2>{{ current_bill.status|title }}</h2>
+    <h1>Bill {{ current_bill.id }}</h1>
+    <p>THIS BILL IS SPONSORED BY <a href="{% url 'other_user_profile_overview' current_bill.sponsor.user.username %}">{{ current_bill.sponsor.user.username|upper }}</a></p>
   </div>
 
   <div id="bill-horizontal-line"></div>
 
   <div id="bill-info">
-    <h2>Lorem Ipsum Dolor Sit Amet</h2>
+    <h2>{{ current_bill.title|title }}</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <br />
-      <br />
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+     {{ current_bill.content|linebreaks }}
     </p>
   </div>
 </div>

@@ -99,7 +99,7 @@ def basic_create_bill(request):
                 #  and update latest creation date
                 last_creation_date.creation_date = timezone.now()
                 last_creation_date.save()
-                
+
                 new_bill = Bill(
                     sponsor=current_basic_user_profile,
                     title=title,
@@ -129,14 +129,58 @@ def basic_create_bill(request):
 
 def basic_read_bill(request, bill_id):
     """
-
+    in this view the user can view a specific bill and what it is about.
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current bill
+    try:
+        current_bill = Bill.objects.get(id=bill_id)
+    except ObjectDoesNotExist:
+        current_bill = None
+
+    # Getting the current history
+
+    # Getting the votes
+
+    # Vote form processing
+
+    # Delete request form processing
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_bill": current_bill,
     }
 
-    return render(request, "basic_voting_sys/read_bill.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_voting_sys/read_bill.html", data)
 
 
 def basic_update_bill(request, bill_id):
