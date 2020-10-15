@@ -10,25 +10,31 @@
 <div id="create-bill-container">
   <h1>Create Bill</h1>
 
-  <form>
+  {% if empty_input == True %}
+    <p style="color:red; margin-left: 10%;">You cannot enter empty input!</p>
+  {% elif already_created_one_today == True %}
+    <p style="color:red; margin-left: 10%;">You cannot create more than 1 bill in a single day!</p>
+  {% endif %}
+
+  <form method="POST" action="{% url 'basic_create_bill' %}">
     {% csrf_token %}
 
     <label>Title</label>
-    <input type="text" placeholder="Type in your Bill's title" />
+    <input type="text" placeholder="Type in your Bill's title" name="title" />
 
     <label>Category:</label>
-    <select>
-      <option>New Feature</option>
-      <option>Small Addition</option>
-      <option>Feature Complaint</option>
-      <option>Small Removal</option>
-      <option>Feature Removal</option>
+    <select name="category">
+      <option value="new_feature">New Feature</option>
+      <option value="small_addition">Small Addition</option>
+      <option value="feature_complaint">Feature Complaint</option>
+      <option value="small_removal">Small Removal</option>
+      <option value="feature_removal">Feature Removal</option>
     </select>
 
     <label>Bill Request:</label>
-    <textarea placeholder="Please be descriptive about your request ..."></textarea>
+    <textarea placeholder="Please be descriptive about your request ..." name="bill_content"></textarea>
 
-    <input type="submit" value="Create Bill" id="create-bill-submit-btn" />
+    <input type="submit" value="Create Bill" id="create-bill-submit-btn" name="basic_bill_create_submit_button" />
 
   </form>
 </div>
