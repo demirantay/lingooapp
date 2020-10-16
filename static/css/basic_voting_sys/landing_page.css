@@ -326,18 +326,11 @@ body {
   margin-bottom: 15px;
 }
 
-#passed-bill-cell:hover {
-  transition: 0.2s;
-  -webkit-box-shadow: 0px 0px 12px -3px #27AE60;
-  -moz-box-shadow: 0px 0px 12px -3px #27AE60;
-  box-shadow: 0px 0px 12px -3px #27AE60;
-  cursor: pointer;
-}
-
-#passed-bill-cell:hover h1 {
+#passed-bill-cell:hover h1 a {
   color: #27AE60;
   transition: 0.2s;
 }
+
 
 #passed-bill-icon {
   color: #27AE60 !important;
