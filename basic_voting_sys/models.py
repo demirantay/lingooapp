@@ -36,6 +36,7 @@ class Bill(models.Model):
     )
     category = models.CharField(max_length=100, default="new_feature",
                                 choices=CATEGORY_CHOICES)
+    karma = models.IntegerField(default=0)
 
     def __str__(self):
         return "Bill id: " + str(self.id)

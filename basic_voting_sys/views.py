@@ -19,6 +19,8 @@ from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
 
+from algorithms.merge_sort import merge_sort
+
 
 def basic_create_bill(request):
     """
@@ -214,26 +216,57 @@ def basic_read_bill(request, bill_id):
             # do nothing since it is an empty cast vote
             pass
         else:
-            # if there is no vote already create one. If there is a vote just
-            # update the vote value. A user can only have one vote on each bill
-            if bool(current_user_vote) == False or current_user_vote == None:
-                # create a new one
-                new_vote = BillVote(
-                    voter=current_basic_user_profile,
-                    bill=current_bill,
-                    vote=hidden_vote_value,
-                )
-                new_vote.save()
-                return HttpResponseRedirect(
-                    "/voting/congress/bill/read/" + str(current_bill.id) + "/"
-                )
+            # chekc if the bill is "passed" or "shelved" if it is you cannot
+            # add more votes to it because the voting session has ended
+            if current_bill.status == "passed" or current_bill.status == "shelved":
+                pass
             else:
-                # update the vote
-                current_user_vote.vote = hidden_vote_value
-                current_user_vote.save()
-                return HttpResponseRedirect(
-                    "/voting/congress/bill/read/" + str(current_bill.id) + "/"
-                )
+                # if there is no vote already create one. If there is a vote just
+                # update the vote value. A user can only have one vote on each bill
+                if bool(current_user_vote) == False or current_user_vote == None:
+                    # create a new one
+                    new_vote = BillVote(
+                        voter=current_basic_user_profile,
+                        bill=current_bill,
+                        vote=hidden_vote_value,
+                    )
+                    new_vote.save()
+                    # update the bill karma
+                    if hidden_vote_value == "aye":
+                        current_bill.karma += 1
+                    elif hidden_vote_value == "neutral":
+                        current_bill.karma += 0
+                    elif hidden_vote_value == "nay":
+                        current_bill.karma -= 1
+                    current_bill.save()
+                    return HttpResponseRedirect(
+                        "/voting/congress/bill/read/" + str(current_bill.id) + "/"
+                    )
+                else:
+                    # check if the current newly cast vote is the same as your
+                    # previous vote if it is do not update it since you cannot
+                    # spam and bruteforce the karma
+                    if hidden_vote_value == current_user_vote.vote:
+                        pass
+                    else:
+                        # update the bill karma
+                        if hidden_vote_value == "aye":
+                            current_bill.karma += 1
+                        elif hidden_vote_value == "neutral":
+                            if current_user_vote.vote == "aye":
+                                current_bill.karma -= 1
+                            elif current_user_vote.vote == "nay":
+                                current_bill.karma += 1
+                        elif hidden_vote_value == "nay":
+                            current_bill.karma -= 1
+                        current_bill.save()
+
+                    # update the vote
+                    current_user_vote.vote = hidden_vote_value
+                    current_user_vote.save()
+                    return HttpResponseRedirect(
+                        "/voting/congress/bill/read/" + str(current_bill.id) + "/"
+                    )
 
     # Delete request form processing
     if request.POST.get("basic_voting_bill_delete_request_submit_btn"):
@@ -367,13 +400,75 @@ def basic_update_bill(request, bill_id):
 
 def basic_bill_landing_page(request, page):
     """
+    in this view the users can see the top-most voted bills on the site.
+    Descends from the most upvotes to least
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+    # Deleting Teacher-typed user sessions
+
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get all of the bills in a ordered array from the newly created one
+    # At every page there will be 45 entries so always multiply it by that and
+    # then reduce your objects
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    # Get all the voting status bills
+    bill_records_starting_point = current_page * 46
+    bill_records_ending_point = bill_records_starting_point + 46
+
+    try:
+        current_page_bills = Bill.objects.filter(
+            status="voting"
+        ).order_by("-karma")[bill_records_starting_point:bill_records_ending_point]
+    except ObjectDoesNotExist:
+        current_page_bills = None
+
+    # Bill votes
+    bill_votes = {}
+    for bill in current_page_bills:
+        aye_votes = BillVote.objects.filter(bill=bill, vote="aye")
+        nay_votes = BillVote.objects.filter(bill=bill, vote="nay")
+        total_vote_value = len(aye_votes) - len(nay_votes)
+        bill_votes[bill.id] = total_vote_value
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_page": current_page,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "current_page_bills": current_page_bills,
+        "bill_votes": bill_votes,
     }
 
-    return render(request, "basic_voting_sys/landing_page.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_voting_sys/landing_page.html", data)
 
 
 def basic_bill_new_page(request, page):

@@ -112,6 +112,10 @@ body {
   text-decoration: none;
 }
 
+#content-meta-info-user-link:hover {
+  text-decoration: underline !important;
+}
+
 #bill-sponsor-link:hover {
   text-decoration: underline !important;
 }

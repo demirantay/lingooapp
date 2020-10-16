@@ -35,7 +35,7 @@
         </div>
         <div id="bill-cell-middle-part">
           <p id="content-meta-info">Sponsored by <a href="{% url 'other_user_profile_overview' bill.sponsor.user.username %}">@{{ bill.sponsor.user.username }}</a> in {{ bill.creation_date }}</p>
-            <h1><a href="{% url 'basic_read_bill' bill.id %}" id="bill-cell-link">{{ bill.title|title }}</a></h1>
+          <h1><a href="{% url 'basic_read_bill' bill.id %}" id="bill-cell-link">{{ bill.title|title }}</a></h1>
           <!-- max: 280 char -->
           <p><a href="{% url 'basic_read_bill' bill.id %}" id="bill-cell-link">{{ bill.content|truncatechars:280 }}</a></p>
         </div>
