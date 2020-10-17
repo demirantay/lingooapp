@@ -60,6 +60,8 @@ class FeedbackCommentReply(models.Model):
     id = models.AutoField(primary_key=True)
     creation_date = models.DateField(default=timezone.now)
     comment = models.ForeignKey(FeedbackComment, on_delete=models.CASCADE)
+    feedback = models.ForeignKey(Feedback, on_delete=models.CASCADE,
+                                 null=True, blank=True)
     reply_owner = models.ForeignKey(BasicUserProfile, on_delete=models.CASCADE)
     content = models.TextField(default="...", null=True, blank=True)
 

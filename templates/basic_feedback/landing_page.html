@@ -14,28 +14,37 @@
     <button id="open-create-panel-button"><span class="fa fa-plus"></span> Write Feedback</button>
   </div>
 
-  <!-- feedback cell -->
-  <div id="feedback-cell">
-    <a href=""><h1>AGT Kurye (aynigunteslim.com) Kargo 1 Haftadır Ulaşmadı</h1></a>
-    <div id="feedback-cell-meta-info">
-      <div id="feedbacker-profile-photo"></div>
-      <p id="post-info"><a href="">username</a> | Jun 20, 2020</p>
-      <!-- count max: 300 char -->
-      <p id="post-content">
-          Amazon üzerinden sipariş ettiğim ürün üzerinden bir hafta geçmesine
-          rağmen elime ulaşmadı. Müşteri hizmetleri hizmeti çalışmıyor. Arayan
-          soran yok. Kargom hala bekliyor. Amazon.com'u da beni de mağdur ettiler.
-          Aynı gün teslim konusunu unutun. Başka kargo şirketlerinin en
-          azından müşteri hizmetleri <a href="">... read more</a>
-      </p>
+  {% for feedback in current_page_feedbacks %}
+    <!-- feedback cell -->
+    <div id="feedback-cell">
+      <a href="{% url 'basic_feedback_read' feedback.id %}"><h1>{{ feedback.title }}</h1></a>
+      <div id="feedback-cell-meta-info">
+
+        {% if feedback.user.profile_photo %}
+          <div id="feedbacker-profile-photo" style="background-image: url('{{ feedback.user.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="feedbacker-profile-photo"></div>
+        {% endif %}
+
+        <p id="post-info"><a href="{% url 'other_user_profile_overview' feedback.user.username %}">{{ feedback.user.username }}</a> | {{ feedback.creation_date }}</p>
+        <!-- count max: 300 char -->
+        <p id="post-content">
+            {{ feedback.content|truncatechars:300 }}<a href="{% url 'basic_feedback_read' feedback.id %}">... read more</a>
+        </p>
+      </div>
+      <p id="feedback-views">{{ feedback.views }} views</p>
     </div>
-    <p id="feedback-views">1500 views</p>
-  </div>
-  <!-- /cell -->
+    <!-- /cell -->
+  {% endfor %}
 
   <div id="feedback-pagination">
+    {% if current_page <= 0 %}
       <a href=""><span class="fa fa-arrow-left"></span></a>
-      <a href=""><span class="fa fa-arrow-right"></span></a>
+      <a href="{% url 'basic_feedback_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% elif current_page > 0%}
+      <a href="{% url 'basic_feedback_landing_page' previous_page %}"><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'basic_feedback_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% endif %}
   </div>
 </div>
 

@@ -9,70 +9,155 @@
 
 <!-- users feedback part -->
 <div id="feedback-part">
-  <h1>Eminevim'in Üyelerine Yaptığı Haksızlıklar</h1>
+  <h1>{{ current_feedback.title }}</h1>
   <div id="feedback-part-meta-info">
-    <div id="feedback-part-profile-photo"></div>
-    <p id="meta-profile-info"><a href="">username</a> | 20 Jun, 2020</p>
+
+    {% if current_feedback.user.profile_photo %}
+      <div id="feedback-part-profile-photo" style="background-image: url('{{ current_feedback.user.profile_photo.url }}');"></div>
+    {% else %}
+      <div id="feedback-part-profile-photo"></div>
+    {% endif %}
+
+    <p id="meta-profile-info"><a href="{% url 'other_user_profile_overview' current_feedback.user.username %}">{{ current_feedback.user.username }}</a> | {{ current_feedback.creation_date }}</p>
     <p id="feedback-content">
-        03.04.2019 tarihinde Eminevim'e giderek 100 kişilik 400.000TL'lik gruba
-        %10 peşinat (40bin) ve 33.000 TL organizasyon ücreti ile çekilişli bir
-        şekilde üye oldum. Üye numaram 1.169.331'dir. Sözleşme imzalanırken
-        sistemden çıkma halinde sözleşmede yer alan iadelerin 6 ay sonra yapılacağı
-        ve organizasyon bedelinin tamamen şirkete kalacağı ibaresini sorduğumda,
-        Ankara/Yenimahalle şubesindeki temsilcim "o altı ay, ödemelerin o zamana
-        kadar sarkabileceğini gösteriyor, her zaman altı ay değil o süreç ayrıca
-        hastalık ve işten çıkarılma gibi mücbir sebepler nedeniyle sistemden
-        ayrılırsanız organizasyon bedelinizin tamamı başka durumlarda da şirketin
-        inisiyatifiyle bir kısmı iade edilir" diyerek bir iyi niyet umudu verdi.
-        Ancak ne hikmetse riski benim alacağım zaman tamamen şirketin lehine
-        yazılı bir kurala bağlanan durum, riski şirketin alacağı zaman sözlü ve
-        net olmayan bir iyi niyet teminatıyla geçiştirilmiş oldu.
+        {{ current_feedback.content|linebreaks }}
     </p>
     <div id="feedback-bottom-info-part">
-        <p><span class="fa fa-eye"></span> 26000 views</p>
-        <p><span class="fa fa-comment"></span> 45 comments</p>
-        <a href="" id="feedback-edit-open-panel-button">EDIT</a>
-        <a href="" id="feedback-delte-open-panel-button">DELETE</a>
+        <p><span class="fa fa-eye"></span> {{ current_feedback.views }} views</p>
+        <p><span class="fa fa-comment"></span> {{ comments_amount }} comments</p>
+        {% if current_feedback.user == current_basic_user_profile %}
+          <a href="" id="feedback-edit-open-panel-button">EDIT</a>
+          <a href="" id="feedback-delte-open-panel-button">DELETE</a>
+        {% endif %}
     </div>
   </div>
 </div>
 
-<!-- dev answer part -->
-<div id="dev-answer-part">
-    <h1>Answer</h1>
-    <div id="dev-answer-meta-info">
-      <p id="dev-answer-meta-profile-info"><span>Dev Team</span> | 20 Jun, 2020</p>
-      <p id="dev-answer-content">
-          03.04.2019 tarihinde Eminevim'e giderek 100 kişilik 400.000TL'lik gruba
-          %10 peşinat (40bin) ve 33.000 TL organizasyon ücreti ile çekilişli bir
-          şekilde üye oldum. Üye numaram 1.169.331'dir. Sözleşme imzalanırken
-          sistemden çıkma halinde sözleşmede yer alan iadelerin 6 ay sonra yapılacağı
-          ve organizasyon bedelinin tamamen şirkete kalacağı ibaresini sorduğumda,
-          Ankara/Yenimahalle şubesindeki temsilcim "o altı ay, ödemelerin o zamana
-          kadar sarkabileceğini gösteriyor, her zaman altı ay değil o süreç ayrıca
-          hastalık ve işten çıkarılma gibi mücbir sebepler nedeniyle sistemden
-          ayrılırsanız organizasyon bedelinizin tamamı başka durumlarda da şirketin
-          inisiyatifiyle bir kısmı iade edilir" diyerek bir iyi niyet umudu verdi.
-          Ancak ne hikmetse riski benim alacağım zaman tamamen şirketin lehine
-          yazılı bir kurala bağlanan durum, riski şirketin alacağı zaman sözlü ve
-          net olmayan bir iyi niyet teminatıyla geçiştirilmiş oldu.
-      </p>
-    </div>
-</div>
+{% for answer in current_feedback_dev_answers %}
+  <!-- dev answer part -->
+  <div id="dev-answer-part">
+      <h1>Answer</h1>
+      <div id="dev-answer-meta-info">
+        <p id="dev-answer-meta-profile-info"><span>Dev Team</span> | {{ answer.creation_date }}</p>
+        <p id="dev-answer-content">
+            {{ answer.content|linebreaks }}
+        </p>
+      </div>
+  </div>
+{% endfor %}
 
 <div id="commments-part">
   <!-- Make comment part -->
   <div id="create-comment-part">
-    <form>
-      <textarea placeholder="Comment ..."></textarea>
-      <input type="submit" value="Comment" />
+
+    {% if empty_comment == True %}
+      <p style="color:red; margin: 0px 0px;">You cannot enter an empty input.</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'basic_feedback_read' current_feedback.id %}">
+      {% csrf_token %}
+      <textarea placeholder="Comment ..." name="content"></textarea>
+      <input type="submit" value="Comment" name="basic_feedback_comment_submit_btn" />
     </form>
   </div>
 
   <!-- Comments part -->
   <div id="all-comments">
 
-    <!-- comment cell -->
+    {% for comment in current_feedback_comments %}
+      <!-- comment cell -->
+      <div id="comment-cell">
+        <div id="comment-meta-info">
+          <div id="comment-profile-photo"></div>
+          <a href="">{{ comment.comment_owner.user.username }}</a>
+          <p>{{ comment.creation_date }}</p>
+        </div>
+        <p id="comment-content">
+            {{ comment.content|linebreaks }}
+        </p>
+        <div id="comment-bottom-operations">
+          <form action="{% url 'basic_feedback_read' current_feedback.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+              <input type="submit" value="&#x25B2; upvote" name="basic_feedback_comment_upvote_btn" />
+          </form>
+          <button id="reply-panel-open-button" class="reply-panel-open-button-class"><span class="fa fa-comment"></span> reply</button>
+          <p id="comment-upvotes">
+            {{ comment.karma }} upvotes
+          </p>
+        </div>
+
+        <!-- hidden reply form -->
+        <div id="hidden-reply-form" class="hidden-reply-panels">
+          <form>
+              <textarea placeholder="Type in your reply ..."></textarea>
+              <input type="submit" value="reply" />
+          </form>
+        </div>
+
+        <!-- hidden replies list -->
+        <button id="hidden-replies-open-button"> View 6 replies <span class="fa fa-caret-down"></span></button>
+        <div id="comment-replies-container">
+          <div id="comment-reply-cell">
+            <div id="comment-reply-cell-meta-info">
+              <a href="">@username</a>
+              <p>20 Jun, 2020</p>
+            </div>
+            <p id="comment-reply-cell-content">
+              Sözleşmeyi Okutmuyorlarki. Hemen imza. Çay ikramı su ikramı bir dahaki giďiste neredeyse niye geldiniz diyecekler
+            </p>
+          </div>
+        </div>
+
+        <script>
+          let open_replies_button = document.getElementById("hidden-replies-open-button");
+
+          open_replies_button.onclick = function () {
+            let hidden_all_replies = document.getElementById("comment-replies-container");
+
+            if (hidden_all_replies.style.display == "block") {
+              hidden_all_replies.style.display = "none";
+            } else {
+              hidden_all_replies.style.display = "block";
+            }
+          }
+        </script>
+
+      </div>
+      <!-- /cell -->
+    {% endfor %}
+
+    <script>
+      let open_close_button = document.getElementById("reply-panel-open-button");
+
+      open_close_button.onclick = function () {
+        let hidden_reply_panel = document.getElementById("hidden-reply-form");
+
+        if (hidden_reply_panel.style.display == "block") {
+          hidden_reply_panel.style.display = "none";
+        } else {
+          hidden_reply_panel.style.display = "block";
+        }
+      }
+
+      // ---
+
+      let open_close_buttons = document.getElementsByClassName("reply-panel-open-button-class");
+      let hidden_reply_panels = document.getElementsByClassName("hidden-reply-panels");
+
+      const handle = function(i, event) {
+        hidden_reply_panels[i].style.display = "block";
+
+        // try to find another way maybe turn the open buttons to close ones .. etc.
+      }
+
+      for (var i=0; i < open_close_buttons.length; i++) {
+        open_close_buttons[i].addEventListener("click", handle.bind(null, i));
+      }
+
+    </script>
+
+    <!-- comment cell
     <div id="comment-cell">
       <div id="comment-meta-info">
         <div id="comment-profile-photo"></div>
@@ -94,8 +179,9 @@
           54 upvotes
         </p>
       </div>
+      -->
 
-      <!-- hidden reply form -->
+      <!-- hidden reply form
       <div id="hidden-reply-form">
         <form>
             <textarea placeholder="Type in your reply ..."></textarea>
@@ -115,8 +201,9 @@
           }
         }
       </script>
+      -->
 
-      <!-- hidden replies list -->
+      <!-- hidden replies list
       <button id="hidden-replies-open-button"> View 6 replies <span class="fa fa-caret-down"></span></button>
       <div id="comment-replies-container">
         <div id="comment-reply-cell">
@@ -144,6 +231,7 @@
         }
       </script>
 
+
     </div>
     <!-- /cell -->
 
@@ -156,12 +244,19 @@
   <button id="close-update-panel-button"><span class="fa fa-close"></span></button>
   <h3>Edit your feedback</h3>
 
-  <form>
+  {% if empty_update_input == True %}
+    <script>alert("You cannot enter any empty input!");</script>
+  {% elif less_than_100_chars == True %}
+    <script>alert("Your feedback cannot be less than 100 characters!");</script>
+  {% endif %}
+
+  <form action="{% url 'basic_feedback_read' current_feedback.id %}" method="POST">
+      {% csrf_token %}
       <label>Title:</label>
-      <input type="text" placeholder="Feedback type" value="..." />
+      <input type="text" placeholder="Feedback Title" value="{{ current_feedback.title }}" name="update_title" />
       <label>Your Feedback:</label>
-      <textarea placeholder="Please be precise">...</textarea>
-      <input type="submit" value="Edit" id="feedback-update-button" />
+      <textarea placeholder="Please be precise about your feedback ..." name="update_content">{{ current_feedback.content }}</textarea>
+      <input type="submit" value="Edit" id="feedback-update-button" name="basic_feedback_update_submit_btn" />
   </form>
 </div>
 
@@ -188,8 +283,9 @@
 <div id="hidden-feedback-delete-panel">
     <h1>Are you sure?</h1>
 
-    <form>
-        <input type="submit" value="Delete"/>
+    <form method="POST" action="{% url 'basic_feedback_read' current_feedback.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete" name="basic_feedback_delete_submit_btn"/>
     </form>
     <button id="close_feedback_delete_panel_button" >Cancel</button>
 </div>
