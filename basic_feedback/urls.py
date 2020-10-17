@@ -2,9 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Language Explore
+    # Feedback landing page
     path(
-        "feedback/",
+        "feedback/<int:page>/",
         views.basic_feedback_landing_page,
         name="basic_feedback_landing_page"
     ),

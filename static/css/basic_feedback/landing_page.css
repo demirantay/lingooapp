@@ -193,7 +193,7 @@ body {
 }
 
 #hidden-feedback-create-panel p {
-  display: none;
+  display: block;
   color: red;
   font-size: 15px;
   margin-bottom: 0px;

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'basic_language_explore',
     'basic_vocab_container',
     'basic_voting_sys',
+    'basic_feedback',
 
     # Teacher User Apps
     'teacher_public_about',

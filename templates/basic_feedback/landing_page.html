@@ -45,15 +45,23 @@
   <button id="close-create-panel-button"><span class="fa fa-close"></span></button>
   <h3>Give us a feedback</h3>
 
-  <p>You cannot add more than 1 feedback in a single day.</p>
+  {% if empty_input == True %}
+    <script>alert("You cannot enter empty input.");</script>
+  {% elif less_than_100_chars == True %}
+    <script>alert("Your feedback cannot be less than 100 cahracters.");</script>
+  {% endif %}
 
-  <form>
+
+  {% with redirect_page="0" %}
+  <form method="POST" action="{% url 'basic_feedback_landing_page' redirect_page %}">
+      {% csrf_token %}
       <label>Title:</label>
-      <input type="text" placeholder="Feedback type" />
+      <input type="text" placeholder="Feedback Title" name="feedback_title" />
       <label>Your Feedback:</label>
-      <textarea placeholder="Please be precise"></textarea>
-      <input type="submit" value="Post" id="feedback-create-button" />
+      <textarea name="feedback_content" placeholder="Please be precise in your feedback ..."></textarea>
+      <input type="submit" value="Post" id="feedback-create-button" name="basic_feedback_create_submit_btn" />
   </form>
+  {% endwith %}
 </div>
 
 <script>

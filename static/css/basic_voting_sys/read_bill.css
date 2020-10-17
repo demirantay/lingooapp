@@ -441,6 +441,10 @@ body {
   vertical-align: top;
 }
 
+.voting-stats-column h4 {
+  margin-left: -30px;
+}
+
 .voting-stats-column p {
   vertical-align: middle;
   border: 1px solid transparent;
@@ -448,6 +452,7 @@ body {
   padding: 5px 0px;
   display: inline-block;
   margin: 0px;
+  text-align: left;
 }
 
 .voting-stats-column p a {
@@ -713,6 +718,10 @@ body {
   #bill-vote-stats-container {
     width: 99%;
     margin-bottom: 50px;
+  }
+
+  .voting-stats-column h4 {
+    margin-left: 0px;
   }
 
   #bill-vote-stats-container h2 {
