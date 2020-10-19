@@ -14,6 +14,8 @@
 - [Basic User Language Explore](./module_docs/basic_language_explore.md)
 - [Basic User Vocab Container](./module_docs/basic_vocab_container.md)
 - [Basic User Home](./module_docs/basic_home.md)
+- [Basic Voting System](./module_docs/basic_voting_system.md)
+- [Basic Feedbakc System](./module_docs/basic_feedback.md)
 - [Teacher Auth](./module_docs/teacher_auth.md)
 - [Teacher Dashboard](./module_docs/teacher_dashboard.md)
 - [Teacher Profile Settings](./module_docs/teacher_profile_settings.md)
@@ -34,3 +36,4 @@
 - [version 1.2.0](./version_docs/version-1.2.0.md)
 - [version 1.3.0](./version_docs/version-1.3.0.md)
 - [version 1.4.0](./version_docs/version-1.4.0.md)
+- [version 1.5.0](./version_docs/version-1.5.0.md)
