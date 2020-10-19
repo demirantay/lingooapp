@@ -78,6 +78,11 @@ body {
   margin-bottom: 5px;
 }
 
+#left-navgition a span {
+  background-color: transparent;
+  width: 30px;
+}
+
 #left-navgition a:hover {
   background-color: #FADBD8;
   color: #E3102E;

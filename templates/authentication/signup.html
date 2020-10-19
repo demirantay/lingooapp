@@ -27,11 +27,15 @@
 
   {% if invalid_credentials == True %}
     <div id="signup-login-warning-box">
-      <p>Invalid username or password</p>
+      <p>Invalid username or password!</p>
     </div>
   {% elif credentials_taken == True %}
     <div id="signup-login-warning-box">
-      <p>Username or email is already taken</p>
+      <p>Username or email is already taken!</p>
+    </div>
+  {% elif contains_space_in_credentials == True %}
+    <div id="signup-login-warning-box">
+      <p>Username or password cannot contain empty spaces!</p>
     </div>
   {% endif %}
 

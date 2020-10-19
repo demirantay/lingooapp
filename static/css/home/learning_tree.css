@@ -112,7 +112,7 @@ body {
 
 #middle-line {
   vertical-align: middle;
-  border: 2px solid black;
+  border-bottom: 4px solid black !important;
   display: inline-block;
   width: 30%;
 }

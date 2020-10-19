@@ -63,12 +63,12 @@
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
         <a href="{% url 'basic_bill_landing_page' page %}"><span class="fa fa-university"></span> Congress</a>
         <a href="{% url 'basic_feedback_landing_page' page %}"><span class="fa fa-inbox"></span> Feedback</a>
-        <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
         <a href="" id="hidden-nav-toggle-button"><span class="fa fa-ellipsis-h"></span> More</a>
         <div id="hidden_more_nav">
           {% if current_teacher_profile %}
             <a href="{% url 'teacher_login' %}"><span class="fa fa-book"></span> Teacher</a>
           {% endif %}
+          <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
           <a href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a>
         </div>
       </div>
@@ -111,10 +111,10 @@
         <a href="{% url 'index' %}"><span class="fa fa-home"></span></a>
       </div>
       <div id="mobile-bottom-nav-grid-2">
-        <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span></a>
+          <a href="{% url 'basic_language_explore' english %}"><span class="fa fa-book"></span> Languages</a>
       </div>
       <div id="mobile-bottom-nav-grid-3">
-        <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span></a>
+        <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span></a>
       </div>
       <div id="mobile-bottom-nav-grid-4">
         <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span></a>

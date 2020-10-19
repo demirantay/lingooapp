@@ -39,6 +39,7 @@ def signup(request):
     # Signup Form Processing
     invalid_credentials = False
     credentials_taken = False
+    contains_space_in_credentials = False
 
     banned_words = get_banned_words()
 
@@ -48,87 +49,100 @@ def signup(request):
         password = request.POST.get("password")
         password_again = request.POST.get("re_entered_password")
 
-        # First check if any of the input are empty
-        if bool(username) == False \
-           or bool(email) == False \
-           or bool(password) == False \
-           or bool(password_again) == False:
-            invalid_credentials = True
+        # Check if username or password contains blank spaces " "
+        for char in username:
+            if char == " ":
+                contains_space_in_credentials = True
+
+        for char in password:
+            if char == " ":
+                contains_space_in_credentials = True
+
+        if contains_space_in_credentials == True:
+            # do nothing since it has space
+            pass
         else:
-            # check if the username or passowrd are the same
-            if username == password:
+            # First check if any of the input are empty
+            if bool(username) == False \
+               or bool(email) == False \
+               or bool(password) == False \
+               or bool(password_again) == False:
                 invalid_credentials = True
             else:
-                # then check if the paswords match
-                if password != password_again:
+                # check if the username or passowrd are the same
+                if username == password:
                     invalid_credentials = True
                 else:
-                    # then check if the username contains any banned words
-                    contains_banned_words = False
-                    for word in banned_words:
-                        if word == username:
-                            contains_banned_words = True
-                    if contains_banned_words == True:
+                    # then check if the paswords match
+                    if password != password_again:
                         invalid_credentials = True
                     else:
-                        # check if the same username or email exists if it
-                        # does do not log it to the database it already exists
-                        try:
-                            existing_username = User.objects.get(
-                                username=username
-                            )
-                        except ObjectDoesNotExist:
-                            existing_username = None
-
-                        try:
-                            existing_email = User.objects.get(email=email)
-                        except ObjectDoesNotExist:
-                            existing_email = None
-
-                        if existing_username != None or existing_email != None:
-                            credentials_taken = True
+                        # then check if the username contains any banned words
+                        contains_banned_words = False
+                        for word in banned_words:
+                            if word == username:
+                                contains_banned_words = True
+                        if contains_banned_words == True:
+                            invalid_credentials = True
                         else:
-                            # check if passwords is greater than 8 chars
-                            if len(password) < 8:
-                                invalid_credentials = True
-                            else:
-                                # check if the password contains any digits
-                                contains_digit = False
-                                for char in password:
-                                    if char.isdigit():
-                                        contains_digit = True
+                            # check if the same username or email exists if it
+                            # does do not log it to the database it already exists
+                            try:
+                                existing_username = User.objects.get(
+                                    username=username
+                                )
+                            except ObjectDoesNotExist:
+                                existing_username = None
 
-                                if contains_digit == True:
-                                    # create new User instance
-                                    # user create_user() method of User object
-                                    # because otherwise password is not getting
-                                    # stored properly or gets hashed
-                                    new_user = User.objects.create_user(
-                                        username=username,
-                                        email=email,
-                                        password=password
-                                    )
-                                    # create new BasicUserProfile instance
-                                    # also get the new user and add that to
-                                    # the one-2-one relationship between user
-                                    # and it's settings
-                                    new_user = User.objects.get(
-                                        email=email,
-                                        username=username
-                                    )
-                                    new_settings = BasicUserProfile()
-                                    new_settings.username = username
-                                    new_settings.email = email
-                                    new_settings.user = new_user
-                                    new_settings.save()
-                                    # create the sessions
-                                    request.session["basic_user_email"] = new_user.email
-                                    request.session["basic_user_username"] = new_user.username
-                                    request.session["basic_user_logged_in"] = True
-                                    # redirect to welcome page
-                                    return HttpResponseRedirect("/auth/welcome/")
-                                else:
+                            try:
+                                existing_email = User.objects.get(email=email)
+                            except ObjectDoesNotExist:
+                                existing_email = None
+
+                            if existing_username != None or existing_email != None:
+                                credentials_taken = True
+                            else:
+                                # check if passwords is greater than 8 chars
+                                if len(password) < 8:
                                     invalid_credentials = True
+                                else:
+                                    # check if the password contains any digits
+                                    contains_digit = False
+                                    for char in password:
+                                        if char.isdigit():
+                                            contains_digit = True
+
+                                    if contains_digit == True:
+                                        # create new User instance
+                                        # user create_user() method of User object
+                                        # because otherwise password is not getting
+                                        # stored properly or gets hashed
+                                        new_user = User.objects.create_user(
+                                            username=username,
+                                            email=email,
+                                            password=password
+                                        )
+                                        # create new BasicUserProfile instance
+                                        # also get the new user and add that to
+                                        # the one-2-one relationship between user
+                                        # and it's settings
+                                        new_user = User.objects.get(
+                                            email=email,
+                                            username=username
+                                        )
+                                        new_settings = BasicUserProfile()
+                                        new_settings.username = username
+                                        new_settings.email = email
+                                        new_settings.user = new_user
+                                        new_settings.save()
+                                        # create the sessions
+                                        request.session["basic_user_email"] = new_user.email
+                                        request.session["basic_user_username"] = new_user.username
+                                        request.session["basic_user_logged_in"] = True
+                                        # redirect to welcome page
+                                        return HttpResponseRedirect("/auth/welcome/")
+                                    else:
+                                        invalid_credentials = True
 
         # check if the password is in common passwords
         # ... havent implemented this yet
@@ -142,6 +156,7 @@ def signup(request):
     data = {
         "invalid_credentials": invalid_credentials,
         "credentials_taken": credentials_taken,
+        "contains_space_in_credentials": contains_space_in_credentials,
     }
 
     return render(request, "authentication/signup.html", data)
@@ -223,7 +238,7 @@ def login(request):
                             pass
                         else:
                             current_student = all_student_profiles[0]
-        
+
                             if current_student.course == None or \
                                bool(current_student) == False:
                                 pass
