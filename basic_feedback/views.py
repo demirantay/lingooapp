@@ -159,13 +159,48 @@ def basic_feedback_read(request, feedback_id):
     except ObjectDoesNotExist:
         current_feedback_dev_answers = None
 
-    # Current Feedback Comments
+    # Getting Current Feedback Comments
     try:
         current_feedback_comments = FeedbackComment.objects.filter(
             feedback=current_feedback
         ).order_by("-karma")
     except ObjectDoesNotExist:
         current_feedback_comments = None
+
+    # Getting Feedback Comment Replies
+    try:
+        current_feedback_comment_replies = FeedbackCommentReply.objects.filter(
+            feedback=current_feedback
+        )
+    except ObjectDoesNotExist:
+        current_feedback_comment_replies = None
+
+    comment_replies = {}
+    for reply in current_feedback_comment_replies:
+        if reply.comment.id in comment_replies:
+            comment_replies[reply.comment.id].append(reply)
+        else:
+            comment_replies[reply.comment.id] = []
+            comment_replies[reply.comment.id].append(reply)
+
+    comment_replies_amount = {}
+    for comment in current_feedback_comments:
+        reply_count = 0
+        for reply in current_feedback_comment_replies:
+            if reply.comment.id == comment.id:
+                reply_count += 1
+        comment_replies_amount[comment.id] = reply_count
+
+    '''
+    for i in current_feedback_comment_replies:
+        amount = 0
+        for j in current_feedback_comment_replies:
+            if i.comment.id == j.comment.id:
+                amount += 1
+        comment_replies_amount[reply.comment.id] = amount
+    '''
+
+    print(comment_replies_amount)
 
     # Create Comments form Processing
     empty_comment = False
@@ -202,6 +237,32 @@ def basic_feedback_read(request, feedback_id):
             )
 
     # Create Comment Reply Processing
+    if request.POST.get("basic_feedback_comment_reply_submit_btn"):
+        hidden_comment_id = request.POST.get("hidden_comment_id")
+        reply_content = request.POST.get("reply_content")
+
+        try:
+            replied_comment = FeedbackComment.objects.get(id=hidden_comment_id)
+        except ObjectDoesNotExist:
+            replied_comment = None
+
+        # check if the comment exists
+        if reply_content != None:
+            # check if the input is empty
+            if bool(reply_content) == False or reply_content == "":
+                pass
+            else:
+                # create a new comment reply
+                new_reply = FeedbackCommentReply(
+                    comment=replied_comment,
+                    feedback=current_feedback,
+                    reply_owner=current_basic_user_profile,
+                    content=reply_content
+                )
+                new_reply.save()
+                return HttpResponseRedirect(
+                    "/feedback/read/" + str(current_feedback.id) + "/"
+                )
 
     # Feedback Edit form procesing
     empty_update_input = False
@@ -267,6 +328,8 @@ def basic_feedback_read(request, feedback_id):
         "current_feedback_comments": current_feedback_comments,
         "empty_update_input": empty_update_input,
         "less_than_100_chars": less_than_100_chars,
+        "comment_replies": comment_replies,
+        "comment_replies_amount": comment_replies_amount,
     }
 
     if current_basic_user == None:

@@ -67,4 +67,4 @@ class FeedbackCommentReply(models.Model):
 
     def __str__(self):
         return "Feedback ID: " + str(self.feedback.id) + " | Comment ID: " \
-               + str(self.id) + " | Reply ID: " + str(self.id)
+               + str(self.comment.id) + " | Reply ID: " + str(self.id)

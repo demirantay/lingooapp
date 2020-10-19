@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/basic_feedback/read.css' %}" />
@@ -89,66 +90,69 @@
 
         <!-- hidden reply form -->
         <div id="hidden-reply-form" class="hidden-reply-panels">
-          <form>
-              <textarea placeholder="Type in your reply ..."></textarea>
-              <input type="submit" value="reply" />
+          <form action="{% url 'basic_feedback_read' current_feedback.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+              <textarea placeholder="Type in your reply ..." name="reply_content"></textarea>
+              <input type="submit" value="reply" name="basic_feedback_comment_reply_submit_btn" />
           </form>
         </div>
 
         <!-- hidden replies list -->
-        <button id="hidden-replies-open-button"> View 6 replies <span class="fa fa-caret-down"></span></button>
-        <div id="comment-replies-container">
-          <div id="comment-reply-cell">
-            <div id="comment-reply-cell-meta-info">
-              <a href="">@username</a>
-              <p>20 Jun, 2020</p>
+        {% if comment_replies_amount|get_key_value:comment.id >  0 %}
+          <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View {{ comment_replies_amount|get_key_value:comment.id  }} replies <span class="fa fa-caret-down"></span></button>
+        {% endif %}
+        <div id="comment-replies-container" class="replies-listing-panels">
+          {% for reply in comment_replies|get_key_value:comment.id %}
+            <div id="comment-reply-cell">
+              <div id="comment-reply-cell-meta-info">
+                <a href="{% url 'other_user_profile_overview' reply.reply_owner.user.username %}">@{{ reply.reply_owner.user.username }}</a>
+                <p>{{ reply.creation_date }}</p>
+              </div>
+              <p id="comment-reply-cell-content">
+                {{ reply.content|linebreaks }}
+              </p>
             </div>
-            <p id="comment-reply-cell-content">
-              Sözleşmeyi Okutmuyorlarki. Hemen imza. Çay ikramı su ikramı bir dahaki giďiste neredeyse niye geldiniz diyecekler
-            </p>
-          </div>
+          {% endfor %}
         </div>
-
-        <script>
-          let open_replies_button = document.getElementById("hidden-replies-open-button");
-
-          open_replies_button.onclick = function () {
-            let hidden_all_replies = document.getElementById("comment-replies-container");
-
-            if (hidden_all_replies.style.display == "block") {
-              hidden_all_replies.style.display = "none";
-            } else {
-              hidden_all_replies.style.display = "block";
-            }
-          }
-        </script>
 
       </div>
       <!-- /cell -->
     {% endfor %}
 
     <script>
-      let open_close_button = document.getElementById("reply-panel-open-button");
+      let hidden_replies_open_buttons = document.getElementsByClassName("hidden-replies-open-buttons");
+      let replies_listing_panels = document.getElementsByClassName("replies-listing-panels");
 
-      open_close_button.onclick = function () {
-        let hidden_reply_panel = document.getElementById("hidden-reply-form");
+      const open_replies = function(i, event) {
+        //replies_listing_panels[i].style.display = "block";
 
-        if (hidden_reply_panel.style.display == "block") {
-          hidden_reply_panel.style.display = "none";
+        if (replies_listing_panels[i].style.display == "block") {
+          replies_listing_panels[i].style.display = "none";
         } else {
-          hidden_reply_panel.style.display = "block";
+            replies_listing_panels[i].style.display = "block";
         }
       }
 
-      // ---
+      for (var i=0; i < hidden_replies_open_buttons.length; i++) {
+        hidden_replies_open_buttons[i].addEventListener("click", open_replies.bind(null, i));
+      }
 
+    </script>
+
+
+    <script>
       let open_close_buttons = document.getElementsByClassName("reply-panel-open-button-class");
       let hidden_reply_panels = document.getElementsByClassName("hidden-reply-panels");
 
       const handle = function(i, event) {
-        hidden_reply_panels[i].style.display = "block";
+        //hidden_reply_panels[i].style.display = "block";
 
-        // try to find another way maybe turn the open buttons to close ones .. etc.
+        if (hidden_reply_panels[i].style.display == "block") {
+          hidden_reply_panels[i].style.display = "none";
+        } else {
+            hidden_reply_panels[i].style.display = "block";
+        }
       }
 
       for (var i=0; i < open_close_buttons.length; i++) {
