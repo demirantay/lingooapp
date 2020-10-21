@@ -87,7 +87,7 @@ def index(request):
     }
 
     if current_basic_user == None:
-        return render(request, "home/landing_page_v2.html", data)
+        return render(request, "home/landing_page_v3.html", data)
     else:
         return render(request, "home/placeholder_home.html", data)
 

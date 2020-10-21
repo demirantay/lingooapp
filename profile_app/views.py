@@ -56,7 +56,7 @@ def profile_overview(request):
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
     else:
-        return render(request, "profile/profile_overview.html", data)
+        return render(request, "profile/new_profile.html", data)
 
 
 def other_user_profile_overview(request, other_user_username):

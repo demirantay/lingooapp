@@ -1,0 +1,77 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile/new_profile.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- profile container left column  -->
+<div id="profile-container-left-column">
+
+  <!-- profile info box -->
+  <div id="profile-info-box">
+    <div id="profile-info-box-top-part">
+      <div id="profile-info-box-top-part-left-side">
+        <div id="profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+      </div>
+      <div id="profile-info-box-top-part-right-side">
+        <h1>Demir Antay</h1>
+        <h3>@username</h3>
+        <p><span class="fa fa-map-marker"></span>Istanbul, Turkey</p>
+        <a href=""><span class="fa fa-link"></span>google.com</a>
+      </div>
+    </div>
+    <p id="profile-bio">
+      <!-- max char : 450 -->
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+  </div>
+
+  <!-- user stats grid -->
+  <div id="user-stats-grid">
+    <p><b>1000</b> lessons done</p>
+    <div id="grid">
+      <!-- month -->
+      <div id="grid-column">
+        <div id="grid-cell-box" class="grid-cell-above-1"></div>
+        <div id="grid-cell-box-info">
+          <b>10 lessons learned on 20 Dec, 2020</b>
+        </div>
+
+        <div id="grid-cell-box" class="grid-cell-above-3"></div>
+        <div id="grid-cell-box" class="grid-cell-above-5"></div>
+        <div id="grid-cell-box" class="grid-cell-above-10"></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- profile contianer right column -->
+<div id="profile-container-right-column">
+
+  <!-- languages box -->
+  <div id="languages-box">
+      <h1>Languages</h1>
+      <div id="langauges-box-scrolling-part">
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 85</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 24</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 12</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
+        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
+      </div>
+  </div>
+
+  <!-- hidden language panel -->
+
+
+
+</div>
+
+{% endblock %}

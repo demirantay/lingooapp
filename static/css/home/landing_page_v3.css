@@ -1,0 +1,454 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* ------------------ landing-banner --------------------- */
+#landing-top-nav {
+  width: 100%;
+  background-color: #CD5C5C;
+  height: 65px;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 99;
+  border-bottom: 1px solid transparent;
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#landing-top-nav img {
+  height: 50px;
+  float: left;
+  vertical-align: middle;
+  margin-top: 8px;
+  margin-left: 10%;
+}
+
+#landing-top-nav a {
+  float: right;
+  vertical-align: middle;
+  text-decoration: none;
+  background-color: #E3102E;
+  color: white;
+  margin-right: 15px;
+  padding: 7px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  border: 1px solid #E3102E;
+  -webkit-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+}
+
+#landing-top-nav a:hover {
+  transition: 0.2s;
+  color: white;
+  background-color: #27AE60 !important;
+  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+  -moz-box-shadow: 0px 0px 23px -5px #28B463;
+  box-shadow: 0px 0px 23px -5px #28B463;
+  border-color: #28B463 !important;
+}
+
+#signup-button {
+  margin-right: 10% !important;
+  background-color: transparent !important;
+  border-color: white !important;
+}
+
+
+/* ------------------ landing-banner --------------------- */
+#landing-banner {
+  width: 100%;
+  background-color: black;
+  height: 60vh;
+  border-bottom: 1px solid transparent;
+  text-align: center;
+  position: relative;
+  margin-top: 65px;
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+}
+
+#landing-banner-left-part {
+  border: 1px solid transparent;
+  width: 45%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: left;
+}
+
+#landing-banner-left-part h1 {
+  color: white;
+  font-weight: 900;
+  width: 80%;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  margin-left: 50px;
+  font-size: 45px;
+}
+
+#landing-banner-left-part a {
+  color: color;
+  background-color: #E3102E;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 40px;
+  margin-left: 50px;
+  font-size: 25px;
+  -webkit-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+}
+
+#landing-banner-left-part a:hover {
+  transition: 0.2s;
+  color: white;
+  background-color: #27AE60 !important;
+  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+  -moz-box-shadow: 0px 0px 23px -5px #28B463;
+  box-shadow: 0px 0px 23px -5px #28B463;
+  border-color: #28B463 !important;
+}
+
+#landing-banner-right-part {
+  border: 1px solid transparent;
+  width: 45%;
+  vertical-align: top;
+  display: inline-block;
+  height: auto;
+  text-align: left;
+}
+
+#landing-banner-right-part img {
+  height: 50vh;
+  margin-top: 20px;
+}
+
+/* ------------------ WHY Domingo explanation --------------------- */
+#why-domingo-panel {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  padding: 40px 0px;
+  padding-left: 40px;
+}
+
+#why-domingo-panel-left-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+#why-domingo-panel-left-part img {
+  height: 200px;
+}
+
+#why-domingo-panel-right-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+#why-domingo-panel-right-part h1 {
+  margin: 0px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+#why-domingo-panel-right-part p {
+  margin: 0px;
+  width: 80%;
+}
+
+
+/* ------------------ Vocabulary Tree explanation --------------------- */
+#vocab-tree-explanation {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center !important;
+  padding: 40px 0px;
+  padding-left: 40px;
+}
+
+#vocab-tree-explanation-left-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+#vocab-tree-explanation-left-part h1 {
+  margin: 0px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-left: 80px;
+}
+
+#vocab-tree-explanation-left-part p {
+  margin: 0px;
+  width: 80%;
+  margin-left: 80px;
+}
+
+#vocab-tree-explanation-right-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+#vocab-tree-explanation-right-part img {
+  height: 200px;
+  margin-left: 50px;
+}
+
+
+/* ------------------ profile stats explanation --------------------- */
+#profile-stats {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  padding: 40px 0px;
+  padding-left: 40px;
+}
+
+#profile-stats-left-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+#profile-stats-left-part img {
+  height: 200px;
+  margin-top: 30px;
+}
+
+#profile-stats-right-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+#profile-stats-right-part h1 {
+  margin: 0px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+#profile-stats-right-part p {
+  margin: 0px;
+  width: 80%;
+}
+
+/* ------------------ congress explanation --------------------- */
+#congress {
+  border: 1px solid transparent;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center !important;
+  padding: 40px 0px;
+  margin-bottom: 70px;
+  padding-left: 40px;
+}
+
+#congress-left-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+#congress-left-part h1 {
+  margin: 0px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-left: 80px;
+}
+
+#congress-left-part p {
+  margin: 0px;
+  width: 80%;
+  margin-left: 80px;
+}
+
+#congress-right-part {
+  width: 45%;
+  vertical-align: middle;
+  display: inline-block;
+  height: auto;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+#congress-right-part img {
+  height: 200px;
+  margin-left: 50px;
+}
+
+
+/* ------------------ footer --------------------- */
+
+#footer {
+  border: 0px solid transparent;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 0px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  background-color: #F4F5F7;
+}
+
+#footer-grid-part-1 {
+  border: 1px solid transparent;
+  height: auto;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#footer-grid-part-1 p {
+  color: black;
+  font-weight: 400;
+  margin: 0;
+  margin-left: 100px;
+}
+
+#footer-grid-part-2 {
+  border: 1px solid transparent;
+  height: auto;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#footer-grid-part-2 p {
+  color: black;
+  font-weight: 900;
+  width: 60%;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 100px;
+}
+
+#footer-grid-part-3 {
+  border: 1px solid transparent;
+  height: auto;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#footer-grid-part-3 p {
+  color: black;
+  font-weight: 900;
+  width: 60%;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 100px;
+}
+
+#grid-links {
+  border: 1px solid transparent;
+  text-align: left;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+#grid-links a {
+  display: block;
+  margin-bottom: 10px;
+  color: grey;
+  text-decoration: none;
+}
+
+#grid-links a:hover {
+  color: #E3102E;
+  transition: 0.2s;
+}
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

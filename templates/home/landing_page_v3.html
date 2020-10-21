@@ -1,0 +1,121 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home/landing_page_v3.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- Top nav -->
+<div id="landing-top-nav">
+  <img alt="logo" src="{% static 'branding/logo.png' %}" />
+  <a href="" id="signup-button">Sign up</a>
+  <a href="">Log in</a>
+
+</div>
+
+<!-- Landing Banner -->
+<div id="landing-banner">
+  <div id="landing-banner-left-part">
+    <h1>Community Driven Language Learning</h1>
+    <a href="">Start Learning</a>
+  </div>
+  <div id="landing-banner-right-part">
+    <img src="{% static 'undraw/convo.svg' %}" alt="banner-logo"/>
+  </div>
+</div>
+
+<!-- Why Domingo panel -->
+<div id="why-domingo-panel">
+  <div id="why-domingo-panel-left-part">
+    <img src="{% static 'undraw/why-us.svg' %}" alt="banner-logo"/>
+  </div>
+  <div id="why-domingo-panel-right-part">
+    <h1>Why Domingo?</h1>
+    <p>
+      Domingo's top most priorty is it's community. We beleive that language
+      learning should not be a solo adventure. That is why most of our learning
+      content is geared towards people interacting with each other and learning
+      a new language.
+    </p>
+  </div>
+</div>
+
+<!-- Vocabulary Tree explanation -->
+<div id="vocab-tree-explanation">
+    <div id="vocab-tree-explanation-left-part">
+      <h1>Grow Your Vocabulary Tree</h1>
+      <p>
+        With our fun vocabulary course lessons you will be able to
+        learn up to 8,000-16,000 words in your target language. We take
+        our vocabulary lessons very seriously because it is one of the most
+        important milestone on your journey to becomeing fluent in another language.
+      </p>
+    </div>
+    <div id="vocab-tree-explanation-right-part">
+      <img src="{% static 'undraw/vocab-tree.svg' %}" alt="banner-logo"/>
+    </div>
+</div>
+
+<!-- profile stats explanation -->
+<div id="profile-stats">
+    <div id="profile-stats-left-part">
+      <img src="{% static 'undraw/profile-stats.svg' %}" alt="banner-logo"/>
+    </div>
+    <div id="profile-stats-right-part">
+      <h1>Track Your Progress</h1>
+      <p>
+        We know that one of the hardest part about learning a new language is to
+        keep learning without losing your motivation. That is why we track and show
+        nearly all of your statistics of learning so that you can learn and motivate
+        yourself about your progress.
+      </p>
+    </div>
+</div>
+
+<!-- congress explanation -->
+<div id="congress">
+  <div id="congress-left-part">
+    <h1>Your Voice Matters</h1>
+    <p>
+      We don't throw the "community-driven" phrase to just catch your eye. We
+      believe that every community on the internet must have their own voice on
+      how that platform should be run. Every user in this platform gets voting
+      rights that has the ability to add or remove features that the community
+      does or does not want.
+    </p>
+  </div>
+  <div id="congress-right-part">
+    <img src="{% static 'undraw/voting.svg' %}" alt="banner-logo"/>
+  </div>
+</div>
+
+<!-- footer -->
+
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/getdomingo" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/DomingoApp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,270 @@
+body {
+  background-color: #F4F6F6;
+}
+
+
+/* ------------------ profile container left column ----------------- */
+
+#profile-container-left-column {
+  border: 1px solid transparent;
+  height: auto;
+  width: 60%;
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px 0px;
+}
+
+/* ------- profile info box ------- */
+
+#profile-info-box {
+  border: 1px solid lightgrey;
+  width: 95%;
+  height: auto;
+  background-color: white;
+  vertical-align: top;
+  display: block;
+  border-radius: 8px;
+  margin-left: 1%;
+}
+
+#profile-info-box-top-part-left-side {
+  border: 1px solid transparent;
+  display: inline-block;
+  height: auto;
+  width: 28%;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+#profile-photo {
+  background-color: #E5E8E8;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  margin-left: 20px;
+}
+
+#profile-info-box-top-part-right-side {
+  border: 1px solid transparent;
+  display: inline-block;
+  height: auto;
+  width: 70%;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+#profile-info-box-top-part-right-side h1 {
+  margin: 0px;
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+#profile-info-box-top-part-right-side h3 {
+  margin: 0px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+
+#profile-info-box-top-part-right-side p {
+  margin: 0px;
+  color: #707B7C;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+#profile-info-box-top-part-right-side p span {
+  width: 20px;
+  background-color: transparent;
+}
+
+#profile-info-box-top-part-right-side a span {
+  width: 20px;
+  background-color: transparent;
+}
+
+#profile-info-box-top-part-right-side a {
+  margin: 0px;
+  color: #3498DB;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+#profile-bio {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/* ------- user stats grid ------- */
+
+#user-stats-grid {
+  border: 1px solid lightgrey;
+  width: 95%;
+  height: auto;
+  background-color: white;
+  vertical-align: top;
+  display: block;
+  border-radius: 8px;
+  margin-left: 1%;
+  margin-top: 20px;
+}
+
+#user-stats-grid p {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+#user-stats-grid p b {
+
+}
+
+#grid {
+  border: 1px solid black;
+  width: 100;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 60px;
+}
+
+#grid-column {
+  display: inline-block;
+  margin-left: 0px;
+}
+
+#grid-cell-box {
+  height: 11px;
+  width: 11px;
+  border-radius: 2px;
+  background-color: lightgrey;
+  margin: 2px;
+  margin-right: -1px !important;
+  margin-left: -1px !important;;
+  position: relative;
+
+}
+
+.grid-cell-above-1 {
+  background-color: #FADBD8 !important;
+}
+
+.grid-cell-above-3 {
+  background-color: #F1948A !important;
+}
+
+.grid-cell-above-5 {
+  background-color: #E74C3C !important;
+}
+
+.grid-cell-above-10 {
+  background-color: #B03A2E !important;
+}
+
+#grid-cell-box-info {
+  background-color: black;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  display: none;
+}
+
+
+/* ------------------ profile container right column ----------------- */
+
+#profile-container-right-column {
+  border: 1px solid transparent;
+  height: 100px;
+  width: 38%;
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px 0px;
+}
+
+
+/* ------- languages box ------- */
+
+#languages-box {
+  border: 1px solid lightgrey;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  vertical-align: top;
+  display: block;
+  border-radius: 8px;
+  height: 310px !important;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#languages-box h1 {
+  margin: 0px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+#languages-box button {
+  display: block;
+
+  background-color: white;
+  border: 0px;
+  border-top: 1px solid lightgrey;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0px;
+  font-size: 20px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+#languages-box button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+#bottom-button {
+  border-radius: 0px 0px 8px 8px;
+}
+
+#language-flag {
+  height: 30px;
+  width: 50px;
+  background-color: #E5E8E8;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/french.png");
+}
+
+#language-level {
+  float: right;
+  color: grey;
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 16px;
+  width: 20%;
+  border: 1px solid transparent;
+  vertical-align: middle;
+}
