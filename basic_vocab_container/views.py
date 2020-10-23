@@ -17,6 +17,7 @@ from teacher_authentication.models import TeacherUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.update_levels import update_levels
 
 
 def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langauge):
@@ -562,6 +563,12 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         for word in unlearned_words[:10]:
             word.is_learned = True
             word.save()
+
+        # and add +10 xp and update levels
+        current_student.xp += 10
+        update_levels(current_student)
+        current_student.save()
+
         return HttpResponseRedirect("/")
 
     data = {
@@ -718,6 +725,12 @@ def basic_vocab_review(request, course_language, speakers_langauge):
         for word in lesson_pack:
             word.is_reviewed = True
             word.save()
+
+        # and add +10 xp and update levels
+        current_student.xp += 10
+        update_levels(current_student)
+        current_student.save()
+        
         return HttpResponseRedirect("/")
 
     data = {

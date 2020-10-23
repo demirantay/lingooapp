@@ -19,7 +19,7 @@ body {
 #profile-info-box {
   border: 1px solid lightgrey;
   width: 95%;
-  height: auto;
+  height: 310px;
   background-color: white;
   vertical-align: top;
   display: block;
@@ -105,11 +105,306 @@ body {
   font-size: 15px;
 }
 
+#mobile-profile-info-box {
+  display: none;
+  display: inline-block;
+  width: 40%;
+  border: 1px solid black;
+}
+
+#mobile-profile-info-box h1 {
+  margin: 0px;
+  display: none;
+}
+
+#mobile-profile-info-box h3 {
+  margin: 0px;
+  display: none;
+}
+
+/* ------------------ profile container right column ----------------- */
+
+#profile-container-right-column {
+  border: 1px solid transparent;
+  height: 100px;
+  width: 38%;
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px 0px;
+}
+
+
+/* ------- languages box ------- */
+
+#languages-box {
+  border: 1px solid lightgrey;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  vertical-align: top;
+  display: block;
+  border-radius: 8px;
+  height: 310px !important;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#languages-box h1 {
+  margin: 0px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+#languages-box-link {
+  text-decoration: none;
+}
+
+#languages-box button {
+  display: block;
+
+  background-color: white;
+  border: 0px;
+  border-top: 1px solid lightgrey;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0px;
+  font-size: 20px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+#languages-box button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #E5E8E8;
+}
+
+#bottom-button {
+  border-radius: 0px 0px 8px 8px;
+}
+
+#language-flag {
+  height: 30px;
+  width: 50px;
+  background-color: #E5E8E8;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#language-level {
+  float: right;
+  color: grey;
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 16px;
+  width: 20%;
+  border: 1px solid transparent;
+  vertical-align: middle;
+}
+
+.active-language-box {
+  background-color: #E5E8E8 !important;
+}
+
+/* ------------------- language progress part ---------------------- */
+
+#language-progress-part {
+  border: 1px solid lightgrey;
+  width: 98%;
+  margin: 0 auto;
+  height: auto;
+  background-color: white;
+  vertical-align: top;
+  display: block;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+#language-progress-flag {
+  height: 30px;
+  width: 50px;
+  background-color: #E5E8E8;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#language-progress-part h1 {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+#language-progress-part h1 span {
+  color: grey;
+  vertical-align: middle;
+  font-size: 20px;
+  margin-top: -50px;
+}
+
+#level-box {
+  border: 0px solid transparent;
+  width: 17%;
+  display: inline-block;
+  vertical-align: top;
+  height: 100px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 30px 40px 30px 10px;
+}
+
+#level-box h3 {
+  margin-left: 10px;
+  margin-top: 23px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 0px;
+  color: white;
+
+}
+
+#level-box h4 {
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  color: white;
+}
+
+#words-learned-box {
+  border: 0px solid transparent;
+  width: 17%;
+  display: inline-block;
+  vertical-align: top;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+  border-radius: 8px;
+  padding: 30px 40px 30px 10px;
+
+  background: #f12711;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#words-learned-box h3 {
+  margin-left: 10px;
+  margin-top: 23px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 0px;
+  color: white;
+}
+
+#words-learned-box h4 {
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+
+#forum-posts-box {
+  border: 0px solid transparent;
+  width: 17%;
+  display: inline-block;
+  vertical-align: top;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+  border-radius: 8px;
+  padding: 30px 40px 30px 10px;
+
+  background: #DCE35B;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#forum-posts-box h3 {
+  margin-left: 10px;
+  margin-top: 23px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 0px;
+  color: white;
+}
+
+#forum-posts-box h4 {
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+#bill-posts-box {
+  border: 0px solid transparent;
+  width: 17%;
+  display: inline-block;
+  vertical-align: top;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+  border-radius: 8px;
+  padding: 30px 40px 30px 10px;
+
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#bill-posts-box h3 {
+  margin-left: 10px;
+  margin-top: 23px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 0px;
+  color: white;
+}
+
+#bill-posts-box h4 {
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  color: white;
+  font-size: 20px;
+}
+
 /* ------- user stats grid ------- */
 
 #user-stats-grid {
   border: 1px solid lightgrey;
-  width: 95%;
+  width: 98%;
   height: auto;
   background-color: white;
   vertical-align: top;
@@ -131,7 +426,7 @@ body {
 }
 
 #grid {
-  border: 1px solid black;
+  border: 1px solid transparent;
   width: 100;
   margin-left: 10px;
   margin-right: 10px;
@@ -182,89 +477,690 @@ body {
 }
 
 
-/* ------------------ profile container right column ----------------- */
 
-#profile-container-right-column {
-  border: 1px solid transparent;
-  height: 100px;
-  width: 38%;
-  vertical-align: top;
-  display: inline-block;
-  padding: 10px 0px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  /* ------------------ profile container left column ----------------- */
+
+  #profile-container-left-column {
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    height: auto;
+  }
+
+  /* ------- profile info box ------- */
+
+  #profile-info-box {
+    width: 99%;
+    margin: 0 auto;
+    margin-left: 0%;
+  }
+
+  #profile-info-box-top-part-left-side {
+    display: inline-block;
+    height: auto;
+    width: 25%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-photo {
+    height: 65px;
+    width: 65px;
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+
+  #profile-info-box-top-part-right-side {
+    display: inline-block;
+    height: auto;
+    width: 70%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h1 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h3 {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  #profile-info-box-top-part-right-side p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  #profile-info-box-top-part-right-side a {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+
+  #profile-bio {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  /* ------------------ profile container right column ----------------- */
+
+  #profile-container-right-column {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  /* ------- languages box ------- */
+
+  #languages-box {
+    height: 230px !important;
+  }
+
+  /* ------------------- language progress part ---------------------- */
+
+  #language-progress-part {
+    width: 100%;
+    text-align: center;
+  }
+
+  #language-progress-flag {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  #language-progress-part h1 {
+    font-size: 25px;
+  }
+
+  #language-progress-part h1 span {
+    font-size: 16px;
+  }
+
+  #level-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #level-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #level-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #words-learned-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #words-learned-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #words-learned-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+
+  #forum-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #forum-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #forum-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #bill-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #bill-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #bill-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
 }
 
 
-/* ------- languages box ------- */
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ------------------ profile container left column ----------------- */
 
-#languages-box {
-  border: 1px solid lightgrey;
-  width: 100%;
-  height: auto;
-  background-color: white;
-  vertical-align: top;
-  display: block;
-  border-radius: 8px;
-  height: 310px !important;
-  overflow-y: scroll;
-  position: relative;
+  #profile-container-left-column {
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    height: auto;
+  }
+
+  /* ------- profile info box ------- */
+
+  #profile-info-box {
+    width: 99%;
+    margin: 0 auto;
+    margin-left: 0%;
+  }
+
+  #profile-info-box-top-part-left-side {
+    display: inline-block;
+    height: auto;
+    width: 25%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-photo {
+    height: 65px;
+    width: 65px;
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+
+  #profile-info-box-top-part-right-side {
+    display: inline-block;
+    height: auto;
+    width: 70%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h1 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h3 {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  #profile-info-box-top-part-right-side p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  #profile-info-box-top-part-right-side a {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+
+  #profile-bio {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  /* ------------------ profile container right column ----------------- */
+
+  #profile-container-right-column {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  /* ------- languages box ------- */
+
+  #languages-box {
+    height: 230px !important;
+  }
+
+  /* ------------------- language progress part ---------------------- */
+
+  #language-progress-part {
+    width: 100%;
+    text-align: center;
+  }
+
+  #language-progress-flag {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  #language-progress-part h1 {
+    font-size: 25px;
+  }
+
+  #language-progress-part h1 span {
+    font-size: 16px;
+  }
+
+  #level-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #level-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #level-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #words-learned-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #words-learned-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #words-learned-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+
+  #forum-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #forum-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #forum-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #bill-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #bill-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #bill-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
 }
 
-#languages-box h1 {
-  margin: 0px;
-  font-size: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: 800;
-  margin-left: 20px;
-  margin-bottom: 10px;
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+
+  /* ------------------ profile container left column ----------------- */
+
+  #profile-container-left-column {
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    height: auto;
+  }
+
+  /* ------- profile info box ------- */
+
+  #profile-info-box {
+    width: 99%;
+    margin: 0 auto;
+    margin-left: 0%;
+  }
+
+  #profile-info-box-top-part-left-side {
+    display: inline-block;
+    height: auto;
+    width: 25%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-photo {
+    height: 65px;
+    width: 65px;
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+
+  #profile-info-box-top-part-right-side {
+    display: inline-block;
+    height: auto;
+    width: 70%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h1 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  #profile-info-box-top-part-right-side h3 {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  #profile-info-box-top-part-right-side p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  #profile-info-box-top-part-right-side a {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+
+  #profile-bio {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  /* ------------------ profile container right column ----------------- */
+
+  #profile-container-right-column {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  /* ------- languages box ------- */
+
+  #languages-box {
+    height: 230px !important;
+  }
+
+  /* ------------------- language progress part ---------------------- */
+
+  #language-progress-part {
+    width: 100%;
+    text-align: center;
+  }
+
+  #language-progress-flag {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  #language-progress-part h1 {
+    font-size: 25px;
+  }
+
+  #language-progress-part h1 span {
+    font-size: 16px;
+  }
+
+  #level-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #level-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #level-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #words-learned-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #words-learned-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #words-learned-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+
+  #forum-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #forum-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #forum-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  #bill-posts-box {
+    width: 38%;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #bill-posts-box h3 {
+    margin-left: 5px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  #bill-posts-box h4 {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5px;
+  }
+
+
 }
 
-#languages-box button {
-  display: block;
 
-  background-color: white;
-  border: 0px;
-  border-top: 1px solid lightgrey;
-  width: 100%;
-  text-align: left;
-  padding: 10px 0px;
-  font-size: 20px;
-  font-weight: 700;
-  vertical-align: middle;
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #profile-photo {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+
+  /* ------------------- language progress part ---------------------- */
+
+  #language-progress-part {
+    width: 100%;
+  }
+
+  #level-box {
+    width: 16%;
+  }
+
+  #words-learned-box {
+    width: 16%;
+  }
+
+  #forum-posts-box {
+    width: 16%;
+  }
+
+  #bill-posts-box {
+    width: 16%;
+  }
+
+
+
 }
 
-#languages-box button:hover {
-  transition: 0.2s;
-  cursor: pointer;
-  background-color: lightgrey;
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #profile-photo {
+    height: 110px;
+    width: 110px;
+    margin-left: 20px;
+  }
+
+  /* ------------------- language progress part ---------------------- */
+
+  #language-progress-part {
+    width: 100%;
+  }
+
+  #level-box {
+    width: 16%;
+  }
+
+  #words-learned-box {
+    width: 16%;
+  }
+
+  #forum-posts-box {
+    width: 16%;
+  }
+
+  #bill-posts-box {
+    width: 16%;
+  }
+
 }
 
-#bottom-button {
-  border-radius: 0px 0px 8px 8px;
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
 }
 
-#language-flag {
-  height: 30px;
-  width: 50px;
-  background-color: #E5E8E8;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-  margin-left: 10px;
-  border-radius: 6px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("../../flags/french.png");
-}
 
-#language-level {
-  float: right;
-  color: grey;
-  font-weight: 900;
-  margin-right: 10px;
-  font-size: 16px;
-  width: 20%;
-  border: 1px solid transparent;
-  vertical-align: middle;
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
 }

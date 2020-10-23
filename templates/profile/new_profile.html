@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+{% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
+
 
 <!-- profile container left column  -->
 <div id="profile-container-left-column">
@@ -14,41 +16,29 @@
   <div id="profile-info-box">
     <div id="profile-info-box-top-part">
       <div id="profile-info-box-top-part-left-side">
-        <div id="profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+        {% if current_basic_user_profile.profile_photo %}
+          <div id="profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="profile-photo" style="background-image: url('');"></div>
+        {% endif %}
       </div>
       <div id="profile-info-box-top-part-right-side">
-        <h1>Demir Antay</h1>
-        <h3>@username</h3>
-        <p><span class="fa fa-map-marker"></span>Istanbul, Turkey</p>
-        <a href=""><span class="fa fa-link"></span>google.com</a>
+        <h1>{{ current_basic_user_profile.full_name }}</h1>
+        <h3>@{{ current_basic_user_profile.user.username }}</h3>
+        {% if current_basic_user_profile.location %}
+          <p><span class="fa fa-map-marker"></span>{{ current_basic_user_profile.location }}</p>
+        {% endif %}
+
+        {% if current_basic_user_profile.personal_url %}
+          <a target="_blank" href="{{current_basic_user_profile.personal_url}}"><span class="fa fa-link"></span>{{ current_basic_user_profile.personal_url }}</a>
+        {% endif %}
       </div>
     </div>
     <p id="profile-bio">
       <!-- max char : 450 -->
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      {{ current_basic_user_profile.bio|truncatechars:450 }}
     </p>
-
   </div>
-
-  <!-- user stats grid -->
-  <div id="user-stats-grid">
-    <p><b>1000</b> lessons done</p>
-    <div id="grid">
-      <!-- month -->
-      <div id="grid-column">
-        <div id="grid-cell-box" class="grid-cell-above-1"></div>
-        <div id="grid-cell-box-info">
-          <b>10 lessons learned on 20 Dec, 2020</b>
-        </div>
-
-        <div id="grid-cell-box" class="grid-cell-above-3"></div>
-        <div id="grid-cell-box" class="grid-cell-above-5"></div>
-        <div id="grid-cell-box" class="grid-cell-above-10"></div>
-      </div>
-
-    </div>
-  </div>
-
 </div>
 
 <!-- profile contianer right column -->
@@ -58,20 +48,204 @@
   <div id="languages-box">
       <h1>Languages</h1>
       <div id="langauges-box-scrolling-part">
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 85</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 24</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 12</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
-        <button><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 3</span></button>
+        <!--<button class="active-language-box"><div id="language-flag"></div><span id="course-name">French</span><span id="language-level">LVL 85</span></button>-->
+
+        {% for student in all_student_profiles %}
+        <a href="{% url 'profile_overview' student.course.course_language student.course.course_speakers_language %}" id="languages-box-link">
+
+          <button {% if student == current_student_profile %} class="active-language-box" {% endif %}>
+            {% if student.course.course_language == spanish %}
+              <div id="language-flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div>
+            {% elif student.course.course_language == english  %}
+              <div id="language-flag" style="background-image: url({% static 'flags/english.png' %});"></div>
+            {% elif student.course.course_language == french %}
+              <div id="language-flag" style="background-image: url({% static 'flags/french.png' %});"></div>
+            {% elif student.course.course_language == german %}
+              <div id="language-flag" style="background-image: url({% static 'flags/german.png' %});"></div>
+            {% elif student.course.course_language == italian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/italian.png' %});"></div>
+            {% elif student.course.course_language == japanese %}
+              <div id="language-flag" style="background-image: url({% static 'flags/japanese.png' %});"></div>
+            {% elif student.course.course_language == chinese %}
+              <div id="language-flag" style="background-image: url({% static 'flags/chinese.png' %});"></div>
+            {% elif student.course.course_language == russian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/russian.png' %});"></div>
+            {% elif student.course.course_language == korean %}
+              <div id="language-flag" style="background-image: url({% static 'flags/korean.png' %});"></div>
+            {% elif student.course.course_language == portuguese %}
+              <div id="language-flag" style="background-image: url({% static 'flags/portuguese.png' %});"></div>
+            {% elif student.course.course_language == arabic %}
+              <div id="language-flag" style="background-image: url({% static 'flags/arabic.png' %});"></div>
+            {% elif student.course.course_language == dutch %}
+              <div id="language-flag" style="background-image: url({% static 'flags/dutch.png' %});"></div>
+            {% elif student.course.course_language == swedish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/swedish.png' %});"></div>
+            {% elif student.course.course_language == norwegian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/norwegian.png' %});"></div>
+            {% elif student.course.course_language == turkish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/turkish.png' %});"></div>
+            {% elif student.course.course_language == polish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/polish.png' %});"></div>
+            {% elif student.course.course_language == irish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/irish.png' %});"></div>
+            {% elif student.course.course_language == greek %}
+              <div id="language-flag" style="background-image: url({% static 'flags/greek.png' %});"></div>
+            {% elif student.course.course_language == hebrew %}
+              <div id="language-flag" style="background-image: url({% static 'flags/hebrew.png' %});"></div>
+            {% elif student.course.course_language == danish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/danish.png' %});"></div>
+            {% elif student.course.course_language == hindi %}
+              <div id="language-flag" style="background-image: url({% static 'flags/hindi.png' %});"></div>
+            {% elif student.course.course_language == czech %}
+              <div id="language-flag" style="background-image: url({% static 'flags/czech.png' %});"></div>
+            {% elif student.course.course_language == esperanto %}
+              <div id="language-flag" style="background-image: url({% static 'flags/esperanto.png' %});"></div>
+            {% elif student.course.course_language == ukranian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/ukranian.png' %});"></div>
+            {% elif student.course.course_language == welsh %}
+              <div id="language-flag" style="background-image: url({% static 'flags/welsh.png' %});"></div>
+            {% elif student.course.course_language == vietnamese %}
+              <div id="language-flag" style="background-image: url({% static 'flags/vietnamese.png' %});"></div>
+            {% elif student.course.course_language == hungarian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/hungarian.png' %});"></div>
+            {% elif student.course.course_language == swahili %}
+              <div id="language-flag" style="background-image: url({% static 'flags/swahili.png' %});"></div>
+            {% elif student.course.course_language == romanian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/romanian.png' %});"></div>
+            {% elif student.course.course_language == indonesian %}
+              <div id="language-flag" style="background-image: url({% static 'flags/indonesian.png' %});"></div>
+            {% elif student.course.course_language == finnish %}
+              <div id="language-flag" style="background-image: url({% static 'flags/finnish.png' %});"></div>
+            {% elif student.course.course_language == bengali %}
+              <div id="language-flag" style="background-image: url({% static 'flags/bengali.png' %});"></div>
+            {% else %}
+              <div id="language-flag" style="background-image: url('');"></div>
+            {% endif %}
+            <span id="course-name">{{ student.course.course_language|title }}</span>
+            <span id="language-level">LVL {{ student.level }}</span>
+          </button>
+        </a>
+        {% endfor %}
+
       </div>
   </div>
-
-  <!-- hidden language panel -->
-
-
-
 </div>
 
+<!-- langauge progress-part -->
+<div id="language-progress-part">
+
+
+  {% if current_student_profile.course.course_language == spanish %}
+    <div id="language-progress-flag" style="background-image: url('{% static 'flags/spanish.png' %}');"></div>
+  {% elif current_student_profile.course.course_language == english  %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/english.png' %});"></div>
+  {% elif current_student_profile.course.course_language == french %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/french.png' %});"></div>
+  {% elif current_student_profile.course.course_language == german %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/german.png' %});"></div>
+  {% elif current_student_profile.course.course_language == italian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/italian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == japanese %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/japanese.png' %});"></div>
+  {% elif current_student_profile.course.course_language == chinese %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/chinese.png' %});"></div>
+  {% elif current_student_profile.course.course_language == russian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/russian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == korean %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/korean.png' %});"></div>
+  {% elif current_student_profile.course.course_language == portuguese %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/portuguese.png' %});"></div>
+  {% elif current_student_profile.course.course_language == arabic %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/arabic.png' %});"></div>
+  {% elif current_student_profile.course.course_language == dutch %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/dutch.png' %});"></div>
+  {% elif current_student_profile.course.course_language == swedish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/swedish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == norwegian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/norwegian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == turkish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/turkish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == polish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/polish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == irish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/irish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == greek %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/greek.png' %});"></div>
+  {% elif current_student_profile.course.course_language == hebrew %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/hebrew.png' %});"></div>
+  {% elif current_student_profile.course.course_language == danish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/danish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == hindi %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/hindi.png' %});"></div>
+  {% elif current_student_profile.course.course_language == czech %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/czech.png' %});"></div>
+  {% elif current_student_profile.course.course_language == esperanto %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/esperanto.png' %});"></div>
+  {% elif current_student_profile.course.course_language == ukranian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/ukranian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == welsh %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/welsh.png' %});"></div>
+  {% elif current_student_profile.course.course_language == vietnamese %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/vietnamese.png' %});"></div>
+  {% elif current_student_profile.course.course_language == hungarian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/hungarian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == swahili %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/swahili.png' %});"></div>
+  {% elif current_student_profile.course.course_language == romanian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/romanian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == indonesian %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/indonesian.png' %});"></div>
+  {% elif current_student_profile.course.course_language == finnish %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/finnish.png' %});"></div>
+  {% elif current_student_profile.course.course_language == bengali %}
+    <div id="language-progress-flag" style="background-image: url({% static 'flags/bengali.png' %});"></div>
+  {% else %}
+    <div id="language-progress-flag" style="background-image: url('');"></div>
+  {% endif %}
+
+  <h1>{{ current_student_profile.course.course_language|title }} <span>(from {{ current_student_profile.course.course_speakers_language|title }})</span></h1>
+
+  <br />
+
+  <div id="level-box">
+    <h3>Level: {{ current_student_profile.level }}</h3>
+    <h4>XP: {{ current_student_profile.xp }} </h4>
+  </div>
+
+  <div id="words-learned-box">
+    <h3>Vocab</h3>
+    <h4>{{ current_words_learned }}</h4>
+  </div>
+
+  <div id="forum-posts-box">
+    <h3>Forum Posts</h3>
+    <h4>{{ current_forum_posts }}</h4>
+  </div>
+
+  <div id="bill-posts-box">
+    <h3>Bill Votes</h3>
+    <h4>{{ current_bill_votes }}</h4>
+  </div>
+</div>
+
+<!-- user stats grid -->
+<div id="user-stats-grid">
+  <p><b>1000</b> lessons done</p>
+  <div id="grid">
+    <!-- month -->
+    <div id="grid-column">
+      <div id="grid-cell-box" class="grid-cell-above-1"></div>
+      <div id="grid-cell-box-info">
+        <b>10 lessons learned on 20 Dec, 2020</b>
+      </div>
+
+      <div id="grid-cell-box" class="grid-cell-above-3"></div>
+      <div id="grid-cell-box" class="grid-cell-above-5"></div>
+      <div id="grid-cell-box" class="grid-cell-above-10"></div>
+    </div>
+
+  </div>
+</div>
+
+{% endwith %}
 {% endblock %}

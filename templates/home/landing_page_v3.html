@@ -10,8 +10,8 @@
 <!-- Top nav -->
 <div id="landing-top-nav">
   <img alt="logo" src="{% static 'branding/logo.png' %}" />
-  <a href="" id="signup-button">Sign up</a>
-  <a href="">Log in</a>
+  <a href="{% url 'signup' %}" id="signup-button">Sign up</a>
+  <a href="{% url 'login' %}">Log in</a>
 
 </div>
 
@@ -19,12 +19,14 @@
 <div id="landing-banner">
   <div id="landing-banner-left-part">
     <h1>Community Driven Language Learning</h1>
-    <a href="">Start Learning</a>
+    <a href="{% url 'signup' %}">Start Learning</a>
   </div>
   <div id="landing-banner-right-part">
     <img src="{% static 'undraw/convo.svg' %}" alt="banner-logo"/>
   </div>
 </div>
+
+<div id="landing-page-content-wrapper">
 
 <!-- Why Domingo panel -->
 <div id="why-domingo-panel">
@@ -34,10 +36,10 @@
   <div id="why-domingo-panel-right-part">
     <h1>Why Domingo?</h1>
     <p>
-      Domingo's top most priorty is it's community. We beleive that language
+      Domingo's topmost priority is its community. We believe that language
       learning should not be a solo adventure. That is why most of our learning
-      content is geared towards people interacting with each other and learning
-      a new language.
+      content is towards people interacting with each other while learning a
+      new language.
     </p>
   </div>
 </div>
@@ -47,10 +49,10 @@
     <div id="vocab-tree-explanation-left-part">
       <h1>Grow Your Vocabulary Tree</h1>
       <p>
-        With our fun vocabulary course lessons you will be able to
-        learn up to 8,000-16,000 words in your target language. We take
-        our vocabulary lessons very seriously because it is one of the most
-        important milestone on your journey to becomeing fluent in another language.
+       With our fun vocabulary course lessons, you will be able to learn up to
+       8,000-16,000 words in your target language. We take our vocabulary lessons
+       very seriously because it is one of the most important milestones on your
+       journey to becoming fluent in another language.
       </p>
     </div>
     <div id="vocab-tree-explanation-right-part">
@@ -66,10 +68,9 @@
     <div id="profile-stats-right-part">
       <h1>Track Your Progress</h1>
       <p>
-        We know that one of the hardest part about learning a new language is to
-        keep learning without losing your motivation. That is why we track and show
-        nearly all of your statistics of learning so that you can learn and motivate
-        yourself about your progress.
+        We know that one of the hardest parts about learning a new language is
+        to keep learning without losing your motivation. That is why we track
+        and show nearly all of your learning statistics so that you can motivate yourself about your progress.
       </p>
     </div>
 </div>
@@ -80,18 +81,82 @@
     <h1>Your Voice Matters</h1>
     <p>
       We don't throw the "community-driven" phrase to just catch your eye. We
-      believe that every community on the internet must have their own voice on
-      how that platform should be run. Every user in this platform gets voting
-      rights that has the ability to add or remove features that the community
-      does or does not want.
+      believe that this community must have its own voice on how the platform
+      should be run. Every user in this platform gets voting rights that have
+      the ability to add or remove features that the community wants.
     </p>
   </div>
   <div id="congress-right-part">
     <img src="{% static 'undraw/voting.svg' %}" alt="banner-logo"/>
   </div>
 </div>
+</div>
 
-<!-- footer -->
+
+<div id="mobile-display">
+  <!-- Why Domingo panel -->
+  <div id="why-domingo-panel">
+    <div id="why-domingo-panel-left-part">
+      <img src="{% static 'undraw/why-us.svg' %}" alt="banner-logo"/>
+    </div>
+    <div id="why-domingo-panel-right-part">
+      <h1>Why Domingo?</h1>
+      <p>
+        Domingo's topmost priority is its community. We believe that language
+        learning should not be a solo adventure. That is why most of our learning
+        content is towards people interacting with each other while learning a
+        new language.
+      </p>
+    </div>
+  </div>
+
+  <!-- Vocabulary Tree explanation -->
+  <div id="vocab-tree-explanation">
+      <div id="vocab-tree-explanation-left-part">
+        <img src="{% static 'undraw/vocab-tree.svg' %}" alt="banner-logo"/>
+      </div>
+      <div id="vocab-tree-explanation-right-part">
+        <h1>Grow Your Vocabulary Tree</h1>
+        <p>
+         With our fun vocabulary course lessons, you will be able to learn up to
+         8,000-16,000 words in your target language. We take our vocabulary lessons
+         very seriously because it is one of the most important milestones on your
+         journey to becoming fluent in another language.
+        </p>
+      </div>
+  </div>
+
+  <!-- profile stats explanation -->
+  <div id="profile-stats">
+      <div id="profile-stats-left-part">
+        <img src="{% static 'undraw/profile-stats.svg' %}" alt="banner-logo"/>
+      </div>
+      <div id="profile-stats-right-part">
+        <h1>Track Your Progress</h1>
+        <p>
+          We know that one of the hardest parts about learning a new language is
+          to keep learning without losing your motivation. That is why we track
+          and show nearly all of your learning statistics so that you can motivate yourself about your progress.
+        </p>
+      </div>
+  </div>
+
+  <!-- congress explanation -->
+  <div id="congress">
+    <div id="congress-left-part">
+      <img src="{% static 'undraw/voting.svg' %}" alt="banner-logo"/>
+    </div>
+    <div id="congress-right-part">
+      <h1>Your Voice Matters</h1>
+      <p>
+        We don't throw the "community-driven" phrase to just catch your eye. We
+        believe that this community must have its own voice on how the platform
+        should be run. Every user in this platform gets voting rights that have
+        the ability to add or remove features that the community wants.
+      </p>
+    </div>
+  </div>
+</div>
 
 
 <!-- footer -->

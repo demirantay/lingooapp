@@ -3,7 +3,11 @@ from . import views
 
 urlpatterns = [
     # Profile Overview
-    path("profile/", views.profile_overview, name="profile_overview"),
+    path(
+        "profile/<str:course_language>/<str:speakers_language>/",
+        views.profile_overview,
+        name="profile_overview"
+    ),
     # Other User profile overview
     path(
         "profile/<str:other_user_username>/",

@@ -3,136 +3,145 @@ body {
   padding: 0px;
 }
 
-/* ------------------ landing-banner --------------------- */
-#landing-top-nav {
-  width: 100%;
-  background-color: #CD5C5C;
-  height: 65px;
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index: 99;
-  border-bottom: 1px solid transparent;
-  background: #FF416C;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    background-color: #CD5C5C;
+    height: 65px;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 99;
+    border-bottom: 1px solid transparent;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
+  }
 
-#landing-top-nav img {
-  height: 50px;
-  float: left;
-  vertical-align: middle;
-  margin-top: 8px;
-  margin-left: 10%;
-}
+  #landing-top-nav img {
+    height: 50px;
+    float: left;
+    vertical-align: middle;
+    margin-top: 8px;
+    margin-left: 10%;
+  }
 
-#landing-top-nav a {
-  float: right;
-  vertical-align: middle;
-  text-decoration: none;
-  background-color: #E3102E;
-  color: white;
-  margin-right: 15px;
-  padding: 7px 15px;
-  border-radius: 5px;
-  margin-top: 15px;
-  border: 1px solid #E3102E;
-  -webkit-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
-}
+  #landing-top-nav a {
+    float: right;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #E3102E;
+    color: white;
+    margin-right: 15px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px solid #E3102E;
+    -webkit-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px -14px rgba(0,0,0,0.75);
+  }
 
-#landing-top-nav a:hover {
-  transition: 0.2s;
-  color: white;
-  background-color: #27AE60 !important;
-  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
-  -moz-box-shadow: 0px 0px 23px -5px #28B463;
-  box-shadow: 0px 0px 23px -5px #28B463;
-  border-color: #28B463 !important;
-}
+  #landing-top-nav a:hover {
+    transition: 0.2s;
+    color: white;
+    background-color: #27AE60 !important;
+    -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+    -moz-box-shadow: 0px 0px 23px -5px #28B463;
+    box-shadow: 0px 0px 23px -5px #28B463;
+    border-color: #28B463 !important;
+  }
 
-#signup-button {
-  margin-right: 10% !important;
-  background-color: transparent !important;
-  border-color: white !important;
-}
+  #signup-button {
+    margin-right: 10% !important;
+    background-color: transparent !important;
+    border-color: white !important;
+  }
 
 
-/* ------------------ landing-banner --------------------- */
-#landing-banner {
-  width: 100%;
-  background-color: black;
-  height: 60vh;
-  border-bottom: 1px solid transparent;
-  text-align: center;
-  position: relative;
-  margin-top: 65px;
-  background: #FF416C;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
-}
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    width: 100%;
+    background-color: black;
+    height: 60vh;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    position: relative;
+    margin-top: 65px;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 55px -25px rgba(0,0,0,0.75);
+  }
 
-#landing-banner-left-part {
-  border: 1px solid transparent;
-  width: 45%;
-  vertical-align: top;
-  display: inline-block;
-  text-align: left;
-}
+  #landing-banner-left-part {
+    border: 1px solid transparent;
+    width: 45%;
+    vertical-align: top;
+    display: inline-block;
+    text-align: left;
+  }
 
-#landing-banner-left-part h1 {
-  color: white;
-  font-weight: 900;
-  width: 80%;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  margin-left: 50px;
-  font-size: 45px;
-}
+  #landing-banner-left-part h1 {
+    color: white;
+    font-weight: 900;
+    width: 80%;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    font-size: 45px;
+  }
 
-#landing-banner-left-part a {
-  color: color;
-  background-color: #E3102E;
-  text-decoration: none;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 40px;
-  margin-left: 50px;
-  font-size: 25px;
-  -webkit-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
-}
+  #landing-banner-left-part a {
+    color: color;
+    background-color: #E3102E;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin-left: 50px;
+    font-size: 25px;
+    -webkit-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px -16px rgba(0,0,0,0.75);
+  }
 
-#landing-banner-left-part a:hover {
-  transition: 0.2s;
-  color: white;
-  background-color: #27AE60 !important;
-  -webkit-box-shadow: 0px 0px 23px -5px #28B463;
-  -moz-box-shadow: 0px 0px 23px -5px #28B463;
-  box-shadow: 0px 0px 23px -5px #28B463;
-  border-color: #28B463 !important;
-}
+  #landing-banner-left-part a:hover {
+    transition: 0.2s;
+    color: white;
+    background-color: #27AE60 !important;
+    -webkit-box-shadow: 0px 0px 23px -5px #28B463;
+    -moz-box-shadow: 0px 0px 23px -5px #28B463;
+    box-shadow: 0px 0px 23px -5px #28B463;
+    border-color: #28B463 !important;
+  }
 
-#landing-banner-right-part {
-  border: 1px solid transparent;
-  width: 45%;
-  vertical-align: top;
-  display: inline-block;
-  height: auto;
-  text-align: left;
-}
+  #landing-banner-right-part {
+    border: 1px solid transparent;
+    width: 45%;
+    vertical-align: top;
+    display: inline-block;
+    height: auto;
+    text-align: left;
+  }
 
-#landing-banner-right-part img {
-  height: 50vh;
-  margin-top: 20px;
-}
+  #landing-banner-right-part img {
+    height: 50vh;
+    margin-top: 20px;
+  }
+
+  #landing-page-content-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #mobile-display {
+    display: none;
+  }
 
 /* ------------------ WHY Domingo explanation --------------------- */
 #why-domingo-panel {
@@ -414,41 +423,1110 @@ body {
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    background-color: #CD5C5C;
+    height: 65px;
+  }
+
+  #landing-top-nav img {
+    height: 50px;
+    margin-left: 2%;
+  }
+
+  #signup-button {
+    margin-right: 2% !important;
+  }
+
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    width: 100%;
+    margin-top: 65px;
+    height: auto;
+    padding-bottom: 100px;
+    padding-top: 10px;
+  }
+
+  #landing-banner-left-part {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #landing-banner-left-part h1 {
+    width: 95%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    font-size: 35px;
+  }
+
+  #landing-banner-left-part a {
+    padding: 10px 40px;
+    margin-left: 0px;
+    font-size: 25px;
+  }
+
+  #landing-banner-right-part {
+    display: none;
+  }
+
+  #landing-banner-right-part img {
+    display: none;
+  }
+
+  #landing-page-content-wrapper {
+    display: none;
+  }
+
+  #mobile-display {
+    display: block;
+  }
+
+  /* ------------------ WHY Domingo explanation --------------------- */
+  #why-domingo-panel {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #why-domingo-panel-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #why-domingo-panel-left-part img {
+    height: 130px;
+  }
+
+  #why-domingo-panel-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #why-domingo-panel-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #why-domingo-panel-right-part p {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+
+  /* ------------------ Vocabulary Tree explanation --------------------- */
+  #vocab-tree-explanation {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+
+  }
+
+  #vocab-tree-explanation-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #vocab-tree-explanation-left-part img {
+    height: 130px;
+  }
+
+  #vocab-tree-explanation-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #vocab-tree-explanation-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #vocab-tree-explanation-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ profile stats explanation --------------------- */
+  #profile-stats {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+    margin-top: -30px;
+  }
+
+  #profile-stats-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #profile-stats-left-part img {
+    height: 130px;
+  }
+
+  #profile-stats-right-part{
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #profile-stats-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #profile-stats-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+    width: 100%;
+  }
+
+  /* ------------------ congress explanation --------------------- */
+  #congress {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #congress-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #congress-left-part img {
+    height: 130px;
+  }
+
+  #congress-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #congress-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #congress-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ footer --------------------- */
+
+  #footer {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 0px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #F4F5F7;
+  }
+
+  #footer-grid-part-1 {
+    display: none;
+  }
+
+  #footer-grid-part-1 p {
+    display: none;
+  }
+
+  #footer-grid-part-2 {
+    width: 90%;
+    display: block;
+  }
+
+  #footer-grid-part-2 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #footer-grid-part-3 {
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+  }
+
+  #footer-grid-part-3 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #grid-links {
+    width: 90%;
+    margin-left: 40px;
+  }
 
 }
 
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    background-color: #CD5C5C;
+    height: 65px;
+  }
+
+  #landing-top-nav img {
+    height: 50px;
+    margin-left: 2%;
+  }
+
+  #signup-button {
+    margin-right: 2% !important;
+  }
+
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    width: 100%;
+    margin-top: 65px;
+    height: auto;
+    padding-bottom: 100px;
+    padding-top: 10px;
+  }
+
+  #landing-banner-left-part {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #landing-banner-left-part h1 {
+    width: 95%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    font-size: 35px;
+  }
+
+  #landing-banner-left-part a {
+    padding: 10px 40px;
+    margin-left: 0px;
+    font-size: 25px;
+  }
+
+  #landing-banner-right-part {
+    display: none;
+  }
+
+  #landing-banner-right-part img {
+    display: none;
+  }
+
+  #landing-page-content-wrapper {
+    display: none;
+  }
+
+  #mobile-display {
+    display: block;
+  }
+
+  /* ------------------ WHY Domingo explanation --------------------- */
+  #why-domingo-panel {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #why-domingo-panel-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #why-domingo-panel-left-part img {
+    height: 130px;
+  }
+
+  #why-domingo-panel-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #why-domingo-panel-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #why-domingo-panel-right-part p {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+
+  /* ------------------ Vocabulary Tree explanation --------------------- */
+  #vocab-tree-explanation {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+
+  }
+
+  #vocab-tree-explanation-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #vocab-tree-explanation-left-part img {
+    height: 130px;
+  }
+
+  #vocab-tree-explanation-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #vocab-tree-explanation-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #vocab-tree-explanation-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ profile stats explanation --------------------- */
+  #profile-stats {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+    margin-top: -30px;
+  }
+
+  #profile-stats-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #profile-stats-left-part img {
+    height: 130px;
+  }
+
+  #profile-stats-right-part{
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #profile-stats-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #profile-stats-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+    width: 100%;
+  }
+
+  /* ------------------ congress explanation --------------------- */
+  #congress {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #congress-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #congress-left-part img {
+    height: 130px;
+  }
+
+  #congress-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #congress-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #congress-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ footer --------------------- */
+
+  #footer {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 0px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #F4F5F7;
+  }
+
+  #footer-grid-part-1 {
+    display: none;
+  }
+
+  #footer-grid-part-1 p {
+    display: none;
+  }
+
+  #footer-grid-part-2 {
+    width: 90%;
+    display: block;
+  }
+
+  #footer-grid-part-2 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #footer-grid-part-3 {
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+  }
+
+  #footer-grid-part-3 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #grid-links {
+    width: 90%;
+    margin-left: 40px;
+  }
 
 }
 
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    background-color: #CD5C5C;
+    height: 65px;
+  }
+
+  #landing-top-nav img {
+    height: 50px;
+    margin-left: 2%;
+  }
+
+  #signup-button {
+    margin-right: 2% !important;
+  }
+
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    width: 100%;
+    margin-top: 65px;
+    height: auto;
+    padding-bottom: 100px;
+    padding-top: 0px;
+  }
+
+  #landing-banner-left-part {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #landing-banner-left-part h1 {
+    width: 95%;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    font-size: 35px;
+  }
+
+  #landing-banner-left-part a {
+    padding: 10px 40px;
+    margin-left: 0px;
+    font-size: 25px;
+  }
+
+  #landing-banner-right-part {
+    display: none;
+  }
+
+  #landing-banner-right-part img {
+    display: none;
+  }
+
+  #landing-page-content-wrapper {
+    display: none;
+  }
+
+  #mobile-display {
+    display: block;
+  }
+
+  /* ------------------ WHY Domingo explanation --------------------- */
+  #why-domingo-panel {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #why-domingo-panel-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #why-domingo-panel-left-part img {
+    height: 130px;
+  }
+
+  #why-domingo-panel-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #why-domingo-panel-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #why-domingo-panel-right-part p {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+
+  /* ------------------ Vocabulary Tree explanation --------------------- */
+  #vocab-tree-explanation {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+
+  }
+
+  #vocab-tree-explanation-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #vocab-tree-explanation-left-part img {
+    height: 130px;
+  }
+
+  #vocab-tree-explanation-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #vocab-tree-explanation-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #vocab-tree-explanation-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ profile stats explanation --------------------- */
+  #profile-stats {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+    margin-top: -30px;
+  }
+
+  #profile-stats-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #profile-stats-left-part img {
+    height: 130px;
+  }
+
+  #profile-stats-right-part{
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #profile-stats-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #profile-stats-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+    width: 100%;
+  }
+
+  /* ------------------ congress explanation --------------------- */
+  #congress {
+    width: 90%;
+    margin-top: 10px;
+    text-align: center;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #congress-left-part {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 0px;
+  }
+
+  #congress-left-part img {
+    height: 130px;
+  }
+
+  #congress-right-part {
+    width: 100%;
+    display: block;
+    border: 0px solid transparent;
+  }
+
+  #congress-right-part h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+
+  #congress-right-part p {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+
+  /* ------------------ footer --------------------- */
+
+  #footer {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 0px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #F4F5F7;
+  }
+
+  #footer-grid-part-1 {
+    display: none;
+  }
+
+  #footer-grid-part-1 p {
+    display: none;
+  }
+
+  #footer-grid-part-2 {
+    width: 90%;
+    display: block;
+  }
+
+  #footer-grid-part-2 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #footer-grid-part-3 {
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+  }
+
+  #footer-grid-part-3 p {
+    width: 90%;
+    margin-left: 40px;
+  }
+
+  #grid-links {
+    width: 90%;
+    margin-left: 40px;
+  }
+
 }
 
 
 /* Tablet - --------------------------------------------------------------- */
 @media screen and (min-width: 426px) and (max-width: 768px) {
 
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    background-color: #CD5C5C;
+    height: 65px;
+    position: fixed !important;
+  }
+
+  #landing-top-nav img {
+    height: 50px;
+    float: left;
+    vertical-align: middle;
+    margin-top: 8px;
+    margin-left: 10%;
+  }
+
+  #landing-top-nav a {
+    float: right;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #E3102E;
+    color: white;
+    margin-right: 15px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px solid #E3102E;
+  }
+
+  #signup-button {
+    margin-right: 10% !important;
+    background-color: transparent !important;
+    border-color: white !important;
+  }
+
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    margin-top: 65px;
+  }
+
+  #landing-banner-left-part {
+    width: 45%;
+  }
+
+  #landing-banner-left-part h1 {
+
+    margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    font-size: 35px;
+  }
+
+  #landing-banner-left-part a {
+    color: color;
+    background-color: #E3102E;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin-left: 50px;
+    font-size: 22px;
+  }
+
+  #landing-banner-right-part {
+    width: 45%;
+  }
+
+  #landing-banner-right-part img {
+    height: 220px;
+    margin-top: 50px;
+  }
+
+  #landing-page-content-wrapper {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  /* ------------------ WHY Domingo explanation --------------------- */
+  #why-domingo-panel {
+    width: 90%;
+    padding: 40px 0px;
+    padding-left: 0px;
+  }
+
+  #why-domingo-panel-left-part img {
+    height: 150px;
+  }
+
+  /* ------------------ Vocabulary Tree explanation --------------------- */
+  #vocab-tree-explanation {
+    padding-left: 0px;
+  }
+
+  #vocab-tree-explanation-left-part h1 {
+    margin-left: 20px;
+  }
+
+  #vocab-tree-explanation-left-part p {
+    margin-left: 20px;
+  }
+
+  #vocab-tree-explanation-right-part img {
+    height: 150px;
+    margin-left: 40px;
+  }
+
+
+  /* ------------------ profile stats explanation --------------------- */
+  #profile-stats {
+    padding-left: 0px;
+  }
+
+  #profile-stats-left-part img {
+    height: 150px;
+    margin-top: 30px;
+  }
+
+  #profile-stats-right-part h1 {
+    margin-left: 0px;
+  }
+
+  #profile-stats-right-part p {
+    margin-left: 0px;
+  }
+
+  /* ------------------ congress explanation --------------------- */
+  #congress {
+    padding-left: 0px;
+  }
+
+  #congress-left-part h1 {
+    margin-left: 20px;
+  }
+
+  #congress-left-part p {
+    margin-left: 20px;
+  }
+
+  #congress-right-part img {
+    height: 150px;
+    margin-left: 20px;
+  }
+
+
+  /* ------------------ footer --------------------- */
+
+  #footer-grid-part-1 {
+    width: 30%;
+  }
+
+  #footer-grid-part-1 p {
+    margin-left: 30px;
+  }
+
+  #footer-grid-part-2 p {
+    margin-left: 30px;
+  }
+
+  #footer-grid-part-3 p {
+    margin-left: 30px;
+  }
+
+  #grid-links {
+    margin-left: 30px;
+  }
 
 }
 
 
 /* Laptop ------------------------------------------------------------------ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* nothing for now */
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    margin-top: 65px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    height: auto;
+  }
+
+  #landing-banner-left-part h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  #landing-banner-right-part img {
+    height: 300px;
+    margin-top: 20px;
+  }
+
 }
 
 
 /* Laptop Large -------------------------------------------------------------*/
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
-  /* nothing for now */
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    margin-top: 65px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    height: auto;
+  }
+
+  #landing-banner-left-part h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  #landing-banner-right-part img {
+    height: 300px;
+    margin-top: 20px;
+  }
 }
 
 
 /* 4K Large Desktop ------------------------------------------------------- */
 @media screen and (min-width: 1441px) {
+  /* ------------------ landing-banner --------------------- */
+  #landing-top-nav {
+    width: 100%;
+    height: 65px;
+  }
+
+  #landing-top-nav img {
+    margin-left: 20%;
+  }
+
+  #signup-button {
+    margin-right: 20% !important;
+  }
+
+
+  /* ------------------ landing-banner --------------------- */
+  #landing-banner {
+    margin-top: 65px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    height: auto;
+  }
+
+  #landing-banner-left-part {
+    width: 30%;
+  }
+
+  #landing-banner-left-part h1 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    font-size: 65px;
+  }
+
+  #landing-banner-right-part {
+    width: 30%;
+  }
+
+  #landing-banner-right-part img {
+    height: 45vh;
+    margin-top: 20px;
+  }
+
+  #landing-page-content-wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+
+  #footer-grid-part-1 {
+    width: 20%;
+  }
+
+  #footer-grid-part-2 {
+    width: 20%;
+  }
+
+  #footer-grid-part-3 {
+    width: 20%;
+  }
 
 }
