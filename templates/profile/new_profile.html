@@ -230,21 +230,199 @@
 
 <!-- user stats grid -->
 <div id="user-stats-grid">
-  <p><b>1000</b> lessons done</p>
-  <div id="grid">
-    <!-- month -->
-    <div id="grid-column">
-      <div id="grid-cell-box" class="grid-cell-above-1"></div>
-      <div id="grid-cell-box-info">
-        <b>10 lessons learned on 20 Dec, 2020</b>
-      </div>
+  <p><b>1000</b> lessons done this year (2020)</p>
 
+  <!-- month -->
+  <div id="months-of-grid">
+    <p>Jan</p>
+    <p>Feb</p>
+    <p>Mar</p>
+    <p>Apr</p>
+    <p>May</p>
+    <p>Jun</p>
+    <p>Jul</p>
+    <p>Aug</p>
+    <p>Sep</p>
+    <p>Oct</p>
+    <p>Nov</p>
+    <p>Dec</p>
+  </div>
+
+  <div id="grid">
+    <div id="days-of-grid-column">
+      <p>Mon</p>
+      <p>Tue</p>
+      <p>Wed</p>
+      <p>Thu</p>
+      <p>Fri</p>
+      <p>Sat</p>
+      <p>Sun</p>
+    </div>
+
+    <div id="grid-column">
+
+      <!--
+      <div id="grid-cell-box"></div>
+      <div id="grid-cell-box" class="grid-cell-above-1"></div>
       <div id="grid-cell-box" class="grid-cell-above-3"></div>
       <div id="grid-cell-box" class="grid-cell-above-5"></div>
       <div id="grid-cell-box" class="grid-cell-above-10"></div>
+      -->
     </div>
 
+    <script>
+      let grid = document.getElementById("grid");
+      let current_year = {{ current_year }}
+      current_year = String(current_year);
+      let dom_track_records = {{ dom_track_records|safe }}
+
+      // DOM Data Structure: tracking contrib box
+      function Box(date, amount) {
+        this.date = date;
+        this.amount = amount;
+
+        this.get_date = function() {
+          return this.date;
+        }
+        this.get_amount = function() {
+          return this.amount;
+        }
+        this.set_date = function(new_date) {
+          this.date = new_date;
+        }
+        this.set_amount = function(new_amount) {
+          this.amount = new_amount;
+        }
+        this.get_dom_box = function() {
+          if (this.amount < 1 || this.amount == 0) {
+            return `<div id="grid-cell-box"></div>`
+          }
+          else if (this.amount >= 1 && this.amount < 3) {
+            return `<div id="grid-cell-box" class="grid-cell-above-1"></div>`
+          }
+          else if (this.amount >= 3 && this.amount < 5) {
+            return `<div id="grid-cell-box" class="grid-cell-above-3"></div>`
+          }
+          else if (this.amount >= 5 && this.amount < 10) {
+            return `<div id="grid-cell-box" class="grid-cell-above-5"></div>`
+          }
+          else if (this.amount >= 10) {
+            return `<div id="grid-cell-box" class="grid-cell-above-10"></div>`
+          }
+          else {
+            return `<div id="grid-cell-box"></div>`
+          }
+        }
+      }
+
+      // single grid column
+      function GridColumn(n1, n2, n3, n4, n5, n6, n7) {
+        this.n1 = n1;
+        this.n2 = n2;
+        this.n3 = n3;
+        this.n4 = n4;
+        this.n5 = n5;
+        this.n6 = n6;
+        this.n7 = n7;
+
+        this.get_column = function() {
+          return `
+            <div id="grid-column">
+              ${this.n1}
+              ${this.n2}
+              ${this.n3}
+              ${this.n4}
+              ${this.n5}
+              ${this.n6}
+              ${this.n7}
+            </div>
+          `;
+        }
+      }
+
+      // get all of the empty 365 day boxes
+      // see if the date is already in the server boxes, if it is
+      // update its color (Amount while constructing the js object)
+      box_array = []
+
+      current_day = 1
+      current_month = 1
+
+      for (let i=1; i <= 365; i++) {
+
+        // build the date of the box
+        final_date = current_year + "-";
+
+        if (current_month < 10) {
+          final_date += "0" + String(current_month) + "-";
+        } else {
+          final_date += String(current_month) + "-";
+        }
+
+        if (current_day < 10) {
+          final_date += "0" + String(current_day);
+        } else {
+          final_date += String(current_day);
+        }
+
+        // update the date and month state of the boxes
+        if (current_day >= 30) {
+          current_day = 0;
+          current_month++;
+        }
+        current_day++;
+
+        box_array.push(new Box(final_date, 0));
+      }
+
+      // loop through all boxes and see if they match the server track data
+      // if they do update its record to the js DOM box
+      for (let i = 0; i < box_array.length; i++) {
+
+        current_box = box_array[i];
+        box_date = box_array[i].get_date();
+
+        for (let j =0; j < Object.keys(dom_track_records).length; j++) {
+          let key = Object.keys(dom_track_records)[j]
+
+          if (key == box_date) {
+            current_box.set_amount(dom_track_records[key])
+          }
+        }
+      }
+
+      // get 52 weeks (column) of the year (create the columns)
+      columns_array = []
+
+      for (let i=0; i <= 363; i += 7) {
+        columns_array.push(new GridColumn(
+          box_array[i].get_dom_box(),
+          box_array[i+1].get_dom_box(),
+          box_array[i+2].get_dom_box(),
+          box_array[i+3].get_dom_box(),
+          box_array[i+4].get_dom_box(),
+          box_array[i+5].get_dom_box(),
+          box_array[i+6].get_dom_box(),
+        ));
+      }
+
+      // update the dom grid
+      for (let i=0; i < columns_array.length; i++) {
+        grid.innerHTML += columns_array[i].get_column();
+      }
+
+    </script>
+
+  </div> <!-- /grid -->
+
+  <div id="grid-info">
+    <div id="grid-cell-box"></div> <p>0</p>
+    <div id="grid-cell-box" class="grid-cell-above-1"></div> <p>1+</p>
+    <div id="grid-cell-box" class="grid-cell-above-3"></div> <p>3+</p>
+    <div id="grid-cell-box" class="grid-cell-above-5"></div> <p>5+</p>
+    <div id="grid-cell-box" class="grid-cell-above-10"></div> <p>10+</p>
   </div>
+
 </div>
 
 {% endwith %}

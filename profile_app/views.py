@@ -1,4 +1,5 @@
 # Main Imports
+import datetime
 
 # Django Imports
 from django.shortcuts import render, get_object_or_404, HttpResponse
@@ -6,8 +7,10 @@ from django.http import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # My Module Imports
+from .models import LessonTrackRecord
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from basic_language_explore.models import Student, BasicLanguageCourse, Language
@@ -55,7 +58,7 @@ def profile_overview(request, course_language, speakers_language):
     try:
         all_student_profiles = Student.objects.filter(
             basic_user_profile=current_basic_user_profile
-        )
+        ).order_by("-xp")
     except ObjectDoesNotExist:
         all_student_profiles = None
 
@@ -131,6 +134,21 @@ def profile_overview(request, course_language, speakers_language):
     except ObjectDoesNotExist:
         current_bill_votes = None
 
+    # Getting all the track records of the current user
+    try:
+        current_track_records = LessonTrackRecord.objects.filter(
+            user=current_basic_user_profile
+        )
+    except ObjectDoesNotExist:
+        current_track_records = None
+
+    dom_track_records = {}
+    for record in current_track_records:
+        dom_track_records[str(record.creation_date)] = record.amount
+
+    # Get the current year
+    current_year = str(timezone.now().date())[:4]
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -140,6 +158,8 @@ def profile_overview(request, course_language, speakers_language):
         "current_words_learned": len(current_words),
         "current_forum_posts": len(current_forum_posts),
         "current_bill_votes": len(current_bill_votes),
+        "current_year": current_year,
+        "dom_track_records": dom_track_records,
     }
 
     if current_basic_user == None:

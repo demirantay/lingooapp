@@ -412,6 +412,7 @@ body {
   border-radius: 8px;
   margin-left: 1%;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 #user-stats-grid p {
@@ -425,26 +426,52 @@ body {
 
 }
 
+#months-of-grid {
+  border: 1px solid transparent;
+  margin-left: 45px;
+  margin-top: 20px;
+}
+
+#months-of-grid p {
+  display: inline-block;
+  margin: 0px;
+  font-size: 14px;
+  margin-right: 31px;
+}
+
 #grid {
   border: 1px solid transparent;
-  width: 100;
+  width: 100%;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
-  height: 60px;
+  height: auto;
+}
+
+#days-of-grid-column {
+  border: 1px solid transparent;
+  width: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#days-of-grid-column p {
+  margin: 0px;
+  font-size: 12px;
 }
 
 #grid-column {
   display: inline-block;
   margin-left: 0px;
+  vertical-align: top;
 }
 
 #grid-cell-box {
-  height: 11px;
-  width: 11px;
-  border-radius: 2px;
+  height: 12px;
+  width: 12px;
+  border-radius: 3px;
   background-color: lightgrey;
-  margin: 2px;
+  margin: 3px;
   margin-right: -1px !important;
   margin-left: -1px !important;;
   position: relative;
@@ -476,6 +503,27 @@ body {
   display: none;
 }
 
+
+#grid-info {
+  border: 1px solid transparent;
+  margin-left: 45px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#grid-info div {
+  display: inline-block !important;
+  vertical-align: middle;
+  margin-right: -10px !important;
+}
+
+#grid-info p {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  margin-top:5px;
+  margin-right: -1px;
+}
 
 
 
@@ -686,6 +734,10 @@ body {
     margin-left: 5px;
   }
 
+  #user-stats-grid {
+    display: none;
+  }
+
 }
 
 
@@ -880,6 +932,10 @@ body {
     font-size: 15px;
     text-align: left;
     margin-left: 5px;
+  }
+
+  #user-stats-grid {
+    display: none;
   }
 
 }
@@ -1079,6 +1135,9 @@ body {
     margin-left: 5px;
   }
 
+  #user-stats-grid {
+    display: none;
+  }
 
 }
 
