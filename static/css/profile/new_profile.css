@@ -1176,6 +1176,43 @@ body {
   }
 
 
+  /* ------- user stats grid ------- */
+
+  #user-stats-grid {
+    width: 99%;
+    margin-left: 0%;
+  }
+  #months-of-grid {
+    margin-left: 35px;
+  }
+
+  #months-of-grid p {
+    font-size: 11px;
+    margin-right: 22px;
+  }
+
+  #days-of-grid-column p {
+    margin: 0px;
+    font-size: 11px;
+  }
+
+  #grid-cell-box {
+    height: 11px;
+    width: 11px;
+  }
+
+  #grid-info p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    margin-top:5px;
+    margin-right: -1px;
+  }
+
+
+
+
+
 
 }
 
@@ -1209,6 +1246,40 @@ body {
   #bill-posts-box {
     width: 16%;
   }
+
+  /* ------- user stats grid ------- */
+
+  #user-stats-grid {
+    width: 99%;
+    margin-left: 0%;
+  }
+  #months-of-grid {
+    margin-left: 35px;
+  }
+
+  #months-of-grid p {
+    font-size: 11px;
+    margin-right: 22px;
+  }
+
+  #days-of-grid-column p {
+    margin: 0px;
+    font-size: 11px;
+  }
+
+  #grid-cell-box {
+    height: 11px;
+    width: 11px;
+  }
+
+  #grid-info p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    margin-top:5px;
+    margin-right: -1px;
+  }
+
 
 }
 

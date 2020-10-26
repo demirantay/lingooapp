@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # My Module ImportsImports
 from .models import BasicVocabularyContainer, StudentVocabProgress
@@ -14,10 +15,13 @@ from .models import BasicVocabErrorReport
 from basic_language_explore.models import BasicLanguageCourse, Student, Language
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from profile_app.models import LessonTrackRecord
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
 from utils.update_levels import update_levels
+from utils.update_track_record import update_track_record
 
 
 def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langauge):
@@ -569,6 +573,16 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         update_levels(current_student)
         current_student.save()
 
+        # Update track record
+        try:
+            current_record = LessonTrackRecord.objects.get(
+                creation_date=timezone.now()
+            )
+        except ObjectDoesNotExist:
+            current_record = None
+
+        update_track_record(current_record, LessonTrackRecord, current_basic_user_profile)
+
         return HttpResponseRedirect("/")
 
     data = {
@@ -728,9 +742,22 @@ def basic_vocab_review(request, course_language, speakers_langauge):
 
         # and add +10 xp and update levels
         current_student.xp += 10
+
         update_levels(current_student)
+
         current_student.save()
-        
+
+
+        # Update track record
+        try:
+            current_record = LessonTrackRecord.objects.get(
+                creation_date=timezone.now()
+            )
+        except ObjectDoesNotExist:
+            current_record = None
+
+        update_track_record(current_record, LessonTrackRecord, current_basic_user_profile)
+
         return HttpResponseRedirect("/")
 
     data = {

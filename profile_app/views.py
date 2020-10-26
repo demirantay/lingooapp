@@ -215,8 +215,11 @@ def other_user_profile_overview(request, other_user_username):
         ObjectDoesNotExist
     )
 
+    # if other user does not exists return 404
     if other_basic_user == None or other_basic_user_profile == None:
         return HttpResponseRedirect("/404/")
+
+    # if other user is same as current user return to profile
 
     data = {
         "current_basic_user": current_basic_user,

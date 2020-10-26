@@ -5,7 +5,10 @@ def update_levels(obj):
     their respective needed experience levels ... etc. It is better to have
     it in a single function to prevent DRY.
     '''
-    if obj.xp >= 400:
+
+    if obj.xp < 400:
+        obj.level = "1"
+    elif obj.xp >= 400:
         obj.level = "2"
     elif obj.xp >= 900:
         obj.level = "3"
@@ -183,3 +186,5 @@ def update_levels(obj):
         obj.level = "89"
     elif obj.xp >= 526000:
         obj.level = "90"
+
+    obj.save()
