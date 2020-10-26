@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+{% with foo="foo" %}
 
 <!-- forum create container -->
 <div id="forum-container">
@@ -29,7 +30,7 @@
       </div>
       <div id="post-content-right-part">
         <h1>{{ current_post.post_title }}</h1>
-        <a href="{% url 'other_user_profile_overview' current_post.user_profile.username %}">@{{ current_post.user_profile.username }}</a>
+        <a href="{% url 'other_user_profile_overview' current_post.user_profile.username foo foo %}">@{{ current_post.user_profile.username }}</a>
         {% if current_post.language.flag %}
           <div id="post-content-right-part-flag" style="background-image: url('{{ current_post.language.flag.url }}');"></div>
         {% else %}
@@ -119,7 +120,7 @@
           </div>
           <div id="comment-cell-right-part">
             <div id="comment-info">
-              <a href="{% url 'other_user_profile_overview' comment.user_profile.username %}">@{{ comment.user_profile.username }}</a>
+              <a href="{% url 'other_user_profile_overview' comment.user_profile.username foo foo %}">@{{ comment.user_profile.username }}</a>
               <p>{{ comment.karma }} points | {{ comment.creation_date }}</p>
             </div>
             <p>
@@ -180,4 +181,5 @@
   </div>
 </div>
 
+{% endwith %}
 {% endblock %}

@@ -128,7 +128,7 @@ def profile_settings_edit_profile(request):
                             current_basic_user.email = email
                             current_basic_user.username = username
                             current_basic_user.save()
-                            return HttpResponseRedirect("/profile/")
+                            return HttpResponseRedirect("/profile/foo/foo/")
                         else:
                             # it exists so instead of creating one update
                             current_basic_user_profile.profile_photo = profile_photo
@@ -143,7 +143,7 @@ def profile_settings_edit_profile(request):
                             current_basic_user.email = email
                             current_basic_user.username = username
                             current_basic_user.save()
-                            return HttpResponseRedirect("/profile/")
+                            return HttpResponseRedirect("/profile/foo/foo/")
                     else:
                         email_taken = True
                 else:

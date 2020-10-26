@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% with foo="foo" %}
 
 <div id="feedback-container">
 
@@ -26,7 +27,7 @@
           <div id="feedbacker-profile-photo"></div>
         {% endif %}
 
-        <p id="post-info"><a href="{% url 'other_user_profile_overview' feedback.user.username %}">{{ feedback.user.username }}</a> | {{ feedback.creation_date }}</p>
+        <p id="post-info"><a href="{% url 'other_user_profile_overview' feedback.user.username foo foo %}">{{ feedback.user.username }}</a> | {{ feedback.creation_date }}</p>
         <!-- count max: 300 char -->
         <p id="post-content">
             {{ feedback.content|truncatechars:300 }}<a href="{% url 'basic_feedback_read' feedback.id %}">... read more</a>
@@ -89,5 +90,5 @@
 
 </script>
 
-
+{% endwith %}
 {% endblock %}

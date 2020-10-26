@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+{% with foo="foo" %}
 
 <!-- users feedback part -->
 <div id="feedback-part">
@@ -19,7 +20,7 @@
       <div id="feedback-part-profile-photo"></div>
     {% endif %}
 
-    <p id="meta-profile-info"><a href="{% url 'other_user_profile_overview' current_feedback.user.username %}">{{ current_feedback.user.username }}</a> | {{ current_feedback.creation_date }}</p>
+    <p id="meta-profile-info"><a href="{% url 'other_user_profile_overview' current_feedback.user.username foo foo %}">{{ current_feedback.user.username }}</a> | {{ current_feedback.creation_date }}</p>
     <p id="feedback-content">
         {{ current_feedback.content|linebreaks }}
     </p>
@@ -70,7 +71,7 @@
       <div id="comment-cell">
         <div id="comment-meta-info">
           <div id="comment-profile-photo"></div>
-          <a href="">{{ comment.comment_owner.user.username }}</a>
+          <a href="{% url 'other_user_profile_overview' comment.comment_owner.user.username foo foo %}">{{ comment.comment_owner.user.username }}</a>
           <p>{{ comment.creation_date }}</p>
         </div>
         <p id="comment-content">
@@ -106,7 +107,7 @@
           {% for reply in comment_replies|get_key_value:comment.id %}
             <div id="comment-reply-cell">
               <div id="comment-reply-cell-meta-info">
-                <a href="{% url 'other_user_profile_overview' reply.reply_owner.user.username %}">@{{ reply.reply_owner.user.username }}</a>
+                <a href="{% url 'other_user_profile_overview' reply.reply_owner.user.username foo foo %}">@{{ reply.reply_owner.user.username }}</a>
                 <p>{{ reply.creation_date }}</p>
               </div>
               <p id="comment-reply-cell-content">
@@ -314,4 +315,5 @@
 
 </script>
 
+{% endwith %}
 {% endblock %}

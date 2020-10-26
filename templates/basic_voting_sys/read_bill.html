@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% with foo="foo" %}
 
 <!-- bill read info -->
 <div id="bill-read-container">
@@ -79,7 +80,7 @@
     <p>CREATED IN {{ current_bill.creation_date|upper }}</p>
     <h2>{{ current_bill.status|title }}</h2>
     <h1>Bill {{ current_bill.id }}</h1>
-    <p>THIS BILL IS SPONSORED BY <a href="{% url 'other_user_profile_overview' current_bill.sponsor.user.username %}">{{ current_bill.sponsor.user.username|upper }}</a></p>
+    <p>THIS BILL IS SPONSORED BY <a href="{% url 'other_user_profile_overview' current_bill.sponsor.user.username foo foo %}">{{ current_bill.sponsor.user.username|upper }}</a></p>
   </div>
 
   <div id="bill-horizontal-line"></div>
@@ -194,21 +195,22 @@
   <div class="voting-stats-column" id="aye-column">
     <h4>Aye</h4>
     {% for vote in current_bill_aye_votes %}
-      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username foo foo %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
     {% endfor %}
   </div>
   <div class="voting-stats-column" id="neutral-column">
     <h4>Neutral</h4>
     {% for vote in current_bill_neutral_votes %}
-      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username foo foo %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
     {% endfor %}
   </div>
   <div class="voting-stats-column" id="nay-column">
     <h4>Nay</h4>
     {% for vote in current_bill_nay_votes %}
-      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
+      <p><a href="{% url 'other_user_profile_overview' vote.voter.user.username foo foo %}"><span class="fa fa-circle"></span> {{ vote.voter.user.username }}</a></p>
     {% endfor %}
   </div>
 </div>
 
+{% endwith %}
 {% endblock %}

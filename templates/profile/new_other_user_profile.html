@@ -8,7 +8,6 @@
 {% block content %}
 {% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
 
-
 <!-- profile container left column  -->
 <div id="profile-container-left-column">
 
@@ -16,27 +15,27 @@
   <div id="profile-info-box">
     <div id="profile-info-box-top-part">
       <div id="profile-info-box-top-part-left-side">
-        {% if current_basic_user_profile.profile_photo %}
-          <div id="profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
+        {% if other_basic_user_profile.profile_photo %}
+          <div id="profile-photo" style="background-image: url('{{ other_basic_user_profile.profile_photo.url }}');"></div>
         {% else %}
           <div id="profile-photo" style="background-image: url('');"></div>
         {% endif %}
       </div>
       <div id="profile-info-box-top-part-right-side">
-        <h1>{{ current_basic_user_profile.full_name }}</h1>
-        <h3>@{{ current_basic_user_profile.user.username }}</h3>
-        {% if current_basic_user_profile.location %}
-          <p><span class="fa fa-map-marker"></span>{{ current_basic_user_profile.location }}</p>
+        <h1>{{ other_basic_user_profile.full_name }}</h1>
+        <h3>@{{ other_basic_user_profile.user.username }}</h3>
+        {% if other_basic_user_profile.location %}
+          <p><span class="fa fa-map-marker"></span>{{ other_basic_user_profile.location }}</p>
         {% endif %}
 
-        {% if current_basic_user_profile.personal_url %}
-          <a target="_blank" href="{{current_basic_user_profile.personal_url}}"><span class="fa fa-link"></span>{{ current_basic_user_profile.personal_url }}</a>
+        {% if other_basic_user_profile.personal_url %}
+          <a target="_blank" href="{{other_basic_user_profile.personal_url}}"><span class="fa fa-link"></span>{{ other_basic_user_profile.personal_url }}</a>
         {% endif %}
       </div>
     </div>
     <p id="profile-bio">
       <!-- max char : 450 -->
-      {{ current_basic_user_profile.bio|truncatechars:450 }}
+      {{ other_basic_user_profile.bio|truncatechars:450 }}
     </p>
   </div>
 </div>
@@ -52,7 +51,7 @@
 
         {% for student in all_student_profiles %}
         {% if student.course %}
-        <a href="{% url 'profile_overview' student.course.course_language student.course.course_speakers_language %}" id="languages-box-link">
+        <a href="{% url 'other_user_profile_overview' student.basic_user_profile.user.username student.course.course_language student.course.course_speakers_language %}" id="languages-box-link">
 
           <button {% if student == current_student_profile %} class="active-language-box" {% endif %}>
             {% if student.course.course_language == spanish %}
@@ -228,6 +227,8 @@
     <h4>{{ current_bill_votes }}</h4>
   </div>
 </div>
+
+
 
 <!-- user stats grid -->
 <div id="user-stats-grid">

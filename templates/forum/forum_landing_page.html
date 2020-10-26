@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+{% with foo="foo" %}
 
 <div id="forum-container">
   <!-- left part -->
@@ -48,7 +49,7 @@
                 <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
                 <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
               </form>
-              <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+              <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username foo foo %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
               <p id="comment-count">
                   <span class="fa fa-comment"></span> {{ pinned_post_comments|get_key_value:post.id }}
               </p>
@@ -62,8 +63,10 @@
 
     <div id="forum-posts-navigation">
       <a href="{% url 'forum_landing_page' redirected_page %}" id="forum-posts-navigation-active"><span class="fa fa-rocket"></span> Top</a>
+      <!--
       <a href="{% url 'under_construction' %}"><span class="fa fa-pagelines"></span> Hot</a>
       <a href="{% url 'under_construction' %}"><span class="fa fa-leaf"></span> New</a>
+      -->
     </div>
     {% endwith %}
 
@@ -92,7 +95,7 @@
               <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
               <input type="submit" value="&#9660;" id="downvote" name="post_downvote_submit_btn" />
             </form>
-            <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
+            <p>{{ post.creation_date }} by <a href="{% url 'other_user_profile_overview' post.user_profile.username foo foo %}">@{{ post.user_profile.username }}</a> in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name }}</a></p>
             <p id="comment-count">
                 <span class="fa fa-comment"></span> {{ page_comments|get_key_value:post.id }}
             </p>
@@ -159,4 +162,5 @@
   </div>
 </div>
 
+{% endwith %}
 {% endblock %}

@@ -576,7 +576,8 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         # Update track record
         try:
             current_record = LessonTrackRecord.objects.get(
-                creation_date=timezone.now()
+                creation_date=timezone.now(),
+                user=current_basic_user_profile
             )
         except ObjectDoesNotExist:
             current_record = None
@@ -747,11 +748,11 @@ def basic_vocab_review(request, course_language, speakers_langauge):
 
         current_student.save()
 
-
         # Update track record
         try:
             current_record = LessonTrackRecord.objects.get(
-                creation_date=timezone.now()
+                creation_date=timezone.now(),
+                user=current_basic_user_profile
             )
         except ObjectDoesNotExist:
             current_record = None
