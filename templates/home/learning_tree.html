@@ -152,7 +152,7 @@
       {% elif student_profile.course.course_language == bengali %}
         <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag" style="background-image: url('{% static 'flags/bengali.png' %}');"></div> {{ student_profile.course.course_language|title }}</a>
       {% elif student_profile.course == None %}
-      
+
       {% else %}
         <a href="{% url 'learn_index' student_profile.course.course_language student_profile.course.course_speakers_language %}"><div id="language-dropdown-flag"></div> {{ student_profile.course.course_language|title }}</a>
       {% endif %}
@@ -448,6 +448,11 @@
     <a target="_blank" href="https://www.reddit.com/r/DomingoApp/"><span id="social-link" class="fa fa-reddit"></span></a>
     <a target="_blank" href="https://open.spotify.com/user/mrv1sogpykei6bpha5icfsriv"><span id="social-link" class="fa fa-spotify"></span></a>
   </div>
+
+  <div id="patreon-link-container">
+    <a id="patreon-link" href="https://www.patreon.com/getdomingo" target="_blank"><span class="fa fa-heart"></span> Support us on Patreon</a>
+  </div>
+
 
 </div>
 

@@ -119,9 +119,9 @@ body {
 
 #middle-line-advacned {
   vertical-align: middle;
-  border: 2px solid black;
+  border-bottom: 4px solid black !important;
   display: inline-block;
-  width: 15%;
+  width: 16%;
 }
 
 #lesson-cell-link {
@@ -260,6 +260,30 @@ body {
 }
 
 
+#patreon-link-container {
+  border: 1px solid lightgrey;
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#patreon-link {
+  text-decoration: none;
+  border: 0px;
+  padding: 20px 52px;
+  border-radius: 8px;
+  color: black;
+  background-color: white;
+}
+
+#patreon-link span {
+  color: red;
+}
 
 
 /* Mobile Small  --------------------------------------------------------- */
