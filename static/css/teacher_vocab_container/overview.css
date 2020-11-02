@@ -349,6 +349,39 @@ body {
   outline: none !important;
 }
 
+/* -------------------- production push panels ------------------- */
+
+#push-production-button {
+  margin-top: 10px;
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid #E3102E;
+  font-size: 15px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+#push-production-button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: darkred;
+}
+
+#production-push-hidden-panel-background-greying {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999 !important;
+    background-color: black;
+    opacity: 0.5;
+}
+
+
+
+
+
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
