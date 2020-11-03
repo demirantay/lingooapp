@@ -9,6 +9,7 @@
 
 {% block content %}
 
+
 <div id="production-push-success-alert">
   <button id="prod_push_success_alert_close_btn"><span class="fa fa-close"></span></button>
   <h1>Success!</h1>
@@ -27,7 +28,7 @@
 <div id="production-push-error-alert">
   <button id="prod_push_error_alert_close_btn"><span class="fa fa-close"></span></button>
   <h1>Uh No! Error!</h1>
-  <p>Production Words Couldn't Be Pused.</p>
+  <p>Production Words Couldn't Be Pushed. Probably it has something to do with lenght.</p>
 </div>
 
 <script>
@@ -39,6 +40,15 @@
   }
 </script>
 
+{% if production_push_error == True %}
+  <script>
+    prod_push_error_alert.style.display = "block";
+  </script>
+{% elif production_push_success == True  %}
+  <script>
+    prod_push_success_alert.style.display = "block";
+  </script>
+{% endif %}
 
 
 <div id="vocab-container-wrapper">
@@ -387,31 +397,35 @@
     </div><!--/vocab container table -->
 
     <!-- A0 hidden push prod panel -->
-    <button class="push-production-button" id="a0-push-panel-open-button">Push A0 to Production</button>
-    <div id="production-push-hidden-panel-background-greying"></div>
-    <div id="a0-production-push-hidden-panel" class="production-push-hidden-panel">
-      <h3>Are you sure?</h3>
-      <form>
-          <input type="submit" value="Push A0 Words" />
-      </form>
-      <button id="a0-push-panel-close-button">Cancel</button>
-    </div>
-    <script>
-      let a0_push_panel_open_btn = document.getElementById("a0-push-panel-open-button");
-      let a0_push_panel_close_btn = document.getElementById("a0-push-panel-close-button")
-      let push_panel_bg_greying = document.getElementById("production-push-hidden-panel-background-greying");
-      let a0_push_panel = document.getElementById("a0-production-push-hidden-panel");
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="a0-push-panel-open-button">Push A0 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="a0-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push A0 Words" name="teacher_vocab_container_push_production_a0_submit" />
+        </form>
+        <button id="a0-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let a0_push_panel_open_btn = document.getElementById("a0-push-panel-open-button");
+        let a0_push_panel_close_btn = document.getElementById("a0-push-panel-close-button")
+        let push_panel_bg_greying = document.getElementById("production-push-hidden-panel-background-greying");
+        let a0_push_panel = document.getElementById("a0-production-push-hidden-panel");
 
-      a0_push_panel_open_btn.onclick = function() {
-        push_panel_bg_greying.style.display = "block";
-        a0_push_panel.style.display = "block";
-      }
+        a0_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          a0_push_panel.style.display = "block";
+        }
 
-      a0_push_panel_close_btn.onclick = function() {
-        push_panel_bg_greying.style.display = "none";
-        a0_push_panel.style.display = "none";
-      }
-    </script>
+        a0_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          a0_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
+
 
   </div>
 
@@ -514,6 +528,35 @@
 
     </div><!--/vocab container table -->
 
+    <!-- A1 hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="a1-push-panel-open-button">Push A1 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="a1-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push A1 Words" name="teacher_vocab_container_push_production_a1_submit" />
+        </form>
+        <button id="a1-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let a1_push_panel_open_btn = document.getElementById("a1-push-panel-open-button");
+        let a1_push_panel_close_btn = document.getElementById("a1-push-panel-close-button")
+        let a1_push_panel = document.getElementById("a1-production-push-hidden-panel");
+
+        a1_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          a1_push_panel.style.display = "block";
+        }
+
+        a1_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          a1_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
+
   </div>
 
   <!-- vocab A2 table -->
@@ -583,6 +626,35 @@
 
     </div><!--/vocab container table -->
 
+    <!-- A2 hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="a2-push-panel-open-button">Push A2 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="a2-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push A2 Words" name="teacher_vocab_container_push_production_a2_submit" />
+        </form>
+        <button id="a2-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let a2_push_panel_open_btn = document.getElementById("a2-push-panel-open-button");
+        let a2_push_panel_close_btn = document.getElementById("a2-push-panel-close-button")
+        let a2_push_panel = document.getElementById("a2-production-push-hidden-panel");
+
+        a2_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          a2_push_panel.style.display = "block";
+        }
+
+        a2_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          a2_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
+
   </div>
 
   <!-- vocab B1 table -->
@@ -649,6 +721,35 @@
         </div><!-- /voab container table row for data records -->
       {% endfor %}
     </div><!--/vocab container table -->
+
+    <!-- B1 hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="b1-push-panel-open-button">Push B1 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="b1-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push B1 Words" name="teacher_vocab_container_push_production_b1_submit" />
+        </form>
+        <button id="b1-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let b1_push_panel_open_btn = document.getElementById("b1-push-panel-open-button");
+        let b1_push_panel_close_btn = document.getElementById("b1-push-panel-close-button")
+        let b1_push_panel = document.getElementById("b1-production-push-hidden-panel");
+
+        b1_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          b1_push_panel.style.display = "block";
+        }
+
+        b1_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          b1_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
 
   </div>
 
@@ -718,6 +819,35 @@
       {% endfor %}
     </div><!--/vocab container table -->
 
+    <!-- B2 hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="b2-push-panel-open-button">Push B2 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="b2-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push B2 Words" name="teacher_vocab_container_push_production_b2_submit" />
+        </form>
+        <button id="b2-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let b2_push_panel_open_btn = document.getElementById("b2-push-panel-open-button");
+        let b2_push_panel_close_btn = document.getElementById("b2-push-panel-close-button")
+        let b2_push_panel = document.getElementById("b2-production-push-hidden-panel");
+
+        b2_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          b2_push_panel.style.display = "block";
+        }
+
+        b2_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          b2_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
+
   </div>
 
   <!-- vocab C1 table -->
@@ -784,6 +914,35 @@
         </div><!-- /voab container table row for data records -->
       {% endfor %}
     </div><!--/vocab container table -->
+
+    <!-- C1 hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="c1-push-panel-open-button">Push C1 to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="c1-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push C1 Words" name="teacher_vocab_container_push_production_c1_submit" />
+        </form>
+        <button id="c1-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let c1_push_panel_open_btn = document.getElementById("c1-push-panel-open-button");
+        let c1_push_panel_close_btn = document.getElementById("c1-push-panel-close-button")
+        let c1_push_panel = document.getElementById("c1-production-push-hidden-panel");
+
+        c1_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          c1_push_panel.style.display = "block";
+        }
+
+        c1_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          c1_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
 
   </div>
 
@@ -852,6 +1011,34 @@
       {% endfor %}
     </div><!--/vocab container table -->
 
+    <!-- ADvanced hidden push prod panel -->
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <button class="push-production-button" id="advanced-push-panel-open-button">Push Advanced to Production</button>
+      <div id="production-push-hidden-panel-background-greying"></div>
+      <div id="advanced-production-push-hidden-panel" class="production-push-hidden-panel">
+        <h3>Are you sure?</h3>
+        <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Push Advanced Words" name="teacher_vocab_container_push_production_advanced_submit" />
+        </form>
+        <button id="advanced-push-panel-close-button">Cancel</button>
+      </div>
+      <script>
+        let advanced_push_panel_open_btn = document.getElementById("advanced-push-panel-open-button");
+        let advanced_push_panel_close_btn = document.getElementById("advanced-push-panel-close-button")
+        let advanced_push_panel = document.getElementById("advanced-production-push-hidden-panel");
+
+        advanced_push_panel_open_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "block";
+          advanced_push_panel.style.display = "block";
+        }
+
+        advanced_push_panel_close_btn.onclick = function() {
+          push_panel_bg_greying.style.display = "none";
+          advanced_push_panel.style.display = "none";
+        }
+      </script>
+    {% endif %}
 
   </div>
 

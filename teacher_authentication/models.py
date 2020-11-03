@@ -28,6 +28,7 @@ class TeacherUserProfile(models.Model):
 
     # Teacher Signup-Permissions (only assigned by the user)
     is_permitted_to_login = models.BooleanField(default=False)
+    is_permitted_to_push_prod = models.BooleanField(default=False)
 
     # Application & Signup Information
     native_language = models.CharField(max_length=200, blank=True, null=True)

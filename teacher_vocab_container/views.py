@@ -11,6 +11,9 @@ from django.contrib.auth.models import User
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from .models import TeacherVocabularyContainer
+from basic_vocab_container.models import BasicVocabularyContainer
+from basic_language_explore.models import BasicLanguageCourse
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 
@@ -516,6 +519,228 @@ def teacher_vocab_container_overview(request):
                 new_word_record.save()
                 return HttpResponseRedirect("/teacher/vocab/container/overview/")
 
+    # Push to Production Form Processing
+    production_push_error = False
+    production_push_success = False
+
+    try:
+        prod_course = BasicLanguageCourse.objects.get(
+            course_language=current_teacher_profile.teacher_course.course_language,
+            course_speakers_language=current_teacher_profile.teacher_course.course_speakers_language
+        )
+    except ObjectDoesNotExist:
+        prod_course = None
+
+    # A0 Form
+    if request.POST.get("teacher_vocab_container_push_production_a0_submit"):
+        # check if the list is at 100
+        if len(a0_word_list) == 100:
+            # get the current production course and it's words list
+            try:
+                prod_a0_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="a0"
+                )
+            except ObjectDoesNotExist:
+                prod_a0_words = None
+
+            # delete all of the a0 words in the production
+            prod_a0_words.delete()
+
+            # update all of the new a0 words in the production
+            # with the current list
+            for word in a0_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="a0"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # A1 Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_a1_submit"):
+        # check if the list is at 500
+        if len(a1_word_list) == 500:
+            # get the current production course and it's words list
+            try:
+                prod_a1_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="a1"
+                )
+            except ObjectDoesNotExist:
+                prod_a1_words = None
+
+            # delete all of the a0 words in the production
+            prod_a1_words.delete()
+
+            # update all of the new a0 words in the production
+            # with the current list
+            for word in a1_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="a1"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # A2 Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_a2_submit"):
+        # check if the list is at 1000
+        if len(a2_word_list) == 1000:
+            # get the current production course and it's words list
+            try:
+                prod_a2_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="a2"
+                )
+            except ObjectDoesNotExist:
+                prod_a2_words = None
+
+            # delete all of the a0 words in the production
+            prod_a2_words.delete()
+
+            # update all of the new a0 words in the production
+            # with the current list
+            for word in a2_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="a2"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # B1 Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_b1_submit"):
+        # check if the list is at 2000
+        if len(b1_word_list) == 2000:
+            # get the current production course and it's words list
+            try:
+                prod_b1_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="b1"
+                )
+            except ObjectDoesNotExist:
+                prod_b1_words = None
+
+            # delete all of the a0 words in the production
+            prod_b1_words.delete()
+
+            # update all of the new a0 words in the production
+            # with the current list
+            for word in b1_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="b1"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # B2 Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_b2_submit"):
+        # check if the list is at 4000
+        if len(b2_word_list) == 4000:
+            # get the current production course and it's words list
+            try:
+                prod_b2_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="b2"
+                )
+            except ObjectDoesNotExist:
+                prod_b2_words = None
+
+            # delete all of the a0 words in the production
+            prod_b2_words.delete()
+
+            # update all of the new a0 words in the production
+            # with the current list
+            for word in b2_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="b2"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # C1 Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_c1_submit"):
+        # check if the list is at 8000
+        if len(c1_word_list) == 8000:
+            # get the current production course and it's words list
+            try:
+                prod_c1_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="c1"
+                )
+            except ObjectDoesNotExist:
+                prod_c1_words = None
+
+            # delete all of the c1 words in the production
+            prod_c1_words.delete()
+
+            # update all of the new c1 words in the production
+            # with the current list
+            for word in c1_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="c1"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
+    # Advanced Push to Production Form Processing
+    if request.POST.get("teacher_vocab_container_push_production_advanced_submit"):
+        # check if the list is at 16000
+        if len(advanced_word_list) == 16000:
+            # get the current production course and it's words list
+            try:
+                prod_advanced_words = BasicVocabularyContainer.objects.filter(
+                    course=prod_course,
+                    level="advanced"
+                )
+            except ObjectDoesNotExist:
+                prod_advanced_words = None
+
+            # delete all of the c1 words in the production
+            prod_advanced_words.delete()
+
+            # update all of the new c1 words in the production
+            # with the current list
+            for word in advanced_word_list:
+                new_prod_word = BasicVocabularyContainer(
+                    course=prod_course,
+                    word=word.word,
+                    word_translation=word.word_translation,
+                    level="advanced"
+                )
+                new_prod_word.save()
+                production_push_success = True
+        else:
+            production_push_error = True
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -562,6 +787,8 @@ def teacher_vocab_container_overview(request):
         "hidden_empty_c1_input": hidden_empty_c1_input,
         "hidden_advanced_limit_reached": hidden_advanced_limit_reached,
         "hidden_empty_advanced_input": hidden_empty_advanced_input,
+        "production_push_error": production_push_error,
+        "production_push_success": production_push_success,
     }
 
     if "teacher_user_logged_in" in request.session:
