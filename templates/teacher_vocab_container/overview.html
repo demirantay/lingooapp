@@ -9,6 +9,38 @@
 
 {% block content %}
 
+<div id="production-push-success-alert">
+  <button id="prod_push_success_alert_close_btn"><span class="fa fa-close"></span></button>
+  <h1>Success!</h1>
+  <p>Production Words Pushed Successfuly.</p>
+</div>
+
+<script>
+  let prod_push_success_alert = document.getElementById("production-push-success-alert");
+  let prod_push_success_alert_close_btn = document.getElementById("prod_push_success_alert_close_btn");
+
+  prod_push_success_alert_close_btn.onclick = function() {
+    prod_push_success_alert.style.display = "none";
+  }
+</script>
+
+<div id="production-push-error-alert">
+  <button id="prod_push_error_alert_close_btn"><span class="fa fa-close"></span></button>
+  <h1>Uh No! Error!</h1>
+  <p>Production Words Couldn't Be Pused.</p>
+</div>
+
+<script>
+  let prod_push_error_alert = document.getElementById("production-push-error-alert");
+  let prod_push_error_alert_close_btn = document.getElementById("prod_push_error_alert_close_btn");
+
+  prod_push_error_alert_close_btn.onclick = function() {
+    prod_push_error_alert.style.display = "none";
+  }
+</script>
+
+
+
 <div id="vocab-container-wrapper">
 
   <!-- header and explanation part -->
@@ -354,15 +386,32 @@
 
     </div><!--/vocab container table -->
 
-    <button id="push-production-button">Push to Production</button>
     <!-- A0 hidden push prod panel -->
+    <button class="push-production-button" id="a0-push-panel-open-button">Push A0 to Production</button>
     <div id="production-push-hidden-panel-background-greying"></div>
     <div id="a0-production-push-hidden-panel" class="production-push-hidden-panel">
+      <h3>Are you sure?</h3>
       <form>
-          <input type="submit" value="Push" />
+          <input type="submit" value="Push A0 Words" />
       </form>
-      <button>Cancel</button>
+      <button id="a0-push-panel-close-button">Cancel</button>
     </div>
+    <script>
+      let a0_push_panel_open_btn = document.getElementById("a0-push-panel-open-button");
+      let a0_push_panel_close_btn = document.getElementById("a0-push-panel-close-button")
+      let push_panel_bg_greying = document.getElementById("production-push-hidden-panel-background-greying");
+      let a0_push_panel = document.getElementById("a0-production-push-hidden-panel");
+
+      a0_push_panel_open_btn.onclick = function() {
+        push_panel_bg_greying.style.display = "block";
+        a0_push_panel.style.display = "block";
+      }
+
+      a0_push_panel_close_btn.onclick = function() {
+        push_panel_bg_greying.style.display = "none";
+        a0_push_panel.style.display = "none";
+      }
+    </script>
 
   </div>
 
