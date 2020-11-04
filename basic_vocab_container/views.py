@@ -197,19 +197,30 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
     c1_completed = False
     advanced_completed = False
 
+    # Im checking each one with their own if block because if you do all of
+    # them in a single if block the first one a0_progress code block gets
+    # executed and than stops because it found the neccessary conditional
+    # which makes other progress bars not work
+
     if a0_progress >= 100:
         a0_completed = True
-    elif a1_progress >= 500:
+
+    if a1_progress >= 500:
         a1_completed = True
-    elif a2_progress >= 1000:
+
+    if a2_progress >= 1000:
         a2_completed = True
-    elif b1_progress >= 2000:
+
+    if b1_progress >= 2000:
         b1_completed = True
-    elif b2_progress >= 4000:
+
+    if b2_progress >= 4000:
         b2_completed = True
-    elif c1_progress >= 8000:
+
+    if c1_progress >= 8000:
         c1_completed = True
-    elif advanced_progress >= 16000:
+
+    if advanced_progress >= 16000:
         advanced_completed = True
 
     if cefr_level == "a0":
@@ -496,19 +507,30 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     c1_completed = False
     advanced_completed = False
 
+    # Im checking each one with their own if block because if you do all of
+    # them in a single if block the first one a0_progress code block gets
+    # executed and than stops because it found the neccessary conditional
+    # which makes other progress bars not work
+
     if a0_progress >= 100:
         a0_completed = True
-    elif a1_progress >= 500:
+
+    if a1_progress >= 500:
         a1_completed = True
-    elif a2_progress >= 1000:
+
+    if a2_progress >= 1000:
         a2_completed = True
-    elif b1_progress >= 2000:
+
+    if b1_progress >= 2000:
         b1_completed = True
-    elif b2_progress >= 4000:
+
+    if b2_progress >= 4000:
         b2_completed = True
-    elif c1_progress >= 8000:
+
+    if c1_progress >= 8000:
         c1_completed = True
-    elif advanced_progress >= 16000:
+
+    if advanced_progress >= 16000:
         advanced_completed = True
 
     if cefr_level == "a0":
