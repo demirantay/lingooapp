@@ -100,6 +100,7 @@ def forum_landing_page(request, page):
         # upvote the post
         post.karma += 1
         post.save()
+        return HttpResponseRedirect("/forum/read/" + hidden_post_id + "/")
 
     # Post cell downvote form processing
     if request.POST.get("post_downvote_submit_btn"):
@@ -108,6 +109,7 @@ def forum_landing_page(request, page):
         # downvote the post
         post.karma -= 1
         post.save()
+        return HttpResponseRedirect("/forum/read/" + hidden_post_id + "/")
 
     data = {
         "current_page_posts": current_page_posts,
@@ -126,7 +128,7 @@ def forum_landing_page(request, page):
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
     else:
-        return render(request, "forum/forum_landing_page.html", data)
+        return render(request, "forum/forum_landing_page_v2.html", data)
 
 
 def forum_category_page(request, category_language, page):
@@ -520,7 +522,6 @@ def forum_update(request, post_id):
 
     if request.POST.get("update_post_submit_btn"):
         post_title = request.POST.get("post_title")
-        post_language = request.POST.get("post_language")
         post_content = request.POST.get("post_content")
 
         # check if any of the inputs are empty
@@ -528,11 +529,8 @@ def forum_update(request, post_id):
            or bool(post_content) == False or post_content == "":
             empty_input = True
         else:
-            # get the language instance
-            language_instance = Language.objects.get(name=post_language)
             # update the post and redirect
             current_post.post_title = post_title
-            current_post.language = language_instance
             current_post.content = post_content
             current_post.save()
             return HttpResponseRedirect("/forum/read/"+str(current_post.id)+"/")

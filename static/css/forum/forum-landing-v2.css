@@ -1,0 +1,252 @@
+body {
+  background-color: #F4F6F6 !important;
+}
+
+#forum-container {
+  border: 1px solid transparent;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/*----------------- left part ----------------------- */
+#forum-left-part {
+  display: inline-block;
+  width: 66%;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: top;
+  margin-top: 30px;
+  padding: 0px;
+  background-color: transparent;
+}
+
+#forum-post-cell {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  height: auto;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#forum-post-cell:hover {
+  border: 1px solid grey;
+}
+
+#forum-post-cell-left-part {
+  display: inline-block;
+  vertical-align: top;
+  width: 6%;
+  height: 100%;
+  border: 1px solid transparent;
+  background-color: lightgrey;
+  text-align: center;
+  position: absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#forum-post-cell-left-part form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#forum-post-cell-left-part form input {
+  font-size: 13px;
+  background-color: transparent;
+  border: 0px;
+
+}
+
+#forum-post-cell-left-part form input:hover {
+  cursor: pointer;
+  color: red;
+  transition: 0.1s;
+}
+
+#forum-post-cell-left-part p {
+  font-weight: 700;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#forum-post-cell-right-part {
+  display: inline-block;
+  vertical-align: top;
+  width: 90%;
+  height: auto;
+  border: 1px solid transparent;
+  margin-left: 8%;
+  padding: 5px 0px;
+}
+
+#forum-post-cell-right-part a {
+  text-decoration: none;
+  color: black;
+}
+
+#forum-post-cell-right-part-top {
+
+}
+
+#forum-post-cell-right-part-top h1 {
+  margin: 0px;
+  font-size: 25px !important;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+#pinned-tag {
+  background-color: #E3102E;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  vertical-align: inherit;
+}
+
+#forum-post-cell-right-part-middle {
+
+}
+
+#forum-post-cell-right-part-middle p {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#forum-post-cell-right-part-middle p a {
+
+}
+
+#forum-post-cell-right-part-bottom {
+
+}
+
+#forum-post-cell-right-part-bottom p {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#forum-post-cell-right-part-bottom p span {
+  margin: 0px;
+}
+
+#forum-post-cell-right-part-bottom p a {
+  margin: 0px;
+  color: #E3102E;
+  text-decoration: none;
+}
+
+#forum-post-cell-right-part-bottom p a:hover {
+  text-decoration: underline;
+}
+
+#pagination {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#pagination a {
+  background-color: #E3102E;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#pagination a:hover {
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
+/*----------------- right part --------------------- */
+#forum-right-part {
+  display: inline-block;
+  width: 30%;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: top;
+  margin-top: 30px;
+  padding: 0px;
+  background-color: transparent;
+  padding-top: 10px;
+}
+
+#forum-create-post-button-div {
+  border: 1px solid transparent;
+  text-align:left;
+}
+
+#create-post-link {
+  color: white;
+  background-color: #27AE60;
+  font-size: 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+
+#create-post-link:hover {
+  background-color:#186A3B;
+  transition: 0.2s;
+}
+
+#category-links-container {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin-top: 15px;
+  border-radius: 6px;
+  padding: 10px 5px;
+}
+
+#category-link-cell-inner-div {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  padding-left: 8px;
+}
+
+#category-link-cell-inner-div:hover {
+  transition: 0.2s;
+  background-color: lightgrey;
+
+}
+
+.category-link-cell-active {
+  background-color: lightgrey;
+}
+
+#category-flag {
+  background-color: #E5E8E8;
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#category-link-cell p {
+  margin: 0px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 6px;
+
+}
+
+#category-link-cell {
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}

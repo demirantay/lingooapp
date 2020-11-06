@@ -5,9 +5,19 @@
 
 #create-post-form {
   border: 1px solid transparent;
-  margin-top: 70px;
+  margin-top: 0px;
   border-radius: 8px;
   text-align: center;
+}
+
+#create-post-form p {
+  text-align: left;
+  margin-left: 6%;
+}
+
+#create-post-form p span {
+  font-weight: 700;
+  color: #E3102E;
 }
 
 #create-post-form input {
@@ -66,7 +76,8 @@
   background-color: #E3102E !important;
   border-radius: 10px !important;
   color: white !important;
-  padding: 10px 15px !important;
+  padding: 10px 25px !important;
+  width: 90% !important;
 }
 
 #create-post-submit-btn:hover {
