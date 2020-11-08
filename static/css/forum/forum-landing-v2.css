@@ -250,3 +250,279 @@ body {
   color: black;
   border-radius: 5px;
 }
+
+/* ------------------ hidde category mobile ---------------------- */
+
+#hidden-mobile-category-links-open-button {
+  border: 1px solid lightgrey;
+  width: 98%;
+  margin: 0 auto;
+  text-align: left;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px 0px;
+  display: none;
+}
+
+#hidden-mobile-category-links-open-button:hover {
+  cursor: pointer;
+  border: 1px solid black;
+  transition: 0.2s;
+}
+
+#hidden-mobile-category-links-open-button p {
+  margin: 0px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#hidden-mobile-category-links-open-button span {
+  float: right;
+  margin-top: 15px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#hidden-mobile-category-links {
+  border: 1px solid lightgrey;
+  width: 98%;
+  margin: 0 auto;
+  text-align: left;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px 0px;
+  display: none;
+  margin-top: 10px;
+}
+
+#hidden-mobile-category-links a {
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+#hidden-category-link-cell {
+  margin-bottom: 7px;
+}
+
+#hidden-category-link-cell:hover {
+  background-color: lightgrey;
+  transition: 0.2s;
+}
+
+#hiddeen-category-flag {
+  background-color: #E5E8E8;
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 5px;
+}
+
+#hidden-category-link-cell p {
+  margin: 0px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 6px;
+}
+
+#hidden-category-link-cell span {
+  float: right;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /*----------------- left part ----------------------- */
+  #forum-left-part {
+    display: block;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  #forum-post-cell-left-part form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -3px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 12px;
+  }
+
+  #forum-post-cell-left-part p {
+    font-size: 13px;
+  }
+
+  #forum-post-cell-right-part-top h1 {
+    font-size: 18px !important;
+  }
+
+  #pinned-tag {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  #forum-post-cell-right-part-middle p {
+    font-size: 15px;
+  }
+
+  #forum-post-cell-right-part-bottom p {
+    font-size: 13px;
+  }
+
+  /*----------------- right part --------------------- */
+  #forum-right-part {
+    display: none;
+  }
+
+  #hidden-mobile-category-links-open-button {
+    display: block;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /*----------------- left part ----------------------- */
+  #forum-left-part {
+    display: block;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  #forum-post-cell-left-part form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -3px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 12px;
+  }
+
+  #forum-post-cell-left-part p {
+    font-size: 13px;
+  }
+
+  #forum-post-cell-right-part-top h1 {
+    font-size: 18px !important;
+  }
+
+  #pinned-tag {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  #forum-post-cell-right-part-middle p {
+    font-size: 15px;
+  }
+
+  #forum-post-cell-right-part-bottom p {
+    font-size: 13px;
+  }
+
+  /*----------------- right part --------------------- */
+  #forum-right-part {
+    display: none;
+  }
+
+  #hidden-mobile-category-links-open-button {
+    display: block;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /*----------------- left part ----------------------- */
+  #forum-left-part {
+    display: block;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  #forum-post-cell-left-part form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -3px;
+  }
+
+  #forum-post-cell-left-part form input {
+    font-size: 12px;
+  }
+
+  #forum-post-cell-left-part p {
+    font-size: 13px;
+  }
+
+  #forum-post-cell-right-part-top h1 {
+    font-size: 18px !important;
+  }
+
+  #pinned-tag {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  #forum-post-cell-right-part-middle p {
+    font-size: 15px;
+  }
+
+  #forum-post-cell-right-part-bottom p {
+    font-size: 13px;
+  }
+
+  /*----------------- right part --------------------- */
+  #forum-right-part {
+    display: none;
+  }
+
+  #hidden-mobile-category-links-open-button {
+    display: block;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

@@ -250,7 +250,7 @@ def forum_category_page(request, category_language, page):
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
     else:
-        return render(request, "forum/forum_category_page.html", data)
+        return render(request, "forum/forum_category_v2.html", data)
 
 
 def forum_create(request):

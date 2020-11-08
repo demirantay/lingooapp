@@ -50,39 +50,6 @@
   <!-- left part -->
   <div id="forum-left-part">
 
-    <!-- Pinned Poss -->
-    {% for post in pinned_posts %}
-      <div id="forum-post-cell">
-        <div id="forum-post-cell-left-part">
-          <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
-            {% csrf_token %}
-            <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
-            <input type="submit" value="&#9650;" name="post_upvote_submit_btn" />
-          </form>
-          <p>{{ post.karma }}</p>
-          <form method="POST" action="{% url 'forum_landing_page' redirected_page %}">
-            {% csrf_token %}
-            <input type="hidden" value="{{ post.id }}" name="hidden_post_id"/>
-            <input type="submit" value="&#9660;" name="post_downvote_submit_btn" />
-          </form>
-        </div>
-        <div id="forum-post-cell-right-part">
-          <a href="{% url 'forum_read' post.id %}">
-            <div id="forum-post-cell-right-part-top">
-              <h1><span id="pinned-tag">Pinned</span> {{ post.post_title|title }}</h1>
-            </div>
-            <div id="forum-post-cell-right-part-middle">
-              <!-- char limit 180 -->
-              <p>{{ post.content|truncatechars:180 }}</p>
-            </div>
-          </a>
-          <div id="forum-post-cell-right-part-bottom">
-            <p><span class="fa fa-comment"></span> {{ page_comments|get_key_value:post.id }} Posted by <a href="{% url 'other_user_profile_overview' post.user_profile.username foo foo %}">@{{ post.user_profile.username }}</a> {{ post.creation_date }} in <a href="{% url 'forum_category_page' post.language.name redirected_page %}">{{ post.language.name|title }}</a></p>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-
     <!-- forum post cell -->
     {% for post in current_page_posts %}
       <div id="forum-post-cell">
@@ -120,10 +87,10 @@
     <div id="pagination">
       {% if current_page <= 0 %}
         <a href=""><span class="fa fa-arrow-left"></span></a>
-        <a href="{% url 'forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+        <a href="{% url 'forum_category_page' current_language.name next_page %}"><span class="fa fa-arrow-right"></span></a>
       {% elif current_page > 0%}
-        <a href="{% url 'forum_landing_page' previous_page %}"><span class="fa fa-arrow-left"></span></a>
-        <a href="{% url 'forum_landing_page' next_page %}"><span class="fa fa-arrow-right"></span></a>
+        <a href="{% url 'forum_category_page' current_language.name previous_page %}"><span class="fa fa-arrow-left"></span></a>
+        <a href="{% url 'forum_category_page' current_language.name next_page %}"><span class="fa fa-arrow-right"></span></a>
       {% endif %}
     </div>
 
@@ -144,7 +111,7 @@
       {% for language in all_languages %}
         <!-- link cell -->
         <a href="{% url 'forum_category_page' language.name redirected_page %}" id="category-link-cell">
-          <div id="category-link-cell-inner-div">
+          <div id="category-link-cell-inner-div" {% if language == current_language %} class="category-link-cell-active" {% endif %}>
             {% if language.flag %}
               <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
             {% else %}
