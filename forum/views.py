@@ -465,7 +465,7 @@ def forum_read(request, post_id):
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
     else:
-        return render(request, "forum/forum_read.html", data)
+        return render(request, "forum/forum_read_v2.html", data)
 
 
 def forum_update(request, post_id):

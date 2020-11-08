@@ -1,0 +1,292 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum-landing-v2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum/read-v2.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with foo="foo" redirected_page="0" %}
+
+<div id="forum-container">
+
+  <!-- left part -->
+  <div id="forum-left-part">
+
+    <div id="forum-read-container">
+
+      <!-- Main post part -->
+      <h1>Lorem Ipsum</h1>
+      <div id="forum-read-meta-info">
+        <div id="profile-photo"></div>
+        <p><a href="">username</a></p>
+        <!-- flags -->
+        <!-- desktop -->
+        <div id="desktop-flags-container">
+          <div id="flag-cell">
+            <div id="flag-cell-flag"></div>
+            <p>45</p>
+          </div>
+          <div id="flag-cell">
+            <div id="flag-cell-flag"></div>
+            <p>45</p>
+          </div>
+        </div>
+        <!-- mobile -->
+        <div id="hidden-mobile-flags-container">
+          <div id="flag-cell">
+            <div id="flag-cell-flag"></div>
+            <p>45</p>
+          </div>
+        </div>
+
+      </div>
+      <p id="forum-read-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <br /><br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <Br /><br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <p id="date">Jun 20, 2020</p>
+
+      <p id="forum-read-post-info"><span class="fa fa-arrow-up"></span> 1000 points</p>
+      <p id="forum-read-post-info"><span class="fa fa-comment"></span> 1000 comments</p>
+      <p id="forum-read-post-info"><span class="fa fa-eye"></span> 120000 views</p>
+
+      <br />
+
+      <!-- upvote -->
+      <form method="POST" action="{% url 'forum_read' current_post.id %}" >
+          {% csrf_token %}
+          <input type="submit" value="&#9650;" id="post-content-upvote" name="post_content_upvote" />
+      </form>
+      <!-- downvote -->
+      <form method="POST" action="{% url 'forum_read' current_post.id %}">
+          {% csrf_token %}
+          <input type="submit" value="&#9660;" id="post-content-upvote" name="post_content_downvote"/>
+      </form>
+
+      <a id="forum-read-bottom-link" href="">UPDATE</a>
+      <a id="forum-read-bottom-link" href="">DELETE</a>
+
+    </div>
+
+    <!-- Comments part -->
+    <div id="forum-read-comments-container">
+
+      <!-- Make comment part -->
+      <div id="create-comment-part">
+        {% if empty_comment == True %}
+          <p style="color:red; margin: 0px 0px;">You cannot enter an empty input.</p>
+        {% endif %}
+
+        <form method="POST" action="">
+          {% csrf_token %}
+          <textarea placeholder="Comment ..." name="content"></textarea>
+          <input type="submit" value="Comment" name="" />
+        </form>
+      </div>
+
+      <!-- Comments part -->
+      <div id="all-comments">
+
+        <!-- comment cell -->
+        <div id="comment-cell">
+          <div id="comment-meta-info">
+            <div id="comment-profile-photo"></div>
+            <a href="">username</a>
+            <!-- flags -->
+            <!-- desktop -->
+            <div id="desktop-flags-container">
+              <div id="flag-cell">
+                <div id="flag-cell-flag"></div>
+                <p>45</p>
+              </div>
+              <div id="flag-cell">
+                <div id="flag-cell-flag"></div>
+                <p>45</p>
+              </div>
+            </div>
+            <!-- mobile -->
+            <div id="hidden-mobile-flags-container">
+              <div id="flag-cell">
+                <div id="flag-cell-flag"></div>
+                <p>45</p>
+              </div>
+            </div>
+          </div>
+          <p id="comment-content">
+              lorem ipsum dolor dolor sit ame tmi soliris dist lorem ipsum dolor sit amet rem ipsum dolor sit amet
+          </p>
+          <div id="comment-bottom-operations">
+            <!-- upvote -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="" name="" />
+                <input type="submit" value="&#x25B2; upvote" name="" />
+            </form>
+            <!-- downvote -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="" name="" />
+                <input type="submit" value="&#9660; downvote" name="" />
+            </form>
+            <button id="reply-panel-open-button" class="reply-panel-open-button-class"><span class="fa fa-comment"></span> reply</button>
+            <p id="comment-upvotes">
+              12 upvotes
+            </p>
+            <p id="comment-upvotes">20 jun, 2020</p>
+          </div>
+
+          <!-- hidden reply form -->
+          <div id="hidden-reply-form" class="hidden-reply-panels">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="" name="hidden_comment_id" />
+                <textarea placeholder="Type in your reply ..." name=""></textarea>
+                <input type="submit" value="reply" name="" />
+            </form>
+          </div>
+
+          <!-- hidden replies list -->
+          <!--
+          {% if comment_replies_amount|get_key_value:comment.id >  0 %}
+            <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View {{ comment_replies_amount|get_key_value:comment.id  }} replies <span class="fa fa-caret-down"></span></button>
+          {% endif %}-->
+          <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View 1 replies <span class="fa fa-caret-down"></span></button>
+          <div id="comment-replies-container" class="replies-listing-panels">
+
+              <div id="comment-reply-cell">
+                <div id="comment-reply-cell-meta-info">
+                  <a href="">@username</a>
+                  <!-- flags -->
+                  <!-- desktop -->
+                  <div id="desktop-flags-container">
+                    <div id="flag-cell">
+                      <div id="flag-cell-flag"></div>
+                      <p>45</p>
+                    </div>
+                    <div id="flag-cell">
+                      <div id="flag-cell-flag"></div>
+                      <p>45</p>
+                    </div>
+                  </div>
+                  <!-- mobile -->
+                  <div id="hidden-mobile-flags-container">
+                    <div id="flag-cell">
+                      <div id="flag-cell-flag"></div>
+                      <p>45</p>
+                    </div>
+                  </div>
+                </div>
+                <p id="comment-reply-cell-content">
+                  lorem ipsum dolor dolor sit ame tmi soliris dist lorem ipsum dolor sit amet rem ipsum dolor sit amet
+                </p>
+                <div id="comment-reply-cell-bottom-operations">
+                  <!-- upvote -->
+                  <form action="" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" value="" name="" />
+                      <input type="submit" value="&#x25B2; upvote" name="" />
+                  </form>
+                  <!-- downvote -->
+                  <form action="" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" value="" name="" />
+                      <input type="submit" value="&#9660; downvote" name="" />
+                  </form>
+                  <p>12 upvotes</p>
+                  <p>20 jun, 2020</p>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+        <!-- /cell -->
+
+        <script>
+          let hidden_replies_open_buttons = document.getElementsByClassName("hidden-replies-open-buttons");
+          let replies_listing_panels = document.getElementsByClassName("replies-listing-panels");
+
+          const open_replies = function(i, event) {
+            //replies_listing_panels[i].style.display = "block";
+
+            if (replies_listing_panels[i].style.display == "block") {
+              replies_listing_panels[i].style.display = "none";
+            } else {
+                replies_listing_panels[i].style.display = "block";
+            }
+          }
+
+          for (var i=0; i < hidden_replies_open_buttons.length; i++) {
+            hidden_replies_open_buttons[i].addEventListener("click", open_replies.bind(null, i));
+          }
+
+        </script>
+
+        <script>
+          let open_close_buttons = document.getElementsByClassName("reply-panel-open-button-class");
+          let hidden_reply_panels = document.getElementsByClassName("hidden-reply-panels");
+
+          const handle = function(i, event) {
+            //hidden_reply_panels[i].style.display = "block";
+
+            if (hidden_reply_panels[i].style.display == "block") {
+              hidden_reply_panels[i].style.display = "none";
+            } else {
+                hidden_reply_panels[i].style.display = "block";
+            }
+          }
+
+          for (var i=0; i < open_close_buttons.length; i++) {
+            open_close_buttons[i].addEventListener("click", handle.bind(null, i));
+          }
+
+        </script>
+
+      </div><!-- / all comments -->
+    </div> <!-- /forum reads comment container -->
+
+  </div><!--/left part -->
+
+
+
+
+  <!-- right part -->
+  <div id="forum-right-part">
+
+    <div id="forum-create-post-button-div">
+      <a href="{% url 'forum_create' %}" id="create-post-link"><span class="fa fa-plus"></span> Create Post</a>
+    </div>
+
+    <!-- category links -->
+    <div id="category-links-container">
+
+      {% for language in all_languages %}
+        <!-- link cell -->
+        <a href="{% url 'forum_category_page' language.name redirected_page %}" id="category-link-cell">
+          <div id="category-link-cell-inner-div" {% if language == current_language %} class="category-link-cell-active" {% endif %}>
+            {% if language.flag %}
+              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
+            {% else %}
+              <div id="category-flag" style="background-image: url('');"></div>
+            {% endif %}
+            <p>{{ language.name|title }}</p>
+          </div>
+        </a>
+      {% endfor %}
+
+    </div>
+  </div><!--/right part -->
+
+<!-- DELETE PANEL -->
+
+</div>
+
+{% endwith %}
+{% endblock %}
