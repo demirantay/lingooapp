@@ -200,8 +200,6 @@ def basic_feedback_read(request, feedback_id):
         comment_replies_amount[reply.comment.id] = amount
     '''
 
-    print(comment_replies_amount)
-
     # Create Comments form Processing
     empty_comment = False
 

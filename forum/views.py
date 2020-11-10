@@ -8,10 +8,11 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 # My Module Imports
-from .models import ForumPost, ForumComment
+from .models import ForumPost, ForumComment, ForumCommentReply
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
-from basic_language_explore.models import Language
+from basic_language_explore.models import Language, Student
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -376,6 +377,10 @@ def forum_read(request, post_id):
     if current_post == None:
         return HttpResponseRedirect("/404/")
 
+    # Update the current post view count
+    current_post.views += 1
+    current_post.save()
+
     # check if the post is owned by the current user if it is pass it on to
     # the template logic
     current_user_is_owner = False
@@ -391,6 +396,14 @@ def forum_read(request, post_id):
     if request.POST.get("post_content_downvote"):
         current_post.karma -= 1
         current_post.save()
+
+    # get current post owners all student profiles
+    try:
+        post_owner_student_profiles = Student.objects.filter(
+            basic_user_profile=current_post.user_profile
+        ).order_by("xp")
+    except ObjectDoesNotExist:
+        post_owner_student_profiles = None
 
     # get all the coments
     try:
@@ -413,6 +426,17 @@ def forum_read(request, post_id):
     except ObjectDoesNotExist:
         current_post_comments = None
         current_post_comments_sorted = None
+
+    # Get all of the flags of each comment owner
+    comment_student_profiles = {}
+    for comment in current_post_comments:
+        if comment.user_profile.id in comment_student_profiles:
+            pass
+        else:
+            student_profiles = Student.objects.filter(
+                basic_user_profile=comment.user_profile
+            ).order_by("xp")
+            comment_student_profiles[comment.user_profile.id] = student_profiles
 
     # comment create form processing
     if request.POST.get("comment_submit_btn"):
@@ -451,6 +475,84 @@ def forum_read(request, post_id):
             # redirect to landing page
             return HttpResponseRedirect("/forum/0/")
 
+    # Get the current post's comments replies
+    try:
+        current_post_comment_replies = ForumCommentReply.objects.filter(
+            forum_post=current_post
+        )
+    except ObjectDoesNotExist:
+        current_post_comment_replies = None
+
+    comment_replies = {}
+    for reply in current_post_comment_replies:
+        if reply.comment.id in comment_replies:
+            comment_replies[reply.comment.id].append(reply)
+        else:
+            comment_replies[reply.comment.id] = []
+            comment_replies[reply.comment.id].append(reply)
+
+    comment_replies_amount = {}
+    for comment in current_post_comments:
+        reply_count = 0
+        for reply in current_post_comment_replies:
+            if reply.comment.id == comment.id:
+                reply_count += 1
+        comment_replies_amount[comment.id] = reply_count
+
+    # Comment Reply Form Processing
+    if request.POST.get("forum_read_comment_reply_submit_btn"):
+        hidden_comment_id = request.POST.get("hidden_comment_id")
+        comment_reply_content = request.POST.get("comment_reply_content")
+
+        # get the current comment
+        try:
+            current_comment = ForumComment.objects.get(id=hidden_comment_id)
+        except ObjectDoesNotExist:
+            current_comment = None
+
+        # create new reply if the inputs arent empty
+        if bool(comment_reply_content) == False or comment_reply_content == "":
+            pass
+        else:
+            new_comment_reply = ForumCommentReply(
+                comment=current_comment,
+                forum_post=current_post,
+                reply_owner=current_basic_user_profile,
+                content=comment_reply_content,
+            )
+            new_comment_reply.save()
+            return HttpResponseRedirect(
+                "/forum/read/" + str(current_post.id) + "/"
+            )
+
+    # Comment Reply Upvote Form processing
+    if request.POST.get("forum_read_comment_reply_upvote_submit_btn"):
+        hidden_reply_id = request.POST.get("hidden_reply_id")
+        # get current reply
+        try:
+            current_reply = ForumCommentReply.objects.get(id=hidden_reply_id)
+        except ObjectDoesNotExist:
+            current_reply = None
+        current_reply.karma += 1
+        current_reply.save()
+        return HttpResponseRedirect(
+            "/forum/read/" + str(current_post.id) + "/"
+        )
+
+    # Comment Reply Downvote Form Processing
+    if request.POST.get("forum_read_comment_reply_downvote_submit_btn"):
+        hidden_reply_id = request.POST.get("hidden_reply_id")
+        # get current reply
+        try:
+            current_reply = ForumCommentReply.objects.get(id=hidden_reply_id)
+        except ObjectDoesNotExist:
+            current_reply = None
+        current_reply.karma -= 1
+        current_reply.save()
+        return HttpResponseRedirect(
+            "/forum/read/" + str(current_post.id) + "/"
+        )
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -458,8 +560,14 @@ def forum_read(request, post_id):
         "all_languages": all_languages,
         "current_post": current_post,
         "current_post_comments": current_post_comments,
+        "current_post_comments_amount": len(current_post_comments),
         "current_post_comments_sorted": current_post_comments_sorted,
         "current_user_is_owner": current_user_is_owner,
+        "post_owner_student_profiles": post_owner_student_profiles,
+        "post_owner_highest_xp_profile": post_owner_student_profiles[0],
+        "comment_replies": comment_replies,
+        "comment_replies_amount": comment_replies_amount,
+        "comment_student_profiles": comment_student_profiles,
     }
 
     if current_basic_user == None:

@@ -18,44 +18,50 @@
     <div id="forum-read-container">
 
       <!-- Main post part -->
-      <h1>Lorem Ipsum</h1>
+      <h1>{{ current_post.post_title }}</h1>
       <div id="forum-read-meta-info">
-        <div id="profile-photo"></div>
-        <p><a href="">username</a></p>
+        {% if current_post.user_profile.profile_photo %}
+          <div id="profile-photo" style="background-image: url('{{ current_post.user_profile.profile_photo.url }}');"></div>
+        {% else %}
+          <div id="profile-photo" style="background-image: url('');"></div>
+        {% endif %}
+        <p><a href="{% url 'other_user_profile_overview' current_post.user_profile.username foo foo %}">{{ current_post.user_profile.username }}</a></p>
         <!-- flags -->
         <!-- desktop -->
         <div id="desktop-flags-container">
-          <div id="flag-cell">
-            <div id="flag-cell-flag"></div>
-            <p>45</p>
-          </div>
-          <div id="flag-cell">
-            <div id="flag-cell-flag"></div>
-            <p>45</p>
-          </div>
+          {% for profile in post_owner_student_profiles %}
+            <div id="flag-cell">
+              {% if profile.langauge.flag %}
+                <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
+              {% else %}
+                <div id="flag-cell-flag" style="background-image: url('');"></div>
+              {% endif %}
+              <p>{{ profile.level }}</p>
+            </div>
+          {% endfor %}
         </div>
+
         <!-- mobile -->
         <div id="hidden-mobile-flags-container">
-          <div id="flag-cell">
-            <div id="flag-cell-flag"></div>
-            <p>45</p>
-          </div>
+            <div id="flag-cell">
+              {% if post_owner_highest_xp_profile.langauge.flag %}
+                <div id="flag-cell-flag" style="background-image: url('{{ post_owner_highest_xp_profile.langauge.flag.url }}');"></div>
+              {% else %}
+                <div id="flag-cell-flag" style="background-image: url('');"></div>
+              {% endif %}
+              <p>{{post_owner_highest_xp_profile.level}}</p>
+            </div>
+
         </div>
 
       </div>
-      <p id="forum-read-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br /><br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <Br /><br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <div id="forum-read-content">{{ current_post.content|linebreaks }}</div>
 
-      <p id="date">Jun 20, 2020</p>
+      <p id="date">{{ current_post.creation_date }}</p>
 
-      <p id="forum-read-post-info"><span class="fa fa-arrow-up"></span> 1000 points</p>
-      <p id="forum-read-post-info"><span class="fa fa-comment"></span> 1000 comments</p>
-      <p id="forum-read-post-info"><span class="fa fa-eye"></span> 120000 views</p>
+      <p id="forum-read-post-info"><span class="fa fa-arrow-up"></span> {{ current_post.karma }} points</p>
+      <p id="forum-read-post-info"><span class="fa fa-comment"></span> {{current_post_comments_amount}} comments</p>
+      <p id="forum-read-post-info"><span class="fa fa-eye"></span> {{ current_post.views }} views</p>
 
       <br />
 
@@ -70,9 +76,10 @@
           <input type="submit" value="&#9660;" id="post-content-upvote" name="post_content_downvote"/>
       </form>
 
-      <a id="forum-read-bottom-link" href="">UPDATE</a>
-      <a id="forum-read-bottom-link" href="">DELETE</a>
-
+      {% if current_user_is_owner == True %}
+        <a id="forum-read-bottom-link" href="{% url 'forum_update' current_post.id %}">UPDATE</a>
+        <a id="forum-read-bottom-link" href="">DELETE</a>
+      {% endif %}
     </div>
 
     <!-- Comments part -->
@@ -84,130 +91,126 @@
           <p style="color:red; margin: 0px 0px;">You cannot enter an empty input.</p>
         {% endif %}
 
-        <form method="POST" action="">
+        <form method="POST" action="{% url 'forum_read' current_post.id %}">
           {% csrf_token %}
-          <textarea placeholder="Comment ..." name="content"></textarea>
-          <input type="submit" value="Comment" name="" />
+          <textarea placeholder="Comment ..." name="comment_content"></textarea>
+          <input type="submit" value="Comment" name="comment_submit_btn" />
         </form>
       </div>
 
       <!-- Comments part -->
       <div id="all-comments">
 
-        <!-- comment cell -->
-        <div id="comment-cell">
-          <div id="comment-meta-info">
-            <div id="comment-profile-photo"></div>
-            <a href="">username</a>
-            <!-- flags -->
-            <!-- desktop -->
-            <div id="desktop-flags-container">
-              <div id="flag-cell">
-                <div id="flag-cell-flag"></div>
-                <p>45</p>
-              </div>
-              <div id="flag-cell">
-                <div id="flag-cell-flag"></div>
-                <p>45</p>
+        {% for comment in current_post_comments_sorted %}
+          <!-- comment cell -->
+          <div id="comment-cell">
+            <div id="comment-meta-info">
+              {% if comment.user_profile.profile_photo %}
+                <div id="comment-profile-photo" style="background-image: url('{{ comment.user_profile.profile_photo.url }}');"></div>
+              {% else %}
+                <div id="comment-profile-photo" style="background-image: url('');"></div>
+              {% endif %}
+              <a href="{% url 'other_user_profile_overview' comment.user_profile.user.username foo foo %}">{{ comment.user_profile.user.username }}</a>
+              <!-- flags -->
+              <!-- desktop -->
+              <div id="desktop-flags-container">
+                {% for profile in comment_student_profiles|get_key_value:comment.user_profile.id %}
+                  <div id="flag-cell">
+                    {% if profile.langauge.flag %}
+                      <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
+                    {% else %}
+                      <div id="flag-cell-flag" style="background-image: url('');"></div>
+                    {% endif %}
+                    <p>{{ profile.level }}</p>
+                  </div>
+                {% endfor %}
               </div>
             </div>
-            <!-- mobile -->
-            <div id="hidden-mobile-flags-container">
-              <div id="flag-cell">
-                <div id="flag-cell-flag"></div>
-                <p>45</p>
-              </div>
-            </div>
-          </div>
-          <p id="comment-content">
-              lorem ipsum dolor dolor sit ame tmi soliris dist lorem ipsum dolor sit amet rem ipsum dolor sit amet
-          </p>
-          <div id="comment-bottom-operations">
-            <!-- upvote -->
-            <form action="" method="POST">
-                {% csrf_token %}
-                <input type="hidden" value="" name="" />
-                <input type="submit" value="&#x25B2; upvote" name="" />
-            </form>
-            <!-- downvote -->
-            <form action="" method="POST">
-                {% csrf_token %}
-                <input type="hidden" value="" name="" />
-                <input type="submit" value="&#9660; downvote" name="" />
-            </form>
-            <button id="reply-panel-open-button" class="reply-panel-open-button-class"><span class="fa fa-comment"></span> reply</button>
-            <p id="comment-upvotes">
-              12 upvotes
+            <p id="comment-content">
+              {{ comment.content|linebreaks }}
             </p>
-            <p id="comment-upvotes">20 jun, 2020</p>
-          </div>
-
-          <!-- hidden reply form -->
-          <div id="hidden-reply-form" class="hidden-reply-panels">
-            <form action="" method="POST">
+            <div id="comment-bottom-operations">
+              <!-- upvote -->
+              <form action="{% url 'forum_read' current_post.id %}" method="POST">
                 {% csrf_token %}
-                <input type="hidden" value="" name="hidden_comment_id" />
-                <textarea placeholder="Type in your reply ..." name=""></textarea>
-                <input type="submit" value="reply" name="" />
-            </form>
-          </div>
+                <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+                  <input type="submit" value="&#x25B2; upvote" name="comment_upvote_submit_btn" />
+              </form>
+              <!-- downvote -->
+              <form action="{% url 'forum_read' current_post.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+                  <input type="submit" value="&#9660; downvote" name="comment_downvote_submit_btn" />
+              </form>
+              <button id="reply-panel-open-button" class="reply-panel-open-button-class"><span class="fa fa-comment"></span> reply</button>
+              <p id="comment-upvotes">
+                {{ comment.karma }} upvotes
+              </p>
+              <p id="comment-upvotes">{{ comment.creation_date }}</p>
+            </div>
 
-          <!-- hidden replies list -->
-          <!--
-          {% if comment_replies_amount|get_key_value:comment.id >  0 %}
-            <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View {{ comment_replies_amount|get_key_value:comment.id  }} replies <span class="fa fa-caret-down"></span></button>
-          {% endif %}-->
-          <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View 1 replies <span class="fa fa-caret-down"></span></button>
-          <div id="comment-replies-container" class="replies-listing-panels">
+            <!-- hidden reply form -->
+            <div id="hidden-reply-form" class="hidden-reply-panels">
+              <form action="{% url 'forum_read' current_post.id %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" value="{{ comment.id }}" name="hidden_comment_id" />
+                  <textarea placeholder="Type in your reply ..." name="comment_reply_content"></textarea>
+                  <input type="submit" value="reply" name="forum_read_comment_reply_submit_btn" />
+              </form>
+            </div>
 
-              <div id="comment-reply-cell">
-                <div id="comment-reply-cell-meta-info">
-                  <a href="">@username</a>
-                  <!-- flags -->
-                  <!-- desktop -->
-                  <div id="desktop-flags-container">
-                    <div id="flag-cell">
-                      <div id="flag-cell-flag"></div>
-                      <p>45</p>
+            <!-- hidden replies list -->
+
+            {% if comment_replies_amount|get_key_value:comment.id >  0 %}
+              <button id="hidden-replies-open-button" class="hidden-replies-open-buttons"> View {{ comment_replies_amount|get_key_value:comment.id  }} replies <span class="fa fa-caret-down"></span></button>
+            {% endif %}
+
+            <div id="comment-replies-container" class="replies-listing-panels">
+
+              {% for reply in comment_replies|get_key_value:comment.id %}
+                <div id="comment-reply-cell">
+                  <div id="comment-reply-cell-meta-info">
+                    <a href="{% url 'other_user_profile_overview' reply.reply_owner.user.username foo foo %}">@{{ reply.reply_owner.user.username }}</a>
+                    <!-- flags -->
+                    <!-- desktop
+                    <div id="desktop-flags-container">
+                      <div id="flag-cell">
+                        <div id="flag-cell-flag"></div>
+                        <p>45</p>
+                      </div>
+                      <div id="flag-cell">
+                        <div id="flag-cell-flag"></div>
+                        <p>45</p>
+                      </div>
                     </div>
-                    <div id="flag-cell">
-                      <div id="flag-cell-flag"></div>
-                      <p>45</p>
-                    </div>
+                    -->
                   </div>
-                  <!-- mobile -->
-                  <div id="hidden-mobile-flags-container">
-                    <div id="flag-cell">
-                      <div id="flag-cell-flag"></div>
-                      <p>45</p>
-                    </div>
+                  <p id="comment-reply-cell-content">
+                    {{ reply.content|linebreaks }}
+                  </p>
+                  <div id="comment-reply-cell-bottom-operations">
+                    <!-- upvote -->
+                    <form action="{% url 'forum_read' current_post.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ reply.id }}" name="hidden_reply_id" />
+                        <input type="submit" value="&#x25B2; upvote" name="forum_read_comment_reply_upvote_submit_btn" />
+                    </form>
+                    <!-- downvote -->
+                    <form action="{% url 'forum_read' current_post.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ reply.id }}" name="hidden_reply_id" />
+                        <input type="submit" value="&#9660; downvote" name="forum_read_comment_reply_downvote_submit_btn" />
+                    </form>
+                    <p>{{ reply.karma }} upvotes</p>
+                    <p>{{ reply.creation_date }}</p>
                   </div>
-                </div>
-                <p id="comment-reply-cell-content">
-                  lorem ipsum dolor dolor sit ame tmi soliris dist lorem ipsum dolor sit amet rem ipsum dolor sit amet
-                </p>
-                <div id="comment-reply-cell-bottom-operations">
-                  <!-- upvote -->
-                  <form action="" method="POST">
-                      {% csrf_token %}
-                      <input type="hidden" value="" name="" />
-                      <input type="submit" value="&#x25B2; upvote" name="" />
-                  </form>
-                  <!-- downvote -->
-                  <form action="" method="POST">
-                      {% csrf_token %}
-                      <input type="hidden" value="" name="" />
-                      <input type="submit" value="&#9660; downvote" name="" />
-                  </form>
-                  <p>12 upvotes</p>
-                  <p>20 jun, 2020</p>
-                </div>
-              </div>
+                </div><!-- /reply cell -->
+              {% endfor %}
 
+            </div>
           </div>
-
-        </div>
-        <!-- /cell -->
+          <!-- /cell -->
+        {% endfor %}
 
         <script>
           let hidden_replies_open_buttons = document.getElementsByClassName("hidden-replies-open-buttons");
@@ -283,9 +286,16 @@
 
     </div>
   </div><!--/right part -->
+</div>
 
 <!-- DELETE PANEL -->
-
+<div id="hidden-forum-read-delete-background-greying"></div>
+<div id="hidden-forum-read-delete-panel">
+  <h1>Are you sure?</h1>
+  <form>
+      <input type="submit" value="Delete" name="" />
+  </form>
+  <button>Cancel</button>
 </div>
 
 {% endwith %}

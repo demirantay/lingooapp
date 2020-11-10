@@ -22,6 +22,7 @@ class ForumPost(models.Model):
     content = models.TextField(max_length=10000, blank=True, null=True)
     karma = models.IntegerField(default=0)
     is_pinned = models.BooleanField(default=False)
+    views = models.IntegerField(default=0)
 
     def __str__(self):
         return "id: " + str(self.id) + " | " + str(self.post_title)
@@ -40,3 +41,18 @@ class ForumComment(models.Model):
 
     def __str__(self):
         return "comment id: " + str(self.id) + " | post: " + str(self.post)
+
+
+# Forum Comment Reply
+class ForumCommentReply(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateField(default=timezone.now)
+    comment = models.ForeignKey(ForumComment, on_delete=models.CASCADE)
+    forum_post = models.ForeignKey(ForumPost, on_delete=models.CASCADE,
+                                 null=True, blank=True)
+    reply_owner = models.ForeignKey(BasicUserProfile, on_delete=models.CASCADE)
+    content = models.TextField(default="...", null=True, blank=True)
+    karma = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "Forum POST" + str(self.forum_post)

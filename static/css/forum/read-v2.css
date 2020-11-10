@@ -35,7 +35,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../placeholder/test.jpg");
+
 }
 
 #forum-read-meta-info p {
@@ -51,8 +51,8 @@
 }
 
 #forum-read-content {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
 }
 
 #forum-read-post-info {
@@ -119,7 +119,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../flags/spanish.png");
   display: inline-block;
   vertical-align: middle;
 }
@@ -227,7 +226,7 @@
   vertical-align: middle;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../../placeholder/test.jpg");
+
   background-size: cover;
   margin-right: 5px;
 }
@@ -405,18 +404,18 @@
 }
 
 #comment-reply-cell-content {
-  margin: 0px;
-  margin-top: 10px;
+  margin-top: -10px !important;
 
 }
 
 #comment-reply-cell-bottom-operations {
-  margin-top: -1px;
+  margin-top: -10px !important;
 }
 
 #comment-reply-cell-bottom-operations form {
   display: inline-block;
   margin-right: 5px;
+  margin-top: 0px;
 }
 
 #comment-reply-cell-bottom-operations form input {
@@ -439,6 +438,40 @@
   color: grey !important;
   font-size: 13px !important;
   margin-right: 10px;
+  margin-top: 0px !important;
+}
+
+/* -------------- hidden delete panel --------------- */
+#hidden-forum-read-delete-background-greying {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 99;
+  opacity: 0.5;
+  display: block;
+}
+
+#hidden-forum-read-delete-panel {
+
+}
+
+#hidden-forum-read-delete-panel h1 {
+
+}
+
+#hidden-forum-read-delete-panel form {
+
+}
+
+#hidden-forum-read-delete-panel form input {
+
+}
+
+#hidden-forum-read-delete-panel button {
+
 }
 
 
