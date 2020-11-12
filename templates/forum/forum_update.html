@@ -45,25 +45,5 @@
 
   </div><!-- /left part container -->
 
-  <!-- right part -->
-  <div id="forum-container-right-part">
-    <!-- forum right language categories -->
-    {% with redirected_page="0" %}
-      {% for language in all_languages %}
-        <div id="category-cell">
-          <a href="{% url 'forum_category_page' language.name redirected_page %}">
-            {% if language.flag %}
-              <div id="category-flag" style="background-image: url('{{ language.flag.url }}');"></div>
-            {% else %}
-              <div id="category-flag" style="background-image: url('');"></div>
-            {% endif %}
-            {{ language.name|title }}
-          </a>
-        </div>
-      {% endfor %}
-    {% endwith %}
-
-  </div><!-- /right part -->
-
 </div>
 {% endblock %}

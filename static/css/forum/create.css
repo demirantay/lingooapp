@@ -114,7 +114,7 @@
   }
 
   #create-post-form textarea {
-    width: 85%;
+    width: 84%;
     margin: 0 auto;
   }
 
@@ -142,13 +142,13 @@
   }
 
   #create-post-form select {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 10px;
   }
 
   #create-post-form textarea {
-    width: 85%;
+    width: 84%;
     margin: 0 auto;
   }
 }
@@ -175,13 +175,13 @@
   }
 
   #create-post-form select {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 10px;
   }
 
   #create-post-form textarea {
-    width: 85%;
+    width: 84%;
     margin: 0 auto;
   }
 }
@@ -192,10 +192,21 @@
 
   #forum-container-left-part {
     border: 1px solid transparent;
-    width: 68%;
-    margin-top: -20px;
+    width: 98%;
   }
 
+  #create-post-form {
+    border: 1px solid transparent;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 70%;
+  }
+
+  #create-post-form select {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
 
 }
 
