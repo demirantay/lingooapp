@@ -77,8 +77,8 @@
       </form>
 
       {% if current_user_is_owner == True %}
-        <a id="forum-read-bottom-link" href="{% url 'forum_update' current_post.id %}">UPDATE</a>
-        <a id="forum-read-bottom-link" href="">DELETE</a>
+        <a class="forum-read-bottom-link" href="{% url 'forum_update' current_post.id %}">UPDATE</a>
+        <a class="forum-read-bottom-link" id="delete_panel_open_btn" href="" >DELETE</a>
       {% endif %}
     </div>
 
@@ -292,11 +292,31 @@
 <div id="hidden-forum-read-delete-background-greying"></div>
 <div id="hidden-forum-read-delete-panel">
   <h1>Are you sure?</h1>
-  <form>
-      <input type="submit" value="Delete" name="" />
+  <form method="POST" action="{% url 'forum_read' current_post.id %}">
+      {% csrf_token %}
+      <input type="submit" value="Delete" name="basic_forum_read_delete_submit_btn" />
   </form>
-  <button>Cancel</button>
+  <button id="delete_panel_close_btn">Cancel</button>
 </div>
+
+<script>
+  let delete_panel_bg_greying = document.getElementById("hidden-forum-read-delete-background-greying");
+  let delete_panel = document.getElementById("hidden-forum-read-delete-panel");
+
+  let delete_panel_open_btn = document.getElementById("delete_panel_open_btn");
+  let delete_panel_close_btn = document.getElementById("delete_panel_close_btn");
+
+  delete_panel_open_btn.onclick = function(event) {
+    event.preventDefault();
+    delete_panel_bg_greying.style.display = "block";
+    delete_panel.style.display = "block";
+  }
+
+  delete_panel_close_btn.onclick = function() {
+    delete_panel_bg_greying.style.display = "none";
+    delete_panel.style.display = "none";
+  }
+</script>
 
 {% endwith %}
 {% endblock %}

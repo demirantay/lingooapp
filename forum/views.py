@@ -553,6 +553,33 @@ def forum_read(request, post_id):
             "/forum/read/" + str(current_post.id) + "/"
         )
 
+    # Forum Read Delete form Processing
+    if request.POST.get("basic_forum_read_delete_submit_btn"):
+        # check if the post is the owned by the current user
+        if current_post.user_profile == current_basic_user_profile:
+            # delete all the comment replies
+            try:
+                all_replies = ForumCommentReply.objects.filter(
+                    forum_post=current_post
+                )
+            except ObjectDoesNotExist:
+                all_replies = None
+
+            if all_replies != None:
+                all_replies.delete()
+
+            # delete all the comments
+            if current_post_comments != None:
+                current_post_comments.delete()
+
+            # delete the feedback
+            if current_post != None:
+                current_post.delete()
+
+            return HttpResponseRedirect("/forum/0/")
+        else:
+            pass
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
