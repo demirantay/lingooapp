@@ -70,7 +70,11 @@
       <!-- comment cell -->
       <div id="comment-cell">
         <div id="comment-meta-info">
-          <div id="comment-profile-photo"></div>
+          {% if comment.comment_owner.profile_photo %}
+            <div id="comment-profile-photo" style="background-image:url('{{ comment.comment_owner.profile_photo.url }}')"></div>
+          {% else %}
+            <div id="comment-profile-photo"></div>
+          {% endif %}
           <a href="{% url 'other_user_profile_overview' comment.comment_owner.user.username foo foo %}">{{ comment.comment_owner.user.username }}</a>
           <p>{{ comment.creation_date }}</p>
         </div>
