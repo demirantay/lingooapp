@@ -1,0 +1,42 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/basic_notifications/notifications.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <!-- notifications box -->
+  <div id="notifications-container">
+    <h3>Notifications</h3>
+
+    <!-- Notification Cell -->
+      <div id="notification-cell">
+        <div id="notification-left-part">
+          <p><span class="fa fa-bell"></span></p>
+        </div>
+        <div id="notification-right-part">
+          <p id="notification-meta-info"><a href="">@username</a> commented on your forum post (<a href="">Forum Post Header</a>)</p>
+          <p id="notification-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+      </div>
+    <!-- /cell -->
+
+    <!-- Notification Cell -->
+      <div id="notification-cell">
+        <div id="notification-left-part">
+          <p><span class="fa fa-bell"></span></p>
+        </div>
+        <div id="notification-right-part">
+          <p id="notification-meta-info"><a href="">@username</a> commented on your forum post (<a href="">Forum Post Header</a>)</p>
+          <p id="notification-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+      </div>
+    <!-- /cell -->
+
+  </div>
+
+
+
+{% endblock %}

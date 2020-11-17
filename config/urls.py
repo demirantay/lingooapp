@@ -97,6 +97,11 @@ urlpatterns = [
     # ...
     path("", include("basic_feedback.urls")),
 
+    # Basic Notifications
+    # --------------
+    # ...
+    path("", include("basic_notifications.urls")),
+
 ]
 
 if settings.DEBUG:

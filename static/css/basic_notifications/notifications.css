@@ -1,0 +1,172 @@
+body {
+  background-color: #F4F6F6 !important;
+}
+
+
+#notifications-container {
+  width: 60%;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+}
+
+#notifications-container h3 {
+  margin: 0px;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
+  padding-left: 5%;
+  padding-bottom: 10px;
+}
+
+#notification-cell {
+  border-bottom: 1px solid lightgrey;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#notification-left-part {
+  vertical-align: top;
+  display: inline-block;
+  width: 8%;
+  text-align: center;
+}
+
+#notification-left-part p {
+  margin: 0px;
+}
+
+#notification-left-part p span {
+  color: #E3102E;
+}
+
+#notification-right-part {
+  vertical-align: top;
+  display: inline-block;
+  width: 90%;
+}
+
+#notification-meta-info {
+  color: grey;
+}
+
+#notification-content {
+  font-weight: 700;
+}
+
+#notification-right-part p {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+#notification-right-part p a {
+  color: #E3102E;
+  text-decoration: none;
+}
+
+#notification-right-part p a:hover {
+  text-decoration: underline;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #notifications-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #notification-left-part {
+    width: 10%;
+  }
+
+  #notification-left-part p span {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  #notification-right-part {
+    width: 88%;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #notifications-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #notification-left-part {
+    width: 10%;
+  }
+
+  #notification-left-part p span {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  #notification-right-part {
+    width: 88%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+
+  #notifications-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #notification-left-part {
+    width: 10%;
+  }
+
+  #notification-left-part p span {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  #notification-right-part {
+    width: 88%;
+  }
+
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  #notifications-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

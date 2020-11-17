@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'basic_vocab_container',
     'basic_voting_sys',
     'basic_feedback',
+    'basic_notifications',
 
     # Teacher User Apps
     'teacher_public_about',
