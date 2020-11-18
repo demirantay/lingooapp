@@ -10,6 +10,10 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # My Module ImportsImports
+from .models import NotificationBase, ForumPostCommentNotification
+from .models import ForumCommentReplyNotification, CongressBillVoteNotification
+from .models import FeedbackCommentNotification, FeedbackDevAnswerNotification
+from .models import FeedbackCommentReplyNotification
 
 
 def notifications(request, page):

@@ -68,6 +68,28 @@ body {
   text-decoration: underline;
 }
 
+#notification-pagination-container {
+  border: 1px solid transparent;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 60%;
+  text-align: center;
+}
+
+#notification-pagination-container a {
+  background-color: #E3102E;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#notification-pagination-container a:hover {
+  transition: 0.2s;
+  background-color: black;
+}
+
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
