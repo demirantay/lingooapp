@@ -13,6 +13,8 @@ from .models import Feedback, FeedbackDevAnswer, FeedbackComment
 from .models import FeedbackCommentReply
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from basic_notifications.models import NotificationBase
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -216,6 +218,14 @@ def basic_feedback_read(request, feedback_id):
                 content=content
             )
             new_comment.save()
+            # create neccessary notifications
+            new_notification = NotificationBase(
+                notification_owner=current_basic_user_profile,
+                notified_user=current_feedback.user,
+                status="feedback_comment",
+                feedback_comment=new_comment,
+            )
+            new_notification.save()
             return HttpResponseRedirect(
                 "/feedback/read/" + str(current_feedback.id) + "/"
             )
@@ -258,6 +268,14 @@ def basic_feedback_read(request, feedback_id):
                     content=reply_content
                 )
                 new_reply.save()
+                # create necessary notiications
+                new_notification = NotificationBase(
+                    notification_owner=current_basic_user_profile,
+                    notified_user=replied_comment.comment_owner,
+                    status="feedback_comment_reply",
+                    feedback_comment_reply=new_reply,
+                )
+                new_notification.save()
                 return HttpResponseRedirect(
                     "/feedback/read/" + str(current_feedback.id) + "/"
                 )

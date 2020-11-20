@@ -39,6 +39,10 @@ body {
   color: #E3102E;
 }
 
+.read-notification {
+  color: grey !important;
+}
+
 #notification-right-part {
   vertical-align: top;
   display: inline-block;

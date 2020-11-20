@@ -11,7 +11,7 @@
   <div id="notifications-container">
     <h3>Notifications</h3>
 
-    <!-- Notification Cell -->
+    <!-- Notification Cell
       <div id="notification-cell">
         <div id="notification-left-part">
           <p><span class="fa fa-bell"></span></p>
@@ -21,19 +21,54 @@
           <p id="notification-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
       </div>
-    <!-- /cell -->
+     /cell -->
 
-    <!-- Notification Cell -->
-      <div id="notification-cell">
-        <div id="notification-left-part">
-          <p><span class="fa fa-bell"></span></p>
+    {% for notification in all_notifications %}
+    {% with foo="foo" undefined="undefined" forum_post_comment="forum_post_comment" forum_comment_reply="forum_comment_reply" congress_bill_vote="congress_bill_vote" feedback_comment="feedback_comment" feedback_dev_answer="feedback_dev_answer" feedback_comment_reply="feedback_comment_reply" %}
+      <!-- Notification Cell -->
+        <div id="notification-cell">
+          <div id="notification-left-part">
+            {% if notification.is_read == False %}
+              <p><span class="fa fa-bell"></span></p>
+            {% else %}
+              <p ><span class="fa fa-bell-slash read-notification"></span></p>
+            {% endif %}
+          </div>
+          <div id="notification-right-part">
+
+              {% if notification.status == undefined %}
+                <!-- nothing for undefined -->
+              {% elif notification.status == forum_post_comment %}
+                <p id="notification-meta-info"><a href="{% url 'other_user_profile_overview' notification.notification_owner.user.username foo foo %}">@{{ notification.notification_owner.user.username }}</a> commented on your forum post (<a href="{% url 'forum_read' notification.forum_post_comment.post.id %}">{{ notification.forum_post_comment.post.post_title }}</a>)</p>
+              {% elif notification.status == forum_comment_reply %}
+                <p id="notification-meta-info"><a href="{% url 'other_user_profile_overview' notification.notification_owner.user.username foo foo %}">@{{ notification.notification_owner.user.username }}</a> replied to your comment(<a href="{% url 'forum_read' notification.forum_comment_reply.forum_post.id  %}">{{ notification.forum_comment_reply.comment.content }}</a>)</p>
+              {% elif notification.status == congress_bill_vote %}
+                <p id="notification-meta-info"><a href="{% url 'other_user_profile_overview' notification.notification_owner.user.username foo foo %}">@{{ notification.notification_owner.user.username }}</a> voted on your congress bill (<a href="{% url 'basic_read_bill' notification.congress_bill_vote.bill.id %}">{{ notification.congress_bill_vote.bill.title }}</a>)</p>
+              {% elif notification.status == feedback_comment %}
+                <p id="notification-meta-info"><a href="{% url 'other_user_profile_overview' notification.notification_owner.user.username foo foo %}">@{{ notification.notification_owner.user.username }}</a> commented on your <a href="{% url 'basic_feedback_read' notification.feedback_comment.feedback.id %}">feedback post</a></p>
+              {% elif notification.status == feedback_comment_reply %}
+                <p id="notification-meta-info"><a href="{% url 'other_user_profile_overview' notification.notification_owner.user.username foo foo %}">@{{ notification.notification_owner.user.username }}</a> replied to your feedback comment (<a href="{% url 'basic_feedback_read' notification.feedback_comment_reply.feedback.id %}">{{ notification.feedback_comment_reply.comment.content }}</a>)</p>
+              {% endif %}
+
+              {% if notification.status == undefined %}
+                <!-- no notification for undefined status -->
+              {% elif notification.status == forum_post_comment %}
+                <p id="notification-content">"{{ notification.forum_post_comment.content }}"</p>
+              {% elif notification.status == forum_comment_reply %}
+                <p id="notification-content">"{{ notification.forum_comment_reply.content }}"</p>
+              {% elif notification.status == congress_bill_vote %}
+                <p id="notification-content">"{{ notification.congress_bill_vote.vote }}"</p>
+              {% elif notification.status == feedback_comment %}
+                <p id="notification-content">"{{ notification.feedback_comment.content }}"</p>
+              {% elif notification.status == feedback_comment_reply %}
+                <p id="notification-content">"{{ notification.feedback_comment_reply.content }}"</p>
+              {% endif %}
+
+          </div>
         </div>
-        <div id="notification-right-part">
-          <p id="notification-meta-info"><a href="">@username</a> commented on your forum post (<a href="">Forum Post Header</a>)</p>
-          <p id="notification-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-        </div>
-      </div>
-    <!-- /cell -->
+      <!-- /cell -->
+    {% endwith %}
+    {% endfor %}
 
   </div>
 

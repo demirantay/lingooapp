@@ -18,6 +18,7 @@ from basic_feedback.models import FeedbackCommentReply
 # Notification cells notify the user if there is a comment made on their post
 # if they were mentioned .. etc.
 class NotificationBase(models.Model):
+    # Base fields for the notifications
     id = models.AutoField(primary_key=True)
     creation_date = models.DateField(default=timezone.now)
     is_read = models.BooleanField(default=False)
@@ -31,60 +32,50 @@ class NotificationBase(models.Model):
         on_delete=models.CASCADE,
         related_name="notified_user"
     )
+    STATUS_CHOICES = (
+        ("undefined", "undefined"),
+        ("forum_post_comment", "forum_post_comment"),
+        ("forum_comment_reply", "forum_comment_reply"),
+        ("congress_bill_vote", "congress_bill_vote"),
+        ("feedback_comment", "feedback_comment"),
+        ("feedback_comment_reply", "feedback_comment_reply"),
+    )
+    status = models.CharField(
+        max_length=300,
+        default="undefined",
+        choices=STATUS_CHOICES
+    )
+    # Relative fields based on the status of the notification
+    forum_post_comment = models.ForeignKey(
+        ForumComment,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    forum_comment_reply = models.ForeignKey(
+        ForumCommentReply,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    congress_bill_vote = models.ForeignKey(
+        BillVote,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    feedback_comment = models.ForeignKey(
+        FeedbackComment,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    feedback_comment_reply = models.ForeignKey(
+        FeedbackCommentReply,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
 
     def __str__(self):
         return "Notfied user: " + str(self.notified_user)
-
-
-# Forum Post Comment Notification
-class ForumPostCommentNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    post_comment = models.ForeignKey(ForumComment, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Comment: " + str(self.post_comment)
-
-
-# Forum Comment Reply Notification
-class ForumCommentReplyNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    comment_reply = models.ForeignKey(ForumCommentReply, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Reply: " + str(self.comment_reply)
-
-
-# Congress Bill Vote Notification
-class CongressBillVoteNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    bill_vote = models.ForeignKey(BillVote, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Bill: " + str(self.bill_vote)
-
-
-# Feedback Comment Notification
-class FeedbackCommentNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    feedback_comment = models.ForeignKey(FeedbackComment, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Feedback Comment: " + str(self.feedback_comment)
-
-
-# Feedback Dev Answer Notification
-class FeedbackDevAnswerNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    feedback_dev_answer = models.ForeignKey(FeedbackDevAnswer, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Feedback Deb Answer: " + str(self.feedback_dev_answer)
-
-
-# Feedback Comment Reply Notification
-class FeedbackCommentReplyNotification(models.Model):
-    notification_base = models.ForeignKey(NotificationBase, on_delete=models.CASCADE)
-    comment_reply = models.ForeignKey(FeedbackCommentReply, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Feedback Comment Reply: " + str(self.comment_reply)

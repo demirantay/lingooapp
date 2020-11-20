@@ -12,6 +12,7 @@ from .models import ForumPost, ForumComment, ForumCommentReply
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from basic_language_explore.models import Language, Student
+from basic_notifications.models import NotificationBase
 
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
@@ -447,6 +448,14 @@ def forum_read(request, post_id):
             content=comment_content
         )
         new_comment.save()
+        # update and create notificiations
+        new_notification = NotificationBase(
+            notification_owner=current_basic_user_profile,
+            notified_user=current_post.user_profile,
+            status="forum_post_comment",
+            forum_post_comment=new_comment,
+        )
+        new_notification.save()
         return HttpResponseRedirect("/forum/read/"+str(current_post.id)+"/")
 
     # comment upote form processing
@@ -521,6 +530,14 @@ def forum_read(request, post_id):
                 content=comment_reply_content,
             )
             new_comment_reply.save()
+            # create the neccessary notifications
+            new_notification = NotificationBase(
+                notification_owner=current_basic_user_profile,
+                notified_user=current_comment.user_profile,
+                status="forum_comment_reply",
+                forum_comment_reply=new_comment_reply,
+            )
+            new_notification.save()
             return HttpResponseRedirect(
                 "/forum/read/" + str(current_post.id) + "/"
             )

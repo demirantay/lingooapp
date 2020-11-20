@@ -10,10 +10,12 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # My Module ImportsImports
-from .models import NotificationBase, ForumPostCommentNotification
-from .models import ForumCommentReplyNotification, CongressBillVoteNotification
-from .models import FeedbackCommentNotification, FeedbackDevAnswerNotification
-from .models import FeedbackCommentReplyNotification
+from .models import NotificationBase
+from profile_settings.models import BasicUserProfile
+from teacher_authentication.models import TeacherUserProfile
+from utils.session_utils import get_current_user, get_current_user_profile
+from utils.session_utils import get_current_teacher_user_profile
+from utils.access_control import delete_teacher_user_session
 
 
 def notifications(request, page):
@@ -24,8 +26,45 @@ def notifications(request, page):
     # Deleting programmer-typed-user session
     # Deleting Teacher-typed user sessions
 
-    data = {
+    # ACCESS CONTROL
+    delete_teacher_user_session(request)
 
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the current teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get all of the notifications
+    try:
+        all_notifications = NotificationBase.objects.filter(
+            notified_user=current_basic_user_profile
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        all_notifications = None
+
+    # Since the page is visited make all of the notiications read = True
+
+    data = {
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "all_notifications": all_notifications,
     }
 
-    return render(request, "basic_notifications/notifications.html", data)
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "basic_notifications/notifications.html", data)

@@ -15,6 +15,8 @@ from .models import Bill, LastBillCreationDate, BillVote, BillUpdateHistory
 from .models import BillDeleteRequest
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from basic_notifications.models import NotificationBase
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -239,6 +241,14 @@ def basic_read_bill(request, bill_id):
                     elif hidden_vote_value == "nay":
                         current_bill.karma -= 1
                     current_bill.save()
+                    # new notification about the bill
+                    new_notification = NotificationBase(
+                        notification_owner=current_basic_user_profile,
+                        notified_user=current_bill.sponsor,
+                        status="congress_bill_vote",
+                        congress_bill_vote=new_vote,
+                    )
+                    new_notification.save()
                     return HttpResponseRedirect(
                         "/voting/congress/bill/read/" + str(current_bill.id) + "/"
                     )
