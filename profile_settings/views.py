@@ -10,10 +10,13 @@ from django.contrib.auth.models import User
 # My Module Imports
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from basic_notifications.models import NotificationBase
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
 from utils.auth_utils import get_banned_words
+from utils.notification_utils import get_unread_notifications
 
 
 def profile_settings_edit_profile(request):
@@ -45,6 +48,13 @@ def profile_settings_edit_profile(request):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -155,6 +165,7 @@ def profile_settings_edit_profile(request):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "empty_credentials": empty_credentials,
         "invalid_credentials": invalid_credentials,
         "username_taken": username_taken,
@@ -195,6 +206,13 @@ def profile_settings_change_password(request):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -266,6 +284,7 @@ def profile_settings_change_password(request):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "empty_input": empty_input,
         "old_password_not_matching": old_password_not_matching,
         "new_password_not_matching": new_password_not_matching,
@@ -312,6 +331,13 @@ def profile_settings_email_sms(request):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Email and SMS form processing
     if request.POST.get("email_sms_submit_btn"):
         feedback_emails = request.POST.get("feedback_emails")
@@ -346,6 +372,7 @@ def profile_settings_email_sms(request):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
     }
 
     if current_basic_user == None:

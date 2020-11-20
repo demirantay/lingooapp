@@ -63,6 +63,7 @@
         <a href="{% url 'basic_language_explore' english %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' foo foo %}"><span class="fa fa-user"></span> Profile</a>
+        <a href="{% url 'notifications' page %}"><span class="fa fa-bell" {% if has_unread_notifications == True %}style="color:red;"{% endif %}></span> Notifications</a>
         <a href="{% url 'basic_bill_landing_page' page %}"><span class="fa fa-university"></span> Congress</a>
         <a href="{% url 'basic_feedback_landing_page' page %}"><span class="fa fa-inbox"></span> Feedback</a>
         <a href="" id="hidden-nav-toggle-button"><span class="fa fa-ellipsis-h"></span> More</a>
@@ -91,6 +92,7 @@
         <a href="{% url 'basic_language_explore' english %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
         <a href="{% url 'profile_overview' foo foo %}"><span class="fa fa-user"></span> Profile</a>
+        <a href="{% url 'notifications' page %}"><span class="fa fa-bell" {% if has_unread_notifications == True %}style="color:red;"{% endif %}></span> Notifications</a>
         <a href="{% url 'basic_bill_landing_page' page %}"><span class="fa fa-university"></span> Congress</a>
         <a href="{% url 'basic_feedback_landing_page' page %}"><span class="fa fa-inbox"></span> Feedback</a>
         <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>

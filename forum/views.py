@@ -17,6 +17,7 @@ from basic_notifications.models import NotificationBase
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.notification_utils import get_unread_notifications
 from algorithms.selection_sort import descending_selection_sort
 
 
@@ -48,6 +49,13 @@ def forum_landing_page(request, page):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -123,6 +131,7 @@ def forum_landing_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_languages": all_languages,
         "pinned_posts": pinned_posts,
     }
@@ -161,6 +170,13 @@ def forum_category_page(request, category_language, page):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -238,6 +254,7 @@ def forum_category_page(request, category_language, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_languages": all_languages,
         "current_language": current_language,
         "current_page": page,
@@ -286,6 +303,13 @@ def forum_create(request):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # get all languages (categories)
     try:
         all_languages = Language.objects.all()
@@ -321,6 +345,7 @@ def forum_create(request):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_languages": all_languages,
         "empty_input": empty_input,
     }
@@ -359,6 +384,13 @@ def forum_read(request, post_id):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -601,6 +633,7 @@ def forum_read(request, post_id):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_languages": all_languages,
         "current_post": current_post,
         "current_post_comments": current_post_comments,
@@ -651,6 +684,13 @@ def forum_update(request, post_id):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # get all languages (categories)
     try:
         all_languages = Language.objects.all()
@@ -691,6 +731,7 @@ def forum_update(request, post_id):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_languages": all_languages,
         "current_post": current_post,
         "empty_input": empty_input,

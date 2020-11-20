@@ -17,10 +17,13 @@ from basic_language_explore.models import Student, BasicLanguageCourse, Language
 from basic_vocab_container.models import StudentVocabProgress
 from forum.models import ForumPost
 from basic_voting_sys.models import BillVote
+from basic_notifications.models import NotificationBase
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_other_user, get_other_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.notification_utils import get_unread_notifications
 
 
 def profile_overview(request, course_language, speakers_language):
@@ -51,6 +54,13 @@ def profile_overview(request, course_language, speakers_language):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -161,6 +171,7 @@ def profile_overview(request, course_language, speakers_language):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_student_profiles": all_student_profiles,
         "current_student_profile": current_student_profile,
         "current_words_learned": len(current_words),
@@ -206,6 +217,13 @@ def other_user_profile_overview(request, other_user_username,
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -327,6 +345,7 @@ def other_user_profile_overview(request, other_user_username,
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "other_basic_user": other_basic_user,
         "other_basic_user_profile": other_basic_user_profile,
         "all_student_profiles": all_student_profiles,

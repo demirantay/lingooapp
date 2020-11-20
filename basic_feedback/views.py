@@ -18,6 +18,7 @@ from basic_notifications.models import NotificationBase
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.notification_utils import get_unread_notifications
 
 
 def basic_feedback_landing_page(request, page):
@@ -47,6 +48,13 @@ def basic_feedback_landing_page(request, page):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -98,6 +106,7 @@ def basic_feedback_landing_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "empty_input": empty_input,
         "less_than_100_chars": less_than_100_chars,
         "current_page": current_page,
@@ -139,6 +148,13 @@ def basic_feedback_read(request, feedback_id):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -337,6 +353,7 @@ def basic_feedback_read(request, feedback_id):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_feedback": current_feedback,
         "comments_amount": len(current_feedback_comments),
         "current_feedback_dev_answers": current_feedback_dev_answers,

@@ -20,6 +20,7 @@ from basic_notifications.models import NotificationBase
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.notification_utils import get_unread_notifications
 
 from algorithms.merge_sort import merge_sort
 
@@ -50,6 +51,13 @@ def basic_create_bill(request):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -122,6 +130,7 @@ def basic_create_bill(request):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "empty_input": empty_input,
         "already_created_one_today": already_created_one_today,
     }
@@ -158,6 +167,13 @@ def basic_read_bill(request, bill_id):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -308,6 +324,7 @@ def basic_read_bill(request, bill_id):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_bill": current_bill,
         "current_bill_aye_votes": current_bill_aye_votes,
         "current_bill_neutral_votes": current_bill_neutral_votes,
@@ -355,6 +372,13 @@ def basic_update_bill(request, bill_id):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Getting the current bill
     try:
         current_bill = Bill.objects.get(id=bill_id)
@@ -397,6 +421,7 @@ def basic_update_bill(request, bill_id):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_bill": current_bill,
         "empty_input": empty_input,
         "bill_is_not_owned": bill_is_not_owned,
@@ -438,6 +463,13 @@ def basic_bill_landing_page(request, page):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Get all of the bills in a ordered array from the newly created one
     # At every page there will be 45 entries so always multiply it by that and
     # then reduce your objects
@@ -468,6 +500,7 @@ def basic_bill_landing_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_page": current_page,
         "previous_page": previous_page,
         "next_page": next_page,
@@ -510,6 +543,13 @@ def basic_bill_new_page(request, page):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Get all of the bills in a ordered array from the newly created one
     # At every page there will be 45 entries so always multiply it by that and
     # then reduce your objects
@@ -536,6 +576,7 @@ def basic_bill_new_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_page_bills": current_page_bills,
         "current_page": current_page,
         "previous_page": previous_page,
@@ -578,6 +619,13 @@ def basic_bill_passed_page(request, page):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Get the PASSED bills
     # At every page there will be 45 entries so always multiply it by that and
     # then reduce your objects
@@ -607,6 +655,7 @@ def basic_bill_passed_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_page_bills": current_page_bills,
         "current_page": current_page,
         "previous_page": previous_page,
@@ -649,6 +698,13 @@ def basic_bill_shelved_page(request, page):
         ObjectDoesNotExist
     )
 
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
+        ObjectDoesNotExist
+    )
+
     # Get the SHELVED bills
     # At every page there will be 45 entries so always multiply it by that and
     # then reduce your objects
@@ -678,6 +734,7 @@ def basic_bill_shelved_page(request, page):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_page_bills": current_page_bills,
         "current_page": current_page,
         "previous_page": previous_page,

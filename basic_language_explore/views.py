@@ -11,9 +11,12 @@ from django.contrib.auth.models import User
 from .models import BasicLanguageCourse, Student, Language
 from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
+from basic_notifications.models import NotificationBase
+
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
 from utils.access_control import delete_teacher_user_session
+from utils.notification_utils import get_unread_notifications
 
 
 def basic_language_explore(request, speaker_language):
@@ -43,6 +46,13 @@ def basic_language_explore(request, speaker_language):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -81,6 +91,7 @@ def basic_language_explore(request, speaker_language):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "all_courses": all_courses,
         "course_enrollment": course_enrollment,
         "course_learners_count": course_learners_count,
@@ -120,6 +131,13 @@ def basic_language_explore_info(request, course_language, speakers_language):
         request,
         User,
         TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting, if there are any unread notifications of the current user
+    has_unread_notifications = get_unread_notifications(
+        NotificationBase,
+        current_basic_user_profile,
         ObjectDoesNotExist
     )
 
@@ -197,6 +215,7 @@ def basic_language_explore_info(request, course_language, speakers_language):
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
+        "has_unread_notifications": has_unread_notifications,
         "current_course": current_course,
         "current_course_learners_count": current_course_learners_count,
         "current_course_teachers": current_course_teachers,

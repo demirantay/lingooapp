@@ -55,6 +55,16 @@ def notifications(request, page):
     except ObjectDoesNotExist:
         all_notifications = None
 
+    # check if the user has unread notifications
+    has_unread_notifications = False
+
+    for notification in all_notifications:
+        if notification.is_read == False:
+            has_unread_notifications = True
+            break
+        else:
+            continue
+
     # Since the page is visited make all of the notiications read = True
 
     data = {
@@ -62,6 +72,7 @@ def notifications(request, page):
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
         "all_notifications": all_notifications,
+        "has_unread_notifications": has_unread_notifications,
     }
 
     if current_basic_user == None:
