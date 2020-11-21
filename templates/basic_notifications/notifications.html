@@ -23,7 +23,7 @@
       </div>
      /cell -->
 
-    {% for notification in all_notifications %}
+    {% for notification in current_page_notifications %}
     {% with foo="foo" undefined="undefined" forum_post_comment="forum_post_comment" forum_comment_reply="forum_comment_reply" congress_bill_vote="congress_bill_vote" feedback_comment="feedback_comment" feedback_dev_answer="feedback_dev_answer" feedback_comment_reply="feedback_comment_reply" %}
       <!-- Notification Cell -->
         <div id="notification-cell">
@@ -74,8 +74,14 @@
 
   <!-- pagination -->
   <div id="notification-pagination-container">
-    <a href=""><span class="fa fa-arrow-left"></span></a>
-    <a href=""><span class="fa fa-arrow-right"></span></a>
+    {% if current_page <= 0 %}
+      <a href=""><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'notifications' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% else %}
+      <a href="{% url 'notifications' previous_page %}"><span class="fa fa-arrow-left"></span></a>
+      <a href="{% url 'notifications' next_page %}"><span class="fa fa-arrow-right"></span></a>
+    {% endif %}
+
   </div>
 
 {% endblock %}

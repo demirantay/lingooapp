@@ -55,6 +55,23 @@ def notifications(request, page):
     except ObjectDoesNotExist:
         all_notifications = None
 
+    # Get all of the posts
+    # At every page there will be 80 entries so always multiply it by that and
+    # then reduce your objects
+    current_page = page
+    previous_page = page-1
+    next_page = page+1
+
+    post_records_starting_point = current_page * 80
+    post_records_ending_point = post_records_starting_point + 80
+
+    try:
+        current_page_notifications = NotificationBase.objects.filter(
+            notified_user=current_basic_user_profile
+        ).order_by('-id')[post_records_starting_point:post_records_ending_point]
+    except ObjectDoesNotExist:
+        current_page_notifications = None
+
     # check if the user has unread notifications
     has_unread_notifications = False
 
@@ -73,6 +90,10 @@ def notifications(request, page):
         "current_teacher_profile": current_teacher_profile,
         "all_notifications": all_notifications,
         "has_unread_notifications": has_unread_notifications,
+        "current_page": current_page,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "current_page_notifications": current_page_notifications,
     }
 
     if current_basic_user == None:
