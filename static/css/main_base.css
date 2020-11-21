@@ -109,7 +109,7 @@ body {
   height: auto;
   border: 1px solid lightgrey;
   z-index: 99 !important;
-  margin-top: 0px;
+  margin-top: -220px;
   position: relative;
   border-radius: 10px;
   background-color: white;
