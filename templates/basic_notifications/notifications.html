@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/basic_notifications/notifications.css' %}" />
@@ -28,14 +29,17 @@
       <!-- Notification Cell -->
         <div id="notification-cell">
           <div id="notification-left-part">
-            {% if notification.is_read == False %}
+            {% if current_unread_notifications|get_key_value:notification.id == False %}
               <p><span class="fa fa-bell"></span></p>
             {% else %}
-              <p ><span class="fa fa-bell-slash read-notification"></span></p>
+              {% if notification.is_read == False %}
+                <p><span class="fa fa-bell"></span></p>
+              {% else %}
+                <p ><span class="fa fa-bell-slash read-notification"></span></p>
+              {% endif %}
             {% endif %}
           </div>
           <div id="notification-right-part">
-
               {% if notification.status == undefined %}
                 <!-- nothing for undefined -->
               {% elif notification.status == forum_post_comment %}

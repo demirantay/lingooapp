@@ -83,6 +83,15 @@ def notifications(request, page):
             continue
 
     # Since the page is visited make all of the notiications read = True
+    current_unread_notifications = {}
+
+    for notification in all_notifications:
+        if notification.is_read == False:
+            current_unread_notifications[notification.id] = False
+            notification.is_read = True
+            notification.save()
+        else:
+            pass
 
     data = {
         "current_basic_user": current_basic_user,
@@ -94,6 +103,7 @@ def notifications(request, page):
         "previous_page": previous_page,
         "next_page": next_page,
         "current_page_notifications": current_page_notifications,
+        "current_unread_notifications": current_unread_notifications,
     }
 
     if current_basic_user == None:
