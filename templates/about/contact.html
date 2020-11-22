@@ -1,0 +1,66 @@
+{% extends 'landing_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/about/about.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- about navigation links -->
+<div id="about-navigation-links">
+  <a href="{% url 'about' %}">About Us</a>
+  <a href="{% url 'contact_us' %}" id="about-navigation-links-active">Contact Us</a>
+  <a href="{% url 'about_community_rules' %}">Community Rules</a>
+  <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+  <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+</div>
+
+<!-- content -->
+<div id="about-content">
+  <h2>Contact Us</h2>
+  <p>
+    Please only use this form to contact us with legitimate business inquiries.
+    We won't respond to anything else.
+    <br /><br />
+    Note that due to the large volume of messages that we revieve, we can't gurantee
+    that we'll get back to you. That being said, we'll certainly read thorugh
+    your message.
+  </p>
+
+  <form>
+    <label>Name</label>
+    <input type="text" placeholder="John Doe" />
+    <label>Email Address</label>
+    <input type="text" placeholder="john.doe@gmail.com" />
+    <label>Message</label>
+    <textarea placeholder="Hello!"></textarea>
+    <input type="submit" value="Send" id="contact-us-form-submit-btn" />
+  </form>
+
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-grid-part-1">
+    <p>Created by - <a target="_blank" href="https://twitter.com/Demir99antay" id="red-span">Demir Antay</a></p>
+  </div >
+  <div id="footer-grid-part-2">
+    <p>About</p>
+    <div id="grid-links">
+      <a href="{% url 'about' %}">About Us</a>
+      <a href="{% url 'contact_us' %}">Contact Us</a>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-grid-part-3">
+    <p>Social</p>
+    <div id="grid-links">
+      <a href="https://twitter.com/getdomingo" target="_blank">Twitter</a>
+      <a href="https://www.reddit.com/r/DomingoApp/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

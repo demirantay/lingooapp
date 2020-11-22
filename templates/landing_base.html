@@ -52,7 +52,7 @@
 
   <body>
 
-    {% with page="0" %}
+    {% with page="0" english="english" foo="foo" %}
 
     <!-- header -->
     <div id="top-nav">
@@ -78,12 +78,7 @@
         <a href="{% url 'signup' %}"><span class="fa fa-user-plus"></span> Signup</a>
         <a href="{% url 'login' %}"><span class="fa fa-sign-in"></span> Login</a>
       {% else %}
-        <!-- if logged in -->
-        <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
-        <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>
-        <a href="{% url 'profile_overview' %}"><span class="fa fa-user"></span> Profile</a>
-        <a href="{% url 'profile_settings_edit_profile' %}"><span class="fa fa-cog"></span> Settings</a>
-        <a href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a>
+        <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>
       {% endif %}
     </div>
 

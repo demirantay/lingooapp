@@ -30,14 +30,19 @@
         <!-- desktop -->
         <div id="desktop-flags-container">
           {% for profile in post_owner_student_profiles %}
-            <div id="flag-cell">
-              {% if profile.langauge.flag %}
-                <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
-              {% else %}
-                <div id="flag-cell-flag" style="background-image: url('');"></div>
-              {% endif %}
-              <p>{{ profile.level }}</p>
-            </div>
+            {% if profile.course %}
+              <div id="flag-cell">
+                {% if profile.langauge.flag %}
+                  <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
+                {% else %}
+                  <div id="flag-cell-flag" style="background-image: url('');"></div>
+                {% endif %}
+                <p>{{ profile.level }}</p>
+              </div>
+            {% else %}
+              <!-- display nothing -->
+            {% endif %}
+
           {% endfor %}
         </div>
 

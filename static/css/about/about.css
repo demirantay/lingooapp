@@ -125,6 +125,62 @@
   margin-bottom: 15px;
 }
 
+#about-content form {
+  margin-bottom: 50px;
+  width: 95%;
+  margin-left: 0 auto;
+}
+
+#about-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+#about-content input {
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#about-content input:focus {
+  outline: none;
+  border-color: black;
+}
+
+#about-content textarea {
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+#about-content textarea:focus {
+  outline: none;
+  border-color: black;
+}
+
+#contact-us-form-submit-btn {
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid #E3102E !important;
+  text-align: center;
+  width: 103% !important;
+}
+
+#contact-us-form-submit-btn:hover {
+  cursor: pointer;
+  background-color: #A50E23;
+  border-color: #A50E23;
+  transition: 0.2s;
+}
+
 /* -------- footer content ----- */
 #footer {
   border: 1px solid transparent;
@@ -244,6 +300,12 @@
     margin-top: 15px;
   }
 
+  #about-content form {
+    margin-bottom: 20px;
+    width: 90%;
+  }
+
+
   /* -------- footer content ----- */
   #footer {
     width: 90%;
@@ -316,6 +378,11 @@
     margin-top: 15px;
   }
 
+  #about-content form {
+    margin-bottom: 20px;
+    width: 90%;
+  }
+
   /* -------- footer content ----- */
   #footer {
     width: 90%;
@@ -385,6 +452,11 @@
   #about-content {
     width: 90%;
     margin-top: 15px;
+  }
+
+  #about-content form {
+    margin-bottom: 20px;
+    width: 90%;
   }
 
   /* -------- footer content ----- */
