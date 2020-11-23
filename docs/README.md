@@ -38,3 +38,5 @@
 - [version 1.4.0](./version_docs/version-1.4.0.md)
 - [version 1.5.0](./version_docs/version-1.5.0.md)
 - [version 1.6.0](./version_docs/version-1.6.0.md)
+- [version 1.7.0](./version_docs/version-1.7.0.md)
+- [version 1.8.0](./version_docs/version-1.8.0.md)
