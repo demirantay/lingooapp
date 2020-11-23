@@ -8,6 +8,7 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 # My Module Imports
+from .models import ContactUsMessage
 from profile_settings.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.access_control import delete_teacher_user_session
@@ -67,10 +68,32 @@ def contact_us(request):
     )
 
     # Contact Us Form Processing
+    empty_input = False
+    submitted_message = False
+
+    if request.POST.get("about-contact-us-form-submit-btn"):
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        # check if they are empty
+        if bool(name) == False or name == "" or \
+           bool(email) == False or email == "" or \
+           bool(message) == False or message == "":
+            empty_input = True
+        else:
+            # submit the message
+            new_message = ContactUsMessage(
+                name=name, email=email, message=message
+            )
+            new_message.save()
+            submitted_message = True
 
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
+        "empty_input": empty_input,
+        "submitted_message": submitted_message,
     }
     return render(request, "about/contact.html", data)
 

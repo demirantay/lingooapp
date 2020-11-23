@@ -27,14 +27,21 @@
     your message.
   </p>
 
-  <form>
+  {% if empty_input == True %}
+    <p style="color:orange;">You cannot enter empty inputs!</p>
+  {% elif submitted_message == True %}
+    <p style="color:green;">Successfuly submitted!</p>
+  {% endif %}
+
+  <form method="POST" action="{% url 'contact_us' %}">
+    {% csrf_token %}
     <label>Name</label>
-    <input type="text" placeholder="John Doe" />
+    <input type="text" placeholder="John Doe" name="name" />
     <label>Email Address</label>
-    <input type="text" placeholder="john.doe@gmail.com" />
+    <input type="text" placeholder="john.doe@gmail.com" name="email" />
     <label>Message</label>
-    <textarea placeholder="Hello!"></textarea>
-    <input type="submit" value="Send" id="contact-us-form-submit-btn" />
+    <textarea placeholder="Hello!" name="message"></textarea>
+    <input type="submit" value="Send" id="contact-us-form-submit-btn" name="about-contact-us-form-submit-btn" />
   </form>
 
 </div>
