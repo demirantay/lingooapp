@@ -792,7 +792,7 @@ def teacher_vocab_container_overview(request):
     }
 
     if "teacher_user_logged_in" in request.session:
-        return render(request, "teacher_vocab_container/overview.html", data)
+        return render(request, "teacher_vocab_container/overview_v2.html", data)
     else:
         return HttpResponseRedirect("/")
 

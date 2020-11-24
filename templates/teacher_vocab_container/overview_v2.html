@@ -1,0 +1,601 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/overview_2.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- center part -->
+<div id="vocab-center-container">
+  <h1>Vocabulary Builder</h1>
+
+  <!-- CRUD panel -->
+  <div id="vocab-center-crud-panel">
+    <form>
+      <p><span class="fa fa-plus"></span> A0</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> A1</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> A2</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> B1</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> B2</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> C1</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+    <form>
+      <p><span class="fa fa-plus"></span> ADV</p>
+      <input type="text" placeholder="French Word" />
+      <input type="text" placeholder="English Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+    </form>
+
+  </div>
+
+  <!-- Vocabulary Lesson Tables -->
+  <div id="vocab-lesson-tables">
+
+    <!-- A0 -->
+    <div class="table-toggle-btn" id="a0-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> A0 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-a0-table">
+      <h3>Max Limit: 100</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- A1 -->
+    <div class="table-toggle-btn" id="a1-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> A1 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-a1-table">
+      <h3>Max Limit: 500</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- A2 -->
+    <div class="table-toggle-btn" id="a2-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> A2 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-a2-table">
+      <h3>Max Limit: 1000</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- B1 -->
+    <div class="table-toggle-btn" id="b1-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> B1 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-b1-table">
+      <h3>Max Limit: 2000</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- B2 -->
+    <div class="table-toggle-btn" id="b2-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> B2 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-b2-table">
+      <h3>Max Limit: 4000</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- C1 -->
+    <div class="table-toggle-btn" id="c1-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> C1 Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-c1-table">
+      <h3>Max Limit: 8000</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <!-- Advanced -->
+    <div class="table-toggle-btn" id="advanced-table-toggle-btn">
+      <p><span class="fa fa-caret-down"></span> Advanced Table</p>
+    </div>
+
+    <div class="hidden-vocab-table" id="hidden-advanced-table">
+      <h3>Max Limit: 16,000</h3>
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Edit</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>Sound</b></p>
+        </div>
+      </div><!-- /row -->
+      <div id="hidden-vocab-table-row">
+        <div id="vocab-container-table-column">
+          <p><b>id</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>word</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>added by</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b>translation</b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Edit</a></b></p>
+        </div>
+        <div id="vocab-container-table-column">
+          <p><b><a href="">Sound</a></b></p>
+        </div>
+      </div><!-- /row -->
+    </div>
+
+    <script>
+      // a0
+
+      let a0_table_toggle_btn = document.getElementById("a0-table-toggle-btn");
+      let a0_hidden_table = document.getElementById("hidden-a0-table");
+
+      a0_table_toggle_btn.onclick = function() {
+        if (a0_hidden_table.style.display == "block") {
+          a0_hidden_table.style.display = "none";
+        } else {
+          a0_hidden_table.style.display = "block";
+        }
+      }
+
+      // a1
+      let a1_table_toggle_btn = document.getElementById("a1-table-toggle-btn");
+      let a1_hidden_table = document.getElementById("hidden-a1-table");
+
+      a1_table_toggle_btn.onclick = function() {
+        if (a1_hidden_table.style.display == "block") {
+          a1_hidden_table.style.display = "none";
+        } else {
+          a1_hidden_table.style.display = "block";
+        }
+      }
+
+      // a2
+      let a2_table_toggle_btn = document.getElementById("a2-table-toggle-btn");
+      let a2_hidden_table = document.getElementById("hidden-a2-table");
+
+      a2_table_toggle_btn.onclick = function() {
+        if (a2_hidden_table.style.display == "block") {
+          a2_hidden_table.style.display = "none";
+        } else {
+          a2_hidden_table.style.display = "block";
+        }
+      }
+
+      // b1
+      let b1_table_toggle_btn = document.getElementById("b1-table-toggle-btn");
+      let b1_hidden_table = document.getElementById("hidden-b1-table");
+
+      b1_table_toggle_btn.onclick = function() {
+        if (b1_hidden_table.style.display == "block") {
+          b1_hidden_table.style.display = "none";
+        } else {
+          b1_hidden_table.style.display = "block";
+        }
+      }
+
+      // b2
+      let b2_table_toggle_btn = document.getElementById("b2-table-toggle-btn");
+      let b2_hidden_table = document.getElementById("hidden-b2-table");
+
+      b2_table_toggle_btn.onclick = function() {
+        if (b2_hidden_table.style.display == "block") {
+          b2_hidden_table.style.display = "none";
+        } else {
+          b2_hidden_table.style.display = "block";
+        }
+      }
+
+      // c1
+      let c1_table_toggle_btn = document.getElementById("c1-table-toggle-btn");
+      let c1_hidden_table = document.getElementById("hidden-c1-table");
+
+      c1_table_toggle_btn.onclick = function() {
+        if (c1_hidden_table.style.display == "block") {
+          c1_hidden_table.style.display = "none";
+        } else {
+          c1_hidden_table.style.display = "block";
+        }
+      }
+
+      // advanced
+      let advanced_table_toggle_btn = document.getElementById("advanced-table-toggle-btn");
+      let advanced_hidden_table = document.getElementById("hidden-advanced-table");
+
+      advanced_table_toggle_btn.onclick = function() {
+        if (advanced_hidden_table.style.display == "block") {
+          advanced_hidden_table.style.display = "none";
+        } else {
+          advanced_hidden_table.style.display = "block";
+        }
+      }
+
+    </script>
+
+
+  </div>
+
+</div> <!-- / center container -->
+
+
+<!-- right part -->
+<div id="vocab-right-container">
+  <!-- teacher course banner -->
+  <div id="current-teaacher-course-banner">
+      <p><b><i>French</i></b> for <b><i>English</i></b> Speakers</p>
+  </div>
+
+  <!-- FAQ -->
+  <div id="teacher-vocab-faq">
+    <h2>FAQ</h2>
+    <div id="question-toggle-button">
+      <p>Q: What is this?</p>
+      <p id="faq-caret-span"><span class="fa fa-caret-down"></span></p>
+    </div>
+    <div id="quesion-1-answer-panel">
+      <p>
+        Even though this is not an official scientific theory, we believe
+        that a student needs to learn a certain amount of words for each
+        language level of the CEFR (Common European Framework of reference for
+        language learning). The following list is a reference to how many words
+        a student should know:
+      </p>
+      <ul>
+        <li>A0 -- 100</li>
+        <li>A1 -- 500</li>
+        <li>A2 -- 1000</li>
+        <li>B1 -- 2000</li>
+        <li>B2 -- 4000</li>
+        <li>C1 -- 8000</li>
+      </ul>
+      <p>
+        So what exactly is the Vocabulary Container? It is a software feature
+        that lets the course teachers build the word lists for each CEFR language
+        level.
+        <br /><br />
+        Please note that in levels ranging from A0 to C1 you should add the
+        words that you think are essential to the student. For example, adding
+        100 words of tree's biologic names are not essential. Specific jargon
+        based vocabulary packs will be added later on based on the students
+        choosing and they will be built on a different page, not this one. This
+        Vocabulary Container is for essential words.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let question_1_button = document.getElementById("question-toggle-button");
+    let question_1_panel = document.getElementById("quesion-1-answer-panel");
+
+    question_1_button.onclick = function() {
+      if (question_1_panel.style.display == "block") {
+        question_1_panel.style.display = "none";
+      } else {
+        question_1_panel.style.display = "block";
+      }
+    }
+  </script>
+
+  <!-- Special panel -->
+  <div id="speical-teacher-panel">
+    <h3>Sepcial Panel</h3>
+    <form>
+      <input type="submit" value="Push A0 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push A1 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push A2 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push B1 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push B2 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push C1 to Production" />
+    </form>
+
+    <form>
+      <input type="submit" value="Push Advanced to Production" />
+    </form>
+  </div>
+
+</div><!-- /right container -->
+
+
+{% endblock %}

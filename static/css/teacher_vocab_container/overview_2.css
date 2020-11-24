@@ -1,0 +1,476 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* -------------------- vocab center container ------------------------- */
+
+#vocab-center-container {
+  border: 1px solid transparent;
+  width: 62%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+#vocab-center-container h1 {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+/* ----- CRUD PANEL ----- */
+#vocab-center-crud-panel {
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-radius: 5px;
+  width: 98%;
+}
+
+#vocab-center-crud-panel form {
+  margin: 0px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#vocab-center-crud-panel form p {
+  margin: 0px;
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 900;
+  width: 12%;
+}
+
+#vocab-center-crud-panel form input {
+  background-color: #EAEDED;
+  border: 1px solid grey;
+  color: black;
+  font-size: 15px;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+#vocab-center-crud-panel form input:focus {
+  outline: none;
+}
+
+#vocab-curd-add-btn {
+  background-color: #2E4053 !important;
+  color: white !important;
+  border: 1px solid #2E4053 !important;
+  border-radius: 5px;
+  padding: 5px 10px !important;
+}
+
+#vocab-curd-add-btn:hover {
+  cursor: pointer;
+  background-color: #27AE60 !important;
+  transition: 0.2s;
+}
+
+/* ----- WORDS TABLE ----- */
+#vocab-lesson-tables {
+  width: 98%;
+  margin-top: 15px;
+}
+
+.table-toggle-btn {
+  width: 100%;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.table-toggle-btn:hover {
+  background-color: lightgrey;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.table-toggle-btn p {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 800;
+}
+
+.table-toggle-btn p span {
+  margin-right: 10px;
+}
+
+.hidden-vocab-table {
+  border: 1px solid lightgrey;
+  width: 100%;
+  background-color: white;
+  padding: 10px 0px;
+  border-radius: 0px 0px 5px 5px;
+  display: none;
+}
+
+.hidden-vocab-table h3 {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+#hidden-vocab-table-row {
+  border: 1px solid transparent;
+}
+
+#hidden-vocab-table-row:nth-child(even) {
+  background-color: #E5E8E8;
+}
+
+#vocab-container-table-column {
+  border-right: 1px solid lightgrey;
+  display: inline-block;
+  width: 17%;
+}
+
+#vocab-container-table-column:nth-child(1) {
+  width: 6% !important;
+}
+
+#vocab-container-table-column:nth-child(6) {
+  border: 1px;
+}
+
+#vocab-container-table-column p {;
+  margin: 0px;
+  padding: 8px;
+  font-size: 13px;
+}
+
+#vocab-container-table-column p b {
+  font-weight: 800;
+}
+
+#vocab-container-table-column p b a {
+  background-color: #2E4053;
+  color: white;
+  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+#vocab-container-table-column p b a:hover {
+  background-color: black;
+  transition: 0.2s;
+}
+
+/* -------------------- vocab right container ------------------------- */
+
+#vocab-right-container {
+  border: 1px solid transparent;
+  width: 35%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+/* ----- banner ----- */
+
+#current-teaacher-course-banner {
+
+}
+
+#current-teaacher-course-banner p {
+  background-color: #2E4053;
+  color:white;
+  text-align: center;
+  padding: 10px 0px;
+  border-radius: 5px;
+  margin: 0px;
+}
+
+/* ----- FAQ ----- */
+
+#teacher-vocab-faq {
+  height: auto;
+  margin-top: 15px;
+}
+
+#teacher-vocab-faq h2 {
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px 5px 0px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-bottom: 0px;
+  font-size: 22px;
+  padding: 10px 0px;
+  padding-left: 10px;
+}
+
+#question-toggle-button {
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 0px 0px 5px 5px;
+  padding: 10px 0px;
+}
+
+#question-toggle-button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: lightgrey;
+}
+
+#question-toggle-button p {
+  margin: 0px;
+  padding: 5px 0px;
+  font-weight: 700;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+#faq-caret-span {
+  float: right;
+  margin-right: 10px !important;
+}
+
+#quesion-1-answer-panel {
+  border:1px solid lightgrey;
+  background-color: white;
+  display: none;
+}
+
+#quesion-1-answer-panel p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* ----- special panel ----- */
+#speical-teacher-panel {
+  margin-top: 15px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+#speical-teacher-panel h3 {
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#speical-teacher-panel form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#speical-teacher-panel input {
+  text-align:center;
+  background-color: #186A3B;
+  color: white;
+  border: 1px solid #186A3B;
+  border-radius: 5px;
+  padding: 5px 0px;
+  width: 90%;
+}
+
+#speical-teacher-panel input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #27AE60;
+  border-color: #27AE60;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* -------------------- vocab center container ------------------------- */
+
+  #vocab-center-container {
+    width: 98%;
+    display: block;
+    padding-bottom: 20px;
+  }
+
+  /* ----- CRUD PANEL ----- */
+  #vocab-center-crud-panel {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form p {
+    margin-right: 0px;
+    width: 12%;
+  }
+
+  #vocab-center-crud-panel form input {
+    font-size: 14px;
+    padding: 5px 0px;
+    width: 35%;
+  }
+
+  #vocab-curd-add-btn {
+    padding: 5px 5px !important;
+    width: 10% !important;
+  }
+
+  /* ----- WORDS TABLE ----- */
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 8px;
+    font-size: 9px;
+  }
+
+  /* -------------------- vocab right container ------------------------- */
+
+  #vocab-right-container {
+    width: 98%;
+    display: block;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #vocab-center-container {
+    width: 98%;
+    display: block;
+    padding-bottom: 20px;
+  }
+
+  /* ----- CRUD PANEL ----- */
+  #vocab-center-crud-panel {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form p {
+    margin-right: 0px;
+    width: 12%;
+  }
+
+  #vocab-center-crud-panel form input {
+    font-size: 14px;
+    padding: 5px 0px;
+    width: 35%;
+  }
+
+  #vocab-curd-add-btn {
+    padding: 5px 5px !important;
+    width: 10% !important;
+  }
+
+  /* ----- WORDS TABLE ----- */
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 8px;
+    font-size: 9px;
+  }
+
+  /* -------------------- vocab right container ------------------------- */
+
+  #vocab-right-container {
+    width: 98%;
+    display: block;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #vocab-center-container {
+    width: 98%;
+    display: block;
+    padding-bottom: 20px;
+  }
+
+  /* ----- CRUD PANEL ----- */
+  #vocab-center-crud-panel {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form {
+    width: 100%;
+  }
+
+  #vocab-center-crud-panel form p {
+    margin-right: 0px;
+    width: 12%;
+  }
+
+  #vocab-center-crud-panel form input {
+    font-size: 14px;
+    padding: 5px 0px;
+    width: 35%;
+  }
+
+  #vocab-curd-add-btn {
+    padding: 5px 5px !important;
+    width: 10% !important;
+  }
+
+  /* ----- WORDS TABLE ----- */
+  #vocab-container-table-column {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 17%;
+  }
+
+  #vocab-container-table-column p {;
+    margin: 0px;
+    padding: 8px;
+    font-size: 9px;
+  }
+
+  /* -------------------- vocab right container ------------------------- */
+
+  #vocab-right-container {
+    width: 98%;
+    display: block;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
