@@ -14,4 +14,10 @@ urlpatterns = [
         views.teacher_vocab_container_edit,
         name="teacher_vocab_container_edit"
     ),
+    # teacher vocab container ADD SOUND
+    path(
+        "teacher/vocab/container/sound/<int:word_id>/",
+        views.teacher_vocab_container_add_sound,
+        name="teacher_vocab_container_add_sound"
+    ),
 ]

@@ -864,3 +864,14 @@ def teacher_vocab_container_edit(request, word_id, word):
         return render(request, "teacher_vocab_container/edit_word.html", data)
     else:
         return HttpResponseRedirect("/")
+
+
+def teacher_vocab_container_add_sound(request, word_id):
+    """
+    in this view the teacher can add a word to the list
+    """
+
+    data = {
+
+    }
+    return render(request, "teacher_vocab_container/add_sound.html", data)
