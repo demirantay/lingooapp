@@ -7,6 +7,25 @@
 
 {% block content %}
 
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner">
+  <p>
+    When we make the <b>Domingo</b> available to you online, we use cookies
+    and similar technologies to help us to do this. Some are necessary to
+    help our website work properly and can't be switched off, and some are
+    optional but support the Domingo and your experience in other ways.
+  </p>
+  <button id="cookie-consent-close-btn">Allow Cookies</button>
+</div>
+<script>
+  let cookie_consent_close_btn = document.getElementById("cookie-consent-close-btn");
+  let cookie_consent_banner = document.getElementById("cookie-consent-banner");
+
+  cookie_consent_close_btn.onclick = function() {
+    cookie_consent_banner.style.display = "none";
+  }
+</script>
+
 <!-- Top nav -->
 <div id="landing-top-nav">
   <img alt="logo" src="{% static 'branding/logo.png' %}" />
