@@ -22,6 +22,9 @@ class TeacherVocabularyContainer(models.Model):
     teacher = models.ForeignKey(TeacherUserProfile, on_delete=models.CASCADE, blank=True, null=True)
     word = models.CharField(max_length=500, blank=True, null=True)
     word_translation = models.CharField(max_length=500, blank=True, null=True)
+    audio = models.FileField(
+        upload_to="teacher_vocab_container_audio/", blank=True, null=True
+    )
     LEVEL_CHOICES = (
         ("a0", "a0"),
         ("a1", "a1"),
