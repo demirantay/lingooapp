@@ -8,59 +8,151 @@
 
 {% block content %}
 
+<!-- production push feature notifications -->
+
+<div id="production-push-success-alert">
+  <button id="prod_push_success_alert_close_btn"><span class="fa fa-close"></span></button>
+  <h1>Success!</h1>
+  <p>Production Words Pushed Successfuly.</p>
+</div>
+
+<script>
+  let prod_push_success_alert = document.getElementById("production-push-success-alert");
+  let prod_push_success_alert_close_btn = document.getElementById("prod_push_success_alert_close_btn");
+
+  prod_push_success_alert_close_btn.onclick = function() {
+    prod_push_success_alert.style.display = "none";
+  }
+</script>
+
+<div id="production-push-error-alert">
+  <button id="prod_push_error_alert_close_btn"><span class="fa fa-close"></span></button>
+  <h1>Uh No! Error!</h1>
+  <p>Production Words Couldn't Be Pushed. Probably it has something to do with lenght.</p>
+</div>
+
+<script>
+  let prod_push_error_alert = document.getElementById("production-push-error-alert");
+  let prod_push_error_alert_close_btn = document.getElementById("prod_push_error_alert_close_btn");
+
+  prod_push_error_alert_close_btn.onclick = function() {
+    prod_push_error_alert.style.display = "none";
+  }
+</script>
+
+{% if production_push_error == True %}
+  <script>
+    prod_push_error_alert.style.display = "block";
+  </script>
+{% elif production_push_success == True  %}
+  <script>
+    prod_push_success_alert.style.display = "block";
+  </script>
+{% endif %}
+
 <!-- center part -->
 <div id="vocab-center-container">
   <h1>Vocabulary Builder</h1>
 
   <!-- CRUD panel -->
   <div id="vocab-center-crud-panel">
-    <form>
+    <!-- A0 alerts -->
+    {% if a0_limit_reached == True %}
+      <p style="color:red;">A0 Max limit reached</p>
+    {% elif empty_a0_input == True %}
+      <p style="color:red;">Empty input</p>
+    {% endif %}
+    <!-- A1 alerts -->
+    {% if a1_limit_reached == True %}
+      <p style="color:red;">A1 Max limit reached</p>
+    {% elif empty_a1_input == True %}
+      <p style="color:red;">Empty input</p>
+    {% endif %}
+    <!-- A2 alerts -->
+    {% if a2_limit_reached == True %}
+      <p style="color:red;">A2 Max limit reached</p>
+    {% elif empty_a2_input == True %}
+      <p style="color:red;">empty input</p>
+    {% endif %}
+    <!-- B1 alerts -->
+    {% if b1_limit_reached == True %}
+      <p style="color:red;">B2 Max limit reached</p>
+    {% elif empty_b1_input == True %}
+      <p style="color:red;">empty input</p>
+    {% endif %}
+    <!-- B2 alerts -->
+    {% if b2_limit_reached == True %}
+      <p style="color:red;">B2 Max limit reached</p>
+    {% elif empty_b2_input == True %}
+      <p style="color:red;">empty input</p>
+    {% endif %}
+    <!-- C1 alerts -->
+    {% if c1_limit_reached == True %}
+      <p style="color:red;">C1 Max limit reached</p>
+    {% elif empty_c1_input == True %}
+      <p style="color:red;">empty input</p>
+    {% endif %}
+    <!-- Advanced alerts -->
+    {% if advanced_limit_reached == True %}
+      <p style="color:red;">Advanced Max limit reached</p>
+    {% elif empty_advanced_input == True %}
+      <p style="color:red;">empty input</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> A0</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_a0_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> A1</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_a1_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> A2</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_a2_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}" >
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> B1</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_b1_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> B2</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_b2_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> C1</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_c1_submit" />
     </form>
 
-    <form>
+    <form method="POST" action="{% url 'teacher_vocab_container_overview' %}">
+      {% csrf_token %}
       <p><span class="fa fa-plus"></span> ADV</p>
-      <input type="text" placeholder="French Word" />
-      <input type="text" placeholder="English Translation" />
-      <input type="submit" value="Add" id="vocab-curd-add-btn" />
+      <input type="text" name="word" placeholder="{{ current_teacher_profile.teacher_course.course_language|title }} Word" />
+      <input type="text" name="translation" placeholder="{{ current_teacher_profile.teacher_course.course_speakers_language|title }} Translation" />
+      <input type="submit" value="Add" id="vocab-curd-add-btn" name="teacher_word_add_advanced_submit" />
     </form>
 
   </div>
@@ -95,26 +187,34 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+
+      {% for word in a0_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a0_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
+
     </div>
 
     <!-- A1 -->
@@ -144,26 +244,33 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+
+      {% for word in a1_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <!-- A2 -->
@@ -193,26 +300,33 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+
+      {% for word in a2_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ a2_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <!-- B1 -->
@@ -242,26 +356,32 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+      {% for word in b1_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ b1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <!-- B2 -->
@@ -291,26 +411,32 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+      {% for word in b2_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ b2_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <!-- C1 -->
@@ -340,26 +466,32 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+      {% for word in c1_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ c1_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <!-- Advanced -->
@@ -389,26 +521,32 @@
           <p><b>Sound</b></p>
         </div>
       </div><!-- /row -->
-      <div id="hidden-vocab-table-row">
-        <div id="vocab-container-table-column">
-          <p><b>id</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>word</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>added by</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b>translation</b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Edit</a></b></p>
-        </div>
-        <div id="vocab-container-table-column">
-          <p><b><a href="">Sound</a></b></p>
-        </div>
-      </div><!-- /row -->
+      {% for word in advanced_word_list %}
+        <div id="hidden-vocab-table-row">
+          <div id="vocab-container-table-column">
+            <p>{{ advanced_word_count|get_key_value:word.id }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>{{ word.word }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p>@{{ word.teacher.user.username }}</p>
+          </div>
+          <div id="vocab-container-table-column">
+            {% if word.word_translation == None %}
+              <p> </p>
+            {% else %}
+              <p>{{ word.word_translation }}</p>
+            {% endif %}
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_edit' word.id word.word  %}">Edit</a></b></p>
+          </div>
+          <div id="vocab-container-table-column">
+            <p><b><a href="{% url 'teacher_vocab_container_add_sound' word.id %}">Sound</a></b></p>
+          </div>
+        </div><!-- /row -->
+      {% endfor %}
     </div>
 
     <script>
@@ -509,7 +647,7 @@
 <div id="vocab-right-container">
   <!-- teacher course banner -->
   <div id="current-teaacher-course-banner">
-      <p><b><i>French</i></b> for <b><i>English</i></b> Speakers</p>
+      <p><b><i>{{ current_teacher_profile.teacher_course.course_language|title }}</i></b> for <b><i>{{ current_teacher_profile.teacher_course.course_speakers_language|title }}</i></b> Speakers</p>
   </div>
 
   <!-- FAQ -->
@@ -566,33 +704,43 @@
   <!-- Special panel -->
   <div id="speical-teacher-panel">
     <h3>Sepcial Panel</h3>
-    <form>
-      <input type="submit" value="Push A0 to Production" />
-    </form>
 
-    <form>
-      <input type="submit" value="Push A1 to Production" />
-    </form>
+    {% if current_teacher_profile.is_permitted_to_push_prod == True %}
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push A0 to Production" name="teacher_vocab_container_push_production_a0_submit" />
+      </form>
 
-    <form>
-      <input type="submit" value="Push A2 to Production" />
-    </form>
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push A1 to Production" name="teacher_vocab_container_push_production_a1_submit" />
+      </form>
 
-    <form>
-      <input type="submit" value="Push B1 to Production" />
-    </form>
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push A2 to Production" name="teacher_vocab_container_push_production_a2_submit" />
+      </form>
 
-    <form>
-      <input type="submit" value="Push B2 to Production" />
-    </form>
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push B1 to Production" name="teacher_vocab_container_push_production_b1_submit" />
+      </form>
 
-    <form>
-      <input type="submit" value="Push C1 to Production" />
-    </form>
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push B2 to Production" name="teacher_vocab_container_push_production_b2_submit" />
+      </form>
 
-    <form>
-      <input type="submit" value="Push Advanced to Production" />
-    </form>
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push C1 to Production" name="teacher_vocab_container_push_production_c1_submit" />
+      </form>
+
+      <form action="{% url 'teacher_vocab_container_overview' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Push Advanced to Production" name="teacher_vocab_container_push_production_advanced_submit" />
+      </form>
+    {% endif %}
   </div>
 
 </div><!-- /right container -->
