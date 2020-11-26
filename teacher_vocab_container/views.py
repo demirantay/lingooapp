@@ -870,8 +870,57 @@ def teacher_vocab_container_add_sound(request, word_id):
     """
     in this view the teacher can add a word to the list
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current word record
+    try:
+        current_word = TeacherVocabularyContainer.objects.get(id=word_id)
+    except ObjectDoesNotExist:
+        current_word = None
+
+    # Upload Audio form processing
+    empty_input = False
+
+    if request.POST.get("teacher_vocab_sound_submit_btn"):
+        word_sound = request.FILES.get("word_sound")
+
+        if bool(word_sound) == False:
+            empty_input = True
+        else:
+            current_word.audio = word_sound
+            current_word.save()
+            return HttpResponseRedirect(
+                "/vocab/container/sound/" + current_word.id + "/"
+            )
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "current_word": current_word,
+        "empty_input": empty_input,
     }
-    return render(request, "teacher_vocab_container/add_sound.html", data)
+
+    if "teacher_user_logged_in" in request.session:
+        return render(request, "teacher_vocab_container/add_sound.html", data)
+    else:
+        return HttpResponseRedirect("/")

@@ -13,13 +13,18 @@
   <p>Add the pronunciation of the word.</p>
 
   <ul>
-      <li><p><b>Word:</b> Hello</p></li>
-      <li><p><b>Current Sound:</b> None</p></li>
+      <li><p><b>Word:</b> {{ current_word.word }}</p></li>
+      <li><p><b>Current Sound:</b> {{ current_word.audio }}</p></li>
   </ul>
 
-  <form enctype="multipart/form-data" method="post" action="">
-      <input type="file"  />
-      <input type="submit" name="" value="Submit" id="sound-submit-btn">
+  {% if empty_input %}
+    <p style="color:red; margin-top:10px; margin-bottom: -50px;">Empty Input!</p>
+  {% endif %}
+
+  <form enctype="multipart/form-data" method="post" action="{% url 'teacher_vocab_container_add_sound' current_word.id %}">
+      {% csrf_token %}
+      <input type="file" name="word_sound"  />
+      <input type="submit" name="teacher_vocab_sound_submit_btn" value="Submit" id="sound-submit-btn">
   </form>
 
 </div>
