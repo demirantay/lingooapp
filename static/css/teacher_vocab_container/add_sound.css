@@ -1,0 +1,91 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#add-sound-container {
+  background-color: white;
+  border: 1px solid lightgrey;
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#add-sound-container h1 {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+#add-sound-container p {
+  margin-top: 10px;
+}
+
+#add-sound-container form {
+  margin-top: 50px;
+}
+
+#add-sound-container form input {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#sound-submit-btn {
+  background-color: #27AE60;
+  color: white;
+  border: 1px solid #27AE60;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#sound-submit-btn:hover {
+  background-color: #186A3B;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #add-sound-container {
+    width: 80%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #add-sound-container {
+    width: 80%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #add-sound-container {
+    width: 80%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

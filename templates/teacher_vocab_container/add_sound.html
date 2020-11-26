@@ -3,18 +3,25 @@
 {% load filters %}
 
 {% block css_links %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_vocab_container/add_sound.css' %}" />
 {% endblock %}
 
 {% block content %}
 
-<h1>Add Sound</h1>
-<p>Add the pronunciation of the word.</p>
+<div id="add-sound-container">
+  <h1>Add Sound</h1>
+  <p>Add the pronunciation of the word.</p>
 
-<p><b>Word:</b> Hello</p>
+  <ul>
+      <li><p><b>Word:</b> Hello</p></li>
+      <li><p><b>Current Sound:</b> None</p></li>
+  </ul>
 
-<form>
-    <input type="file" />
-</form>
+  <form enctype="multipart/form-data" method="post" action="">
+      <input type="file"  />
+      <input type="submit" name="" value="Submit" id="sound-submit-btn">
+  </form>
+
+</div>
 
 {% endblock %}
