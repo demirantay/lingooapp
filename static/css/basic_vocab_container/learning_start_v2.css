@@ -1,0 +1,234 @@
+body {
+  background-color: #F4F6F6;
+}
+
+
+/* ------------- middle notes part ----------------- */
+#learning-start-notes {
+  border: 1px solid transparent;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+
+#home-page-button {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  color: grey;
+}
+
+#home-page-button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  color: red;
+
+}
+
+#learning-start-notes h1 {
+
+}
+
+#lesson-description {
+  margin-bottom: 20px;
+}
+
+#lesson-description p {
+
+}
+
+#row {
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#row-col {
+  width: 40%;
+  display: inline-block;
+}
+
+#flag {
+  width: 40px;
+  height: 25px;
+  border-radius: 4px;
+  background-color: grey;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#row-col p {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+/* ------------------ bottom part ------------------- */
+#bottom-start-lesson-link {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 0px solid lightgrey;
+  height: 80px;
+  padding-top: 30px;
+  background-color: white;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+}
+
+#bottom-start-lesson-link a {
+  float: right;
+  margin-right: 13%;
+  font-size: 21px;
+  padding: 7px 15px;
+  background: #27AE60;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+#bottom-start-lesson-link a:hover {
+  background-color: #186A3B;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  /* ------------- middle notes part ----------------- */
+  #learning-start-notes {
+    width: 90%;
+    margin-bottom: 150px;
+  }
+
+  #row-col {
+    width: 45%;
+    display: inline-block;
+  }
+
+  #lesson-description p {
+    font-size: 14px;
+  }
+
+  #flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 1px;
+  }
+
+  /* ------------------ bottom part ------------------- */
+
+  #bottom-start-lesson-link a {
+    margin-right: 5%;
+    font-size: 20px;
+
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  /* ------------- middle notes part ----------------- */
+  #learning-start-notes {
+    width: 90%;
+    margin-bottom: 150px;
+  }
+
+  #row-col {
+    width: 45%;
+    display: inline-block;
+  }
+
+  #lesson-description p {
+    font-size: 14px;
+  }
+
+  #flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 1px;
+  }
+
+  /* ------------------ bottom part ------------------- */
+
+  #bottom-start-lesson-link a {
+    margin-right: 5%;
+    font-size: 20px;
+
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ------------- middle notes part ----------------- */
+  #learning-start-notes {
+    width: 90%;
+    margin-bottom: 150px;
+  }
+
+  #row-col {
+    width: 45%;
+    display: inline-block;
+  }
+
+  #lesson-description p {
+    font-size: 14px;
+  }
+
+  #flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 1px;
+  }
+
+  /* ------------------ bottom part ------------------- */
+
+  #bottom-start-lesson-link a {
+    margin-right: 5%;
+    font-size: 20px;
+
+  }
+
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

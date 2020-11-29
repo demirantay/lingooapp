@@ -1,5 +1,6 @@
 body {
-
+  background-color: #FFF8F8;
+  background-color: #F4F6F6;
 }
 
 #vocab-learn-container {
@@ -33,6 +34,7 @@ body {
   top: 45%;
   transform: translateY(-50%);
   display: none;
+  transition: 0.4s !important;
 }
 
 #error-panel-close-button {
@@ -103,39 +105,43 @@ body {
   width: 90%;
   margin: 0 auto;
   margin-top: 20px;
+  text-align: center;
 }
 
 #top-part a {
-  font-size: 32px;
-  background-color: white;
-  border: 1px solid white;
+  font-size: 25px;
+  background-color: transparent;
+  border: 1px solid transparent;
   display: inline-block;
   vertical-align: middle;
   text-decoration: none;
   color: black;
-  margin-right: 10px;
+  margin-right: 20px;
+  color: grey;
 }
 
 #top-part a:hover {
   cursor: pointer;
   color: red;
+  transition: 0.2s;
 }
 
 #progress-bar {
   display: inline-block;
-  border: 1px solid transparent;
-  width: 90%;
-  height: 20px;
+  border: 0px solid transparent;
+  width: 80%;
+  height: 8px;
   border-radius: 15px;
   vertical-align: middle;
-  background-color: #E5E8E8;
+  background-color: #AAB7B8;
 }
 
 #progress-status {
   width: 0%;
-  background-color: #3498DB;
-  height: 20px;
+  background-color: #E3102E;
+  height: 7px;
   border-radius: 15px;
+  transition: 0.2s;
 }
 
 /* ----------------- middle part -------------------- */
@@ -147,18 +153,22 @@ body {
 }
 
 #middle-part h3 {
-  border: 1px solid lightgrey;
-  width: 40%;
+  border: 1px solid transparent;
+  width: 47%;
   text-align: center;
   margin: 0 auto;
   padding: 25px 0px;
   border-radius: 10px;
   font-size: 40px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
 }
 
 #middle-part-answer-selections {
   border: 1px solid transparent;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
   margin-top: 20px;
@@ -167,10 +177,16 @@ body {
 
 .answer-cell {
   display: inline-block;
-  border: 1px solid lightgrey;
-  width: 48%;
+  border: 1px solid transparent;
+  width: 45%;
   margin-top: 10px;
   border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .answer-cell:focus {
@@ -216,33 +232,36 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid lightgrey;
-  height: 100px;
+  border-top: 0px solid lightgrey;
+  height: 80px;
   padding-top: 30px;
   background-color: white;
   z-index: 1;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
 }
 
 #report-button {
   float: left;
-  margin-left: 10%;
+  margin-left: 13%;
   font-size: 23px;
   padding: 7px 15px;
-  background-color: #E3102E;
+  background-color: #A6ACAF;
   color: white;
   border: 1px solid transparent;
   border-radius: 10px;
 }
 
 #report-button:hover {
-  background-color: #A50E23;
+  background-color: grey;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .check-button {
   float: right;
-  margin-right: 10%;
+  margin-right: 13%;
   font-size: 23px;
   padding: 7px 15px;
   background: #27AE60;
@@ -295,12 +314,12 @@ body {
     width: 95%;
   }
 
-  #top-part button {
-    font-size: 32px;
+  #top-part a {
+    margin-right: 5px;
   }
 
   #progress-bar {
-    width: 80%;
+    width: 85%;
   }
 
   /* ----------------- middle part -------------------- */
@@ -312,7 +331,7 @@ body {
 
   #middle-part h3 {
     border: 1px solid lightgrey;
-    width: 100%;
+    width: 95%;
     font-size: 40px;
   }
 
@@ -345,6 +364,11 @@ body {
   }
 
   #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  #next-button {
     margin-right: 5%;
     font-size: 20px;
   }

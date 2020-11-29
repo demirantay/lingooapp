@@ -324,7 +324,7 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
     else:
-        return render(request, "basic_vocab_container/learning_start.html", data)
+        return render(request, "basic_vocab_container/learning_start_v2.html", data)
 
 
 def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
