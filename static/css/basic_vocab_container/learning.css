@@ -287,6 +287,135 @@ body {
   display: none;
 }
 
+/* ------------------------ ending pages ---------------------------------- */
+#ending-page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #F4F6F6;
+  height: 82vh;
+  display: none;
+  transition: 0.2s;
+}
+
+#ending-page-results {
+  border: 1px solid transparent;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 40px;
+  text-align: center;
+  height: auto;
+}
+
+#ending-page-results h3 {
+  font-weight: 800;
+  font-size: 25px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+#ending-page-results p {
+  margin-top: 10px;
+}
+
+#ending-page-results p a {
+  text-decoration: none;
+  color: #E3102E;
+}
+
+#results-xp-box {
+  border: 1px solid transparent;
+  background-color: white;
+  text-align: left;
+  width: 40%;
+  border-radius: 7px;
+  padding: 15px 0px;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  margin-top: 50px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1%;
+}
+
+#results-xp-box h3 {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+#results-xp-box p {
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#results-xp-box p b {
+  color: green;
+}
+
+#dot-span {
+  font-size: 7px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#results-newly-learned-words-box {
+  border: 1px solid transparent;
+  background-color: white;
+  text-align: left;
+  width: 50%;
+  border-radius: 7px;
+  padding: 15px 0px;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  margin-top: 50px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1%;
+  position: relative;
+}
+
+#results-newly-learned-words-box h3 {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+#results-newly-learned-words-box p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#results-newly-learned-words-box p b {
+  color: #3498DB;
+}
+
+#results-newly-learned-words-box a {
+  margin-top: 7px;
+  margin-right: 7px;
+  background-color: #3498DB;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#results-newly-learned-words-box a:hover {
+  transition: 0.2s;
+  background-color: darkblue;
+}
+
 
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
@@ -373,6 +502,59 @@ body {
     font-size: 20px;
   }
 
+  /* ------------------------ ending pages ---------------------------------- */
+  #ending-page-container {
+    height: 82vh;
+    display: block;
+  }
+
+  #ending-page-results {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #ending-page-results h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  #results-xp-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+
+  #results-xp-box h3 {
+    font-size: 20px;
+  }
+
+  #results-xp-box p {
+    font-size: 14px;
+  }
+
+  #results-newly-learned-words-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-bottom: 200px;
+  }
+
+  #results-newly-learned-words-box h3 {
+    font-size: 20px;
+  }
+
+  #results-newly-learned-words-box p {
+    font-size: 14px;
+  }
+
 }
 
 
@@ -451,6 +633,59 @@ body {
   #check-button {
     margin-right: 5%;
     font-size: 20px;
+  }
+
+  /* ------------------------ ending pages ---------------------------------- */
+  #ending-page-container {
+    height: 82vh;
+    display: block;
+  }
+
+  #ending-page-results {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #ending-page-results h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  #results-xp-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+
+  #results-xp-box h3 {
+    font-size: 20px;
+  }
+
+  #results-xp-box p {
+    font-size: 14px;
+  }
+
+  #results-newly-learned-words-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-bottom: 200px;
+  }
+
+  #results-newly-learned-words-box h3 {
+    font-size: 20px;
+  }
+
+  #results-newly-learned-words-box p {
+    font-size: 14px;
   }
 
 }
@@ -533,6 +768,59 @@ body {
     font-size: 20px;
   }
 
+  /* ------------------------ ending pages ---------------------------------- */
+  #ending-page-container {
+    height: 82vh;
+    display: block;
+  }
+
+  #ending-page-results {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #ending-page-results h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  #results-xp-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+
+  #results-xp-box h3 {
+    font-size: 20px;
+  }
+
+  #results-xp-box p {
+    font-size: 14px;
+  }
+
+  #results-newly-learned-words-box {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 20px;
+    display: block;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-bottom: 200px;
+  }
+
+  #results-newly-learned-words-box h3 {
+    font-size: 20px;
+  }
+
+  #results-newly-learned-words-box p {
+    font-size: 14px;
+  }
+
 }
 
 
@@ -611,6 +899,10 @@ body {
     font-size: 20px;
   }
 
+  #ending-page-results {
+    width: 90%;
+    margin-top: 40px;
+  }
 
 }
 
