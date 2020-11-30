@@ -4,6 +4,8 @@
 // ^^ the code above will be added into another script tag inside the html
 // because it contains djangos own templating syntax which js cant compile
 
+let body_element = document.getElementsByTagName("BODY")[0];
+
 let questions = [];
 let answered_questions = [];
 let errors = [];
@@ -18,6 +20,7 @@ var panel = document.getElementById("hidden-error-panel");
 var panel_background_greying = document.getElementById("background-greying");
 let hidden_errors_input = document.getElementById("hidden_errors_input");
 
+let current_page_state = "check";
 
 // Error Data Scturcutre
 function Error(question, content) {
@@ -138,24 +141,112 @@ var answer_3 = document.getElementById("answer-3");
 var answer_4 = document.getElementById("answer-4");
 var selected_answer = null;
 
+// selected answer color changes
+function selected_answer_1_colors() {
+  answer_1.style.backgroundColor = "black";
+  answer_1.style.color = "white";
+  answer_2.style.backgroundColor = "white";
+  answer_2.style.color = "black";
+  answer_3.style.backgroundColor = "white";
+  answer_3.style.color = "black";
+  answer_4.style.backgroundColor = "white";
+  answer_4.style.color = "black";
+}
+
+function selected_answer_2_colors() {
+  answer_1.style.backgroundColor = "white";
+  answer_1.style.color = "black";
+  answer_2.style.backgroundColor = "black";
+  answer_2.style.color = "white";
+  answer_3.style.backgroundColor = "white";
+  answer_3.style.color = "black";
+  answer_4.style.backgroundColor = "white";
+  answer_4.style.color = "black";
+}
+
+function selected_answer_3_colors() {
+  answer_1.style.backgroundColor = "white";
+  answer_1.style.color = "black";
+  answer_2.style.backgroundColor = "white";
+  answer_2.style.color = "black";
+  answer_3.style.backgroundColor = "black";
+  answer_3.style.color = "white";
+  answer_4.style.backgroundColor = "white";
+  answer_4.style.color = "black";
+}
+
+function selected_answer_4_colors() {
+  answer_1.style.backgroundColor = "white";
+  answer_1.style.color = "black";
+  answer_2.style.backgroundColor = "white";
+  answer_2.style.color = "black";
+  answer_3.style.backgroundColor = "white";
+  answer_3.style.color = "black";
+  answer_4.style.backgroundColor = "black";
+  answer_4.style.color = "white";
+}
+
 answer_1.onclick = function() {
   selected_answer = answer_options[0];
+  selected_answer_1_colors();
 };
 
 answer_2.onclick = function() {
   selected_answer = answer_options[1];
+  selected_answer_2_colors();
 };
 
 answer_3.onclick = function() {
   selected_answer = answer_options[2];
+  selected_answer_3_colors();
 };
 
 answer_4.onclick = function() {
   selected_answer = answer_options[3];
+  selected_answer_4_colors();
+};
+
+// change selected answer if there is a keyboard access
+body_element.onkeydown = function(event) {
+  let key = event.key;
+
+  // answer slection logic for key presses
+  if (key == "1") {
+    selected_answer = answer_options[0];
+    selected_answer_1_colors();
+  }
+  else if (key == "2") {
+    selected_answer = answer_options[1];
+    selected_answer_2_colors();
+  }
+  else if (key == "3") {
+    selected_answer = answer_options[2];
+    selected_answer_3_colors();
+  }
+  else if (key == "4") {
+    selected_answer = answer_options[3];
+    selected_answer_4_colors();
+  }
+
+  // check and next buttons logic for key presses
+  if (key == "Enter") {
+    if (current_page_state == "check") {
+      checking_logic();
+      current_page_state = "next";
+    }
+    else if (current_page_state == "next") {
+      next_logic();
+      current_page_state = "check";
+    }
+  }
 };
 
 // if check button is clicked show if the answer is true or not
 check_button.onclick = function() {
+  checking_logic();
+}
+
+function checking_logic() {
   // if the lenght is 10 and lesson is finished submit it to backend
   let size = Object.keys(lesson_pack_words).length;
   if (answered_questions.length === size) {
@@ -166,18 +257,22 @@ check_button.onclick = function() {
 
   answer_1.onclick = function() {
     selected_answer = answer_options[0];
+    selected_answer_1_colors();
   };
 
   answer_2.onclick = function() {
     selected_answer = answer_options[1];
+    selected_answer_2_colors();
   };
 
   answer_3.onclick = function() {
     selected_answer = answer_options[2];
+    selected_answer_3_colors();
   };
 
   answer_4.onclick = function() {
     selected_answer = answer_options[3];
+    selected_answer_4_colors();
   };
 
   // ANSWERED CORRECTLY
@@ -264,6 +359,10 @@ function get_next_question() {
 }
 
 next_button.onclick = function() {
+  next_logic();
+}
+
+function next_logic() {
   // if the lenght is 10 and lesson is finished submit it to backend
   let size = Object.keys(lesson_pack_words).length;
   if (answered_questions.length === size) {
@@ -562,18 +661,22 @@ next_button.onclick = function() {
 
   answer_1.onclick = function() {
     selected_answer = answer_options[0];
+    selected_answer_1_colors();
   };
 
   answer_2.onclick = function() {
     selected_answer = answer_options[1];
+    selected_answer_2_colors();
   };
 
   answer_3.onclick = function() {
     selected_answer = answer_options[2];
+    selected_answer_3_colors();
   };
 
   answer_4.onclick = function() {
     selected_answer = answer_options[3];
+    selected_answer_4_colors();
   };
 
   // turn the check button to next button

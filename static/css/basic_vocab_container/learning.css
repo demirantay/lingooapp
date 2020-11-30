@@ -189,22 +189,30 @@ body {
   margin-right: 1%;
 }
 
+/*
 .answer-cell:focus {
   border-color: black !important;
   background-color: black;
   color: white;
   outline: 0px;
 }
+*/
 
+/*
 .answer-cell:focus #answer-select-color {
   background-color: white;
   color: black;
 }
+*/
 
 .answer-cell:hover {
   transition: 0.2s;
   border-color: black;
   cursor: pointer;
+  border-color: black !important;
+  background-color: black;
+  color: white;
+  outline: 0px;
 }
 
 .answer-cell p {
