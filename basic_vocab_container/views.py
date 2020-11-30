@@ -448,6 +448,9 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
     for word in unlearned_words[:10]:
         lesson_pack_words[word.vocab_container_word.word] = word.vocab_container_word.word_translation
 
+    # Get the all of the learned words length
+    all_learned_words_length = len(current_student_progress) - len(unlearned_words)
+
     # If the current lesson pack do not serve the lesson
     if len(unlearned_words) < 10:
         return HttpResponseRedirect("/")
@@ -616,7 +619,9 @@ def basic_vocab_learn(request, cefr_level, course_language, speakers_langauge):
         "cefr_level": cefr_level,
         "course_language": course_language,
         "speakers_langauge": speakers_langauge,
-
+        "current_student": current_student,
+        "current_course": current_course,
+        "all_learned_words_length": all_learned_words_length,
     }
 
     if current_basic_user == None:
@@ -791,6 +796,9 @@ def basic_vocab_review(request, course_language, speakers_langauge):
         "course_language": course_language,
         "speakers_langauge": speakers_langauge,
         "current_lesson_length": current_lesson_length,
+        "current_student": current_student,
+        "current_course": current_course,
+        "all_learned_words_length": len(current_student_progress),
     }
 
     if current_basic_user == None:

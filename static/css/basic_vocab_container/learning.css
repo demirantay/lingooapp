@@ -524,7 +524,6 @@ body {
   /* ------------------------ ending pages ---------------------------------- */
   #ending-page-container {
     height: 82vh;
-    display: block;
   }
 
   #ending-page-results {
@@ -657,7 +656,6 @@ body {
   /* ------------------------ ending pages ---------------------------------- */
   #ending-page-container {
     height: 82vh;
-    display: block;
   }
 
   #ending-page-results {
@@ -790,7 +788,6 @@ body {
   /* ------------------------ ending pages ---------------------------------- */
   #ending-page-container {
     height: 82vh;
-    display: block;
   }
 
   #ending-page-results {

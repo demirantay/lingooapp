@@ -6,6 +6,7 @@
 let body_element = document.getElementsByTagName("BODY")[0];
 let bottom_part = document.getElementById("bottom-part");
 let right_wrong_displayer = document.getElementById("right-wrong-displayer");
+let ending_page_container = document.getElementById("ending-page-container");
 
 let questions = [];
 let answered_questions = [];
@@ -37,9 +38,10 @@ function Error(question, content) {
 }
 
 // Question Data Structure
-function Question(word, word_translation) {
+function Question(word, word_translation, word_sound) {
   this.word = word;
   this.word_translation = word_translation;
+  this.word_sound = word_sound;
   this.answer_options = [];
 
   // CREATING THE ANSWER OPTIONS
@@ -91,6 +93,9 @@ function Question(word, word_translation) {
   };
   this.get_options = function() {
     return this.answer_options;
+  };
+  this.get_sound = function() {
+    return this.word_sound;
   };
   this.get_question_slide = function() {
     answers = this.get_options();
@@ -229,6 +234,19 @@ body_element.onkeydown = function(event) {
 
   // check and next buttons logic for key presses
   if (key == "Enter") {
+    if (answered_questions.length === 10) {
+      ending_page_container.style.transition = "0.4s";
+      ending_page_container.style.display = "block";
+      check_button.style.display = "none";
+      next_button.style.display = "none";
+      finish_button.style.display = "block";
+      current_page_state = "finish";
+      bottom_part.style.transition = "0.5s";
+      bottom_part.style.backgroundColor = "white";
+      panel_open_button.style.backgroundColor = "#A6ACAF";
+      right_wrong_displayer.innerHTML = "";
+    }
+
     if (current_page_state == "check") {
       checking_logic();
       current_page_state = "next";

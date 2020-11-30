@@ -69,7 +69,7 @@
     <form id="finish-button" method="POST" action="{% url 'basic_vocab_learn' cefr_level course_language speakers_langauge %}">
       {% csrf_token %}
       <input type="hidden" name="hidden_errors_array" id="hidden_errors_input"  />
-      <input type="submit" value="Finish" class="check-button" name="vocab_learning_lesson_finish_button"/>
+      <input type="submit" value="Finish" class="check-button" name="vocab_learning_lesson_finish_button" id="finish-button-submit-input-btn"/>
     </form>
   </div>
 
@@ -79,7 +79,7 @@
     let check_error_audio = new Audio("{% static 'sounds/check-error-sound-2.wav' %}");
   </script>
 
-  <script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
+
 
   <!-- error reporting panel toggle logic in javascript -->
   <script>
@@ -108,21 +108,22 @@
 
   <div id="ending-page-results">
     <h3>Well done!</h3>
-    <p>You can see your latest results on your <a href="">profile</a></p>
-
+    {% with foo="foo" %}
+      <p>You can see your latest results on your profile</p>
+    {% endwith %}
     <!-- xp details -->
     <div id="results-xp-box">
       <h3>EXP</h3>
       <p><span class="fa fa-circle" id="dot-span"></span> You earned <b><span class="fa fa-plus"></span>10 xp</b></p>
-      <p><span class="fa fa-circle" id="dot-span"></span> Your current exp: <b>1523</b> (LVL 1)</p>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current exp: <b>{{ current_student.xp }}</b> (LVL {{ current_student.level }})</p>
     </div>
 
     <!-- newly learned words details -->
     <div id="results-newly-learned-words-box">
       <h3>Vocab List</h3>
       <p><span class="fa fa-circle" id="dot-span"></span> You added <b><span class="fa fa-plus"></span>10 words</b> to your vocab knowledge</p>
-      <p><span class="fa fa-circle" id="dot-span"></span> Your current vocab knowledge: <b>600</b> words</p>
-      <a href="">REVIEW</a>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current vocab knowledge: <b>{{all_learned_words_length}}</b> words</p>
+      <a href="{% url 'basic_vocab_review' current_course.course_language current_course.course_speakers_language %}">REVIEW</a>
     </div>
 
     <!-- ranking details -->
@@ -134,5 +135,8 @@
   </div>
 
 </div>
+
+
+<script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
 
 {% endblock %}

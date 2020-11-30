@@ -7,6 +7,7 @@
 let body_element = document.getElementsByTagName("BODY")[0];
 let bottom_part = document.getElementById("bottom-part");
 let right_wrong_displayer = document.getElementById("right-wrong-displayer");
+let ending_page_container = document.getElementById("ending-page-container");
 
 let questions = [];
 let answered_questions = [];
@@ -232,6 +233,19 @@ body_element.onkeydown = function(event) {
 
   // check and next buttons logic for key presses
   if (key == "Enter") {
+    if (answered_questions.length === 10) {
+      ending_page_container.style.transition = "0.4s";
+      ending_page_container.style.display = "block";
+      check_button.style.display = "none";
+      next_button.style.display = "none";
+      finish_button.style.display = "block";
+      current_page_state = "finish";
+      bottom_part.style.transition = "0.5s";
+      bottom_part.style.backgroundColor = "white";
+      panel_open_button.style.backgroundColor = "#A6ACAF";
+      right_wrong_displayer.innerHTML = "";
+    }
+    
     if (current_page_state == "check") {
       checking_logic();
       current_page_state = "next";
@@ -393,7 +407,7 @@ function next_logic() {
   right_wrong_displayer.innerHTML = "";
   next_button.style.backgroundColor = "#27AE60";
   panel_open_button.style.backgroundColor = "#A6ACAF";
-  
+
   // if the lenght is 10 and lesson is finished submit it to backend
   let size = Object.keys(lesson_pack_words).length;
   if (answered_questions.length === size) {
@@ -581,73 +595,73 @@ function next_logic() {
       progress_status.style.width = "0%";
     }
     else if (answered_questions.length === 1) {
-      progress_status.style.width = "8%";
+      progress_status.style.width = "4%";
     }
     else if (answered_questions.length === 2) {
-      progress_status.style.width = "12%";
+      progress_status.style.width = "8%";
     }
     else if (answered_questions.length === 3) {
-      progress_status.style.width = "16%";
+      progress_status.style.width = "12%";
     }
     else if (answered_questions.length === 4) {
-      progress_status.style.width = "20%";
+      progress_status.style.width = "16%";
     }
     else if (answered_questions.length === 5) {
-      progress_status.style.width = "24%";
+      progress_status.style.width = "20%";
     }
     else if (answered_questions.length === 6) {
-      progress_status.style.width = "28%";
+      progress_status.style.width = "24%";
     }
     else if (answered_questions.length === 7) {
-      progress_status.style.width = "32%";
+      progress_status.style.width = "28%";
     }
     else if (answered_questions.length === 8) {
-      progress_status.style.width = "36%";
+      progress_status.style.width = "32%";
     }
     else if (answered_questions.length === 9) {
-      progress_status.style.width = "40%";
+      progress_status.style.width = "36%";
     }
     else if (answered_questions.length === 10) {
-      progress_status.style.width = "44%";
+      progress_status.style.width = "40%";
     }
     else if (answered_questions.length === 11) {
-      progress_status.style.width = "48%";
+      progress_status.style.width = "44%";
     }
     else if (answered_questions.length === 12) {
-      progress_status.style.width = "52%";
+      progress_status.style.width = "48%";
     }
     else if (answered_questions.length === 13) {
-      progress_status.style.width = "56%";
+      progress_status.style.width = "52%";
     }
     else if (answered_questions.length === 14) {
-      progress_status.style.width = "60%";
+      progress_status.style.width = "56%";
     }
     else if (answered_questions.length === 15) {
-      progress_status.style.width = "64%";
+      progress_status.style.width = "60%";
     }
     else if (answered_questions.length === 16) {
-      progress_status.style.width = "68%";
+      progress_status.style.width = "64%";
     }
     else if (answered_questions.length === 17) {
-      progress_status.style.width = "72%";
+      progress_status.style.width = "68%";
     }
     else if (answered_questions.length === 18) {
-      progress_status.style.width = "76%";
+      progress_status.style.width = "72%";
     }
     else if (answered_questions.length === 19) {
-      progress_status.style.width = "80%";
+      progress_status.style.width = "78%";
     }
     else if (answered_questions.length === 20) {
-      progress_status.style.width = "84%";
+      progress_status.style.width = "82%";
     }
     else if (answered_questions.length === 21) {
-      progress_status.style.width = "88%";
+      progress_status.style.width = "86%";
     }
     else if (answered_questions.length === 22) {
-      progress_status.style.width = "92%";
+      progress_status.style.width = "90%";
     }
     else if (answered_questions.length === 23) {
-      progress_status.style.width = "96%";
+      progress_status.style.width = "94%";
     }
     else if (answered_questions.length === 24) {
       progress_status.style.width = "98%";

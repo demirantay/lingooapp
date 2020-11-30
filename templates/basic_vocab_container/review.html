@@ -80,8 +80,6 @@
     let check_error_audio = new Audio("{% static 'sounds/check-error-sound-2.wav' %}");
   </script>
 
-  <script src="{% static 'js/basic_vocab_container/review.js' %}"></script>
-
   <!-- error reporting panel toggle logic in javascript -->
   <script>
     var panel_open_button = document.getElementById("report-button");
@@ -101,5 +99,41 @@
 
   </script>
 </div>
+
+<!--- ##################### ending pages ############################## --->
+<div id="ending-page-container">
+
+  <div id="ending-page-results">
+    <h3>Well done!</h3>
+    {% with foo="foo" %}
+      <p>You can see your latest results on your profile</p>
+    {% endwith %}
+    <!-- xp details -->
+    <div id="results-xp-box">
+      <h3>EXP</h3>
+      <p><span class="fa fa-circle" id="dot-span"></span> You earned <b><span class="fa fa-plus"></span>10 xp</b></p>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current exp: <b>{{ current_student.xp }}</b> (LVL {{ current_student.level }})</p>
+    </div>
+
+    <!-- newly learned words details -->
+    <div id="results-newly-learned-words-box">
+      <h3>Vocab List</h3>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current vocab knowledge: <b>{{all_learned_words_length}}</b> words</p>
+      <a href="{% url 'basic_vocab_review' current_course.course_language current_course.course_speakers_language %}">REVIEW</a>
+    </div>
+
+    <!-- ranking details -->
+
+    <!-- daily streak details -->
+
+    <!-- earned lingots -->
+
+  </div>
+
+</div>
+
+
+<script src="{% static 'js/basic_vocab_container/review.js' %}"></script>
+
 
 {% endblock %}
