@@ -295,6 +295,17 @@ body {
   display: none;
 }
 
+#right-wrong-displayer {
+  padding-top: 5px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  padding-left: 30px !important;
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
 /* ------------------------ ending pages ---------------------------------- */
 #ending-page-container {
   position: absolute;

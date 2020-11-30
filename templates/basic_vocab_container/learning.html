@@ -64,6 +64,8 @@
     <button class="check-button" id="check-button" ><span class="fa fa-check"></span> Check</button>
     <button class="check-button" id="next-button"><span class="fa fa-arrow-right"></span> Next</button>
 
+    <div id="right-wrong-displayer"></div>
+
     <form id="finish-button" method="POST" action="{% url 'basic_vocab_learn' cefr_level course_language speakers_langauge %}">
       {% csrf_token %}
       <input type="hidden" name="hidden_errors_array" id="hidden_errors_input"  />
@@ -73,6 +75,8 @@
 
   <script>
     let lesson_pack_words = {{ lesson_pack_words|safe }}
+    let check_success_audio = new Audio("{% static 'sounds/check-success-sound.wav' %}");
+    let check_error_audio = new Audio("{% static 'sounds/check-error-sound-2.wav' %}");
   </script>
 
   <script src="{% static 'js/basic_vocab_container/learn.js' %}"></script>
@@ -93,12 +97,6 @@
       panel.style.display = "none";
       panel_background_greying.style.display = "none";
     }
-
-  </script>
-
-
-  <!-- keyboard controls -->
-  <script>
 
   </script>
 

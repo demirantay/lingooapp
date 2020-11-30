@@ -4,6 +4,8 @@
 // because it contains djangos own templating syntax which js cant compile
 
 let body_element = document.getElementsByTagName("BODY")[0];
+let bottom_part = document.getElementById("bottom-part");
+let right_wrong_displayer = document.getElementById("right-wrong-displayer");
 
 let questions = [];
 let answered_questions = [];
@@ -274,6 +276,15 @@ function checking_logic() {
 
   // ANSWERED CORRECTLY
   if (selected_answer === current_question.get_answer()) {
+    check_success_audio.play()
+
+    bottom_part.style.transition = "0.2s";
+    bottom_part.style.backgroundColor = "#58D68D";
+
+    right_wrong_displayer.innerHTML = "<span class='fa fa-check'></span> Correct";
+    right_wrong_displayer.style.color = "#196F3D";
+
+    panel_open_button.style.backgroundColor = "#27AE60";
 
     // show the right answers
     if (selected_answer == answer_options[0]) {
@@ -301,6 +312,18 @@ function checking_logic() {
   }
   else {
     // show the right answers
+    check_error_audio.play()
+
+    // edit the bottom dispalys
+    bottom_part.style.transition = "0.2s";
+    bottom_part.style.backgroundColor = "#F06478";
+
+    right_wrong_displayer.innerHTML = "<span class='fa fa-close'></span> Correct Answer: " + current_question.get_answer();
+    right_wrong_displayer.style.color = "#930015";
+
+    next_button.style.backgroundColor = "#930015";
+    panel_open_button.style.backgroundColor = "#930015";
+
     if (selected_answer == answer_options[0]) {
       answer_1.style.backgroundColor = "#E3102E";
       answer_1.style.color = "black";
@@ -321,19 +344,19 @@ function checking_logic() {
     real_answer = current_question.get_answer();
 
     if (answer_1.innerText.slice(2) == real_answer) {
-      answer_1.style.backgroundColor = "#27AE60";
+      answer_1.style.backgroundColor = "#ABEBC6";
       answer_1.style.color = "white";
     }
     else if (answer_2.innerText.slice(2) == real_answer) {
-      answer_2.style.backgroundColor = "#27AE60";
+      answer_2.style.backgroundColor = "#ABEBC6";
       answer_2.style.color = "white";
     }
     else if (answer_3.innerText.slice(2) == real_answer) {
-      answer_3.style.backgroundColor = "#27AE60";
+      answer_3.style.backgroundColor = "#ABEBC6";
       answer_3.style.color = "white";
     }
     else if (answer_4.innerText.slice(2) == real_answer) {
-      answer_4.style.backgroundColor = "#27AE60";
+      answer_4.style.backgroundColor = "#ABEBC6";
       answer_4.style.color = "white";
     }
     // turn the check button to next button
@@ -361,6 +384,12 @@ next_button.onclick = function() {
 }
 
 function next_logic() {
+  bottom_part.style.transition = "0.1s";
+  bottom_part.style.backgroundColor = "white";
+  right_wrong_displayer.innerHTML = "";
+  next_button.style.backgroundColor = "#27AE60";
+  panel_open_button.style.backgroundColor = "#A6ACAF";
+
   // if the lenght is 10 and lesson is finished submit it to backend
   if (answered_questions.length === 10) {
     check_button.style.display = "none";
