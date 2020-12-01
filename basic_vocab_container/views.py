@@ -678,12 +678,141 @@ def basic_vocab_review(request, course_language, speakers_langauge):
 
     # Get the current students progress words for is_learned words
     try:
-        current_student_progress = StudentVocabProgress.objects.filter(
+        unfiltered_student_progress = StudentVocabProgress.objects.filter(
             student=current_student,
             is_learned=True
         )
     except ObjectDoesNotExist:
-        current_student_progress = None
+        unfiltered_student_progress = None
+
+    # Check the progress status of the words learned by the users. For example
+    # if both A1 and A2 are finished there is no need to include A1 again since
+    # it is already included in the A2 words so there is no need to repeat
+    # the lessons in review logic.
+    a0_progress = 0
+    a1_progress = 0
+    a2_progress = 0
+    b1_progress = 0
+    b2_progress = 0
+    c1_progress = 0
+    advanced_progress = 0
+
+    for word in unfiltered_student_progress:
+        if word.vocab_container_word.level == "a0":
+            if word.is_learned == True:
+                a0_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a1":
+            if word.is_learned == True:
+                a1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "a2":
+            if word.is_learned == True:
+                a2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b1":
+            if word.is_learned == True:
+                b1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "b2":
+            if word.is_learned == True:
+                b2_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "c1":
+            if word.is_learned == True:
+                c1_progress += 1
+            else:
+                continue
+        elif word.vocab_container_word.level == "advanced":
+            if word.is_learned == True:
+                advanced_progress += 1
+            else:
+                continue
+
+    a0_completed = False
+    a1_completed = False
+    a2_completed = False
+    b1_completed = False
+    b2_completed = False
+    c1_completed = False
+    advanced_completed = False
+
+    if a0_progress >= 100:
+        a0_completed = True
+
+    if a1_progress >= 500:
+        a1_completed = True
+
+    if a2_progress >= 1000:
+        a2_completed = True
+
+    if b1_progress >= 2000:
+        b1_completed = True
+
+    if b2_progress >= 4000:
+        b2_completed = True
+
+    if c1_progress >= 8000:
+        c1_completed = True
+
+    if advanced_progress >= 16000:
+        advanced_completed = True
+
+    # get the filtered current user vocab progress
+    current_student_progress = []
+
+    if c1_completed == True and advanced_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "advanced":
+                current_student_progress.append(word)
+    elif b2_completed == True and c1_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "a0" or \
+               word.vocab_container_word.level == "a1" or \
+               word.vocab_container_word.level == "a2" or \
+               word.vocab_container_word.level == "b1" or \
+               word.vocab_container_word.level == "b2":
+                continue
+            else:
+                current_student_progress.append(word)
+    elif b1_completed == True and b2_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "a0" or \
+               word.vocab_container_word.level == "a1" or \
+               word.vocab_container_word.level == "a2" or \
+               word.vocab_container_word.level == "b1":
+                continue
+            else:
+                current_student_progress.append(word)
+    elif a2_completed == True and b1_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "a0" or \
+               word.vocab_container_word.level == "a1" or \
+               word.vocab_container_word.level == "a2":
+                continue
+            else:
+                current_student_progress.append(word)
+    elif a1_completed == True and a2_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "a0" or \
+               word.vocab_container_word.level == "a1":
+                continue
+            else:
+                current_student_progress.append(word)
+    elif a0_completed == True and a1_completed == True:
+        for word in unfiltered_student_progress:
+            if word.vocab_container_word.level == "a0":
+                continue
+            else:
+                current_student_progress.append(word)
+    else:
+        for word in unfiltered_student_progress:
+            current_student_progress.append(word)
 
     # Get the current lessons packs (25) words
     unreviewed_words = []
