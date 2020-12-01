@@ -104,6 +104,7 @@ def basic_vocab_learn_start(request, cefr_level, course_language, speakers_langa
             advanced_words += 1
 
     # if levels do not have the word limit that they should have return to home
+
     if cefr_level == "a0":
         if a0_words < 100:
             return HttpResponseRedirect("/")

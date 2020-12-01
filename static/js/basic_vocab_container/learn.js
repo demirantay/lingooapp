@@ -267,9 +267,16 @@ check_button.onclick = function() {
 function checking_logic() {
   // if the lenght is 10 and lesson is finished submit it to backend
   if (answered_questions.length === 10) {
+    ending_page_container.style.transition = "0.4s";
+    ending_page_container.style.display = "block";
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
+    current_page_state = "finish";
+    bottom_part.style.transition = "0.5s";
+    bottom_part.style.backgroundColor = "white";
+    panel_open_button.style.backgroundColor = "#A6ACAF";
+    right_wrong_displayer.innerHTML = "";
   }
 
   answer_1.onclick = function() {
@@ -410,9 +417,16 @@ function next_logic() {
 
   // if the lenght is 10 and lesson is finished submit it to backend
   if (answered_questions.length === 10) {
+    ending_page_container.style.transition = "0.4s";
+    ending_page_container.style.display = "block";
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
+    current_page_state = "finish";
+    bottom_part.style.transition = "0.5s";
+    bottom_part.style.backgroundColor = "white";
+    panel_open_button.style.backgroundColor = "#A6ACAF";
+    right_wrong_displayer.innerHTML = "";
   }
 
   var progress_bar = document.getElementById("progress-bar");

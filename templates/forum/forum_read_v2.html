@@ -120,14 +120,16 @@
               <!-- desktop -->
               <div id="desktop-flags-container">
                 {% for profile in comment_student_profiles|get_key_value:comment.user_profile.id %}
-                  <div id="flag-cell">
-                    {% if profile.langauge.flag %}
-                      <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
-                    {% else %}
-                      <div id="flag-cell-flag" style="background-image: url('');"></div>
-                    {% endif %}
-                    <p>{{ profile.level }}</p>
-                  </div>
+                  {% if profile.course %}
+                    <div id="flag-cell">
+                      {% if profile.langauge.flag %}
+                        <div id="flag-cell-flag" style="background-image: url('{{ profile.langauge.flag.url }}');"></div>
+                      {% else %}
+                        <div id="flag-cell-flag" style="background-image: url('');"></div>
+                      {% endif %}
+                      <p>{{ profile.level }}</p>
+                    </div>
+                  {% endif %}
                 {% endfor %}
               </div>
             </div>

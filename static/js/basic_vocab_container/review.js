@@ -233,7 +233,7 @@ body_element.onkeydown = function(event) {
 
   // check and next buttons logic for key presses
   if (key == "Enter") {
-    if (answered_questions.length === 10) {
+    if (answered_questions.length === current_lesson_length) {
       ending_page_container.style.transition = "0.4s";
       ending_page_container.style.display = "block";
       check_button.style.display = "none";
@@ -245,7 +245,7 @@ body_element.onkeydown = function(event) {
       panel_open_button.style.backgroundColor = "#A6ACAF";
       right_wrong_displayer.innerHTML = "";
     }
-    
+
     if (current_page_state == "check") {
       checking_logic();
       current_page_state = "next";
@@ -266,9 +266,16 @@ function checking_logic() {
   // if the lenght is 10 and lesson is finished submit it to backend
   let size = Object.keys(lesson_pack_words).length;
   if (answered_questions.length === size) {
+    ending_page_container.style.transition = "0.4s";
+    ending_page_container.style.display = "block";
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
+    current_page_state = "finish";
+    bottom_part.style.transition = "0.5s";
+    bottom_part.style.backgroundColor = "white";
+    panel_open_button.style.backgroundColor = "#A6ACAF";
+    right_wrong_displayer.innerHTML = "";
   }
 
   answer_1.onclick = function() {
@@ -411,9 +418,16 @@ function next_logic() {
   // if the lenght is 10 and lesson is finished submit it to backend
   let size = Object.keys(lesson_pack_words).length;
   if (answered_questions.length === size) {
+    ending_page_container.style.transition = "0.4s";
+    ending_page_container.style.display = "block";
     check_button.style.display = "none";
     next_button.style.display = "none";
     finish_button.style.display = "block";
+    current_page_state = "finish";
+    bottom_part.style.transition = "0.5s";
+    bottom_part.style.backgroundColor = "white";
+    panel_open_button.style.backgroundColor = "#A6ACAF";
+    right_wrong_displayer.innerHTML = "";
   }
 
   var progress_bar = document.getElementById("progress-bar");
