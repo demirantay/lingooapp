@@ -531,10 +531,10 @@ def teacher_vocab_container_overview(request):
     except ObjectDoesNotExist:
         prod_course = None
 
-    # A0 Form
+    # A0 push to production submit form processing
     if request.POST.get("teacher_vocab_container_push_production_a0_submit"):
         # check if the list is at 100
-        if len(a0_word_list) == 100:
+        if len(a0_word_list) >= 100:
             # get the current production course and it's words list
             try:
                 prod_a0_words = BasicVocabularyContainer.objects.filter(
@@ -544,12 +544,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_a0_words = None
 
-            # delete all of the a0 words in the production
-            prod_a0_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_a0_words)):
+                prod_a0_words[i].word = a0_word_list[i].word
+                prod_a0_words[i].word_translation = a0_word_list[i].word_translation
+                prod_a0_words[i].save()
 
             # update all of the new a0 words in the production
             # with the current list
-            for word in a0_word_list:
+            for word in a0_word_list[len(prod_a0_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -564,7 +569,7 @@ def teacher_vocab_container_overview(request):
     # A1 Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_a1_submit"):
         # check if the list is at 500
-        if len(a1_word_list) == 500:
+        if len(a1_word_list) >= 500:
             # get the current production course and it's words list
             try:
                 prod_a1_words = BasicVocabularyContainer.objects.filter(
@@ -574,12 +579,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_a1_words = None
 
-            # delete all of the a0 words in the production
-            prod_a1_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_a1_words)):
+                prod_a1_words[i].word = a1_word_list[i].word
+                prod_a1_words[i].word_translation = a1_word_list[i].word_translation
+                prod_a1_words[i].save()
 
             # update all of the new a0 words in the production
             # with the current list
-            for word in a1_word_list:
+            for word in a1_word_list[len(prod_a1_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -594,7 +604,7 @@ def teacher_vocab_container_overview(request):
     # A2 Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_a2_submit"):
         # check if the list is at 1000
-        if len(a2_word_list) == 1000:
+        if len(a2_word_list) >= 1000:
             # get the current production course and it's words list
             try:
                 prod_a2_words = BasicVocabularyContainer.objects.filter(
@@ -604,12 +614,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_a2_words = None
 
-            # delete all of the a0 words in the production
-            prod_a2_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_a2_words)):
+                prod_a2_words[i].word = a2_word_list[i].word
+                prod_a2_words[i].word_translation = a2_word_list[i].word_translation
+                prod_a2_words[i].save()
 
             # update all of the new a0 words in the production
             # with the current list
-            for word in a2_word_list:
+            for word in a2_word_list[len(prod_a2_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -624,7 +639,7 @@ def teacher_vocab_container_overview(request):
     # B1 Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_b1_submit"):
         # check if the list is at 2000
-        if len(b1_word_list) == 2000:
+        if len(b1_word_list) >= 2000:
             # get the current production course and it's words list
             try:
                 prod_b1_words = BasicVocabularyContainer.objects.filter(
@@ -634,12 +649,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_b1_words = None
 
-            # delete all of the a0 words in the production
-            prod_b1_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_b1_words)):
+                prod_b1_words[i].word = b1_word_list[i].word
+                prod_b1_words[i].word_translation = b1_word_list[i].word_translation
+                prod_b1_words[i].save()
 
             # update all of the new a0 words in the production
             # with the current list
-            for word in b1_word_list:
+            for word in b1_word_list[len(prod_b1_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -654,7 +674,7 @@ def teacher_vocab_container_overview(request):
     # B2 Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_b2_submit"):
         # check if the list is at 4000
-        if len(b2_word_list) == 4000:
+        if len(b2_word_list) >= 4000:
             # get the current production course and it's words list
             try:
                 prod_b2_words = BasicVocabularyContainer.objects.filter(
@@ -664,12 +684,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_b2_words = None
 
-            # delete all of the a0 words in the production
-            prod_b2_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_b2_words)):
+                prod_b2_words[i].word = b2_word_list[i].word
+                prod_b2_words[i].word_translation = b2_word_list[i].word_translation
+                prod_b2_words[i].save()
 
             # update all of the new a0 words in the production
             # with the current list
-            for word in b2_word_list:
+            for word in b2_word_list[len(prod_b2_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -684,7 +709,7 @@ def teacher_vocab_container_overview(request):
     # C1 Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_c1_submit"):
         # check if the list is at 8000
-        if len(c1_word_list) == 8000:
+        if len(c1_word_list) >= 8000:
             # get the current production course and it's words list
             try:
                 prod_c1_words = BasicVocabularyContainer.objects.filter(
@@ -694,12 +719,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_c1_words = None
 
-            # delete all of the c1 words in the production
-            prod_c1_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_c1_words)):
+                prod_c1_words[i].word = c1_word_list[i].word
+                prod_c1_words[i].word_translation = c1_word_list[i].word_translation
+                prod_c1_words[i].save()
 
             # update all of the new c1 words in the production
             # with the current list
-            for word in c1_word_list:
+            for word in c1_word_list[len(prod_c1_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,
@@ -714,7 +744,7 @@ def teacher_vocab_container_overview(request):
     # Advanced Push to Production Form Processing
     if request.POST.get("teacher_vocab_container_push_production_advanced_submit"):
         # check if the list is at 16000
-        if len(advanced_word_list) == 16000:
+        if len(advanced_word_list) >= 16000:
             # get the current production course and it's words list
             try:
                 prod_advanced_words = BasicVocabularyContainer.objects.filter(
@@ -724,12 +754,17 @@ def teacher_vocab_container_overview(request):
             except ObjectDoesNotExist:
                 prod_advanced_words = None
 
-            # delete all of the c1 words in the production
-            prod_advanced_words.delete()
+            # do not delete just update
+            # first update the existing words and once they are done start
+            # creating new words
+            for i in range(len(prod_advanced_words)):
+                prod_advanced_words[i].word = advanced_word_list[i].word
+                prod_advanced_words[i].word_translation = advanced_word_list[i].word_translation
+                prod_advanced_words[i].save()
 
             # update all of the new c1 words in the production
             # with the current list
-            for word in advanced_word_list:
+            for word in advanced_word_list[len(prod_advanced_words):]:
                 new_prod_word = BasicVocabularyContainer(
                     course=prod_course,
                     word=word.word,

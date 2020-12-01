@@ -521,6 +521,10 @@ body {
     font-size: 20px;
   }
 
+  #right-wrong-displayer {
+    display: none;
+  }
+
   /* ------------------------ ending pages ---------------------------------- */
   #ending-page-container {
     height: 82vh;
@@ -617,7 +621,7 @@ body {
 
   #middle-part h3 {
     border: 1px solid lightgrey;
-    width: 100%;
+    width: 95%;
     font-size: 40px;
   }
 
@@ -652,6 +656,16 @@ body {
     margin-right: 5%;
     font-size: 20px;
   }
+
+  #next-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  #right-wrong-displayer {
+    display: none;
+  }
+
 
   /* ------------------------ ending pages ---------------------------------- */
   #ending-page-container {
@@ -749,7 +763,7 @@ body {
 
   #middle-part h3 {
     border: 1px solid lightgrey;
-    width: 100%;
+    width: 95%;
     font-size: 40px;
   }
 
@@ -783,6 +797,15 @@ body {
   #check-button {
     margin-right: 5%;
     font-size: 20px;
+  }
+
+  #next-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  #right-wrong-displayer {
+    display: none;
   }
 
   /* ------------------------ ending pages ---------------------------------- */
@@ -882,7 +905,7 @@ body {
 
   #middle-part h3 {
     border: 1px solid lightgrey;
-    width: 100%;
+    width: 93%;
     font-size: 40px;
   }
 
@@ -911,6 +934,11 @@ body {
   }
 
   #check-button {
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  #next-button {
     margin-right: 5%;
     font-size: 20px;
   }
