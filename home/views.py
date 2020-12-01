@@ -204,6 +204,65 @@ def learn_index(request, course_language, speakers_language):
         else:
             continue
 
+    # Code logic for `course has not been built yet message`
+
+    try:
+        all_course_words = BasicVocabularyContainer.objects.filter(
+            course=current_course
+        )
+    except ObjectDoesNotExist:
+        all_course_words = None
+
+    # Course Words Count for redirection
+    a0_words = 0
+    a1_words = 0
+    a2_words = 0
+    b1_words = 0
+    b2_words = 0
+    c1_words = 0
+    advanced_words = 0
+
+    for word in all_course_words:
+        if word.level == "a0":
+            a0_words += 1
+        elif word.level == "a1":
+            a1_words += 1
+        elif word.level == "a2":
+            a2_words += 1
+        elif word.level == "b1":
+            b1_words += 1
+        elif word.level == "b2":
+            b2_words += 1
+        elif word.level == "c1":
+            c1_words += 1
+        elif word.level == "advanced":
+            advanced_words += 1
+
+    a0_course_not_built = False
+    a1_course_not_built = False
+    a2_course_not_built = False
+    b1_course_not_built = False
+    b2_course_not_built = False
+    c1_course_not_built = False
+    advanced_course_not_built = False
+
+    if a0_words < 100:
+        a0_course_not_built = True
+    elif a1_words < 500:
+        a1_course_not_built = True
+    elif a2_words < 1000:
+        a2_course_not_built = True
+    elif b1_words < 2000:
+        b1_course_not_built = True
+    elif b2_words < 4000:
+        b2_course_not_built = True
+    elif c1_words < 8000:
+        c1_course_not_built = True
+    elif advanced_words < 16000:
+        advanced_course_not_built = True
+
+    # ------------
+
     is_a0_done = False
     is_a1_done = False
     is_a2_done = False
@@ -264,6 +323,14 @@ def learn_index(request, course_language, speakers_language):
         "is_b2_done": is_b2_done,
         "is_c1_done": is_c1_done,
         "is_advanced_done": is_advanced_done,
+
+        "a0_course_not_built": a0_course_not_built,
+        "a1_course_not_built": a1_course_not_built,
+        "a2_course_not_built": a2_course_not_built,
+        "b1_course_not_built": b1_course_not_built,
+        "b2_course_not_built": b2_course_not_built,
+        "c1_course_not_built": c1_course_not_built,
+        "advanced_course_not_built": advanced_course_not_built,
     }
 
     if current_basic_user == None:

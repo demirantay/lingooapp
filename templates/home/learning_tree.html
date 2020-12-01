@@ -198,12 +198,21 @@
       <h3>A0 Vocabulary</h3>
     </a>
   {% elif is_a0_done == False %}
-    <a href="{% url 'basic_vocab_learn_start' a0 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-      <div id="lesson-cell">
-        <p>{{ a0_progress }}/100</p>
-      </div>
-      <h3>A0 Vocabulary</h3>
-    </a>
+    {% if a0_course_not_built == True %}
+      <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+        <div id="lesson-cell">
+          <p>{{ a0_progress }}/100</p>
+        </div>
+        <h3>A0 Vocabulary</h3>
+      </a>
+    {% else %}
+      <a href="{% url 'basic_vocab_learn_start' a0 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+        <div id="lesson-cell">
+          <p>{{ a0_progress }}/100</p>
+        </div>
+        <h3>A0 Vocabulary</h3>
+      </a>
+    {% endif %}
   {% endif %}
 
 
@@ -226,12 +235,21 @@
         <h3>A1 Vocabulary</h3>
       </a>
     {% elif is_a1_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' a1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ a1_progress }}/500</p>
-        </div>
-        <h3>A1 Vocabulary</h3>
-      </a>
+      {% if a1_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ a1_progress }}/500</p>
+          </div>
+          <h3>A1 Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' a1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ a1_progress }}/500</p>
+          </div>
+          <h3>A1 Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_a0_done == False %}
     <!-- locked cell -->
@@ -262,12 +280,21 @@
         <h3>A2 Vocabulary</h3>
       </a>
     {% elif is_a2_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' a2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ a2_progress }}/1000</p>
-        </div>
-        <h3>A2 Vocabulary</h3>
-      </a>
+      {% if a2_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ a2_progress }}/1000</p>
+          </div>
+          <h3>A2 Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' a2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ a2_progress }}/1000</p>
+          </div>
+          <h3>A2 Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_a1_done == False %}
     <!-- locked cell -->
@@ -298,12 +325,21 @@
         <h3>B1 Vocabulary</h3>
       </a>
     {% elif is_b1_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' b1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ b1_progress }}/2000</p>
-        </div>
-        <h3>B1 Vocabulary</h3>
-      </a>
+      {% if b1_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ b1_progress }}/2000</p>
+          </div>
+          <h3>B1 Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' b1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ b1_progress }}/2000</p>
+          </div>
+          <h3>B1 Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_a2_done == False %}
     <!-- locked cell -->
@@ -334,12 +370,21 @@
         <h3>B2 Vocabulary</h3>
       </a>
     {% elif is_b2_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' b2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ b2_progress }}/4000</p>
-        </div>
-        <h3>B2 Vocabulary</h3>
-      </a>
+      {% if b2_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ b2_progress }}/4000</p>
+          </div>
+          <h3>B2 Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' b2 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ b2_progress }}/4000</p>
+          </div>
+          <h3>B2 Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_b1_done == False %}
     <!-- locked cell -->
@@ -370,12 +415,21 @@
         <h3>C1 Vocabulary</h3>
       </a>
     {% elif is_c1_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' c1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ c1_progress }}/8000</p>
-        </div>
-        <h3>C1 Vocabulary</h3>
-      </a>
+      {% if c1_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ c1_progress }}/8000</p>
+          </div>
+          <h3>C1 Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' c1 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ c1_progress }}/8000</p>
+          </div>
+          <h3>C1 Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_b2_done == False %}
     <!-- locked cell -->
@@ -406,12 +460,21 @@
         <h3>Advanced Vocabulary</h3>
       </a>
     {% elif is_advanced_done == False %}
-      <a href="{% url 'basic_vocab_learn_start' advanced current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
-        <div id="lesson-cell">
-          <p>{{ advanced_progress }}/16000</p>
-        </div>
-        <h3>Advanced Vocabulary</h3>
-      </a>
+      {% if advanced_course_not_built == True %}
+        <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
+          <div id="lesson-cell">
+            <p>{{ advanced_progress }}/16000</p>
+          </div>
+          <h3>Advanced Vocabulary</h3>
+        </a>
+      {% else %}
+        <a href="{% url 'basic_vocab_learn_start' advanced current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
+          <div id="lesson-cell">
+            <p>{{ advanced_progress }}/16000</p>
+          </div>
+          <h3>Advanced Vocabulary</h3>
+        </a>
+      {% endif %}
     {% endif %}
   {% elif is_c1_done == False %}
     <!-- locked cell -->
