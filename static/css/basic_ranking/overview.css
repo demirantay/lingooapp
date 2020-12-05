@@ -1,0 +1,541 @@
+body {
+  background-color: #F4F6F6;
+}
+
+/* ------------------------- your own rank ----------------------------- */
+#your-rank-meta-header {
+  margin-bottom: 5px;
+  color: grey;
+  font-weight: 700;
+}
+
+#your-own-rank {
+  width: 70%;
+  border: 1px solid lightgrey;
+  background-color: white;
+  padding: 8px 0px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+
+#your-won-rank-num {
+  display: inline-block;
+  margin: 0px;
+  margin-left: 10px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+#profile-photo {
+  display: inline-block;
+  margin: 0px;
+  height: 30px;
+  width: 30px;
+  background-color: #E5E8E8;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../placeholder/test.jpg");
+  margin-right: 5px;
+}
+
+#your-own-rank a {
+  text-decoration: none;
+  color: black;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+#daily-streak {
+  display: inline-block;
+  margin: 0px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+#daily-streak span {
+  color: #F1C40F;
+}
+
+#xp {
+  display: inline-block;
+  margin: 0px;
+  float: right;
+  margin-right: 10px;
+  vertical-align: inherit;
+  color: grey;
+  margin-top: 5px;
+}
+
+#xp-span{
+  font-weight: 900px;
+  background-color: lightgrey;
+  color: grey;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 4px;
+  vertical-align: inherit;
+}
+
+
+/* ------------------------- navigation ----------------------------- */
+#navigation {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin-bottom: 0px;
+  border-radius: 5px 5px 0px 0px;
+  width: 70%;
+  overflow-x: scroll !important;
+  white-space: nowrap;
+}
+
+#navigation::-webkit-scrollbar {
+  display: none;
+}
+
+
+#navigation a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  border: 2px solid transparent;
+}
+
+#flag {
+  height: 20px;
+  width: 30px;
+  border-radius: 4px;
+  background-color: lightgrey;
+  display: inline-block;
+  vertical-align: top;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/spanish.png");
+}
+
+#navigation a:hover {
+  border-bottom: 2px solid #E3102E;
+  transition: 0.2s;
+  color: #E3102E;
+}
+
+#navigation-active {
+  border-bottom: 2px solid #E3102E !important;
+  color: #E3102E !important;
+}
+
+/* ------------------------- rankign list ----------------------------- */
+#all-rankings {
+  width: 70%;
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-top: 0px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+#rank-cell {
+  padding: 8px 0px;
+  border-radius: 5px;
+  border-top: 1px solid lightgrey;
+}
+
+#rank-cell:nth-child(1) {
+  border-top: 0px;
+}
+
+#rank-cell a {
+  text-decoration: none;
+  color: black;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+#rank-overview-cell-flag {
+  height: 20px;
+  width: 30px;
+  border-radius: 4px;
+  background-color: lightgrey;
+  display: inline-block;
+  vertical-align: top;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../flags/swedish.png");
+  float: right;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+/* ------------------------- pagination ------------------------ */
+#pagination {
+  border: 1px solid transparent;
+  width: 70%;
+  margin-top: 40px;
+  text-align: center;
+}
+
+#pagination a {
+  background-color: #E3102E;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius:8px;
+}
+
+#pagination a:hover {
+  transition: 0.2s;
+  background-color: #A50E23;
+}
+
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #ranking-header h1 {
+    margin-top: 10px;
+  }
+
+  /* ------------------------- your own rank ----------------------------- */
+  #your-rank-meta-header {
+    margin-bottom: 5px;
+    color: grey;
+    font-weight: 700;
+  }
+
+  #your-own-rank {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  #your-won-rank-num {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  #profile-photo {
+    height: 20px;
+    width: 20px;
+
+  }
+
+  #your-own-rank a {
+    font-size: 14px;
+  }
+
+  #daily-streak {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+
+  #xp {
+    font-size: 14px;
+    margin-right: 8px;
+    margin-top: 1px;
+  }
+
+  /* ------------------------- navigation ----------------------------- */
+  #navigation {
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll !important;
+  }
+
+  #navigation a {
+    padding: 10px 6px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #flag {
+    height: 16px;
+    width: 26px;
+    vertical-align: middle;
+  }
+
+  /* ------------------------- rankign list ----------------------------- */
+  #all-rankings {
+    width: 100%;
+  }
+
+  #rank-cell {
+    padding: 8px 0px;
+    border-radius: 5px;
+    border-top: 1px solid lightgrey;
+  }
+
+  #rank-cell a {
+    font-size: 14px;
+  }
+
+  #rank-overview-cell-flag {
+    height: 14px;
+    width: 22px;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: 2px;
+    float: none;
+  }
+
+  /* ------------------------- pagination ------------------------ */
+  #pagination {
+    width: 100%;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #ranking-header h1 {
+    margin-top: 10px;
+  }
+
+  /* ------------------------- your own rank ----------------------------- */
+  #your-rank-meta-header {
+    margin-bottom: 5px;
+    color: grey;
+    font-weight: 700;
+  }
+
+  #your-own-rank {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  #your-won-rank-num {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  #profile-photo {
+    height: 20px;
+    width: 20px;
+
+  }
+
+  #your-own-rank a {
+    font-size: 14px;
+  }
+
+  #daily-streak {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+
+  #xp {
+    font-size: 14px;
+    margin-right: 8px;
+    margin-top: 1px;
+  }
+
+  /* ------------------------- navigation ----------------------------- */
+  #navigation {
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll !important;
+  }
+
+  #navigation a {
+    padding: 10px 6px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #flag {
+    height: 16px;
+    width: 26px;
+    vertical-align: middle;
+  }
+
+  /* ------------------------- rankign list ----------------------------- */
+  #all-rankings {
+    width: 100%;
+  }
+
+  #rank-cell {
+    padding: 8px 0px;
+    border-radius: 5px;
+    border-top: 1px solid lightgrey;
+  }
+
+  #rank-cell a {
+    font-size: 14px;
+  }
+
+  #rank-overview-cell-flag {
+    height: 14px;
+    width: 22px;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: 2px;
+    float: none;
+  }
+
+  /* ------------------------- pagination ------------------------ */
+  #pagination {
+    width: 100%;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #ranking-header h1 {
+    margin-top: 10px;
+  }
+
+  /* ------------------------- your own rank ----------------------------- */
+  #your-rank-meta-header {
+    margin-bottom: 5px;
+    color: grey;
+    font-weight: 700;
+  }
+
+  #your-own-rank {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  #your-won-rank-num {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  #profile-photo {
+    height: 20px;
+    width: 20px;
+
+  }
+
+  #your-own-rank a {
+    font-size: 14px;
+  }
+
+  #daily-streak {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+
+  #xp {
+    font-size: 14px;
+    margin-right: 8px;
+    margin-top: 1px;
+  }
+
+  /* ------------------------- navigation ----------------------------- */
+  #navigation {
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll !important;
+  }
+
+  #navigation a {
+    padding: 10px 6px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #flag {
+    height: 16px;
+    width: 26px;
+    vertical-align: middle;
+  }
+
+  /* ------------------------- rankign list ----------------------------- */
+  #all-rankings {
+    width: 100%;
+  }
+
+  #rank-cell {
+    padding: 8px 0px;
+    border-radius: 5px;
+    border-top: 1px solid lightgrey;
+  }
+
+  #rank-cell a {
+    font-size: 14px;
+  }
+
+  #rank-overview-cell-flag {
+    height: 14px;
+    width: 22px;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: 2px;
+    float: none;
+  }
+
+  /* ------------------------- pagination ------------------------ */
+  #pagination {
+    width: 100%;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  #ranking-header {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  /* ------------------------- your own rank ----------------------------- */
+  #your-rank-meta-header {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+
+  #your-own-rank {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+
+  /* ------------------------- navigation ----------------------------- */
+  #navigation {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+
+  /* ------------------------- rankign list ----------------------------- */
+  #all-rankings {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+
+  /* ------------------------- pagination ------------------------ */
+  #pagination {
+    width: 100%;
+  }
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
