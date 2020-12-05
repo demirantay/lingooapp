@@ -15,7 +15,7 @@
   <meta name="author" content="Domingo" />
 
   <!-- FAVICON -->
-  <link rel="icon" href="{% static 'branding/logo.png' %}" />
+  <link rel="icon" href="{% static 'branding/logo_v2.png' %}" />
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -56,7 +56,7 @@
     {% with page="0" english="english" foo="foo" %}
       <!-- left navigation -->
       <div id="left-navgition">
-        <a href="{% url 'index' %}" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo.png' %}"  /></a>
+        <a href="{% url 'index' %}" id="img-logo-link"><img alt="logo" src="{% static 'branding/logo_v2.png' %}"  /></a>
         <a href="{% url 'index' %}"><span class="fa fa-home"></span> Home</a>
         <a href="{% url 'basic_language_explore' english %}"><span class="fa fa-book"></span> Languages</a>
         <a href="{% url 'forum_landing_page' page %}"><span class="fa fa-comments"></span> Forum</a>

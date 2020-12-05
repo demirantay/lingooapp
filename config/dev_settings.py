@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'basic_voting_sys',
     'basic_feedback',
     'basic_notifications',
+    'basic_ranking',
 
     # Teacher User Apps
     'teacher_public_about',

@@ -102,6 +102,11 @@ urlpatterns = [
     # ...
     path("", include("basic_notifications.urls")),
 
+    # Basic Ranking
+    # --------------
+    # ...
+    path("", include("basic_ranking.urls")),
+
 ]
 
 if settings.DEBUG:

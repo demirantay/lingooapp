@@ -99,7 +99,8 @@ body {
 }
 
 #img-logo-link img {
-  height: 50px;
+  height: 95px;
+  margin-bottom: -25px;
 }
 
 #hidden_more_nav {
