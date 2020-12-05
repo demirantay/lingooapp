@@ -8,4 +8,11 @@ urlpatterns = [
         views.ranking_overview,
         name="ranking_overview"
     ),
+    # Category Ranking Page
+    path(
+        "ranking/<str:language>/<int:page>/",
+        views.category_ranking,
+        name="category_ranking"
+    ),
+
 ]

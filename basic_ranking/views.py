@@ -18,3 +18,12 @@ def ranking_overview(request, page):
     }
 
     return render(request, "basic_ranking/overview.html", data)
+
+
+def category_ranking(request, language, page):
+
+    data = {
+
+    }
+
+    return render(request, "basic_ranking/category_ranking.html", data)

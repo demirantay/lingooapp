@@ -1,0 +1,70 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/basic_ranking/overview.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- header -->
+<div id="ranking-header">
+  <h1>Ranking</h1>
+</div>
+
+<!-- your own rank -->
+<p id="your-rank-meta-header">Your spanish rank:</p>
+<div id="your-own-rank">
+    <span id="your-won-rank-num">1500.</span>
+    <div id="profile-photo"></div>
+    <a href="">Username</a>
+    <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+    <p id="xp">201 <span id="xp-span"><b>XP</b></span></p>
+</div>
+
+
+<!-- navigation -->
+<div id="navigation">
+    <a href="">Overview</a>
+    <a href="" id="navigation-active"><div id="flag"></div> Spanish</a>
+    <a href=""><div id="flag"></div> French</a>
+    <a href=""><div id="flag"></div> Swedish</a>
+    <a href=""><div id="flag"></div> Swedish</a>
+    <a href=""><div id="flag"></div> Swedish</a>
+    <a href=""><div id="flag"></div> Swedish</a>
+</div>
+
+
+<!-- ranking list -->
+<div id="all-rankings">
+
+    <!-- rank cell -->
+    <div id="rank-cell">
+      <span id="your-won-rank-num">1500.</span>
+      <div id="profile-photo"></div>
+      <a href="">Username</a>
+      <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+      <p id="xp">201 <span id="xp-span"><b>XP</b></span></p>
+
+    </div>
+    <!-- /cell -->
+
+    <!-- rank cell -->
+    <div id="rank-cell">
+      <span id="your-won-rank-num">1500.</span>
+      <div id="profile-photo"></div>
+      <a href="">Username</a>
+      <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+      <p id="xp">14001 <span id="xp-span"><b>XP</b></span></p>
+    </div>
+    <!-- /cell -->
+
+</div>
+
+<!-- pagination -->
+<div id="pagination">
+  <a href=""><span class="fa fa-arrow-left"></span></a>
+  <a href=""><span class="fa fa-arrow-right"></span></a>
+</div>
+
+{% endblock %}
