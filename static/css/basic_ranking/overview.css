@@ -14,7 +14,7 @@ body {
   border: 1px solid lightgrey;
   background-color: white;
   padding: 8px 0px;
-  margin-bottom: 25px;
+  margin-bottom: 1px;
   border-radius: 5px;
 }
 
@@ -25,6 +25,7 @@ body {
   margin-left: 10px;
   font-weight: 700;
   vertical-align: middle;
+  width: 8%;
 }
 
 #profile-photo {
@@ -38,7 +39,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../placeholder/test.jpg");
+
   margin-right: 5px;
 }
 
@@ -47,12 +48,12 @@ body {
   color: black;
   vertical-align: middle;
   font-weight: 700;
+
 }
 
 #daily-streak {
   display: inline-block;
   margin: 0px;
-  margin-left: 10px;
   vertical-align: middle;
 }
 
@@ -90,6 +91,7 @@ body {
   width: 70%;
   overflow-x: scroll !important;
   white-space: nowrap;
+  margin-top: 25px;
 }
 
 #navigation::-webkit-scrollbar {
@@ -149,11 +151,19 @@ body {
   border-top: 0px;
 }
 
+#cell-user-link {
+  display: inline-block;
+  width: 15%;
+  overflow-x: hidden;
+  vertical-align: middle;
+}
+
 #rank-cell a {
   text-decoration: none;
   color: black;
   vertical-align: middle;
   font-weight: 700;
+
 }
 
 #rank-overview-cell-flag {
@@ -166,7 +176,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../flags/swedish.png");
   float: right;
   margin-right: 10px;
   margin-top: 5px;
