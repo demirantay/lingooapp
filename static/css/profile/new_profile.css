@@ -133,6 +133,18 @@ body {
   padding: 10px 0px;
 }
 
+#profile-daily-streak-p {
+  position: absolute;
+  top:0;
+  right: 0;
+  font-weight: 700;
+  margin-right: 10%;
+}
+
+#profile-daily-streak-p span {
+  color: #F1C40F;
+}
+
 
 /* ------- languages box ------- */
 

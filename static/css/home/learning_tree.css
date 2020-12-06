@@ -191,7 +191,34 @@ body {
   text-align: center;
   background-color: white;
   padding-bottom: 30px;
-  padding-top: 30px;
+  position: relative;
+}
+
+#learned-words-box-header {
+  border-bottom: 1px solid lightgrey;
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#learned-words-box-header h3 {
+  margin: 0px;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+#learned-words-box-daily-streak-p {
+  position: absolute;
+  top:0;
+  right: 0;
+  margin-top: 15px !important;
+  margin-right: 15px !important;
+}
+
+#learned-words-box-daily-streak-p span {
+  color: #F1C40F;
 }
 
 #learned-words-box p {

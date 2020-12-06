@@ -149,6 +149,16 @@
   margin-right: 15px;
 }
 
+
+#forum-daily-streak-p {
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+#forum-daily-streak-p span {
+  color: #F1C40F;
+}
+
 /* ---------------------------- comments container -----------------------*/
 #forum-read-comments-container {
   border: 1px solid lightgrey;
