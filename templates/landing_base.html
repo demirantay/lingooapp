@@ -14,7 +14,7 @@
     <meta name="author" content="Domingo" />
 
     <!-- FAVICON -->
-    <link rel="icon" href="{% static 'branding/logo.png' %}" />
+    <link rel="icon" href="{% static 'branding/favicon_logo.png' %}" />
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -54,7 +54,7 @@
 
     <!-- header -->
     <div id="top-nav">
-      <a href="{% url 'index' %}"><img src="{% static 'branding/logo.png' %}" alt="logo"/></a>
+      <a href="{% url 'index' %}"><img src="{% static 'branding/logo_v2.png' %}" alt="logo"/></a>
       <div id="top-nav-links">
         {% if current_basic_user == None %}
           <a href="{% url 'index' %}" id="top-nav-home-link" ><span class="fa fa-home"></span></a>

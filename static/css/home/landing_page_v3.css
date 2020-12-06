@@ -68,10 +68,10 @@ body {
 }
 
 #landing-top-nav img {
-  height: 50px;
+  height: 70px;
   float: left;
   vertical-align: middle;
-  margin-top: 8px;
+  margin-top: 0px;
   margin-left: 10%;
 }
 
