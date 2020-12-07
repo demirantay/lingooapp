@@ -19,7 +19,7 @@
         {% if current_basic_user_profile.profile_photo %}
           <div id="profile-photo" style="background-image: url('{{ current_basic_user_profile.profile_photo.url }}');"></div>
         {% else %}
-          <div id="profile-photo" style="background-image: url('');"></div>
+          <div id="profile-photo" style="background-image: url('{% static 'anon/anon-profile-photo.png' %}');"></div>
         {% endif %}
       </div>
       <div id="profile-info-box-top-part-right-side">

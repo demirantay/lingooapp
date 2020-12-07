@@ -1,11 +1,13 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/basic_ranking/overview.css' %}" />
 {% endblock %}
 
 {% block content %}
+{% with redirect_page="0" foo="foo" %}
 
 <!-- header -->
 <div id="ranking-header">
@@ -13,58 +15,82 @@
 </div>
 
 <!-- your own rank -->
-<p id="your-rank-meta-header">Your spanish rank:</p>
-<div id="your-own-rank">
-    <span id="your-won-rank-num">1500.</span>
-    <div id="profile-photo"></div>
-    <a href="">Username</a>
-    <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
-    <p id="xp">201 <span id="xp-span"><b>XP</b></span></p>
-</div>
+<p id="your-rank-meta-header">Your {{ page_langauge|title }} rank:</p>
+
+{% for student_profile in current_user_student_profiles %}
+  {% if student_profile.course %}
+    {% if student_profile.langauge.name == page_langauge %}
+      <div id="your-own-rank">
+          <span id="your-won-rank-num">{{current_student_rank}}.</span>
+          {% if student_profile.basic_user_profile.profile_photo %}
+            <div id="profile-photo" style="background-image: url('{{ student_profile.basic_user_profile.profile_photo.url }}');" ></div>
+          {% else %}
+            <div id="profile-photo" style="background-image: url('{% static 'anon/anon-profile-photo.png' %}');');" ></div>
+          {% endif %}
+
+          <div id="cell-user-link">
+            <a href="{% url 'profile_overview' foo foo %}">{{ student_profile.basic_user_profile.user.username  }}</a>
+          </div>
+          <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+          <div id="rank-overview-cell-flag" style="background-image: url('{{ student_profile.langauge.flag.url }}')"></div>
+          <p id="xp">{{ student_profile.xp }} <span id="xp-span"><b>XP</b></span></p>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 
 <!-- navigation -->
 <div id="navigation">
-    <a href="">Overview</a>
-    <a href="" id="navigation-active"><div id="flag"></div> Spanish</a>
-    <a href=""><div id="flag"></div> French</a>
-    <a href=""><div id="flag"></div> Swedish</a>
-    <a href=""><div id="flag"></div> Swedish</a>
-    <a href=""><div id="flag"></div> Swedish</a>
-    <a href=""><div id="flag"></div> Swedish</a>
+    <a href="{% url 'ranking_overview' redirect_page %}">Overview</a>
+    {% for student in current_user_student_profiles %}
+      {% if student.course %}
+        {% if student.langauge.name == page_langauge %}
+            <a id="navigation-active" href="{% url 'category_ranking' student.course.course_language redirect_page %}"><div id="flag" style="background-image: url('{{ student.langauge.flag.url }}');"></div> {{ student.course.course_language|title }}</a>
+        {% else %}
+            <a href="{% url 'category_ranking' student.course.course_language redirect_page %}"><div id="flag" style="background-image: url('{{ student.langauge.flag.url }}');"></div> {{ student.course.course_language|title }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 </div>
 
 
 <!-- ranking list -->
 <div id="all-rankings">
 
-    <!-- rank cell -->
-    <div id="rank-cell">
-      <span id="your-won-rank-num">1500.</span>
-      <div id="profile-photo"></div>
-      <a href="">Username</a>
-      <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
-      <p id="xp">201 <span id="xp-span"><b>XP</b></span></p>
-
-    </div>
-    <!-- /cell -->
-
-    <!-- rank cell -->
-    <div id="rank-cell">
-      <span id="your-won-rank-num">1500.</span>
-      <div id="profile-photo"></div>
-      <a href="">Username</a>
-      <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
-      <p id="xp">14001 <span id="xp-span"><b>XP</b></span></p>
-    </div>
-    <!-- /cell -->
+    {% for student in filtered %}
+      {% if student.course %}
+        <!-- rank cell -->
+        <div id="rank-cell">
+          <span id="your-won-rank-num">{{ rankings|get_key_value:student.id }}.</span>
+          {% if student.basic_user_profile.profile_photo %}
+            <div id="profile-photo" style="background-image: url('{{ student.basic_user_profile.profile_photo.url }}');"></div>
+          {% else %}
+            <div id="profile-photo" style="background-image: url('{% static 'anon/anon-profile-photo.png' %}');"></div>
+          {% endif %}
+          <div id="cell-user-link">
+              <a href="{% url 'other_user_profile_overview' student.basic_user_profile.user.username foo foo %}">{{ student.basic_user_profile.user.username  }}</a>
+          </div>
+          <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+          <div id="rank-overview-cell-flag" style="background-image: url('{{ student.langauge.flag.url }}')"></div>
+          <p id="xp">{{ student.xp }} <span id="xp-span"><b>XP</b></span></p>
+        </div>
+        <!-- /cell -->
+      {% endif %}
+    {% endfor %}
 
 </div>
 
 <!-- pagination -->
 <div id="pagination">
-  <a href=""><span class="fa fa-arrow-left"></span></a>
-  <a href=""><span class="fa fa-arrow-right"></span></a>
+  {% if current_page <= 0 %}
+    <a href=""><span class="fa fa-arrow-left"></span></a>
+    <a href="{% url 'category_ranking' page_langauge next_page %}"><span class="fa fa-arrow-right"></span></a>
+  {% else %}
+    <a href="{% url 'category_ranking' page_langauge previous_page %}"><span class="fa fa-arrow-left"></span></a>
+    <a href="{% url 'category_ranking' page_langauge next_page %}"><span class="fa fa-arrow-right"></span></a>
+  {% endif %}
 </div>
 
+{% endwith %}
 {% endblock %}
