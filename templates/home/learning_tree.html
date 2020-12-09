@@ -1,5 +1,6 @@
 {% extends 'main_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home/learning_tree.css' %}" />
@@ -7,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-{% with spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
+{% with redirect_page="0" foo="foo" spanish="spanish" english="english" french="french" german="german" italian="italian" japanese="japanese" chinese="chinese" russian="russian" korean="korean" portuguese="portuguese" arabic="arabic" dutch="dutch" swedish="swedish" norwegian="norwegian" turkish="turkish" polish="polish" irish="irish" greek="greek" hebrew="hebrew" danish="danish" hindi="hindi" czech="czech" esperanto="esperanto" ukranian="ukranian" welsh="welsh" vietnamese="vietnamese" hungarian="hungarian" swahili="swahili" romanian="romanian" indonesian="indonesian" finnish="finnish" bengali="bengali" %}
 
 <!-- center part -->
 <div id="center-part">
@@ -511,51 +512,29 @@
 
   <!-- Current Lesson rankings -->
   <div id="current-lesson-ranking">
-    <a href="">
+    <a href="{% url 'ranking_overview' redirect_page %}">
       <div id="current-lesson-ranking-header">
         <h3>Ranking </h3>
-        <div id="current-lesson-ranking-flag"></div>
+        <div id="current-lesson-ranking-flag" style="background-image:url('{{ current_student.langauge.flag.url }}')"></div>
       </div>
     </a>
 
     <!-- max 5 people whowing (2 upper - 2 bottom (current user in the middle)) -->
 
     <!-- ranking cell -->
-    <div id="current-lesson-ranking-cell">
-      <p>1400.</p>
-      <div id="ranking-profile-photo"></div>
-      <a href="">username</a>
-      <p id="current-ranking-xp"> 150 <span>XP</span></p>
-    </div>
 
-    <div id="current-lesson-ranking-cell">
-      <p>1400.</p>
-      <div id="ranking-profile-photo"></div>
-      <a href="">username</a>
-      <p id="current-ranking-xp"> 150 <span>XP</span></p>
-    </div>
-
-    <div id="current-lesson-ranking-cell" class="active-ranking-cell">
-      <p>1400.</p>
-      <div id="ranking-profile-photo"></div>
-      <a href="">username</a>
-      <p id="current-ranking-xp"> 150 <span>XP</span></p>
-    </div>
-
-    <div id="current-lesson-ranking-cell">
-      <p>1400.</p>
-      <div id="ranking-profile-photo"></div>
-      <a href="">username</a>
-      <p id="current-ranking-xp"> 150 <span>XP</span></p>
-    </div>
-
-    <div id="current-lesson-ranking-cell">
-      <p>1400.</p>
-      <div id="ranking-profile-photo"></div>
-      <a href="">username</a>
-      <p id="current-ranking-xp"> 150 <span><b>XP</b></span></p>
-    </div>
-
+    {% for rank in ranking_box %}
+      <div id="current-lesson-ranking-cell" {% if rank == current_student %}class="active-ranking-cell"{% endif %} >
+        <p id="current-lesson-ranking-cell-left-rank-num">{{ rankings|get_key_value:rank.id }}.</p>
+        {% if rank.basic_user_profile.profile_photo %}
+          <div id="ranking-profile-photo" style="background-image:url('{{ rank.basic_user_profile.profile_photo.url }}')"></div>
+        {% else %}
+          <div id="ranking-profile-photo" style="background-image:url('{% static 'anon/anon-profile-photo.png' %}')"></div>
+        {% endif %}
+        <a href="{% url 'other_user_profile_overview' rank.basic_user_profile.username foo foo %}">{{ rank.basic_user_profile.username }}</a>
+        <p id="current-ranking-xp"> {{ rank.xp }} <span>XP</span></p>
+      </div>
+    {% endfor %}
   </div>
 
   <!-- social links box -->

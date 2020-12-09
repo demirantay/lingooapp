@@ -12,7 +12,7 @@ from profile_settings.models import BasicUserProfile
 from teacher_authentication.models import TeacherUserProfile
 from basic_vocab_container.models import BasicVocabularyContainer
 from basic_vocab_container.models import StudentVocabProgress
-from basic_language_explore.models import BasicLanguageCourse, Student
+from basic_language_explore.models import BasicLanguageCourse, Student, Language
 from basic_notifications.models import NotificationBase
 
 from utils.session_utils import get_current_user, get_current_user_profile
@@ -299,6 +299,49 @@ def learn_index(request, course_language, speakers_language):
     if advanced_progress >= 16000:
         is_advanced_done = True
 
+    # Getting the data for the ranking feature on the homepage
+    try:
+        current_langauge = Language.objects.get(
+            name=current_course.course_language
+        )
+    except ObjectDoesNotExist:
+        current_langauge = None
+
+    try:
+        all_student_profiles = Student.objects.filter(
+            langauge=current_langauge
+        ).order_by("-xp")
+    except ObjectDoesNotExist:
+        all_student_profiles = None
+
+    # Get all the ranks for the bottom
+    rankings = {}
+    rank = 1
+    for student in all_student_profiles:
+        rankings[student.id] = rank
+        rank += 1
+
+    current_student_rank = list(all_student_profiles).index(current_student)
+
+    ranking_box = []
+
+    # add the upper ranks
+    if current_student_rank > 1:
+        ranking_box.append(all_student_profiles[current_student_rank - 2])
+        ranking_box.append(all_student_profiles[current_student_rank - 1])
+    elif current_student_rank == 1:
+        ranking_box.append(all_student_profiles[current_student_rank - 1])
+
+    # add the current student rank
+    ranking_box.append(all_student_profiles[current_student_rank])
+
+    # add the lower ranks
+    if len(all_student_profiles) - (current_student_rank + 1) >= 2:
+        ranking_box.append(all_student_profiles[current_student_rank + 1])
+        ranking_box.append(all_student_profiles[current_student_rank + 2])
+    elif len(all_student_profiles) - (current_student_rank + 1) == 1:
+        ranking_box.append(all_student_profiles[current_student_rank + 1])
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -331,6 +374,9 @@ def learn_index(request, course_language, speakers_language):
         "b2_course_not_built": b2_course_not_built,
         "c1_course_not_built": c1_course_not_built,
         "advanced_course_not_built": advanced_course_not_built,
+
+        "ranking_box": ranking_box,
+        "rankings": rankings,
     }
 
     if current_basic_user == None:
