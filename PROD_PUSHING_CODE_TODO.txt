@@ -22,6 +22,7 @@
 
 - [ ] After ssh check if everything works correctly, check the site manually
       (check if posgres server, nginx running in the background)
+- [ ] BACKUP
 - [ ] Check if env_vars are working (manually check the site it will tell you)
 - [ ] Check if secret key is read from a file & the db password
 - [ ] Git pull the codes

@@ -36,6 +36,26 @@ body {
   background-color: white;
 }
 
+#loading-screen {
+  background-color: white;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  text-align: center;
+}
+
+#loading-gif {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  z-index: 999;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
 /* ------- utils ----- */
 
 #red-span {

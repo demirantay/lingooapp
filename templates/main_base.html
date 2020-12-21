@@ -51,6 +51,12 @@
 
 <body>
 
+  <!-- LOADER ANIMATION -->
+  <div id="loading-screen">
+    <img id="loading-gif" src="{% static 'loaders/loader-1.gif' %}" alt="Loading..." />
+  </div>
+
+
   <div id="responsive-wrapper">
 
     {% with page="0" english="english" foo="foo" %}
@@ -142,6 +148,12 @@
   <script src="{% static 'js/mobile_nav_toggle.js' %}" type="text/javascript"></script>
   <script src="{% static 'js/main_base_left_nav_toggle.js' %}"></script>
 
+  <!-- loading js -->
+  <script>
+    window.onload = function() {
+      document.getElementById("loading-screen").style.display = "none"
+    }
+  </script>
 
 </body>
 
