@@ -75,8 +75,6 @@ def profile_overview(request, course_language, speakers_language):
     if all_student_profiles == [] or bool(all_student_profiles) == False:
         return HttpResponseRedirect("/")
 
-    print(all_student_profiles)
-
     # Get the current course
     try:
         current_course = BasicLanguageCourse.objects.get(

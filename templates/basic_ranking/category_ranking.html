@@ -31,7 +31,9 @@
           <div id="cell-user-link">
             <a href="{% url 'profile_overview' foo foo %}">{{ student_profile.basic_user_profile.user.username  }}</a>
           </div>
+          <!-- DAILY STREAK
           <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+          -->
           <div id="rank-overview-cell-flag" style="background-image: url('{{ student_profile.langauge.flag.url }}')"></div>
           <p id="xp">{{ student_profile.xp }} <span id="xp-span"><b>XP</b></span></p>
       </div>
@@ -71,7 +73,9 @@
           <div id="cell-user-link">
               <a href="{% url 'other_user_profile_overview' student.basic_user_profile.user.username foo foo %}">{{ student.basic_user_profile.user.username  }}</a>
           </div>
+          <!-- DAILY STREAK
           <p id="daily-streak"><span class="fa fa-star"></span> 12</p>
+          -->
           <div id="rank-overview-cell-flag" style="background-image: url('{{ student.langauge.flag.url }}')"></div>
           <p id="xp">{{ student.xp }} <span id="xp-span"><b>XP</b></span></p>
         </div>
