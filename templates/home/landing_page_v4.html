@@ -1,0 +1,128 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home/landing_page_v4.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- top navigation -->
+<div id="top-navigation">
+  <img alt="logo" src="{% static 'branding/logo_v2.png' %}" />
+  <div id="top-nav-links">
+    <a href="{% url 'index' %}">Home</a>
+    <p>|</p>
+    <a href="{% url 'signup' %}">Sign up</a>
+    <a href="{% url 'login' %}">Log in</a>
+  </div>
+</div>
+
+<!-- landing welcome banner -->
+<div id="welcome-banner">
+  <div id="welcome-banner-left-part">
+    <p>DOMINGO</p>
+    <h1>Community Driven Language Learning</h1>
+    <p id="slogan-p">Learn new languages. Meet new people. No credit card needed.</p>
+    <a href="{% url 'signup' %}">GET DOMINGO FREE</a>
+  </div>
+  <div id="welcome-banner-right-part">
+    <div id="welcome-img-background">
+      <div id="welcome-img-foreground" style="background-image: url('{% static 'images/home/landing_page_1.jpg' %}');">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- why domingo banner -->
+<div id="why-us-banner">
+  <div id="why-us-top-part">
+    <h1>Why Domingo?</h1>
+    <p>
+      Language learning should not be a solo adventure.
+      Every part of Domingo is designed to make you interact with other
+      learners and meet new people.
+    </p>
+  </div>
+  <div id="why-us-bottom-part">
+    <!-- community -->
+    <div id="why-us-bottom-box">
+      <div id="explanation-span-community">
+        <span class="fa fa-heart"></span>
+        <h3>Become a member</h3>
+        <p>Meet new people and become a part of our community.</p>
+      </div>
+    </div>
+    <!-- learning cirriculum -->
+    <div id="why-us-bottom-box">
+      <div id="explanation-span-learning">
+        <span class="fa fa-book"></span>
+        <h3>Learn by using</h3>
+        <p>Our platform is designed for you to interact with other learners.</p>
+      </div>
+    </div>
+    <!-- track your progress -->
+    <div id="why-us-bottom-box">
+      <div id="explanation-span-track">
+        <span class="fa fa-battery-full"></span>
+        <h3>Track your progress</h3>
+        <p>Do not lose your motivation while learning with our tracking features.</p>
+      </div>
+    </div>
+    <!-- voice matters -->
+    <div id="why-us-bottom-box">
+      <div id="explanation-span-voting">
+        <span class="fa fa-university"></span>
+        <h3>Your voice matters</h3>
+        <p>Every user has the ability to vote on how we run the site as a community.</p>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'signup' %}">JOIN OUR COMMUNITY</a>
+</div>
+
+
+<!-- what do we provide banner -->
+<div id="provide-banner">
+  <h1>We Provide the Following</h1>
+  <div id="provide-banner-list">
+    <ul>
+      <li>Basic learning cirriculum that takes you from A1 to C1</li>
+      <li>Review lessons to sharpen your new knowledge</li>
+      <li>Leaderboard rankings to see your place among the community</li>
+      <li>Forum to create discussions and answer questions</li>
+      <li>Profile and Analytics to track your progress</li>
+      <li>Congress system where every user has the ability to add or remove features to the site</li>
+      <li>Feedback system where users get a direct communication line with the dev team</li>
+    </ul>
+  </div>
+  <a href="{% url 'signup' %}">SIGN UP TO DOMINGO</a>
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer-left-part">
+    <a href="{% url 'index' %}"><img alt="logo" src="{% static 'branding/logo_v2.png' %}" /></a>
+  </div>
+  <div id="footer-middle-part">
+    <div id="middle-col">
+      <p>Company</p>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact_us'%}">Contact</a>
+    </div>
+    <div id="middle-col">
+      <p>Rules</p>
+      <a href="{% url 'about_community_rules' %}">Community Rules</a>
+      <a href="{% url 'about_terms' %}">Terms and Agreements</a>
+      <a href="{% url 'about_privacy' %}">Privacy Policy</a>
+    </div>
+  </div>
+  <div id="footer-right-part">
+    <a target="_blank" href="https://twitter.com/getdomingo"><span id="social-link" class="fa fa-twitter"></span></a>
+    <a target="_blank" href="https://www.reddit.com/r/DomingoApp/"><span id="social-link" class="fa fa-reddit"></span></a>
+    <a target="_blank" href="https://open.spotify.com/user/mrv1sogpykei6bpha5icfsriv"><span id="social-link" class="fa fa-spotify"></span></a>
+  </div>
+</div>
+
+{% endblock %}
