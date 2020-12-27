@@ -18,6 +18,39 @@
   </div>
 </div>
 
+<!-- hidden mobile top navigation -->
+<div id="hidden-mobile-navigation-toggler">
+  <img alt="logo" src="{% static 'branding/logo_v2.png' %}" />
+  <button id="open_hidden_nav_btn"><span class="fa fa-bars"></span></button>
+</div>
+
+<div id="hidden-mobile-navigation">
+  <button id="close_hidden_nav_btn"><span class="fa fa-close"></span></button>
+  <div id="hidden-mobile-links">
+      <a href="{% url 'index' %}">Home</a>
+      <p>_____</p>
+      <a href="{% url 'signup' %}">Sign up</a>
+      <a href="{% url 'login' %}">Log in</a>
+  </div>
+  <img alt="logo" src="{% static 'branding/logo_v2.png' %}" />
+</div>
+
+<script>
+  let hidden_navigation = document.getElementById("hidden-mobile-navigation");
+  let open_nav_button = document.getElementById("open_hidden_nav_btn");
+  let close_nav_button = document.getElementById("close_hidden_nav_btn");
+
+  open_nav_button.onclick = function() {
+    hidden_navigation.style.transition = "0.5s";
+    hidden_navigation.style.display = "block";
+  }
+
+  close_nav_button.onclick = function() {
+    hidden_navigation.style.transition = "0.5s";
+    hidden_navigation.style.display = "none";
+  }
+</script>
+
 <!-- landing welcome banner -->
 <div id="welcome-banner">
   <div id="welcome-banner-left-part">
