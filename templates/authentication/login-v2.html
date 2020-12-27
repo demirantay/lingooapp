@@ -1,0 +1,36 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/signup-v2.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="signup-container">
+    <a id="home-link" href="{% url 'index' %}"><img alt="logo" src="{% static 'branding/logo_v2.png' %}" /></a>
+    <h1>Login to your account</h1>
+
+    {% if invalid_credentials == True %}
+    <div id="signup-login-warning-box">
+      <p>Invalid username or password</p>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}" >
+      {% csrf_token %}
+      <label>Username</label>
+      <input type="text" placeholder="Username" name="username"/>
+      <label>Password</label>
+      <input type="password" placeholder="Password" name="password" />
+      <input type="submit" value="Login" name="login_form_submit_btn" id="signup-form-submit-btn" />
+    </form>
+
+    <br />
+    <p><b>Don't have an account? <a href="{% url 'signup' %}">Signup for free</a>.</b></p>
+    <!--<a id="signup-link" href="{% url 'signup' %}">SIGN UP FOR DOMINGO</a>-->
+
+</div>
+
+
+{% endblock %}

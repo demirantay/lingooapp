@@ -1,0 +1,134 @@
+
+#signup-container {
+  border: 1px solid transparent;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 120px;
+}
+
+#signup-container h1 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+#home-link img {
+  height: 120px;
+  margin: 0 auto;
+}
+
+#signup-container form {
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#signup-container form label {
+  font-weight: 700;
+  margin-bottom: 5px !important;
+  display: block;
+  font-size: 14px;
+}
+
+#signup-container form input {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #BDBDBD;
+  padding: 15px 10px;
+  border-radius: 4px;
+}
+
+#signup-container form input:focus {
+  outline: none;
+  border-color: black;
+}
+
+#signup-container form p {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+}
+
+#signup-container form p a {
+  color: #E3102E;
+}
+
+#signup-form-submit-btn {
+  width: 100% !important;
+  background-color: #E3102E;
+  color: white;
+  border: 1px solid #E3102E !important;
+  border-radius: 20px !important;
+  font-weight: 700;
+  margin: 0 auto;
+  margin-left: 10px;
+}
+
+#signup-form-submit-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #A50E23;
+  border-color: #A50E23
+}
+
+#signup-container p a {
+  color: #E3102E;
+}
+
+#signup-link {
+  background-color: white;
+  border: 2px solid grey;
+  font-weight: 700;
+  padding: 10px 0px;
+  border-radius: 15px;
+  color: grey;
+  text-decoration: none;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+#signup-link:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+  transition: 0.2s;
+}
+
+/* ----------- warning box ---------- */
+#signup-login-warning-box {
+  background-color: #E67E22;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 0px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: 0.2s;
+  margin-left: 20px;
+}
+
+#signup-login-warning-box p {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+#signup-login-warning-box ul {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#signup-login-warning-box ul li {
+  color: white;
+  font-size: 13px;
+}

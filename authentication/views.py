@@ -159,7 +159,7 @@ def signup(request):
         "contains_space_in_credentials": contains_space_in_credentials,
     }
 
-    return render(request, "authentication/signup.html", data)
+    return render(request, "authentication/signup-v2.html", data)
 
 
 def login(request):
@@ -259,7 +259,7 @@ def login(request):
         "invalid_credentials": invalid_credentials,
     }
 
-    return render(request, "authentication/login.html", data)
+    return render(request, "authentication/login-v2.html", data)
 
 
 def logout(request):
