@@ -132,3 +132,157 @@
   color: white;
   font-size: 13px;
 }
+
+
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+  #signup-container {
+    width: 95%;
+    padding-bottom: 120px;
+  }
+
+  #signup-container h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  #signup-container form {
+    width: 95%;
+    margin-left: -3px;
+  }
+
+  #signup-container p {
+    font-size: 12px;
+  }
+
+  /* ----------- warning box ---------- */
+  #signup-login-warning-box {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: -10px;
+  }
+
+  #signup-login-warning-box p {
+    font-size: 14px;
+  }
+
+  #signup-login-warning-box ul {
+    font-size: 14px;
+    width: 80%;
+    margin-left: -5px;
+  }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #signup-container {
+    width: 95%;
+    padding-bottom: 120px;
+  }
+
+  #signup-container h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  #signup-container form {
+    width: 95%;
+    margin-left: -3px;
+  }
+
+  #signup-container p {
+    font-size: 12px;
+  }
+
+  /* ----------- warning box ---------- */
+  #signup-login-warning-box {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: -10px;
+  }
+
+  #signup-login-warning-box p {
+    font-size: 14px;
+  }
+
+  #signup-login-warning-box ul {
+    font-size: 14px;
+    width: 80%;
+    margin-left: -5px;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #signup-container {
+    width: 95%;
+    padding-bottom: 120px;
+  }
+
+  #signup-container h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  #signup-container form {
+    width: 95%;
+    margin-left: -3px;
+  }
+
+  #signup-container p {
+    font-size: 12px;
+  }
+
+  /* ----------- warning box ---------- */
+  #signup-login-warning-box {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: -10px;
+  }
+
+  #signup-login-warning-box p {
+    font-size: 14px;
+  }
+
+  #signup-login-warning-box ul {
+    font-size: 14px;
+    width: 80%;
+    margin-left: -5px;
+  }
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+  #signup-container {
+    width: 25%;
+    padding-bottom: 120px;
+  }
+}
