@@ -11,6 +11,94 @@ body {
 }
 
 
+/* -------------------- Notification Box -----------------*/
+#notification-box-container {
+  position: fixed;
+  right:0;
+  top:0;
+  z-index: 999;
+  margin-right: 50px;
+  margin-top: 20px;
+  width: 30%;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+#notification-box {
+  background-color: #F1C40F;
+  position: relative;
+  padding: 10px;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#notification-box-left-part {
+  border: 1px solid transparent;
+  width: 15%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#left-horizontal-bar {
+  border-left: 5px solid black;
+  margin-right: 10px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+#notification-box-left-part span {
+  font-size: 30px;
+  vertical-align: middle;
+  color: black;
+}
+
+#notification-box-middle-part {
+  border: 1px solid transparent;
+  width: 63%;
+  margin-left: 2%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 6%;
+}
+
+#notification-box-middle-part h3 {
+  margin: 0px;
+  color: black;
+  font-size: 18px;
+}
+
+#notification-box-middle-part p {
+  margin: 0px;
+  color: black;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+#notification-box-right-part form input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 20px;
+  position: absolute;
+  top:0;
+  right: 0;
+  color: black;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-weight: 900;
+}
+
+#notification-box-right-part form input:hover {
+  cursor: pointer;
+  color: red;
+}
+
 /* -------------------- CENTER PART ------------------- */
 #center-part {
   border: 1px solid transparent;
@@ -483,6 +571,23 @@ body {
   }
 
 
+  /* -------------------- Notification Box -----------------*/
+  #notification-box-container {
+    margin-right: 30px;
+    margin-top: 20px;
+    width: 80%;
+  }
+
+  #notification-box-left-part {
+    display: none;
+  }
+
+  #notification-box-middle-part {
+    width: 80%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
 }
 
 
@@ -545,6 +650,23 @@ body {
       margin-top: 0px;
     }
 
+    /* -------------------- Notification Box -----------------*/
+    #notification-box-container {
+      margin-right: 30px;
+      margin-top: 20px;
+      width: 80%;
+    }
+
+    #notification-box-left-part {
+      display: none;
+    }
+
+    #notification-box-middle-part {
+      width: 80%;
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+
 }
 
 
@@ -605,6 +727,23 @@ body {
     #learned-words-box {
       border: 1px solid lightgrey;
       margin-top: 0px;
+    }
+
+    /* -------------------- Notification Box -----------------*/
+    #notification-box-container {
+      margin-right: 30px;
+      margin-top: 20px;
+      width: 80%;
+    }
+
+    #notification-box-left-part {
+      display: none;
+    }
+
+    #notification-box-middle-part {
+      width: 80%;
+      margin-left: 2%;
+      margin-right: 2%;
     }
 
 }
