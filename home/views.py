@@ -13,7 +13,8 @@ from teacher_authentication.models import TeacherUserProfile
 from basic_vocab_container.models import BasicVocabularyContainer
 from basic_vocab_container.models import StudentVocabProgress
 from basic_language_explore.models import BasicLanguageCourse, Student, Language
-from basic_notifications.models import NotificationBase
+from basic_notifications.models import NotificationBase, AnnouncementIsRead
+from basic_notifications.models import AnnouncementNotification
 
 from utils.session_utils import get_current_user, get_current_user_profile
 from utils.session_utils import get_current_teacher_user_profile
@@ -342,6 +343,49 @@ def learn_index(request, course_language, speakers_language):
     elif len(all_student_profiles) - (current_student_rank + 1) == 1:
         ranking_box.append(all_student_profiles[current_student_rank + 1])
 
+    # Getting the announcements that the current user has not read
+    try:
+        all_announcaments = AnnouncementNotification.objects.all(
+        ).order_by("-id")
+    except ObjectDoesNotExist:
+        all_announcaments = None
+
+    # Get the current users read(dismissed announcaments)
+    try:
+        user_announcement_dismiss_objcects = AnnouncementIsRead.objects.filter(
+            user_profile=current_basic_user_profile
+        )
+        read_announcaments = []
+        for announcement in user_announcement_dismiss_objcects:
+            read_announcaments.append(announcement.announcement)
+    except ObjectDoesNotExist:
+        user_announcement_dismiss_objcects = None
+        read_announcaments = []
+
+    # Create a new array that is filled with the announcaments that are
+    # not dissmised by the current user
+    filtered_announcaments = []
+
+    for announcament in list(all_announcaments):
+        if announcament in read_announcaments:
+            print("this announcament is read")
+        else:
+            filtered_announcaments.append(announcament)
+
+    # Announcament dismiss (read) forum processing
+    if request.POST.get("notification_announcament_dismiss_clicked"):
+        hidden_announcament_id = request.POST.get("hidden_announcament_id")
+        hidden_announcament = AnnouncementNotification.objects.get(
+            id=hidden_announcament_id
+        )
+        # create the new annoucment is read model record
+        new_notification_dismiss = AnnouncementIsRead(
+            announcement=hidden_announcament,
+            user_profile=current_basic_user_profile,
+        )
+        new_notification_dismiss.save()
+        return HttpResponseRedirect("/")
+
     data = {
         "current_basic_user": current_basic_user,
         "current_basic_user_profile": current_basic_user_profile,
@@ -377,6 +421,8 @@ def learn_index(request, course_language, speakers_language):
 
         "ranking_box": ranking_box,
         "rankings": rankings,
+
+        "filtered_announcaments": filtered_announcaments,
     }
 
     if current_basic_user == None:

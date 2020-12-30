@@ -13,22 +13,26 @@
 <!-- NOTIFICATION BOX -->
 <div id="notification-box-container">
 
-  <!-- notificatiion cell -->
-  <div id="notification-box">
-    <div id="notification-box-left-part">
-      <div id="left-horizontal-bar"></div>
-      <span class="fa fa-info-circle"></span>
-    </div>
-    <div id="notification-box-middle-part">
-      <h3>Did you know?</h3>
-      <p>Here is something you might like to know.</p>
-    </div>
-    <div id="notification-box-right-part">
-      <form>
-        <input type="submit" value="X">
-      </form>
-    </div>
-  </div><!-- /cell -->
+  {% for announcament in filtered_announcaments %}
+    <!-- notificatiion cell -->
+    <div id="notification-box">
+      <div id="notification-box-left-part">
+        <div id="left-horizontal-bar"></div>
+        <span class="fa fa-info-circle"></span>
+      </div>
+      <div id="notification-box-middle-part">
+        <h3>{{ announcament.title }}</h3>
+        <p>{{ announcament.content|linebreaks }}</p>
+      </div>
+      <div id="notification-box-right-part">
+        <form action="{% url 'learn_index' current_student.course.course_language current_student.course.course_speakers_language %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" value="{{ announcament.id }}" name="hidden_announcament_id" />
+          <input type="submit" value="X" name="notification_announcament_dismiss_clicked">
+        </form>
+      </div>
+    </div><!-- /cell -->
+  {% endfor %}
 
 </div><!--/container -->
 
