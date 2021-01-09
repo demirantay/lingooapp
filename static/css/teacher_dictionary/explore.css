@@ -1,0 +1,84 @@
+#dictionary-explore-container {
+  margin-top: 0px;
+}
+
+#dictionary-explore-container h1 {
+  margin-top: 10px;
+}
+
+#dictionary-explore-container a {
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 7px;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  width: 50%;
+}
+
+#dictionary-explore-container a:hover {
+  transition: 0.2s;
+  background-color: black;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #dictionary-explore-container a {
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 18px;
+    width: 95%;
+  }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #dictionary-explore-container a {
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 18px;
+    width: 95%;
+  }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #dictionary-explore-container a {
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 18px;
+    width: 95%;
+  }
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}

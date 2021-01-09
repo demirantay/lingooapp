@@ -107,6 +107,11 @@ urlpatterns = [
     # ...
     path("", include("basic_ranking.urls")),
 
+    # Teacher Dictionary
+    # ---------------
+    # ...
+    path("", include("teacher_dictionary.urls")),
+
 ]
 
 if settings.DEBUG:

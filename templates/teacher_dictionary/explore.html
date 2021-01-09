@@ -1,0 +1,23 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_dictionary/explore.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- dictionary container -->
+<div id="dictionary-explore-container">
+  <h1>Dictionary Explore</h1>
+
+  <a href="">Spanish to English</a>
+
+  <a href="">Spanish to French</a>
+
+  <a href="">Spanish to Turkish</a>
+
+</div>
+
+{% endblock %}
