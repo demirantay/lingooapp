@@ -1,0 +1,124 @@
+#dictioanry-build-container {
+
+}
+
+#dictioanry-build-container h1 {
+  margin-top: 10px;
+}
+
+#dictioanry-build-container h3 {
+
+}
+
+#teacher-word-add-form {
+  margin-bottom: 20px;
+}
+
+#teacher-word-add-form input {
+  padding: 10px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+#teacher-word-add-form input:focus {
+  border-color: black;
+  outline: none;
+}
+
+#teacher-word-add-form-submit-btn {
+  background-color: #2E4053;
+  color: white;
+  border-color: #2E4053;
+}
+
+#teacher-word-add-form-submit-btn:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+#production-push-form {
+  position: absolute;
+  top:0;
+  right:0;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+#production-push-form input {
+  background-color: #2E4053;
+  color: white;
+  padding: 5px 20px;
+  border-color: #2E4053;
+  border-radius: 5px;
+}
+
+#production-push-form input:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+#horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* ------------- cell row ----------------- */
+#cell-row {
+  border: 1px solid transparent;
+}
+
+#cell-row-left-box {
+  border: 1px solid lightgrey;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
+  text-align: center;
+  background-color: white;
+
+}
+
+#cell-row-left-box p {
+  padding: 0px;
+  margin: 0px;
+}
+
+#cell-row-middle-box {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5%;
+  text-align: center;
+}
+
+#cell-row-middle-box  span {
+  padding: 0px;
+  margin: 0px;
+}
+
+#cell-row-right-box {
+  border: 1px solid lightgrey;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
+  text-align: center;
+  background-color: white;
+  margin-right: 1%;
+}
+
+#cell-row-right-box p {
+  padding: 0px;
+  margin: 0px;
+}
+
+#cell-row a {
+  background-color: #2E4053;
+  color: white;
+  text-decoration: none;
+  padding: 1px 10px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+#cell-row a:hover {
+  background-color: #F1C40F;
+}

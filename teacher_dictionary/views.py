@@ -19,3 +19,15 @@ def teacher_dictionary_explore(request):
     }
 
     return render(request, "teacher_dictionary/explore.html", data)
+
+
+def teacher_dictionary_build(request):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "teacher_dictionary/build.html", data)

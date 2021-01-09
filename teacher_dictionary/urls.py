@@ -8,4 +8,11 @@ urlpatterns = [
         views.teacher_dictionary_explore,
         name="teacher_dictionary_explore"
     ),
+
+    # teacher dictionary - CRUD page
+    path(
+        "teacher/dictionary/build/",
+        views.teacher_dictionary_build,
+        name="teacher_dictionary_build"
+    ),
 ]

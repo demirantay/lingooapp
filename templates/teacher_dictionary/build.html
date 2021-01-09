@@ -1,0 +1,46 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_dictionary/build.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- dictionary build container -->
+<div id="dictioanry-build-container">
+
+  <h1>Dictionary Builder</h1>
+  <h3>(Spanish for English speakers)</h3>
+
+  <form method="POST" id="teacher-word-add-form">
+    <input type="text" placeholder="Spanish" />
+    <input type="text" placeholder="English" />
+    <input type="submit" value="Add" id="teacher-word-add-form-submit-btn"/>
+  </form>
+
+  <form id="production-push-form">
+    <input type="submit" value="push to production" />
+  </form>
+
+  <div id="horizontal-line"></div>
+
+  <!-- displaying all of the added words -->
+
+  <div id="cell-row">
+    <div id="cell-row-left-box">
+        <p>Hola</p>
+    </div>
+    <div id="cell-row-middle-box">
+        <span class="fa fa-arrow-right"></span>
+    </div>
+    <div id="cell-row-right-box">
+      <p>Hello</p>
+    </div>
+    <a href="">edit</a>
+  </div>
+
+</div>
+
+{% endblock %}
