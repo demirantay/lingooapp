@@ -20,5 +20,6 @@ A: Because at the moment I am a single developer. So writing loads of documentat
 <Br>
 <br>
 
-Q: What is the archive/ folder for?
-A: Archive folder holds the old documentation system which was not good at all. I keep the old documentation files inside it, because deleting them and having them anymore could be harmful in the long run.
+Q: What is the archive/ folder for?<br>
+A: Archive folder holds the old documentation system which was not good at all. I keep the old documentation files inside it, because deleting them and having them anymore could be harmful in the long run.<br>
+<br>
