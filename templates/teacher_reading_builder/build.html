@@ -1,0 +1,106 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_reading_builder/build.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!--  container -->
+<div id="teacher-reading-build-container">
+
+  <!-- entreance banner -->
+  <h1>Reading Builder</h1>
+  <h3>(Spanish for English speakers)</h3>
+
+  <div id="horizontal-line"></div>
+
+  <!-- main shortcut buttons -->
+  <div id="lesson-add-btn-container">
+    <button id="open_hidden_add_panel_btn"><span class="fa fa-plus"></span> Add a new lesson</button>
+  </div>
+
+  <div id='hidden-lesson-add-panel-bg-greying'></div>
+  <div id="hidden-lesson-add-panel">
+    <button id="hidden-lesson-add-panel-close-btn"><span class="fa fa-close"></span></button>
+    <form>
+        <input type="text" placeholder="Lesson name" />
+        <select>
+          <option value="a0">A0</option>
+          <option value="a1">A1</option>
+          <option value="a2">A2</option>
+          <option value="b1">B1</option>
+          <option value="b2">B2</option>
+          <option value="c1">C1</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <input id="create-new-lesson-submit-btn" type="submit" value="CREATE" />
+    </form>
+  </div>
+
+  <script>
+    let hidden_lesson_add_panel = document.getElementById("hidden-lesson-add-panel");
+    let hidden_lesson_add_panel_bg = document.getElementById("hidden-lesson-add-panel-bg-greying");
+    let open_hidden_add_panel_btn = document.getElementById("open_hidden_add_panel_btn")
+    let close_hidden_add_panel_btn = document.getElementById("hidden-lesson-add-panel-close-btn");
+
+    open_hidden_add_panel_btn.onclick = function() {
+      hidden_lesson_add_panel.style.display = "block";
+      hidden_lesson_add_panel_bg.style.display = "block";
+    }
+
+    close_hidden_add_panel_btn.onclick = function() {
+      hidden_lesson_add_panel.style.display = "none";
+      hidden_lesson_add_panel_bg.style.display = "none";
+    }
+  </script>
+
+  <div id="production-push-buttons">
+      <button>push A0 to production</button>
+      <button>push A1 to production</button>
+      <button>push A2 to production</button>
+      <button>push B1 to production</button>
+      <button>push B2 to production</button>
+      <button>push C1 to production</button>
+      <button>push AD to production</button>
+  </div>
+
+  <div id="prod-push-success-notification">
+    <button id="prod-push-success-close-btn"><span class="fa fa-close"></span></button>
+    <p>Production push was successful!</p>
+  </div>
+
+  <div id="prod-push-error-notification">
+    <button id="prod-push-error-close-btn"><span class="fa fa-close"></span></button>
+    <p>Production push was interrupted by an error!</p>
+  </div>
+
+  <script>
+    let prod_success_panel = document.getElementById("prod-push-success-notification");
+    let prod_success_close_btn = document.getElementById("prod-push-success-close-btn");
+
+    let prod_error_panel = document.getElementById("prod-push-error-notification");
+    let prod_error_close_btn = document.getElementById("prod-push-error-close-btn");
+
+    prod_success_close_btn.onclick = function() {
+      prod_success_panel.style.display = "none";
+    }
+
+    prod_error_close_btn.onclick = function() {
+      prod_error_panel.style.display = "none";
+    }
+
+  </script>
+
+  <div id="horizontal-line"></div>
+
+  <!--
+  displaying all of the lessons with levels and
+  sentences and tolerated typing
+  -->
+
+</div>
+
+{% endblock %}

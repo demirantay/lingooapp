@@ -18,4 +18,4 @@ def teacher_reading_build(request):
 
     }
 
-    return render(request, "teacher_reading/build.html", data)
+    return render(request, "teacher_reading_builder/build.html", data)

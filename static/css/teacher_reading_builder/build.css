@@ -1,0 +1,189 @@
+#teacher-reading-build-container {
+
+}
+
+#teacher-reading-build-container h1 {
+  margin-top: 10px;
+}
+
+#teacher-reading-build-container h3 {
+
+}
+
+#horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*------ main shortcut buttons ----- */
+#lesson-add-btn-container {
+  border: 1px solid transparent;
+  vertical-align: top;
+  width: 45%;
+  height: auto;
+  display: inline-block;
+
+}
+
+#lesson-add-btn-container button {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  padding: 2px 6px;
+  background-color: #186A3B;
+  color: white;
+  border: 1px solid #186A3B;
+  border-radius: 4px;
+}
+
+#lesson-add-btn-container button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #27AE60;
+}
+
+#production-push-buttons {
+  border: 1px solid transparent;
+  vertical-align: top;
+  width: 45%;
+  height: auto;
+  display: inline-block;
+}
+
+#production-push-buttons button {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  padding: 2px 6px;
+  background-color: grey;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+#production-push-buttons button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E3102E;
+}
+
+#hidden-lesson-add-panel-bg-greying {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 9;
+  opacity: 0.5;
+  display: none;
+}
+
+#hidden-lesson-add-panel {
+  position: absolute;
+  width: 50%;
+  margin-left: 25%;
+  background-color: white;
+  height: auto;
+  z-index: 99;
+  top:0;
+  left:0;
+  border-radius: 10px;
+  margin-top: 5%;
+  display: none;
+}
+
+#hidden-lesson-add-panel-close-btn {
+  position: absolute;
+  right: 0;
+  top:0;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  background-color: white;
+  border-color: white;
+  border-radius: 4px;
+}
+
+#hidden-lesson-add-panel form {
+  border: 1px solid transparent;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+
+}
+
+#hidden-lesson-add-panel form input {
+  display: block;
+  width: 90%;
+  margin-bottom: 5px;
+  padding: 10px 3px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: white
+}
+
+#hidden-lesson-add-panel form select {
+  display: block;
+  margin-bottom: 5px;
+  width: 92%;
+  padding: 10px 3px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+#create-new-lesson-submit-btn {
+  background-color: #27AE60 !important;
+  color: white;
+  border: 1px solid #27AE60 !important;
+  width: 92% !important;
+  font-weight: 700;
+}
+
+#create-new-lesson-submit-btn:hover {
+  transition: 0.2s;
+  background-color: #186A3B !important;
+  cursor: pointer;
+}
+
+#prod-push-success-notification {
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: #186A3B;
+  z-index: 99;
+}
+
+#prod-push-success-notification p {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#prod-push-error-notification {
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: #A50E23;
+  z-index: 99;
+}
+
+#prod-push-error-notification p {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*------ lesson dropdowns ----- */
