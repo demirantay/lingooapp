@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'teacher_vocab_container',
     'teacher_forum',
     'teacher_dictionary',
+    'teacher_reading_builder',
 ]
 
 MIDDLEWARE = [

@@ -15,4 +15,11 @@ urlpatterns = [
         views.teacher_dictionary_build,
         name="teacher_dictionary_build"
     ),
+
+    # teacher dictionary - update page
+    path(
+        "teacher/dictionary/update/<int:id>/",
+        views.teacher_dictionary_update,
+        name="teacher_dictionary_update"
+    ),
 ]

@@ -112,6 +112,11 @@ urlpatterns = [
     # ...
     path("", include("teacher_dictionary.urls")),
 
+    # Teacher Reading Builder
+    # ----------------
+    # ...
+    path("", include("teacher_reading_builder.urls")),
+
 ]
 
 if settings.DEBUG:

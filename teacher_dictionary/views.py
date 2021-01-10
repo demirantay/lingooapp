@@ -31,3 +31,15 @@ def teacher_dictionary_build(request):
     }
 
     return render(request, "teacher_dictionary/build.html", data)
+
+
+def teacher_dictionary_update(request, id):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "teacher_dictionary/update.html", data)
