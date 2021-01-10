@@ -96,10 +96,75 @@
 
   <div id="horizontal-line"></div>
 
-  <!--
-  displaying all of the lessons with levels and
-  sentences and tolerated typing
-  -->
+  <!-- displaying all of the lessons with levels and sentences and tolerated typing -->
+
+  <h2>A0</h2>
+
+  <div id="lesson-toggle-button">
+    <h3 id="lesson-toggle-button-click-point">Lesson Header</h3>
+
+    <div id="hidden-lesson-content-container">
+      <h3>Level 1 <a href=""><span class="fa fa-plus"></span> sentence</a></h3>
+      <div id="lesson-sentence-cell">
+          <p><span class="fa fa-star"></span> Hello my name is Demir. <a href="">edit</a></p>
+          <ul>
+              <li>Tolerated lorem ipsum.</li>
+              <li>Tolerated lorem ipsum.</li>
+          </ul>
+      </div><!-- /cell -->
+
+      <h3>Level 2 <a href=""><span class="fa fa-plus"></span> sentence</a></h3>
+      <div id="lesson-sentence-cell">
+          <p><span class="fa fa-star"></span> Hello my name is Demir. <a href="">edit</a></p>
+          <ul>
+              <li>Tolerated lorem ipsum.</li>
+              <li>Tolerated lorem ipsum.</li>
+          </ul>
+      </div><!-- /cell -->
+
+      <h3>Level 3 <a href=""><span class="fa fa-plus"></span> sentence</a></h3>
+      <div id="lesson-sentence-cell">
+          <p><span class="fa fa-star"></span> Hello my name is Demir. <a href="">edit</a></p>
+          <ul>
+              <li>Tolerated lorem ipsum.</li>
+              <li>Tolerated lorem ipsum.</li>
+          </ul>
+      </div><!-- /cell -->
+
+    </div><!--/hidden content container -->
+  </div><!--/lesson toggle btn -->
+
+  <script>
+    let lesson_open_close_btn = document.getElementById("lesson-toggle-button-click-point");
+    let lesson_hidden_content = document.getElementById("hidden-lesson-content-container");
+
+    lesson_open_close_btn.onclick = function() {
+      if (lesson_hidden_content.style.display == "block") {
+        lesson_hidden_content.style.display = "none";
+      } else {
+        lesson_hidden_content.style.display = "block";
+      }
+
+    }
+  </script>
+
+  <br />
+  <h2>A1</h2>
+
+  <br />
+  <h2>A2</h2>
+
+  <br />
+  <h2>B1</h2>
+
+  <br />
+  <h2>B2</h2>
+
+  <br />
+  <h2>C1</h2>
+
+  <br />
+  <h2>Advanced</h2>
 
 </div>
 
