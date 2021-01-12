@@ -15,4 +15,11 @@ urlpatterns = [
         views.teacher_reading_update,
         name="teacher_reading_update"
     ),
+
+    # teacher reading - update page
+    path(
+        "teacher/reading/build/sentence/",
+        views.teacher_reading_add_sentence,
+        name="teacher_reading_add_sentence"
+    ),
 ]

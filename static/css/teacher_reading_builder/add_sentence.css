@@ -1,0 +1,31 @@
+#add-sentence-container {
+
+}
+
+#add-sentence-container form {
+  width: 50%;
+}
+
+#add-sentence-container form label {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 20px;
+}
+
+#add-sentence-container form input {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 2px;
+  border: 1px solid lightgrey;
+}
+
+#add-sentence-container form select {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 2px;
+  border: 1px solid lightgrey;
+}

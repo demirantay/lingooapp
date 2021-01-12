@@ -1,0 +1,39 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_reading_builder/add_sentence.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="add-sentence-container">
+
+<h1>Add Sentence</h1>
+
+<form>
+
+    <label>Lesson:</label>
+    <select>
+      <option>Lorem ipsum dolor</option>
+    </select>
+
+    <label>Level:</label>
+    <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+
+    <label>Question Prompt:</label>
+    <input type="text" placeholder="Question prompt" />
+    <label>Translation:</label>
+    <input type="text" placeholder="Translation" />
+    <input type="submit" value="Submit" />
+</form>
+
+</div>
+
+
+{% endblock %}
