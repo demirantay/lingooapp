@@ -19,3 +19,27 @@ def teacher_reading_build(request):
     }
 
     return render(request, "teacher_reading_builder/build.html", data)
+
+
+def teacher_reading_update(request, id):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "teacher_reading_builder/update.html", data)
+
+
+def teacher_reading_add_sentence(request):
+    """
+
+    """
+
+    data = {
+
+    }
+
+    return render(request, "teacher_reading_builder/add_sentence.html", data)

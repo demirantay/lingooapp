@@ -1,0 +1,36 @@
+#horizontal-line {
+  border-bottom: 1px solid lightgrey;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#update-container h1 {
+
+}
+
+#update-container h2 {
+
+}
+
+#update-container form {
+  width: 50%;
+}
+
+#update-container form input {
+  width: 95%;
+  display: block;
+  padding: 10px 5px;
+  border: 1px solid lightgrey;
+}
+
+#submit-btn {
+  width: 98% !important;
+}
+
+#submit-btn:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition: 0.2s;
+}

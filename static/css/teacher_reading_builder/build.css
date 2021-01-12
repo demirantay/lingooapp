@@ -239,6 +239,17 @@
   padding: 5px 0px;
 }
 
+#lesson-sentence-cell p span {
+  color: #F1C40F;
+}
+
+#translated-sentence {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  display: block;
+  color: grey;
+}
+
 #lesson-sentence-cell p a {
   font-size: 13px;
   color: #3498DB;

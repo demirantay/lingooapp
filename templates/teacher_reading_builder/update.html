@@ -1,0 +1,51 @@
+{% extends 'teacher_base.html' %}
+{% load static %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/teacher_reading_builder/update.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div id="update-container">
+
+  <!-- update -->
+  <h1>Update</h1>
+  <form>
+      <input type="text" placeholder="edit your sentence" />
+      <input type="text" placeholder="edit the translation" />
+      <input type="submit" value="submit" id="submit-btn" />
+  </form>
+
+  <div id="horizontal-line"></div>
+
+  <!-- list and addForm of tolerance -->
+  <h2>Typo Tolerance</h2>
+
+  <p><b>The main translation goes here.</b></p>
+  <ul>
+      <li>Tolerated lorem ipsum dolor.</li>
+      <li>Tolerated lorem ipsum dolor.</li>
+      <li>Tolerated lorem ipsum dolor.</li>
+  </ul>
+
+  <form>
+      <input type="text" placeholder="Add a new typo tolerance" />
+      <input type="submit" value="add typo" id="submit-btn"/>
+  </form>
+
+  <!-- delete -->
+  <div id="horizontal-line"></div>
+
+  <h3><span class="fa fa-trash"></span> Delete</h3>
+
+  <form>
+    <input type="submit" value="delete" id="submit-btn" />
+  </form>
+
+
+</div>
+
+
+{% endblock %}
