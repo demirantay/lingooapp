@@ -1,0 +1,26 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_vocab_container/learning_start_v2.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- top current lesson notes -->
+<div id="learning-start-notes">
+  <a href="{% url 'index' %}" id="home-page-button"><span class="fa fa-arrow-left"></span> Home Page</a>
+
+
+<!-- reading lesson start banner -->
+<div id="reading-lesson-start-banner">
+  <h1>Reading 1</h1>
+  <p>Good luck and have fun!</p>
+</div>
+
+
+<!-- bottom start lesson link -->
+<div id="bottom-start-lesson-link">
+  <a href=""><span class="fa fa-paper-plane"></span> START LESSON</a>
+</div>
+
+{% endblock %}

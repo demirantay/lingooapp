@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'basic_feedback',
     'basic_notifications',
     'basic_ranking',
+    'basic_reading',
 
     # Teacher User Apps
     'teacher_public_about',

@@ -69,6 +69,22 @@ body {
   font-weight: 700;
 }
 
+#reading-lesson-start-banner {
+  border: 1px solid transparent;
+  margin-top: 20%;
+}
+
+#reading-lesson-start-banner h1 {
+  font-size: 65px;
+  margin: 0px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+#reading-lesson-start-banner p {
+  margin: 0px;
+}
+
 /* ------------------ bottom part ------------------- */
 #bottom-start-lesson-link {
   position: fixed;
@@ -129,6 +145,10 @@ body {
     margin-right: 1px;
   }
 
+  #reading-lesson-start-banner h1 {
+    font-size: 55px;
+  }
+
   /* ------------------ bottom part ------------------- */
 
   #bottom-start-lesson-link a {
@@ -163,6 +183,10 @@ body {
     margin-right: 1px;
   }
 
+  #reading-lesson-start-banner h1 {
+    font-size: 55px;
+  }
+
   /* ------------------ bottom part ------------------- */
 
   #bottom-start-lesson-link a {
@@ -195,6 +219,10 @@ body {
     width: 30px;
     height: 20px;
     margin-right: 1px;
+  }
+
+  #reading-lesson-start-banner h1 {
+    font-size: 65px;
   }
 
   /* ------------------ bottom part ------------------- */

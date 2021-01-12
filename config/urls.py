@@ -117,6 +117,11 @@ urlpatterns = [
     # ...
     path("", include("teacher_reading_builder.urls")),
 
+    # Basic Reading
+    # ----------------
+    # ...
+    path("", include("basic_reading.urls")),
+
 ]
 
 if settings.DEBUG:
