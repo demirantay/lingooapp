@@ -1,0 +1,138 @@
+{% extends 'setup_base.html' %}
+{% load static %}
+
+{% block css_links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic_vocab_container/learning.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- hidden error panel -->
+<div id="background-greying"></div>
+<div id="hidden-error-panel">
+  <button id="error-panel-close-button"><span class="fa fa-close"></span></button>
+  <h3>Error Reporting</h3>
+  <div id="error-panel-operations-content">
+    <textarea placeholder="Please type in your error report" id="error-content"></textarea>
+    <button id="error-report-btn"><span class="fa fa-flag"></span> Report</button>
+  </div>
+
+</div>
+
+
+<div id="vocab-learn-container">
+
+  <!-- top part -->
+  <div id="top-part">
+    <a href="{% url 'index' %}"><span class="fa fa-close"></span></a>
+
+    <div id="progress-bar">
+        <div id="progress-status"></div>
+    </div>
+  </div>
+
+  <!-- learn content -->
+  <!--
+  <div id="middle-part">
+    <h3>Jamais</h3>
+    <div id="middle-part-answer-selections">
+      <div class="answer-cell" tabindex="-1">
+        <p><span id="answer-select-color">1</span> Never</p>
+      </div>
+      <div class="answer-cell" tabindex="-1">
+        <p><span id="answer-select-color">2</span> How</p>
+      </div>
+      <div class="answer-cell" tabindex="-1">
+        <p><span id="answer-select-color">3</span> Know</p>
+      </div>
+      <div class="answer-cell" tabindex="-1">
+        <p><span id="answer-select-color">4</span> Oteki</p>
+      </div>
+    </div>
+  </div>
+
+ -->
+
+ <div id="middle-learning-content-container">
+   <div id="question-prompt">
+     <p>Hello, this will be an example sentence.</p>
+    </div>
+    <div id="answer-section">
+      <textarea placeholder="Write the sentence above in English"></textarea>
+    </div>
+  </div>
+
+  <div id="questions-canvas">
+
+  </div>
+
+  <!-- bottom check part -->
+  <div id="bottom-part">
+    <button id="report-button"><span class="fa fa-flag"></span> Report</button>
+    <button class="check-button" id="check-button" ><span class="fa fa-check"></span> Check</button>
+    <button class="check-button" id="next-button"><span class="fa fa-arrow-right"></span> Next</button>
+
+    <div id="right-wrong-displayer"></div>
+
+    <form id="finish-button" method="POST" action="">
+      {% csrf_token %}
+      <input type="hidden" name="hidden_errors_array" id="hidden_errors_input"  />
+      <input type="submit" value="Finish" class="check-button"  id="finish-button-submit-input-btn"/>
+    </form>
+  </div>
+
+
+  <!-- error reporting panel toggle logic in javascript -->
+  <script>
+    var panel_open_button = document.getElementById("report-button");
+    var panel_close_button = document.getElementById("error-panel-close-button");
+    var panel = document.getElementById("hidden-error-panel");
+    var panel_background_greying = document.getElementById("background-greying");
+
+    panel_open_button.onclick = function() {
+      panel.style.display = "block";
+      panel_background_greying.style.display = "block";
+    }
+
+    panel_close_button.onclick = function() {
+      panel.style.display = "none";
+      panel_background_greying.style.display = "none";
+    }
+
+  </script>
+
+</div>
+
+
+<!--- ##################### ending pages ############################## --->
+<div id="ending-page-container">
+
+  <div id="ending-page-results">
+    <h3>Well done!</h3>
+    <p>You can see your latest results on your profile</p>
+    <!-- xp details -->
+    <div id="results-xp-box">
+      <h3>EXP</h3>
+      <p><span class="fa fa-circle" id="dot-span"></span> You earned <b><span class="fa fa-plus"></span>10 xp</b></p>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current exp: <b>1</b> (LVL 1)</p>
+    </div>
+
+    <!-- newly learned words details -->
+    <div id="results-newly-learned-words-box">
+      <h3>Vocab List</h3>
+      <p><span class="fa fa-circle" id="dot-span"></span> You added <b><span class="fa fa-plus"></span>10 words</b> to your vocab knowledge</p>
+      <p><span class="fa fa-circle" id="dot-span"></span> Your current vocab knowledge: <b>1</b> words</p>
+      <a href="">REVIEW</a>
+    </div>
+
+    <!-- ranking details -->
+
+    <!-- daily streak details -->
+
+    <!-- earned lingots -->
+
+  </div>
+
+</div>
+
+{% endblock %}

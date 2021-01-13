@@ -7,6 +7,61 @@ body {
 
 }
 
+/* ----------------- reading learning container -------------------- */
+
+#middle-learning-content-container {
+  border: 1px solid transparent;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+#question-prompt {
+  background-color: white;
+  margin-bottom: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  border-radius: 10px;
+  padding: 25px 0px;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+}
+
+#question-prompt p {
+  text-align: left;
+  font-size: 18px;
+  margin: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#answer-section {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#answer-section textarea {
+  background-color: #D6EAF8;
+  -webkit-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -5px rgba(0,0,0,0.75);
+  border-radius: 10px;
+  padding: 10px 2%;
+  width: 76%;
+  margin: 0 auto;
+  height: 150px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid #85C1E9;
+}
+
+#answer-section textarea:focus {
+  outline: none;
+}
+
 /* ----------------- hidden error panel -------------------- */
 #background-greying {
   position: fixed;
@@ -439,6 +494,36 @@ body {
 /* Mobile Small  --------------------------------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 320px) {
 
+  /* ----------------- reading learning container -------------------- */
+
+  #middle-learning-content-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  #question-prompt {
+    width: 100%;
+  }
+
+  #question-prompt p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #answer-section {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #answer-section textarea {
+    padding: 10px 2%;
+    width: 96%;
+    height: 150px;
+    font-size: 15px;
+  }
+
   /* ----------------- hidden error panel -------------------- */
   #hidden-error-panel {
     padding: 0px;
@@ -582,6 +667,37 @@ body {
 
 /* Mobile Medium  --------------------------------------------------------- */
 @media screen and (min-width: 321px) and (max-width: 375px) {
+
+  /* ----------------- reading learning container -------------------- */
+
+  #middle-learning-content-container {
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  #question-prompt {
+    width: 100%;
+  }
+
+  #question-prompt p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #answer-section {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #answer-section textarea {
+    padding: 10px 2%;
+    width: 96%;
+    height: 150px;
+    font-size: 15px;
+  }
+
   /* ----------------- hidden error panel -------------------- */
   #hidden-error-panel {
     padding: 0px;
@@ -724,6 +840,36 @@ body {
 
 /* Mobile Large - --------------------------------------------------------- */
 @media screen and (min-width: 376px) and (max-width: 425px) {
+  /* ----------------- reading learning container -------------------- */
+
+  #middle-learning-content-container {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #question-prompt {
+    width: 100%;
+  }
+
+  #question-prompt p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #answer-section {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #answer-section textarea {
+    padding: 10px 2%;
+    width: 96%;
+    height: 150px;
+    font-size: 15px;
+  }
+
   /* ----------------- hidden error panel -------------------- */
   #hidden-error-panel {
     padding: 0px;
