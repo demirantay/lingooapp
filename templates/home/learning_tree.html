@@ -219,28 +219,64 @@
   {% if is_a0_done == True %}
     <a href="" id="lesson-cell-link" onclick="alert('You already finished this lesson. Please consider reviewing it.')">
       <div id="lesson-cell" class="finished-lesson">
-        <h3><span class="fa fa-check"></span></h3>
-        <p>{{ a0_progress }}/100</p>
+        <p>A0 Vocabulary: {{ a0_progress }}/100</p>
       </div>
-      <h3>A0 Vocabulary</h3>
     </a>
   {% elif is_a0_done == False %}
     {% if a0_course_not_built == True %}
       <a href="" id="lesson-cell-link" onclick="alert('This course has not been built yet ...');">
         <div id="lesson-cell">
-          <p>{{ a0_progress }}/100</p>
+          <p>A0 Vocabulary: {{ a0_progress }}/100</p>
         </div>
-        <h3>A0 Vocabulary</h3>
       </a>
     {% else %}
       <a href="{% url 'basic_vocab_learn_start' a0 current_student.course.course_language current_student.course.course_speakers_language %}" id="lesson-cell-link">
         <div id="lesson-cell">
-          <p>{{ a0_progress }}/100</p>
+          <p>A0 Vocabulary: {{ a0_progress }}/100</p>
         </div>
-        <h3>A0 Vocabulary</h3>
       </a>
     {% endif %}
   {% endif %}
+
+
+  <div id="reading-lesson-row">
+    <a href="" id="reading-lesson-cell-link">
+      <div id="reading-lesson-cell">
+        <span id="reading-lesson-cell-current-level">1</span>
+        <p>Reading 1</p>
+      </div>
+      <div id="reading-lesson-cell-level-lights">
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+      </div>
+    </a>
+
+    <a href="" id="reading-lesson-cell-link">
+      <div id="reading-lesson-cell" class="reading-cell-completed">
+        <span id="reading-lesson-cell-current-level">1</span>
+        <p>Reading 2</p>
+      </div>
+      <div id="reading-lesson-cell-level-lights" class="reading-cell-level-completed">
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+      </div>
+    </a>
+
+    <a href="" id="reading-lesson-cell-link">
+      <div id="reading-lesson-cell" class="locked-reading-lesson-cell">
+        <p><span class="fa fa-lock"></span></p>
+      </div>
+      <div id="reading-lesson-cell-level-lights">
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+        <div id="reading-lesson-cell-light"></div>
+      </div>
+    </a>
+  </div>
+
+
 
 
   <!-- /a0 -->
@@ -530,15 +566,31 @@
       <p id="learned-words-box-daily-streak-p"><span class="fa fa-star"></span> 15</p>
       -->
     </div>
-    <p id="words">{{ words_learned }}</p>
-    <p>words learned</p>
-    <a href="{% url 'basic_vocab_review' course_language speakers_language %}" id="review-link">
-      <p><span class="fa fa-repeat"></span></p>
-    </a>
-    <p><b>Review Vocabulary</b></p>
+
+    <div id="review-reading-box">
+      <a href="" id="review-link">
+        <p><span class="fa fa-repeat"></span></p>
+      </a>
+      <div id="review-reading-box-right-part">
+        <p><b>Reading</b></p>
+        <p id="reading-lesson-progress">25</p>
+        <p id="meta-review-info">lessons finished</p>
+      </div>
+    </div>
+
+    <div id="review-vocab-box">
+      <a href="{% url 'basic_vocab_review' course_language speakers_language %}" id="review-link">
+        <p><span class="fa fa-repeat"></span></p>
+      </a>
+      <div id="review-vocab-box-right-part">
+        <p><b>Vocab</b></p>
+        <p id="words">{{ words_learned }}</p>
+        <p id="meta-review-info">words learned</p>
+      </div>
+    </div>
   </div>
 
-  <!-- Current Lesson rankings -->
+  <!-- Current Lesson rankings
   <div id="current-lesson-ranking">
     <a href="{% url 'ranking_overview' redirect_page %}">
       <div id="current-lesson-ranking-header">
@@ -546,11 +598,6 @@
         <div id="current-lesson-ranking-flag" style="background-image:url('{{ current_student.langauge.flag.url }}')"></div>
       </div>
     </a>
-
-    <!-- max 5 people whowing (2 upper - 2 bottom (current user in the middle)) -->
-
-    <!-- ranking cell -->
-
     {% for rank in ranking_box %}
       <div id="current-lesson-ranking-cell" {% if rank == current_student %}class="active-ranking-cell"{% endif %} >
         <p id="current-lesson-ranking-cell-left-rank-num">{{ rankings|get_key_value:rank.id }}.</p>
@@ -564,12 +611,17 @@
       </div>
     {% endfor %}
   </div>
+  -->
 
   <!-- social links box -->
   <div id="social-links-box">
     <a target="_blank" href="https://twitter.com/getdomingo"><span id="social-link" class="fa fa-twitter"></span></a>
     <a target="_blank" href="https://www.reddit.com/r/DomingoApp/"><span id="social-link" class="fa fa-reddit"></span></a>
     <a target="_blank" href="https://open.spotify.com/user/mrv1sogpykei6bpha5icfsriv"><span id="social-link" class="fa fa-spotify"></span></a>
+  </div>
+
+  <div id="discord-link">
+    <p>Discord: <a target="" href="https://discord.gg/Zb9QtwSN">Join the Chat!</a></p>
   </div>
 
 </div>

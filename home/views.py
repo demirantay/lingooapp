@@ -315,6 +315,7 @@ def learn_index(request, course_language, speakers_language):
     except ObjectDoesNotExist:
         all_student_profiles = None
 
+    '''
     # Get all the ranks for the bottom
     rankings = {}
     rank = 1
@@ -342,6 +343,7 @@ def learn_index(request, course_language, speakers_language):
         ranking_box.append(all_student_profiles[current_student_rank + 2])
     elif len(all_student_profiles) - (current_student_rank + 1) == 1:
         ranking_box.append(all_student_profiles[current_student_rank + 1])
+    '''
 
     # Getting the announcements that the current user has not read
     try:
@@ -418,9 +420,6 @@ def learn_index(request, course_language, speakers_language):
         "b2_course_not_built": b2_course_not_built,
         "c1_course_not_built": c1_course_not_built,
         "advanced_course_not_built": advanced_course_not_built,
-
-        "ranking_box": ranking_box,
-        "rankings": rankings,
 
         "filtered_announcaments": filtered_announcaments,
     }

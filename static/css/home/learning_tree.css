@@ -218,17 +218,18 @@ body {
 }
 
 #lesson-cell {
-  background-color: #1B1B1B;
-  width: 30%;
+  background-color: #AEB6BF;
+  width: 72%;
   margin: 0 auto;
   color: white;
-  padding: 25px 0px;
+  padding: 0px 0px;
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 #lesson-cell:hover {
   transition: 0.3s;
-  background-color: #E3102E;
+  background-color: #85929E;
 }
 
 #lesson-cell-link h3 {
@@ -236,12 +237,14 @@ body {
 }
 
 #lesson-cell p {
-  font-size: 25px;
+  font-size: 14px;
+  padding: 10px 0px !important;
 }
 
 .locked-lesson-cell {
-  background-color: grey !important;
+  background-color: #AEB6BF !important;
 }
+
 .locked-lesson-cell:hover {
   cursor: no-drop;
 }
@@ -249,7 +252,7 @@ body {
 
 .finished-lesson {
   background-color: #27AE60 !important;
-  padding: 20px 0px !important;
+  padding: 0px 0px !important;
 }
 
 .finished-lesson h3 span {
@@ -260,6 +263,109 @@ body {
 .finished-lesson p {
   font-size: 14px !important;
 }
+
+
+/* ------------ Reading Cells -------------- */
+
+#reading-lesson-row {
+  border: 1px solid transparent;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+#reading-lesson-cell-link {
+  text-decoration: none;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1%;
+  margin-left: 1%;
+  height: 50px !important;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+
+#reading-lesson-cell {
+  background-color: #AEB6BF;
+  margin: 0 auto;
+  color: white;
+  padding: 25px 0px;
+  border-radius: 15px;
+  height: 50px !important;
+  width: 100%;
+  position: relative;
+}
+
+#reading-lesson-cell:hover {
+  transition: 0.2s;
+  background-color: #85929E;
+}
+
+#reading-lesson-cell p span {
+  background-color: transparent !important;
+}
+
+#reading-lesson-cell-level-lights {
+  background-color: transparent;
+  height: 10px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#reading-lesson-cell-light {
+  display: inline-block;
+  vertical-align: top;
+  width: 28%;
+  margin-right: 1%;
+  margin-left: 1%;
+  background-color: #AEB6BF;
+  height: 10px;
+  border-radius: 8px;
+}
+
+#reading-lesson-cell-current-level {
+  background-color: #EB984E;
+  padding: 10px 17px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: 999;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.reading-cell-level-2 {
+  background-color: #F1C40F !important;
+}
+
+.reading-cell-level-3 {
+  background-color: #E74C3C !important;
+}
+
+.reading-cell-completed {
+  background-color: #27AE60 !important;
+}
+
+.reading-cell-completed span {
+  display: none !important;
+}
+
+.reading-cell-level-completed div {
+  background-color: #27AE60 !important;
+}
+
+.locked-reading-lesson-cell span {
+  background-color: #616A6B !important;
+}
+
+.locked-reading-lesson-cell:hover {
+  cursor: no-drop;
+}
+
 
 /* -------------------- RIGHT PART ------------------- */
 #right-part {
@@ -278,7 +384,7 @@ body {
   border-radius: 10px;
   text-align: center;
   background-color: white;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   position: relative;
 }
 
@@ -314,31 +420,90 @@ body {
   margin-bottom: 10px;
 }
 
-#words {
-  font-size: 35px;
-  font-weight: 800;
+
+#review-reading-box {
+  border: 1px solid transparent;
+  text-align: left;
+  padding-top: -10px !important;
 }
 
 #review-link {
   font-size: 30px;
   color: black;
-
+  text-decoration: none;
 }
 
 #review-link p {
     background-color: #3498DB;
-    width: 50%;
-    color: white;
-    padding: 30px 0px;
+    display: inline-block;
+    padding: 25px 0px;
     border-radius: 10px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    color: white;
+    vertical-align: middle;
+    margin-top: 0px;
+    margin-left: 5%;
+    width: 38%;
+    text-align: center;
 }
 
 #review-link p:hover {
   transition: 0.2s;
   background-color: #21618C;
+}
+
+#review-reading-box-right-part {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1%;
+  margin-left: 1%;
+  border: 1px solid transparent;
+  margin-top: -20px;
+  text-align: center;
+  margin-right: 2%;
+  width: 48%;
+}
+
+#review-reading-box-right-part p {
+  margin: 0px;
+  font-size: 16px;
+}
+
+#reading-lesson-progress {
+  font-weight: 900;
+  font-size: 30px !important;
+}
+
+#review-vocab-box {
+  border: 1px solid transparent;
+  text-align: left;
+  padding-top: 10px !important;
+}
+
+#review-vocab-box-right-part {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1%;
+  margin-left: 1%;
+  border: 1px solid transparent;
+  text-align: center;
+  margin-right: 2%;
+  margin-top: -20px;
+  width: 48%;
+}
+
+#review-vocab-box-right-part p {
+  font-size: 15px;
+  margin: 0px;
+}
+
+#words {
+  font-size: 30px !important;
+  font-weight: 900;
+}
+
+#meta-review-info {
+  font-size: 14px !important;
+  color: grey;
 }
 
 #social-links-box {
@@ -374,7 +539,6 @@ body {
   transition: 0.2s;
 }
 
-
 #patreon-link-container {
   border: 1px solid lightgrey;
   margin-top: 30px;
@@ -399,6 +563,8 @@ body {
 #patreon-link span {
   color: red;
 }
+
+/*
 
 #current-lesson-ranking-header {
   border-bottom: 1px solid lightgrey;
@@ -508,6 +674,25 @@ body {
 
 .active-ranking-cell {
   background-color: #E5E8E8;
+}
+
+*/
+
+#discord-link {
+  border: 1px solid transparent;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#discord-link p {
+  margin: 0px;
+  font-weight: 700;
+}
+
+#discord-link p a {
+  text-decoration: none;
+  color: #E3102E;
+  font-weight: 800;
 }
 
 /* Mobile Small  --------------------------------------------------------- */
