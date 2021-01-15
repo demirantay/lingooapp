@@ -55,12 +55,33 @@
 
  <div id="middle-learning-content-container">
    <div id="question-prompt">
-     <p>Hello, this will be an example sentence.</p>
+     <p><span id="question-prompt-dict-span">Hello</span>, this will be an example sentence.</p>
+     <div id="dict-hidden-panel">
+       <p>Hola</p>
+      </div>
     </div>
     <div id="answer-section">
       <textarea placeholder="Write the sentence above in English"></textarea>
     </div>
   </div>
+
+  <script>
+    let word_to_be_translated = document.getElementById("question-prompt-dict-span");
+    let translation_box = document.getElementById("dict-hidden-panel");
+
+    word_to_be_translated.onmouseover = function() {
+      translation_box.style.transition = "0.5s !important";
+      translation_box.style.display = "block";
+    }
+
+    word_to_be_translated.onmouseout = function() {
+      translation_box.style.transition = "0.5s !important";
+      translation_box.style.display = "none";
+    }
+
+
+
+  </script>
 
   <div id="questions-canvas">
 

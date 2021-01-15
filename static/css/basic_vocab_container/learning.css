@@ -62,6 +62,31 @@ body {
   outline: none;
 }
 
+#question-prompt-dict-span {
+  border-bottom: 2px dotted #D5DBDB !important;
+}
+
+#question-prompt-dict-span:hover {
+  cursor: pointer;
+}
+
+#dict-hidden-panel {
+  position: absolute;
+  background-color: #D5DBDB;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: 5px;
+  transition: 0.2s;
+  display: none;
+  border: 2px solid darkgrey;
+}
+
+#dict-hidden-panel p {
+  font-size: 14px;
+  padding: 10px 5px;
+  display: inline-block;
+}
+
 /* ----------------- hidden error panel -------------------- */
 #background-greying {
   position: fixed;

@@ -738,8 +738,45 @@ body {
   }
 
   #lesson-cell {
-    width: 60%;
+    width: 95%;
     color: white;
+    margin-top: -10px;
+  }
+
+  /* ------------ Reading Cells -------------- */
+
+  #reading-lesson-row {
+    width: 98%;
+    margin-bottom: 50px;
+  }
+
+  #reading-lesson-cell-link {
+    width: 30%;
+    margin-right: 1%;
+    margin-left: 1%;
+    height: 35px !important;
+  }
+
+  #reading-lesson-cell {
+    padding: 25px 0px;
+    height: 35px !important;
+  }
+
+  #reading-lesson-cell p {
+    font-size: 13px;
+    margin: 0px;
+    margin-top: 10px;
+  }
+
+  #reading-lesson-cell-light {
+    width: 22%;
+    height: 6px;
+  }
+
+  #reading-lesson-cell-current-level {
+    padding: 5px 12px;
+    margin-top: -6px;
+    margin-left: -6px;
   }
 
 
@@ -818,8 +855,45 @@ body {
     }
 
     #lesson-cell {
-      width: 60%;
+      width: 95%;
       color: white;
+      margin-top: -10px;
+    }
+
+    /* ------------ Reading Cells -------------- */
+
+    #reading-lesson-row {
+      width: 98%;
+      margin-bottom: 50px;
+    }
+
+    #reading-lesson-cell-link {
+      width: 30%;
+      margin-right: 1%;
+      margin-left: 1%;
+      height: 35px !important;
+    }
+
+    #reading-lesson-cell {
+      padding: 25px 0px;
+      height: 35px !important;
+    }
+
+    #reading-lesson-cell p {
+      font-size: 13px;
+      margin: 0px;
+      margin-top: 10px;
+    }
+
+    #reading-lesson-cell-light {
+      width: 22%;
+      height: 6px;
+    }
+
+    #reading-lesson-cell-current-level {
+      padding: 5px 12px;
+      margin-top: -6px;
+      margin-left: -6px;
     }
 
 
@@ -897,10 +971,46 @@ body {
     }
 
     #lesson-cell {
-      width: 60%;
+      width: 95%;
       color: white;
+      margin-top: -10px;
     }
 
+    /* ------------ Reading Cells -------------- */
+
+    #reading-lesson-row {
+      width: 98%;
+      margin-bottom: 50px;
+    }
+
+    #reading-lesson-cell-link {
+      width: 30%;
+      margin-right: 1%;
+      margin-left: 1%;
+      height: 35px !important;
+    }
+
+    #reading-lesson-cell {
+      padding: 25px 0px;
+      height: 35px !important;
+    }
+
+    #reading-lesson-cell p {
+      font-size: 13px;
+      margin: 0px;
+      margin-top: 10px;
+    }
+
+    #reading-lesson-cell-light {
+      width: 22%;
+      height: 6px;
+    }
+
+    #reading-lesson-cell-current-level {
+      padding: 5px 12px;
+      margin-top: -6px;
+      margin-left: -6px;
+    }
 
     /* -------------------- RIGHT PART ------------------- */
     #right-part {
