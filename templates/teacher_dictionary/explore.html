@@ -12,11 +12,9 @@
 <div id="dictionary-explore-container">
   <h1>Dictionary Explore</h1>
 
-  <a href="">Spanish to English</a>
-
-  <a href="">Spanish to French</a>
-
-  <a href="">Spanish to Turkish</a>
+  {% for dict in all_dictionaries %}
+    <a href="">{{ dict.dictionary_language|title }} to {{ dict.dictionary_speakers_language|title }}</a>
+  {% endfor %}
 
 </div>
 
