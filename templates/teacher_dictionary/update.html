@@ -10,9 +10,16 @@
 
 <br />
 
-<form>
-  <input type="text" placeholder="new value"/>
-  <input type="submit" value="update" />
+{% if empty_input == True %}
+  <p style="color:red">Empty input!</p>
+{% endif %}
+
+
+<form method="POST" action="{% url 'teacher_dictionary_update' current_word.id %}">
+  {% csrf_token %}
+  <input type="text" placeholder="new word" name="new_word" value="{{ current_word.word }}"/>
+  <input type="text" placeholder="new translation" name="new_word_translation" value="{{ current_word.translation }}" />
+  <input type="submit" value="update" name="update_teacher_dictionary_word_submit_btn" />
 </form>
 
 {% endblock %}

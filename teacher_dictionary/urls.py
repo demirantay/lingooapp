@@ -11,7 +11,7 @@ urlpatterns = [
 
     # teacher dictionary - CRUD page
     path(
-        "teacher/dictionary/build/",
+        "teacher/dictionary/build/<str:dict_lang>/<str:dict_speaker_language>/",
         views.teacher_dictionary_build,
         name="teacher_dictionary_build"
     ),

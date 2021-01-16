@@ -13,7 +13,7 @@
   <h1>Dictionary Explore</h1>
 
   {% for dict in all_dictionaries %}
-    <a href="">{{ dict.dictionary_language|title }} to {{ dict.dictionary_speakers_language|title }}</a>
+    <a href="{% url 'teacher_dictionary_build' dict.dictionary_language dict.dictionary_speakers_language %}">{{ dict.dictionary_language|title }} to {{ dict.dictionary_speakers_language|title }}</a>
   {% endfor %}
 
 </div>

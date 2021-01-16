@@ -14,10 +14,15 @@
   <h1>Dictionary Builder</h1>
   <h3>(Spanish for English speakers)</h3>
 
-  <form method="POST" id="teacher-word-add-form">
-    <input type="text" placeholder="Spanish" />
-    <input type="text" placeholder="English" />
-    <input type="submit" value="Add" id="teacher-word-add-form-submit-btn"/>
+  {% if empty_input == True %}
+    <p style="color:red;">Empty input</p>
+  {% endif %}
+
+  <form method="POST" id="teacher-word-add-form" action="{% url 'teacher_dictionary_build' dict_lang dict_speaker_language %}">
+    {% csrf_token %}
+    <input type="text" placeholder="{{ current_dictionary.dictionary_language|title }}" name="word" />
+    <input type="text" placeholder="{{ current_dictionary.dictionary_speakers_language|title }}" name="word_translation"/>
+    <input type="submit" value="Add" name="teacher_dict_word_add_submit_btn" id="teacher-word-add-form-submit-btn"/>
   </form>
 
   <form id="production-push-form">
@@ -28,18 +33,20 @@
 
   <!-- displaying all of the added words -->
 
-  <div id="cell-row">
-    <div id="cell-row-left-box">
-        <p>Hola</p>
+  {% for word in all_words %}
+    <div id="cell-row">
+      <div id="cell-row-left-box">
+          <p>{{ word.word }}</p>
+      </div>
+      <div id="cell-row-middle-box">
+          <span class="fa fa-arrow-right"></span>
+      </div>
+      <div id="cell-row-right-box">
+        <p>{{ word.translation }}</p>
+      </div>
+      <a href="{% url 'teacher_dictionary_update' word.id %}">edit</a>
     </div>
-    <div id="cell-row-middle-box">
-        <span class="fa fa-arrow-right"></span>
-    </div>
-    <div id="cell-row-right-box">
-      <p>Hello</p>
-    </div>
-    <a href="">edit</a>
-  </div>
+  {% endfor %}
 
 </div>
 
