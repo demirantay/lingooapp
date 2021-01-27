@@ -22,12 +22,17 @@
     <button id="open_hidden_add_panel_btn"><span class="fa fa-plus"></span> Add a new lesson</button>
   </div>
 
+  {% if empty_lesson_name == True %}
+    <script>alert("You cannot enter empty input!")</script>
+  {% endif %}
+
   <div id='hidden-lesson-add-panel-bg-greying'></div>
   <div id="hidden-lesson-add-panel">
     <button id="hidden-lesson-add-panel-close-btn"><span class="fa fa-close"></span></button>
-    <form>
-        <input type="text" placeholder="Lesson name" />
-        <select>
+    <form method="POST" action="{% url 'teacher_reading_build' current_teacher_profile.teacher_course.course_language current_teacher_profile.teacher_course.course_speakers_language %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Lesson name" name="lesson_name" />
+        <select name="lesson_level">
           <option value="a0">A0</option>
           <option value="a1">A1</option>
           <option value="a2">A2</option>
@@ -36,7 +41,7 @@
           <option value="c1">C1</option>
           <option value="advanced">Advanced</option>
         </select>
-        <input id="create-new-lesson-submit-btn" type="submit" value="CREATE" />
+        <input id="create-new-lesson-submit-btn" type="submit" value="CREATE" name="teacher_reading_builder_lesson_add_button" />
     </form>
   </div>
 

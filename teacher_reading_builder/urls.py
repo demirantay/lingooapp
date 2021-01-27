@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     # teacher reading - build page
     path(
-        "teacher/reading/build/",
+        "teacher/reading/build/<str:course_language>/<str:course_speaker_language>/",
         views.teacher_reading_build,
         name="teacher_reading_build"
     ),
