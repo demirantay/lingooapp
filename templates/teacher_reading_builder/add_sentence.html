@@ -10,27 +10,33 @@
 
 <div id="add-sentence-container">
 
+{% if empty_input == True %}
+  <script>alert("You cannot enter empty input!")</script>
+{% endif %}
+
 <h1>Add Sentence</h1>
 
-<form>
-
+<form method="POST" action="{% url 'teacher_reading_add_sentence' %}">
+    {% csrf_token %}
     <label>Lesson:</label>
-    <select>
-      <option>Lorem ipsum dolor</option>
+    <select name="selected_lesson_id">
+      {% for lesson in all_lessons %}
+        <option value="{{ lesson.id }}">{{ lesson.title }}</option>
+      {% endfor %}
     </select>
 
     <label>Level:</label>
-    <select>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
+    <select name="sentence_level">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
     </select>
 
     <label>Question Prompt:</label>
-    <input type="text" placeholder="Question prompt" />
+    <input type="text" placeholder="Question prompt" name="question_prompt" />
     <label>Translation:</label>
-    <input type="text" placeholder="Translation" />
-    <input type="submit" value="Submit" />
+    <input type="text" placeholder="Translation" name="answer" />
+    <input type="submit" value="Submit" name="teacher_reading_sentence_addition_form_submit_btn" />
 </form>
 
 </div>
