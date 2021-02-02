@@ -10,12 +10,17 @@
 
 <div id="update-container">
 
+  {% if empty_input == True %}
+    <script>alert("you cannot enter empty input")</script>
+  {% endif %}
+
   <!-- update -->
   <h1>Update</h1>
-  <form>
-      <input type="text" placeholder="edit your sentence" />
-      <input type="text" placeholder="edit the translation" />
-      <input type="submit" value="submit" id="submit-btn" />
+  <form action="{% url 'teacher_reading_update' id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="edit your sentence" value="{{ current_lesson_sentence.question_prompt }}" name="new_question_prompt" />
+      <input type="text" placeholder="edit the translation" value="{{ current_lesson_sentence.answer }}" name="new_answer" />
+      <input type="submit" value="submit" id="submit-btn" name="teacher_reading_sentence_update_submit_btn" />
   </form>
 
   <div id="horizontal-line"></div>
@@ -23,16 +28,17 @@
   <!-- list and addForm of tolerance -->
   <h2>Typo Tolerance</h2>
 
-  <p><b>The main translation goes here.</b></p>
+  <p>Current answer: <b>{{ current_lesson_sentence.answer }}</b></p>
   <ul>
-      <li>Tolerated lorem ipsum dolor.</li>
-      <li>Tolerated lorem ipsum dolor.</li>
-      <li>Tolerated lorem ipsum dolor.</li>
+      {% for tolerance in current_sentence_tolerances %}
+        <li>{{ tolerance.tolerated_answer }}</li>
+      {% endfor %}
   </ul>
 
-  <form>
-      <input type="text" placeholder="Add a new typo tolerance" />
-      <input type="submit" value="add typo" id="submit-btn"/>
+  <form action="{% url 'teacher_reading_update' id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="Add a new typo tolerance" name="tolerance" />
+      <input type="submit" value="add typo" id="submit-btn" name="teacher_reading_tolerance_update_submit_btn"/>
   </form>
 
   <!-- delete -->
@@ -40,8 +46,9 @@
 
   <h3><span class="fa fa-trash"></span> Delete</h3>
 
-  <form>
-    <input type="submit" value="delete" id="submit-btn" />
+  <form action="{% url 'teacher_reading_update' id %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="delete" id="submit-btn" name="teacher_reading_sentence_delete_submit_btn" />
   </form>
 
 

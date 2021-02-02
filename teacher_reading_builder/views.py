@@ -64,6 +64,13 @@ def teacher_reading_build(request, course_language, course_speaker_language):
             )
 
     # Getting all of the lessons of the current course
+    try:
+        a0_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="a0"
+        )
+    except ObjectDoesNotExist:
+        a0_lessons = None
 
     # Automation for the teacher course
 
@@ -72,6 +79,7 @@ def teacher_reading_build(request, course_language, course_speaker_language):
         "current_basic_user_profile": current_basic_user_profile,
         "current_teacher_profile": current_teacher_profile,
         "empty_lesson_name": empty_lesson_name,
+        "a0_lessons": a0_lessons,
     }
 
     if "teacher_user_logged_in" in request.session:
@@ -82,14 +90,109 @@ def teacher_reading_build(request, course_language, course_speaker_language):
 
 def teacher_reading_update(request, id):
     """
-
+    in this page the teachers can update and edit a lesson sentence
     """
+    # Deleting admin-typed user session
+    # Deleting programmer-typed-user session
+
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Getting the teacher profile
+    current_teacher_profile = get_current_teacher_user_profile(
+        request,
+        User,
+        TeacherUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # Get the current Lesson Sentence Object
+    try:
+        current_lesson_sentence = TeacherReadingLessonSentence.objects.get(
+            id=id
+        )
+    except ObjectDoesNotExist:
+        current_lesson_sentence = None
+
+    # Get all of the tolerance data of the cucrrent lesson sentence
+    try:
+        current_sentence_tolerances = TeacherReadingLessonSentenceTolerance.objects.filter(
+            lesson_sentence=current_lesson_sentence
+        )
+    except ObjectDoesNotExist:
+        current_sentence_tolerances = None
+
+    # check if the current sentences course is matching the current teacher
+    # if not then redirect to home
+
+    # Edit/Update the question, answer prompts
+    empty_input = False
+
+    if request.POST.get("teacher_reading_sentence_update_submit_btn"):
+        new_question_prompt = request.POST.get("new_question_prompt")
+        new_answer = request.POST.get("new_answer")
+
+        if bool(new_question_prompt) == False or new_question_prompt == "" or \
+           bool(new_answer) == False or new_answer == "":
+            empty_input = True
+        else:
+            current_lesson_sentence.question_prompt = new_question_prompt
+            current_lesson_sentence.answer = new_answer
+            current_lesson_sentence.save()
+            return HttpResponseRedirect(
+                "/teacher/reading/update/" + str(id) + "/"
+            )
+
+    # Typo tolerance addition form processing
+    if request.POST.get("teacher_reading_tolerance_update_submit_btn"):
+        tolerance = request.POST.get("tolerance")
+
+        if bool(tolerance) == False or tolerance == "":
+            empty_input = True
+        else:
+            new_tolerance = TeacherReadingLessonSentenceTolerance(
+                lesson_sentence=current_lesson_sentence,
+                tolerated_answer=tolerance
+            )
+            new_tolerance.save()
+            return HttpResponseRedirect(
+                "/teacher/reading/update/" + str(id) + "/"
+            )
+
+    # Delete the sentence form processing
+    if request.POST.get("teacher_reading_sentence_delete_submit_btn"):
+        # delete the tolerances
+        current_sentence_tolerances.delete()
+        # delete the sentence
+        current_lesson_sentence.delete()
+        return HttpResponseRedirect(
+            "/teacher/reading/build/" +
+            current_teacher_profile.teacher_course.course_language + "/" +
+            current_teacher_profile.teacher_course.course_speakers_language
+            + "/"
+        )
 
     data = {
-
+        "current_basic_user": current_basic_user,
+        "current_basic_user_profile": current_basic_user_profile,
+        "current_teacher_profile": current_teacher_profile,
+        "id": id,
+        "current_lesson_sentence": current_lesson_sentence,
+        "empty_input": empty_input,
+        "current_sentence_tolerances": current_sentence_tolerances,
     }
 
-    return render(request, "teacher_reading_builder/update.html", data)
+    if "teacher_user_logged_in" in request.session:
+        return render(request, "teacher_reading_builder/update.html", data)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def teacher_reading_add_sentence(request):
