@@ -63,14 +63,134 @@ def teacher_reading_build(request, course_language, course_speaker_language):
                 "/" + course_speaker_language + "/"
             )
 
-    # Getting all of the lessons of the current course
+    # Getting all of the lessons, sentences and tolerances s of the
+    # current course
     try:
         a0_lessons = TeacherReadingLesson.objects.filter(
             course=current_teacher_profile.teacher_course,
             level="a0"
-        )
+        ).order_by("id")
     except ObjectDoesNotExist:
         a0_lessons = None
+
+    try:
+        a1_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="a1"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        a1_lessons = None
+
+    try:
+        a2_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="a2"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        a2_lessons = None
+
+    try:
+        b1_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="b1"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        b1_lessons = None
+
+    try:
+        b2_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="b2"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        b2_lessons = None
+
+    try:
+        c1_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="c1"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        c1_lessons = None
+
+    try:
+        advanced_lessons = TeacherReadingLesson.objects.filter(
+            course=current_teacher_profile.teacher_course,
+            level="advanced"
+        ).order_by("id")
+    except ObjectDoesNotExist:
+        advanced_lessons = None
+
+    # getting the lesson sentence cells
+    # a0 lessons sentences
+    a0_lesson_sentences = {}
+    for lesson in a0_lessons:
+        a0_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            a0_lesson_sentences[lesson.id].append(sentence)
+
+    # getting a1 lessons sentences
+    a1_lesson_sentences = {}
+    for lesson in a1_lessons:
+        a1_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            a1_lesson_sentences[lesson.id].append(sentence)
+
+    # getting a2 lessons sentences
+    a2_lesson_sentences = {}
+    for lesson in a2_lessons:
+        a2_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            a2_lesson_sentences[lesson.id].append(sentence)
+
+    # getting b1 lessons sentences
+    b1_lesson_sentences = {}
+    for lesson in b1_lessons:
+        b1_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            b1_lesson_sentences[lesson.id].append(sentence)
+
+    # getting b2 lessons sentences
+    b2_lesson_sentences = {}
+    for lesson in b2_lessons:
+        b2_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            b2_lesson_sentences[lesson.id].append(sentence)
+
+    # getting c1 lessons sentences
+    c1_lesson_sentences = {}
+    for lesson in c1_lessons:
+        c1_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            c1_lesson_sentences[lesson.id].append(sentence)
+
+    # getting advanced lessons sentences
+    advanced_lesson_sentences = {}
+    for lesson in advanced_lessons:
+        advanced_lesson_sentences[lesson.id] = []
+        sentences = TeacherReadingLessonSentence.objects.filter(
+            lesson=lesson
+        ).order_by("id")
+        for sentence in sentences:
+            advanced_lesson_sentences[lesson.id].append(sentence)
 
     # Automation for the teacher course
 
@@ -80,6 +200,19 @@ def teacher_reading_build(request, course_language, course_speaker_language):
         "current_teacher_profile": current_teacher_profile,
         "empty_lesson_name": empty_lesson_name,
         "a0_lessons": a0_lessons,
+        "a1_lessons": a1_lessons,
+        "a2_lessons": a2_lessons,
+        "b1_lessons": b1_lessons,
+        "b2_lessons": b2_lessons,
+        "c1_lessons": c1_lessons,
+        "advanced_lessons": advanced_lessons,
+        "a0_lesson_sentences": a0_lesson_sentences,
+        "a1_lesson_sentences": a1_lesson_sentences,
+        "a2_lesson_sentences": a2_lesson_sentences,
+        "b1_lesson_sentences": b1_lesson_sentences,
+        "b2_lesson_sentences": b2_lesson_sentences,
+        "c1_lesson_sentences": c1_lesson_sentences,
+        "advanced_lesson_sentences": advanced_lesson_sentences,
     }
 
     if "teacher_user_logged_in" in request.session:
@@ -131,6 +264,8 @@ def teacher_reading_update(request, id):
 
     # check if the current sentences course is matching the current teacher
     # if not then redirect to home
+
+    # !!!!!!!!!!!!!!!!!!!!!!! ^^^^^^^^^^^^^^^^
 
     # Edit/Update the question, answer prompts
     empty_input = False

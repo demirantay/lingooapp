@@ -1,5 +1,6 @@
 {% extends 'teacher_base.html' %}
 {% load static %}
+{% load filters %}
 
 {% block css_links %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/teacher_forum/landing_page.css' %}" />
@@ -105,6 +106,8 @@
 
   <h2>A0</h2>
 
+
+  <!-- ### THIS IS JUST HERE FOR FUTURE REFERENCE AND STYLE CHANGES
   <div id="lesson-toggle-button">
     <h3 id="lesson-toggle-button-click-point">Lesson Header</h3>
 
@@ -117,7 +120,7 @@
               <li>Tolerated lorem ipsum.</li>
               <li>Tolerated lorem ipsum.</li>
           </ul>
-      </div><!-- /cell -->
+      </div>
 
       <h3>Level 2 <a href=""><span class="fa fa-plus"></span> sentence</a></h3>
       <div id="lesson-sentence-cell">
@@ -127,7 +130,7 @@
               <li>Tolerated lorem ipsum.</li>
               <li>Tolerated lorem ipsum.</li>
           </ul>
-      </div><!-- /cell -->
+      </div>
 
       <h3>Level 3 <a href=""><span class="fa fa-plus"></span> sentence</a></h3>
       <div id="lesson-sentence-cell">
@@ -137,10 +140,10 @@
               <li>Tolerated lorem ipsum.</li>
               <li>Tolerated lorem ipsum.</li>
           </ul>
-      </div><!-- /cell -->
+      </div>
 
-    </div><!--/hidden content container -->
-  </div><!--/lesson toggle btn -->
+    </div>
+  </div>
 
   <script>
     let lesson_open_close_btn = document.getElementById("lesson-toggle-button-click-point");
@@ -155,24 +158,326 @@
 
     }
   </script>
+  -->
+
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in a0_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a0_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a0_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a0_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
 
   <br />
   <h2>A1</h2>
 
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in a1_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
+
   <br />
   <h2>A2</h2>
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in a2_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in a2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
 
   <br />
   <h2>B1</h2>
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in b1_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
 
   <br />
   <h2>B2</h2>
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in b2_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in b2_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
 
   <br />
   <h2>C1</h2>
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in c1_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in c1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in c1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in c1_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
 
   <br />
   <h2>Advanced</h2>
+  {% with one="1" two="2" three="3" %}
+  {% for lesson in advanced_lessons %}
+    <div id="lesson-toggle-button">
+      <h3 id="lesson-toggle-button-click-point" class="lesson_toggle_buttons">{{ lesson.title }}</h3>
+
+      <div id="hidden-lesson-content-container" class='lesson_containers'>
+        <h3>Level 1 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in advanced_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == one %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 2 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in advanced_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == two %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+        <h3>Level 3 <a href="{% url 'teacher_reading_add_sentence' %}"><span class="fa fa-plus"></span> sentence</a></h3>
+        {% for sentence in advanced_lesson_sentences|get_key_value:lesson.id %}
+          {% if sentence.level == three %}
+            <div id="lesson-sentence-cell">
+                <p><span class="fa fa-star"></span> {{ sentence.question_prompt }} <a href="{% url 'teacher_reading_update' sentence.id %}">edit</a></p>
+                <p id="translated-sentence">{{ sentence.answer }}</p>
+            </div><!-- /cell -->
+          {% endif %}
+        {% endfor %}
+
+      </div><!--/hidden content container -->
+    </div><!--/lesson toggle btn -->
+  {% endfor %}
+  {% endwith %}
+
+
+  <script>
+    let lesson_toggle_buttons = document.getElementsByClassName("lesson_toggle_buttons");
+    let lesson_containers = document.getElementsByClassName("lesson_containers")
+
+    const open_lessons = function(i, event) {
+      if (lesson_containers[i].style.display == "block") {
+        lesson_containers[i].style.display = "none";
+      } else {
+          lesson_containers[i].style.display = "block";
+      }
+    }
+
+    for (var i=0; i < lesson_toggle_buttons.length; i++) {
+      lesson_toggle_buttons[i].addEventListener("click", open_lessons.bind(null, i));
+    }
+
+  </script>
 
 </div>
 
